@@ -3,11 +3,11 @@
 /*--------- CONST ----------*/
 :root {
   --font-family: 'Manrope', sans-serif;
-  --dark-main: #24262E;
-  --dark-text: #42444C;
-  --main: #263681;
   --white: #FFFFFF;
-  --main-background: #F6F8FF;
+  --dark-grey: #24262E;
+  --gold: #D2BA7C;
+  --green: #004523;
+  --main-background: #F0F0F0;
 }
 
 /*--------- NULLING STYLE ----------*/
@@ -31,7 +31,7 @@ html,body{
   font-weight: 600;
   font-family: var(--font-family);
   background-color: var(--main-background);
-  color: var(--dark-main);
+  color: var(--dark-grey);
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;}
@@ -46,9 +46,10 @@ ul li{list-style: none;}
 img{display: block; vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-family: var(--font-family); font-weight:600;}
 
-/*--------- STYLES ---------*/
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/*--------- STYLES ---------*/
+

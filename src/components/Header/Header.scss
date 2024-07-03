@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  height: 80px;
+  background: var(--white);
+  .header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 1080px;
+    .header__logo {
+      cursor: pointer;
+    }
+    .header__navigation {
+      display: flex;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 400;
+      a {
+        color: var(--green);
+        padding: 10px;
+        &:hover {
+          color: var(--gold);
+        }
+      }
+    }
+    .header__icons {
+      display: flex;
+      gap: 20px;
+      .header__icon {
+        cursor: pointer;
+      }
+    }
+  }
+}

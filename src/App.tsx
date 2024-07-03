@@ -1,10 +1,13 @@
 import React from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { MainPage } from './pages';
 
 const App = () => {
   return (
-    <div className="App">
-      Hello world!
-    </div>
+    <Routes>
+      <Route path='/' element={<MainPage />} />
+      <Route path='*' element={<Navigate to="/" />} />
+    </Routes>
   );
 }
 
