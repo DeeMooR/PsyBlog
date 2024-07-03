@@ -1,0 +1,25 @@
+.sectionTemplate {
+  padding: 80px 0;
+}
+.sectionTemplate.background__white {
+  background-color: var(--white);
+}
+.sectionTemplate.background__grey {
+  background-color: var(--background-grey);
+}
+.sectionTemplate .sectionTemplate__wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.sectionTemplate .sectionTemplate__wrapper h2 {
+  margin: 0 0 80px 0;
+}
+.sectionTemplate .sectionTemplate__wrapper .buttonToForm {
+  width: 400px;
+  margin: 80px auto 0;
+  padding: 20px;
+  color: var(--white);
+  background-color: var(--dark-grey);
+  text-align: center;
+  text-transform: uppercase;
+}

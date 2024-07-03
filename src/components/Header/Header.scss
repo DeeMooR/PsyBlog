@@ -1,9 +1,12 @@
 .header {
+  position: fixed;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  height: 80px;
+  height: 75px;
+  width: 100%;
   background: var(--white);
+  box-shadow: 0 0 4px rgba(0,0,0,.05);
   .header__wrapper {
     display: flex;
     justify-content: space-between;

@@ -5,9 +5,10 @@
   --font-family: 'Manrope', sans-serif;
   --white: #FFFFFF;
   --dark-grey: #24262E;
+  --faint-text: #8D8D8D;
   --gold: #D2BA7C;
   --green: #004523;
-  --main-background: #F0F0F0;
+  --background-grey: #F0F0F0;
 }
 
 /*--------- NULLING STYLE ----------*/
@@ -27,10 +28,10 @@ html,body{
 	width: 100%;
 	font-size: 100%;
 	line-height: 1;
-	font-size: 18px;
-  font-weight: 600;
+	font-size: 16px;
+  font-weight: 400;
   font-family: var(--font-family);
-  background-color: var(--main-background);
+  background-color: var(--background-grey);
   color: var(--dark-grey);
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
@@ -40,7 +41,7 @@ input,button,textarea{font-family: var(--font-family);}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-mox-focus-inner {padding:0; border:0;}
-a, a:visited{text-decoration: none; cursor: pointer;}
+a, a:visited{text-decoration: none; cursor: pointer; display: block;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{display: block; vertical-align: top;}
@@ -53,3 +54,21 @@ body {
 
 /*--------- STYLES ---------*/
 
+h2 {
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--gold);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+h4 {
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
