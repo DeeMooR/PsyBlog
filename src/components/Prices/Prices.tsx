@@ -5,14 +5,14 @@ import './Prices.css'
 
 export const Prices = () => {
   return (
-    <div className='prices'>
-      <SectionTemplate title='Цены' backgroundColor='grey' withButton >
-        <div className='content'>
+    <SectionTemplate title='Цены' backgroundColor='grey' withButton >
+      <section className='prices'>
+        <div className='prices__content'>
           {services.map(item => (
             <PriceItem obj={item} />
           ))}
         </div>
-      </SectionTemplate>
-    </div>
+      </section>
+    </SectionTemplate>
   )
 }

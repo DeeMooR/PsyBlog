@@ -14,12 +14,7 @@
 .sectionTemplate .sectionTemplate__wrapper h2 {
   margin: 0 0 80px 0;
 }
-.sectionTemplate .sectionTemplate__wrapper .buttonToForm {
+.sectionTemplate .sectionTemplate__wrapper .sectionTemplate__button {
   width: 400px;
   margin: 80px auto 0;
-  padding: 20px;
-  color: var(--white);
-  background-color: var(--dark-grey);
-  text-align: center;
-  text-transform: uppercase;
 }

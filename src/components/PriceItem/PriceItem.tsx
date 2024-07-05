@@ -21,7 +21,7 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
       </div>
       <div className="priceItem__right">
         <p className='priceItem__price'>{price} ₽</p>
-        <a className='priceItem__buttonToForm'>Записаться</a>
+        <a className='priceItem__button btnWhite'>Записаться</a>
       </div>
     </div>
   )
