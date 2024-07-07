@@ -13,7 +13,7 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
   return (
     <div className='priceItem'>
       <div className="priceItem__left">
-        <h4>{name}</h4>
+        <h5>{name}</h5>
         <div className="time">
           <ClockIcon className='time__icon' />
           <p className='time__text'>{time}</p>

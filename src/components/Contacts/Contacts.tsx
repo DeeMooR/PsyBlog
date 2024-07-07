@@ -5,10 +5,10 @@ import { InstagramIcon, TelegramIcon } from 'src/assets'
 
 export const Contacts = () => {
   return (
-    <SectionTemplate backgroundColor='grey' >
+    <SectionTemplate title='Контакты' backgroundColor='grey' >
       <div className='contacts'>
         <div className="contacts__info">
-          <h4>Психоаналитик</h4>
+          <h5>Психоаналитик</h5>
           <h3>Ольга Разваляева</h3>
           <div className="contacts__icons">
             <div className="contacts__icon">
@@ -22,7 +22,7 @@ export const Contacts = () => {
           </div>
         </div>
         <form className='contacts__form'>
-          <h3 className='form__title'>Записаться на консультацию</h3>
+          <h4 className='form__title'>Записаться на консультацию</h4>
           <p className='form__subtitle'>Вы можете задать любой вопрос о психотерапии или записаться на консультацию. Это конфиденциально.</p>
           <div className="form__inputs">
             <input type="text" placeholder='Имя' />
@@ -30,7 +30,7 @@ export const Contacts = () => {
             <input type="text" placeholder='Вопрос' />
           </div>
           <button className='form__button btnBlack'>Записаться</button>
-          <a href="#" className='form__policy'>Нажимая кнопку, вы даете согласие на обработку персональных данных. </a>
+          <a href="#" className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </a>
         </form>
       </div>
     </SectionTemplate>

@@ -6,11 +6,11 @@
   border: 1px solid var(--gold);
 }
 .priceItem .priceItem__left {
-  max-width: 360px;
+  max-width: 380px;
 }
 .priceItem .priceItem__left .time {
   display: flex;
-  margin: 15px 0 0 0;
+  margin: 12px 0 0 0;
 }
 .priceItem .priceItem__left .time .time__icon {
   width: 16px;

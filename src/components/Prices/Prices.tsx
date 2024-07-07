@@ -5,7 +5,7 @@ import './Prices.css'
 
 export const Prices = () => {
   return (
-    <SectionTemplate title='Цены' backgroundColor='grey' withButton >
+    <SectionTemplate title='Цены' backgroundColor='white' withButton >
       <section className='prices'>
         <div className='prices__content'>
           {services.map(item => (

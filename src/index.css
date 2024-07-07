@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
 /*--------- CONST ----------*/
 :root {
-  --font-family: 'Manrope', sans-serif;
+  --font-family: 'Montserrat', Arial, sans-serif;
   --white: #FFFFFF;
   --black: #24262E;
   --dark-grey: #383838;
@@ -46,7 +46,7 @@ a, a:visited{text-decoration: none; cursor: pointer; display: block;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{display: block; vertical-align: top;}
-h1,h2,h3,h4,h5,h6{font-family: var(--font-family); font-weight:600;}
+h1,h2,h3,h4,h5,h6{font-family: var(--font-family); font-weight:400;}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -56,38 +56,32 @@ body {
 /*--------- STYLES ---------*/
 
 h2 {
-  font-size: 30px;
-  font-weight: 500;
-  color: var(--gold);
+  font-size: 36px;
+  letter-spacing: 0.02em;
+  color: var(--green);
   text-align: center;
   text-transform: uppercase;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--gold);
   text-transform: uppercase;
 }
 
 h4 {
+  font-size: 24px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-}
-
-.btnBlack {
-  font-size: 16px;
-  padding: 20px 25px;
-  color: var(--white);
-  background-color: var(--black);
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.btnWhite {
-  font-size: 16px;
-  padding: 20px 25px;
-  border: 1px solid var(--black);
-  text-align: center;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
@@ -105,4 +99,38 @@ input:focus {
 input::placeholder {
   color: var(--faint-text);
   text-transform: uppercase;
+}
+
+.btnBlack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 16px;
+  padding: 0 25px;
+  color: var(--white);
+  background-color: var(--black);
+  text-transform: uppercase;
+  transition: all 0.15s ease-in-out 0s;
+}
+.btnBlack:hover {
+  color: var(--black);
+  background-color: var(--white);
+  border: 1px solid var(--black);
+}
+
+.btnWhite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 16px;
+  padding: 0 25px;
+  border: 1px solid var(--black);
+  text-transform: uppercase;
+  transition: all 0.15s ease-in-out 0s;
+}
+.btnWhite:hover {
+  color: var(--white);
+  background-color: var(--black);
 }

@@ -6,6 +6,9 @@
 .contacts .contacts__info {
   max-width: 370px;
 }
+.contacts .contacts__info h5 {
+  opacity: 0.8;
+}
 .contacts .contacts__info h3 {
   margin: 10px 0 0 0;
 }
@@ -24,7 +27,7 @@
 }
 .contacts .contacts__form {
   max-width: 600px;
-  padding: 80px 90px;
+  padding: 70px 75px;
   background-color: var(--white);
 }
 .contacts .contacts__form .form__title {
@@ -32,7 +35,8 @@
 }
 .contacts .contacts__form .form__subtitle {
   font-size: 14px;
-  padding: 23px 31px 50px;
+  padding: 25px 0 40px;
+  text-align: center;
 }
 .contacts .contacts__form .form__inputs {
   display: flex;
@@ -45,6 +49,6 @@
 }
 .contacts .contacts__form .form__policy {
   font-size: 12px;
-  margin: 22px 0 0 0;
+  margin: 20px 0 0 0;
   color: var(--dark-grey);
 }
