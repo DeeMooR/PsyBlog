@@ -1,9 +1,7 @@
 .prices {
-  .prices__content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin: 0 auto;
-    max-width: 900px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 900px;
 }

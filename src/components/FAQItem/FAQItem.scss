@@ -1,0 +1,30 @@
+.faqItem {
+  border-bottom: 1px solid var(--gold);
+  .faqItem__openly {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    .faqItem__icon {
+      width: 16px;
+      height: 16px;
+      transition: rotate 0.1s ease-in-out 0s;
+    }
+  }
+  .faqItem__hidden {
+    padding: 0 20px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out 0s;
+  }
+  &.showText {
+    .faqItem__openly {
+     .faqItem__icon {
+      rotate: 90deg;
+     } 
+    }
+    .faqItem__hidden {
+      padding: 10px 20px 30px;
+    }
+  }
+}
