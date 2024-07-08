@@ -4,3 +4,5 @@ export * from './Prices/Prices';
 export * from './PriceItem/PriceItem';
 export * from './FAQ/FAQ';
 export * from './FAQItem/FAQItem';
+export * from './Experience/Experience';
+export * from './ExperienceSlider/ExperienceSlider';
