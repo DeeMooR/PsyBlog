@@ -8,14 +8,14 @@
     max-width: 380px;
     .time {
       display: flex;
+      align-items: center;
       margin: 12px 0 0 0;
       .time__icon {
-        width: 16px;
-        height: 16px;
-        margin: 0 0 0 2px;
+        width: 18px;
+        height: 18px;
       }
       .time__text {
-        margin: 0 0 0 13px;
+        margin: 0 0 0 8px;
         color: var(----faint-text);
       }
     }

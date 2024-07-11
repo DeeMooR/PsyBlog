@@ -1,7 +1,7 @@
 import React from 'react'
 import { SectionTemplate } from 'src/components'
 import './Contacts.css'
-import { InstagramIcon, TelegramIcon } from 'src/assets'
+import { whatsappIcon, telegramIcon } from 'src/assets'
 
 export const Contacts = () => {
   return (
@@ -12,11 +12,11 @@ export const Contacts = () => {
           <h3>Ольга Разваляева</h3>
           <div className="contacts__icons">
             <div className="contacts__icon">
-              <TelegramIcon className='icon__image' />
+              <img className='icon__image' src={telegramIcon} />
               <p className='icon__text'>@username</p>
             </div>
             <div className="contacts__icon">
-              <InstagramIcon className='icon__image' />
+              <img className='icon__image' src={whatsappIcon} />
               <p className='icon__text'>@username</p>
             </div>
           </div>

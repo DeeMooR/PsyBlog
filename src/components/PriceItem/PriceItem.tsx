@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { ClockIcon } from 'src/assets';
+import { clockIcon } from 'src/assets';
 import { IService } from 'src/interfaces'
 import './PriceItem.css'
 
@@ -15,7 +15,7 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
       <div className="priceItem__left">
         <h5>{name}</h5>
         <div className="time">
-          <ClockIcon className='time__icon' />
+          <img className='time__icon' src={clockIcon} />
           <p className='time__text'>{time}</p>
         </div>
       </div>

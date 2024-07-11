@@ -2,7 +2,7 @@ import React, { FC, useEffect, useRef, useState } from 'react'
 import parse from 'html-react-parser';
 import './FAQItem.css'
 import { IFAQ } from 'src/interfaces';
-import { PlusIcon } from 'src/assets';
+import { plusIcon } from 'src/assets';
 
 interface IFAQItem {
   obj: IFAQ
@@ -38,7 +38,7 @@ export const FAQItem:FC<IFAQItem> = ({ obj }) => {
     <div className={`faqItem ${isShowText ? 'showText' : ''}`}>
       <div className="faqItem__openly" onClick={onClickTitle}>
         <h5>{title}</h5>
-        <PlusIcon className='faqItem__icon' />
+        <img className='faqItem__icon' src={plusIcon} />
       </div>
       <p className='faqItem__hidden' ref={ref}>{parse(text)}</p>
     </div>

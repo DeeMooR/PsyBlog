@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { InstagramIcon, LogoIcon, MenuIcon, TelegramIcon } from 'src/assets';
+import { logoIcon, telegramIcon, whatsappIcon } from 'src/assets';
 import './Header.css'
 
 export const Header = () => {
@@ -19,7 +19,7 @@ export const Header = () => {
   return (
     <header className='header'>
       <div className="header__wrapper">
-        <LogoIcon className='header__logo' onClick={onClickLogo} />
+        <img className='header__logo' src={logoIcon} onClick={onClickLogo} />
         <div className='header__navigation'>
           <a href='#'>Чем помогу</a>
           <a href='#'>Вопросы</a>
@@ -29,8 +29,8 @@ export const Header = () => {
           <a href='#'>Записаться</a>
         </div>
         <div className='header__icons'>
-          <TelegramIcon className='header__icon' />
-          <InstagramIcon className='header__icon' />
+          <img className='header__icon' src={telegramIcon} />
+          <img className='header__icon' src={whatsappIcon} />
         </div>
         {/* <MenuIcon className='header__menu' onClick={() => setClickMenu(true)} /> */}
       </div>

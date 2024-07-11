@@ -17,6 +17,8 @@
   width: 1080px;
 }
 .header .header__wrapper .header__logo {
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
 .header .header__wrapper .header__navigation {
@@ -34,8 +36,10 @@
 }
 .header .header__wrapper .header__icons {
   display: flex;
-  gap: 20px;
+  gap: 16px;
 }
 .header .header__wrapper .header__icons .header__icon {
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }
