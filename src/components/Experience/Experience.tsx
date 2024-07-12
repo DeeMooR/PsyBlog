@@ -4,7 +4,7 @@ import './Experience.css'
 
 export const Experience = () => {
   return (
-    <SectionTemplate title='Мой опыт' backgroundColor='white' withButton >
+    <SectionTemplate title='Мой опыт' backgroundColor='grey'id='experience' withButton >
       <div className='experience'>
         <div className="experience__text">
           <p>Я помогаю понимать свои эмоции, обрести уверенность и легче справляться с тревогами. Чтобы получить устойчивые изменения и не допустить появления этих же проблем в будущем — работаю и с их причинами.</p>

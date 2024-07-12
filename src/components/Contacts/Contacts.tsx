@@ -1,11 +1,11 @@
 import React from 'react'
 import { SectionTemplate } from 'src/components'
-import './Contacts.css'
 import { whatsappIcon, telegramIcon } from 'src/assets'
+import './Contacts.css'
 
 export const Contacts = () => {
   return (
-    <SectionTemplate title='Контакты' backgroundColor='grey' >
+    <SectionTemplate title='Контакты' backgroundColor='grey' id='contacts' >
       <div className='contacts'>
         <div className="contacts__info">
           <h5>Психоаналитик</h5>

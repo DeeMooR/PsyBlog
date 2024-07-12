@@ -21,7 +21,7 @@ export const ExperienceSlider = () => {
       className='mySwiper'
     >
       {certificates.map(value => (
-        <SwiperSlide>
+        <SwiperSlide key={value}>
           <div className="customSlide">
             <div className="content">
               <img src={value} alt={value} />

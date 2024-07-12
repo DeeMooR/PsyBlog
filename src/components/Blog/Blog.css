@@ -1,0 +1,8 @@
+.blog .blog__cards {
+  display: flex;
+  justify-content: space-between;
+}
+.blog .blog__button {
+  width: 320px;
+  margin: 80px auto 0;
+}

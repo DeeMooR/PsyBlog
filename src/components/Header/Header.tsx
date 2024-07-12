@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { logoIcon, telegramIcon, whatsappIcon } from 'src/assets';
+import { scrollToSection } from 'src/helpers';
 import './Header.css'
 
 export const Header = () => {
@@ -21,12 +22,12 @@ export const Header = () => {
       <div className="header__wrapper">
         <img className='header__logo' src={logoIcon} onClick={onClickLogo} />
         <div className='header__navigation'>
-          <a href='#'>Чем помогу</a>
-          <a href='#'>Вопросы</a>
-          <a href='#'>Блог</a>
-          <a href='#'>Опыт</a>
-          <a href='#'>Цены</a>
-          <a href='#'>Записаться</a>
+          <a href='#' >Чем помогу</a>
+          <a href='#faq' onClick={() => scrollToSection('faq')} >Вопросы</a>
+          <a href='#blog' onClick={() => scrollToSection('blog')} >Блог</a>
+          <a href='#experience' onClick={() => scrollToSection('experience')}>Опыт</a>
+          <a href='#prices' onClick={() => scrollToSection('prices')}>Цены</a>
+          <a href='#contacts' onClick={() => scrollToSection('contacts')}>Записаться</a>
         </div>
         <div className='header__icons'>
           <img className='header__icon' src={telegramIcon} />

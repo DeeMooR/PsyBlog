@@ -9,7 +9,9 @@
   --dark-grey: #383838;
   --faint-text: #8D8D8D;
   --gold: #D2BA7C;
+  --gold-back: rgb(210, 186, 124, 0.3);
   --green: #004523;
+  --green-back: rgb(0, 69, 35, 0.3);
   --background-grey: #F0F0F0;
 }
 

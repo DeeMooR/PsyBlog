@@ -1,0 +1,39 @@
+.card {
+  width: 320px;
+  border-radius: 5px;
+  border: 1px solid var(--gold-back);
+  transition: all 0.2s ease-in-out 0s;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 4px 4px 1px var(--gold-back);
+  }
+  .card__content {
+    padding: 18px 16px;
+    .card__title {
+      font-weight: 600;
+    }
+    .card__description {
+      font-size: 14px;
+      line-height: 16px;
+      height: 64px;
+      margin: 12px 0 0 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0 0 0;
+      .card__date {
+        font-size: 12px;
+      }
+      .card__icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}

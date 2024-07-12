@@ -5,10 +5,10 @@ import './Prices.css'
 
 export const Prices = () => {
   return (
-    <SectionTemplate title='Цены' backgroundColor='white' withButton >
+    <SectionTemplate title='Цены' backgroundColor='white' id='prices' withButton >
       <div className='prices'>
         {services.map(item => (
-          <PriceItem obj={item} />
+          <PriceItem obj={item} key={item.id} />
         ))}
       </div>
     </SectionTemplate>
