@@ -1,5 +1,5 @@
 import React from 'react'
-import { Blog, Experience, FAQ, Header, Prices } from 'src/components'
+import { Blog, Experience, FAQ, Footer, Header, Prices } from 'src/components'
 import './MainPage.css'
 import { Contacts } from 'src/components/Contacts/Contacts'
 
@@ -14,6 +14,7 @@ export const MainPage = () => {
         <Prices />
         <Contacts />
       </div>
+      <Footer />
     </div>
   )
 }

@@ -30,6 +30,7 @@
 .header .header__wrapper .header__navigation a {
   color: var(--green);
   padding: 10px;
+  transition: all 0.1s ease-in-out 0s;
 }
 .header .header__wrapper .header__navigation a:hover {
   color: var(--gold);

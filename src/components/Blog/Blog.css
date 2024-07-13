@@ -1,6 +1,7 @@
 .blog .blog__cards {
   display: flex;
   justify-content: space-between;
+  gap: 24px;
 }
 .blog .blog__button {
   width: 320px;

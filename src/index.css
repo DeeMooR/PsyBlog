@@ -5,13 +5,13 @@
   --font-family: 'Montserrat', Arial, sans-serif;
   --white: #FFFFFF;
   --dirty-white: #F4F4F4;
+  --footer: #E0E0E0;
   --black: #24262E;
   --dark-grey: #383838;
   --faint-text: #8D8D8D;
   --gold: #D2BA7C;
-  --gold-back: rgb(210, 186, 124, 0.3);
   --green: #004523;
-  --green-back: rgb(0, 69, 35, 0.3);
+  --border: #E8E8EA;
   --background-grey: #F0F0F0;
 }
 

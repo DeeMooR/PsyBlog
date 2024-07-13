@@ -13,7 +13,7 @@ export const Card:FC<ICard> = ({obj}) => {
   
   return (
     <div className='card'>
-      <CardImage image={obj.image} />
+      <CardImage image={image} />
       <div className="card__content">
         <h5 className='card__title'>{title}</h5>
         <p className='card__description'>{description}</p>

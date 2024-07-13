@@ -1,14 +1,14 @@
 .card {
-  width: 320px;
-  border-radius: 5px;
-  border: 1px solid var(--gold-back);
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
   transition: all 0.2s ease-in-out 0s;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 4px 4px 1px var(--gold-back);
+    box-shadow: 0 4px 4px 1px var(--border);
   }
   .card__content {
-    padding: 18px 16px;
+    padding: 18px 20px;
     .card__title {
       font-weight: 600;
     }
@@ -29,6 +29,7 @@
       margin: 16px 0 0 0;
       .card__date {
         font-size: 12px;
+        opacity: 0.8;
       }
       .card__icon {
         width: 16px;
