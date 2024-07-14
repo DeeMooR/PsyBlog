@@ -1,4 +1,4 @@
-.card {
+.cardSmall {
   width: 100%;
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -7,12 +7,12 @@
   &:hover {
     box-shadow: 0 4px 4px 1px var(--border);
   }
-  .card__content {
+  .cardSmall__content {
     padding: 18px 20px;
-    .card__title {
+    .cardSmall__title {
       font-weight: 600;
     }
-    .card__description {
+    .cardSmall__description {
       font-size: 14px;
       line-height: 16px;
       height: calc(16px*3);
@@ -22,16 +22,16 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
-    .card__bottom {
+    .cardSmall__bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 24px 0 0 0;
-      .card__date {
+      .cardSmall__date {
         font-size: 12px;
         opacity: 0.8;
       }
-      .card__icon {
+      .cardSmall__icon {
         width: 16px;
         height: 16px;
       }

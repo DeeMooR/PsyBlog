@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardImage = styled.div<{ image: string }>`
+export const CardSmallImage = styled.div<{ image: string }>`
   width: calc(100% - 32px);
   height: 0px;
   padding-bottom: 56%;
@@ -8,6 +8,15 @@ export const CardImage = styled.div<{ image: string }>`
   background: url(${props => props.image}) no-repeat center;
   background-size: cover;
   border-radius: 6px;
+`;
+
+export const CardMediumImage = styled.div<{ image: string }>`
+  width: 100%;
+  height: 0px;
+  padding-bottom: 56%;
+  background: url(${props => props.image}) no-repeat center;
+  background-size: cover;
+  border-radius: 8px;
 `;
 
 export const PostImage = styled.div<{ image: string }>`

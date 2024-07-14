@@ -1,20 +1,20 @@
-.card {
+.cardSmall {
   width: 100%;
   border-radius: 12px;
   border: 1px solid var(--border);
   transition: all 0.2s ease-in-out 0s;
   cursor: pointer;
 }
-.card:hover {
+.cardSmall:hover {
   box-shadow: 0 4px 4px 1px var(--border);
 }
-.card .card__content {
+.cardSmall .cardSmall__content {
   padding: 18px 20px;
 }
-.card .card__content .card__title {
+.cardSmall .cardSmall__content .cardSmall__title {
   font-weight: 600;
 }
-.card .card__content .card__description {
+.cardSmall .cardSmall__content .cardSmall__description {
   font-size: 14px;
   line-height: 16px;
   height: 48px;
@@ -24,17 +24,17 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.card .card__content .card__bottom {
+.cardSmall .cardSmall__content .cardSmall__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 24px 0 0 0;
 }
-.card .card__content .card__bottom .card__date {
+.cardSmall .cardSmall__content .cardSmall__bottom .cardSmall__date {
   font-size: 12px;
   opacity: 0.8;
 }
-.card .card__content .card__bottom .card__icon {
+.cardSmall .cardSmall__content .cardSmall__bottom .cardSmall__icon {
   width: 16px;
   height: 16px;
 }

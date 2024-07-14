@@ -9,4 +9,5 @@ export * from './Experience/Experience';
 export * from './ExperienceSlider/ExperienceSlider';
 export * from './Contacts/Contacts';
 export * from './Blog/Blog';
-export * from './Card/Card';
+export * from './CardSmall/CardSmall';
+export * from './CardMedium/CardMedium';

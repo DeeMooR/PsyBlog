@@ -1,0 +1,22 @@
+.cardMedium {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  .cardMedium__image {
+    width: calc(2/5*100%);
+  }
+  .cardMedium__content {
+    width: calc(3/5*100%);
+    .cardMedium__date {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    .cardMedium__title {
+      font-size: 20px;
+      margin: 12px 0 0 0;
+    }
+    .cardMedium__description {
+      margin: 8px 0 0 0;
+    }
+  }
+}

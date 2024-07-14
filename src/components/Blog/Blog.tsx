@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, SectionTemplate } from 'src/components'
+import { Link } from 'react-router-dom'
+import { CardSmall, SectionTemplate } from 'src/components'
 import { topCards } from 'src/config'
 import './Blog.css'
 
@@ -9,10 +10,10 @@ export const Blog = () => {
       <div className='blog'>
         <div className="blog__cards">
           {topCards.map(item => (
-            <Card obj={item} key={item.id} />
+            <CardSmall obj={item} key={item.id} />
           ))}
         </div>
-        <a href='#form' className='blog__button btnBlack'>Все посты</a>
+        <Link to='/posts' className='blog__button btnBlack'>Все посты</Link>
       </div>
     </SectionTemplate>
   )
