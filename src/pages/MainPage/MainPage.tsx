@@ -1,16 +1,14 @@
 import React from 'react'
-import { Blog, Experience, FAQ, Footer, Header, Prices } from 'src/components'
-import './MainPage.css'
-import { Contacts } from 'src/components/Contacts/Contacts'
+import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts } from 'src/components'
 
 export const MainPage = () => {
   return (
     <div className='mainPage'>
       <Header />
       <div className="mainPage__blocks">
+        <Experience />
         <FAQ />
         <Blog />
-        <Experience />
         <Prices />
         <Contacts />
       </div>

@@ -22,10 +22,9 @@ export const Header = () => {
       <div className="header__wrapper">
         <img className='header__logo' src={logoIcon} onClick={onClickLogo} />
         <div className='header__navigation'>
-          <a href='#' >Чем помогу</a>
+          <a href='#experience' onClick={() => scrollToSection('experience')}>Обо мне</a>
           <a href='#faq' onClick={() => scrollToSection('faq')} >Вопросы</a>
           <a href='#blog' onClick={() => scrollToSection('blog')} >Блог</a>
-          <a href='#experience' onClick={() => scrollToSection('experience')}>Опыт</a>
           <a href='#prices' onClick={() => scrollToSection('prices')}>Цены</a>
           <a href='#contacts' onClick={() => scrollToSection('contacts')}>Записаться</a>
         </div>

@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  top: 0;
   height: 75px;
   width: 100%;
   background: var(--white);

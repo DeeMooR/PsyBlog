@@ -7,5 +7,6 @@ export * from './FAQ/FAQ';
 export * from './FAQItem/FAQItem';
 export * from './Experience/Experience';
 export * from './ExperienceSlider/ExperienceSlider';
+export * from './Contacts/Contacts';
 export * from './Blog/Blog';
 export * from './Card/Card';
