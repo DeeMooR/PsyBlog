@@ -11,3 +11,4 @@ export * from './Contacts/Contacts';
 export * from './Blog/Blog';
 export * from './CardSmall/CardSmall';
 export * from './CardMedium/CardMedium';
+export * from './ScrollToTop/ScrollToTop';

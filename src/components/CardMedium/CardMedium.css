@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 32px;
+  cursor: pointer;
 }
 .cardMedium .cardMedium__image {
   width: 40%;

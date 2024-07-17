@@ -6,7 +6,7 @@ import './Blog.css'
 
 export const Blog = () => {
   return (
-    <SectionTemplate title='Блог' backgroundColor='white' id='blog' >
+    <SectionTemplate title='Блог' backgroundColor='grey' id='blog' >
       <div className='blog'>
         <div className="blog__cards">
           {topCards.map(item => (
