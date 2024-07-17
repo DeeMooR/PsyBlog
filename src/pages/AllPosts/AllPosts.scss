@@ -7,16 +7,13 @@
     margin: 40px auto 80px;
     width: 1080px;
     .allPosts__title {
-      font-size: 32px;
-      font-weight: 500;
       margin: 0 0 56px 0;
-      color: var(--green);
-      text-align: center;
+      text-transform: none;
     }
     .allPosts__list {
       display: flex;
       flex-direction: column;
-      gap: 56px;
+      gap: 40px;
     }
   }
 }

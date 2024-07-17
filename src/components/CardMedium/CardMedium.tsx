@@ -18,13 +18,15 @@ export const CardMedium:FC<ICardMedium> = ({obj}) => {
   
   return (
     <div className='cardMedium' onClick={onClickCard}>
-      <div className="cardMedium__image">
-        <CardMediumImage image={image} />
-      </div>
       <div className="cardMedium__content">
-        <p className='cardMedium__date'>{date}</p>
-        <h5 className='cardMedium__title'>{title}</h5>
-        <p className='cardMedium__description'>{description}</p>
+        <div className="cardMedium__image">
+          <CardMediumImage image={image} />
+        </div>
+        <div className="cardMedium__info">
+          <p className='cardMedium__date'>{date}</p>
+          <h5 className='cardMedium__title'>{title}</h5>
+          <p className='cardMedium__description'>{description}</p>
+        </div>
       </div>
     </div>
   )

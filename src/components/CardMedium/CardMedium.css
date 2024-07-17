@@ -1,23 +1,32 @@
 .cardMedium {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out 0s;
 }
-.cardMedium .cardMedium__image {
-  width: 40%;
+.cardMedium:hover {
+  box-shadow: 0 2px 10px 1px var(--border);
 }
 .cardMedium .cardMedium__content {
-  width: 60%;
+  display: flex;
+  gap: 32px;
+  padding: 16px;
 }
-.cardMedium .cardMedium__content .cardMedium__date {
+.cardMedium .cardMedium__content .cardMedium__image {
+  width: 40%;
+}
+.cardMedium .cardMedium__content .cardMedium__info {
+  width: 60%;
+  margin: 40px 0 0 0;
+}
+.cardMedium .cardMedium__content .cardMedium__info .cardMedium__date {
   font-size: 14px;
   opacity: 0.8;
 }
-.cardMedium .cardMedium__content .cardMedium__title {
+.cardMedium .cardMedium__content .cardMedium__info .cardMedium__title {
   font-size: 20px;
+  font-weight: 600;
   margin: 12px 0 0 0;
 }
-.cardMedium .cardMedium__content .cardMedium__description {
+.cardMedium .cardMedium__content .cardMedium__info .cardMedium__description {
   margin: 8px 0 0 0;
 }

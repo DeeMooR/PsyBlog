@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { scrollToSection } from 'src/helpers';
 import { clockIcon } from 'src/assets';
 import { IService } from 'src/interfaces'
 import './PriceItem.css'
@@ -21,7 +22,11 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
       </div>
       <div className="priceItem__right">
         <p className='priceItem__price'>{price} ₽</p>
-        <a className='priceItem__button btnWhite'>Записаться</a>
+        <a 
+          className='priceItem__button btnWhite' 
+          href='#contacts' 
+          onClick={() => scrollToSection('contacts')}
+        >Записаться</a>
       </div>
     </div>
   )

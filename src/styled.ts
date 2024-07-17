@@ -16,7 +16,7 @@ export const CardMediumImage = styled.div<{ image: string }>`
   padding-bottom: 56%;
   background: url(${props => props.image}) no-repeat center;
   background-size: cover;
-  border-radius: 8px;
+  border-radius: 6px;
 `;
 
 export const PostImage = styled.div<{ image: string }>`

@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 .cardSmall:hover {
-  box-shadow: 0 4px 4px 1px var(--border);
+  box-shadow: 0 3px 8px 1px var(--border);
 }
 .cardSmall .cardSmall__content {
   padding: 18px 20px;

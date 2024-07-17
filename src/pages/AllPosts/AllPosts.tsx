@@ -8,7 +8,7 @@ export const AllPosts = () => {
     <div className='allPosts'>
       <Header />
       <div className='allPosts__wrapper'>
-        <p className='allPosts__title'>Все посты</p>
+        <h2 className='allPosts__title'>Все посты</h2>
         <div className="allPosts__list">
           {allCards.map(item => (
             <CardMedium obj={item} key={item.id} />

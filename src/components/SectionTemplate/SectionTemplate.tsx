@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from 'react'
+import { scrollToSection } from 'src/helpers';
 import './SectionTemplate.css'
 
 interface ISectionTemplate {
@@ -16,7 +17,11 @@ export const SectionTemplate:FC<ISectionTemplate> = ({ children, backgroundColor
         <h2>{title}</h2>
         {children}
         {withButton && 
-          <a href='#form' className='sectionTemplate__button btnBlack'>Записаться на консультацию</a>
+          <a 
+            className='sectionTemplate__button btnBlack' 
+            href='#contacts' 
+            onClick={() => scrollToSection('contacts')}
+          >Записаться на консультацию</a>
         }
       </div>
     </section>

@@ -1,23 +1,32 @@
 .cardMedium {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+  border-radius: 8px;
   cursor: pointer;
-  .cardMedium__image {
-    width: calc(2/5*100%);
+  transition: all 0.2s ease-in-out 0s;
+  &:hover {
+    box-shadow: 0 2px 10px 1px var(--border);
   }
   .cardMedium__content {
-    width: calc(3/5*100%);
-    .cardMedium__date {
-      font-size: 14px;
-      opacity: 0.8;
+    display: flex;
+    gap: 32px;
+    padding: 16px;
+    .cardMedium__image {
+      width: calc(2/5*100%);
     }
-    .cardMedium__title {
-      font-size: 20px;
-      margin: 12px 0 0 0;
-    }
-    .cardMedium__description {
-      margin: 8px 0 0 0;
+    .cardMedium__info {
+      width: calc(3/5*100%);
+      margin: 40px 0 0 0;
+      .cardMedium__date {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+      .cardMedium__title {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 12px 0 0 0;
+      }
+      .cardMedium__description {
+        margin: 8px 0 0 0;
+      }
     }
   }
 }

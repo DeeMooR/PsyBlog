@@ -5,7 +5,7 @@
   transition: all 0.2s ease-in-out 0s;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 4px 4px 1px var(--border);
+    box-shadow: 0 3px 8px 1px var(--border);
   }
   .cardSmall__content {
     padding: 18px 20px;

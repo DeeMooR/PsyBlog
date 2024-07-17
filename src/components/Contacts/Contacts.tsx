@@ -29,7 +29,7 @@ export const Contacts = () => {
             <input type="email" placeholder='Почта' />
             <input type="text" placeholder='Вопрос' />
           </div>
-          <button className='form__button btnBlack'>Записаться</button>
+          <button type='button' className='form__button btnBlack'>Записаться</button>
           <a href="#" className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </a>
         </form>
       </div>
