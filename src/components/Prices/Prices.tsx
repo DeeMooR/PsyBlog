@@ -5,7 +5,7 @@ import './Prices.css'
 
 export const Prices = () => {
   return (
-    <SectionTemplate title='Цены' backgroundColor='grey' id='prices' >
+    <SectionTemplate title='Цены' backgroundColor='grey' id='prices' withButton >
       <div className='prices'>
         {services.map(item => (
           <PriceItem obj={item} key={item.id} />

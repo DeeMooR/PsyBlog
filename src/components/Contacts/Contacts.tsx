@@ -5,7 +5,7 @@ import './Contacts.css'
 
 export const Contacts = () => {
   return (
-    <SectionTemplate title='Контакты' backgroundColor='grey' id='contacts' >
+    <SectionTemplate title='Контакты' backgroundColor='white' id='contacts' >
       <div className='contacts'>
         <div className="contacts__info">
           <h5>Психоаналитик</h5>
@@ -23,14 +23,13 @@ export const Contacts = () => {
         </div>
         <form className='contacts__form'>
           <h4 className='form__title'>Записаться на консультацию</h4>
-          <p className='form__subtitle'>Вы можете задать любой вопрос о психотерапии или записаться на консультацию. Это конфиденциально.</p>
           <div className="form__inputs">
             <input type="text" placeholder='Имя' />
             <input type="email" placeholder='Почта' />
             <input type="text" placeholder='Вопрос' />
           </div>
           <button type='button' className='form__button btnBlack'>Записаться</button>
-          <a href="#" className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </a>
+          <a href="#" className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку<br/>персональных данных. </a>
         </form>
       </div>
     </SectionTemplate>

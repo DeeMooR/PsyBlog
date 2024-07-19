@@ -4,6 +4,6 @@
   gap: 24px;
 }
 .blog .blog__button {
-  width: 320px;
-  margin: 80px auto 0;
+  width: calc((100% - 48px) / 3);
+  margin: 70px auto 0;
 }

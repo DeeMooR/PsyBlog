@@ -19,7 +19,7 @@
   transition: all 0.4s ease-in-out 0s;
 }
 .faqItem.showText .faqItem__openly .faqItem__icon {
-  rotate: 135deg;
+  rotate: 180deg;
 }
 .faqItem.showText .faqItem__hidden {
   padding: 10px 20px 30px;

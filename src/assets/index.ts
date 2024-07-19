@@ -3,9 +3,11 @@ import menuIcon from './icons/menu.png'
 import telegramIcon from './icons/telegram.png'
 import whatsappIcon from './icons/whatsapp.png'
 import clockIcon from './icons/clock.png'
-import plusIcon from './icons/plus.png'
+import downArrowIcon from './icons/down_arrow.png'
 import upRightArrowIcon from './icons/up_right_arrow.png'
-import humanIcon from './icons/human.png'
+import personIcon from './icons/person.png'
+
+import person from './images/person.jpg';
 
 import certificate_1 from './images/certificate_1.png'
 import certificate_2 from './images/certificate_2.png'
@@ -24,9 +26,10 @@ export {
   telegramIcon,
   whatsappIcon,
   clockIcon,
-  plusIcon,
+  downArrowIcon,
   upRightArrowIcon,
-  humanIcon,
+  personIcon,
+  person,
   certificate_1,
   certificate_2,
   certificate_3,

@@ -31,18 +31,17 @@
   font-size: 18px;
 }
 .contacts .contacts__form {
-  max-width: 600px;
-  padding: 70px 75px;
+  width: 540px;
+  padding: 50px 60px;
   background-color: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px 1px var(--border);
   border-radius: 7px;
 }
 .contacts .contacts__form .form__title {
   text-align: center;
-}
-.contacts .contacts__form .form__subtitle {
-  font-size: 14px;
-  padding: 25px 0 40px;
-  text-align: center;
+  margin: 0 0 30px 0;
+  text-transform: none;
 }
 .contacts .contacts__form .form__inputs {
   display: flex;
@@ -56,5 +55,6 @@
 .contacts .contacts__form .form__policy {
   font-size: 12px;
   margin: 20px 0 0 0;
-  color: var(--dark-grey);
+  text-align: center;
+  opacity: 0.8;
 }

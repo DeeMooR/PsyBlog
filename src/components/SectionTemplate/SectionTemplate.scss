@@ -1,5 +1,5 @@
 .sectionTemplate {
-  padding: 80px 0;
+  padding: 70px 0;
   &.background__white {
     background-color: var(--white);
   }
@@ -10,11 +10,11 @@
     max-width: 1080px;
     margin: 0 auto;
     h2 {
-      margin: 0 0 80px 0;
+      margin: 0 0 70px 0;
     }
     .sectionTemplate__button {
       width: 400px;
-      margin: 80px auto 0;
+      margin: 70px auto 0;
     }
   }
 }

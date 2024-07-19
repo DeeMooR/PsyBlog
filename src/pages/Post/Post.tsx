@@ -1,6 +1,6 @@
 import React from 'react'
 import { Footer, Header } from 'src/components'
-import { card_1, card_2, card_3, card_4, card_5, card_6, humanIcon } from 'src/assets'
+import { card_1, card_2, card_3, card_4, card_5, card_6, personIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
 import './Post.css'
 
@@ -12,7 +12,7 @@ export const Post = () => {
         <p className='post__title'>Что такое психология и с чем её едят?</p>
         <div className="post__shortInfo">
           <div className="post__author">
-            <img className='author__icon' src={humanIcon} />
+            <img className='author__icon' src={personIcon} />
             <p className="author__text">Ольга Разваляева</p>
           </div>
           <p className="post__date">3 января 2024г.</p>

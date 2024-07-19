@@ -5,6 +5,6 @@ export const scrollToSection = (page: string) => {
     duration: 700,
     delay: 0,
     smooth: 'easeOutQuart',
-    offset: -30
+    offset: -40
   });
 };

@@ -40,7 +40,7 @@ html,body{
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;}
-div, p, a, span {font-family: var(--font-family);}
+div, p, a, span {font-family: var(--font-family); color: var(--dark-grey);}
 input,button,textarea{font-family: var(--font-family);}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
@@ -62,6 +62,12 @@ body {
 }
 
 /*--------- STYLES ---------*/
+
+h1 {
+  font-size: 48px;
+  letter-spacing: 0.02em;
+  color: var(--green);
+}
 
 h2 {
   font-size: 36px;
@@ -99,7 +105,7 @@ input {
   align-items: center;
   height: 60px;
   padding: 0 24px;
-  background-color: var(--background-grey);
+  background-color: var(--dirty-white);
   border-radius: 5px;
 }
 input:focus {
@@ -107,7 +113,9 @@ input:focus {
 }
 input::placeholder {
   color: var(--faint-text);
+  font-size: 12px;
   text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .btnBlack {
