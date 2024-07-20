@@ -13,6 +13,7 @@
   --green: #004523;
   --border: #E8E8EA;
   --background-grey: #F0F0F0;
+  --warning: #FFAA00;
 }
 
 /*--------- NULLING STYLE ----------*/
@@ -65,7 +66,6 @@ body {
 
 h1 {
   font-size: 48px;
-  letter-spacing: 0.02em;
   color: var(--green);
 }
 
@@ -104,14 +104,27 @@ input {
   justify-content: center;
   align-items: center;
   height: 60px;
+  width: 100%;
   padding: 0 24px;
+  line-height: 18px;
   background-color: var(--dirty-white);
   border-radius: 5px;
 }
-input:focus {
+textarea {
+  height: 100px;
+  width: 100%;
+  padding: 21px 24px;
+  line-height: 18px;
+  background-color: var(--dirty-white);
+  border-radius: 5px;
+  resize: none;
+}
+input:focus,
+textarea:focus {
   border: 1px solid var(--black);
 }
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--faint-text);
   font-size: 12px;
   text-transform: uppercase;
@@ -131,10 +144,14 @@ input::placeholder {
   text-transform: uppercase;
   transition: all 0.2s ease-in-out 0s;
 }
-.btnBlack:hover {
+.btnBlack:hover:not(:disabled) {
   color: var(--black);
   background-color: var(--white);
   border: 1px solid var(--black);
+}
+.btnBlack:disabled {
+  background-color: var(--faint-text);
+  cursor: not-allowed;
 }
 
 .btnWhite {

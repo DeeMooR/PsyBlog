@@ -1,0 +1,16 @@
+.textareaBlock {
+  position: relative;
+}
+.textareaBlock .warning {
+  border: 1px solid var(--warning);
+}
+.textareaBlock .error {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin: -1px 0 0 3px;
+}
+.textareaBlock .error span {
+  font-size: 11px;
+  margin: 0 0 0 10px;
+}

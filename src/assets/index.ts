@@ -5,7 +5,8 @@ import whatsappIcon from './icons/whatsapp.png'
 import clockIcon from './icons/clock.png'
 import downArrowIcon from './icons/down_arrow.png'
 import upRightArrowIcon from './icons/up_right_arrow.png'
-import personIcon from './icons/person.png'
+import humanIcon from './icons/human.png'
+import warningIcon from './icons/warning.svg'
 
 import person from './images/person.jpg';
 
@@ -28,7 +29,8 @@ export {
   clockIcon,
   downArrowIcon,
   upRightArrowIcon,
-  personIcon,
+  humanIcon,
+  warningIcon,
   person,
   certificate_1,
   certificate_2,

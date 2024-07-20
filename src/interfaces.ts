@@ -26,3 +26,9 @@ export interface IShortCard {
   image: string,
   date: string,
 }
+
+export interface IOrderForm {
+  name: string,
+  email: string,
+  question: string,
+}
