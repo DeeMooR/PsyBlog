@@ -1,8 +1,64 @@
 import React from 'react'
-import { Footer, Header } from 'src/components'
+import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Quote, List } from 'src/components'
 import { card_1, card_2, card_3, card_4, card_5, card_6, humanIcon } from 'src/assets'
+import { IImage, IList, IQuote, ITwoImages } from 'src/components/postBlocks/interfaces'
 import { PostImage } from 'src/styled'
 import './Post.css'
+
+const obj1 = {
+  text: 'Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don\'t plan and prepare adequately. In this blog article, we\'ll explore tips and tricks for a memorable journey and how to make the most of your travels.<br /><br />One of the most rewarding aspects of traveling is immersing yourself in the local culture and customs. This includes trying local cuisine, attending cultural events and festivals, and interacting with locals. Learning a few phrases in the local language can also go a long way in making connections and showing respect.'
+};
+const obj2 = {
+  title: 'Traveling is an enriching experience'
+};
+const obj3 = {
+  title: 'Research Your Destination',
+  text: 'Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don\'t plan and prepare adequately. In this blog article, we\'ll explore tips and tricks for a memorable journey and how to make the most of your travels.<br /><br />One of the most rewarding aspects of traveling is immersing yourself in the local culture and customs. This includes trying local cuisine, attending cultural events and festivals, and interacting with locals. Learning a few phrases in the local language can also go a long way in making connections and showing respect.'
+};
+
+const obj4: IImage = {
+  image: card_2,
+  size: 'big',
+  withBorder: true,
+}
+const obj5: IImage = {
+  image: card_3,
+  size: 'medium',
+  withBorder: false,
+}
+const obj6: IImage = {
+  image: card_4,
+  size: 'small',
+  withBorder: true,
+}
+const obj7: ITwoImages = {
+  image1: card_5,
+  image2: card_6,
+}
+const obj8: IQuote = {
+  quote: 'Traveling can expose you to new environments and potential health risks, so it\'s crucial to take precautions to stay safe and healthy.'
+}
+const obj9: IList = {
+  text: 'Что-то будет перечисляться:',
+  type: 'pointer',
+  items: [
+    'Первый пункт',
+    'Второй пункт. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста',
+    'Третий пункт. Переносы.<br />Переносы<br />Переносы'
+  ]
+}
+const obj10: IList = {
+  text: 'Что-то будет перечисляться:',
+  type: 'number',
+  items: [
+    'Первый пункт',
+    'Второй пункт. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста',
+    'Третий пункт. Переносы.<br />Переносы<br />Переносы'
+  ]
+}
+const obj11 = {
+  text: 'Конец)'
+}
 
 export const Post = () => {
   return (
@@ -22,67 +78,21 @@ export const Post = () => {
           <div className="imageBorder" />
         </div>
         <div className="post__content">
-          <p className="text">
-            Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.
-            <br /><br />
-            One of the most rewarding aspects of traveling is immersing yourself in the local culture and customs. This includes trying local cuisine, attending cultural events and festivals, and interacting with locals. Learning a few phrases in the local language can also go a long way in making connections and showing respect.
-          </p>
-          <p className="title">Traveling is an enriching experience</p>
-          <div className="textWithTitle">
-            <p className="title">Research Your Destination</p>
-            <p className="text">
-              Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.
-              <br /><br />
-              One of the most rewarding aspects of traveling is immersing yourself in the local culture and customs. This includes trying local cuisine, attending cultural events and festivals, and interacting with locals. Learning a few phrases in the local language can also go a long way in making connections and showing respect.
-            </p>
-          </div>
-          <div className="image big">
-            <img src={card_2} />
-            <div className="imageBorder" />
-          </div>
-          <p className="text">
-            Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.
-          </p>
-          <div className="image medium">
-            <img src={card_3} />
-          </div>
-          <p className="text">
-            Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.
-          </p>
-          <div className="image small">
-            <img src={card_4} />
-            <div className="imageBorder" />
-          </div>
-          <p className="text">
-            Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.
-          </p>
-          <div className="twoImage">
-            <img src={card_5} />
-            <img src={card_6} />
-          </div>
-          <p className="text">
-            Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don't plan and prepare adequately. In this blog article, we'll explore tips and tricks for a memorable journey and how to make the most of your travels.
-          </p>
-          <div className="list">
-            <p className='text'>Что-то будет перечисляться:</p>
-            <ul>
-              <li>Первый пункт</li>
-              <li>Второй пункт. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста</li>
-              <li>Третий пункт. Переносы.<br />Переносы<br />Переносы</li>
-            </ul>
-          </div>
-          <div className="list">
-            <p className='text'>Что-то будет перечисляться:</p>
-            <ol>
-              <li>Первый пункт</li>
-              <li>Второй пункт. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста. Много текста</li>
-              <li>Третий пункт. Переносы.<br />Переносы<br />Переносы</li>
-            </ol>
-          </div>
-          <blockquote className='quote'>
-            Traveling can expose you to new environments and potential health risks, so it's crucial to take precautions to stay safe and healthy.
-          </blockquote>
-          <p className='text'>{`Конец)`}</p>
+          <Text obj={obj1} />
+          <Title obj={obj2} />
+          <TitleAndText obj={obj3} />
+          <Image obj={obj4} />
+          <Text obj={obj1} />
+          <Image obj={obj5} />
+          <Text obj={obj1} />
+          <Image obj={obj6} />
+          <Text obj={obj1} />
+          <TwoImages obj={obj7} />
+          <Text obj={obj1} />
+          <Quote obj={obj8} />
+          <List obj={obj9} />
+          <List obj={obj10} />
+          <Text obj={obj11} />
         </div>
       </div>
       <Footer />
