@@ -1,8 +1,14 @@
 .textareaBlock {
   position: relative;
 }
-.textareaBlock .warning {
+.textareaBlock .textarea.warning {
   border: 1px solid var(--warning);
+}
+.textareaBlock .textarea.medium {
+  height: 150px;
+}
+.textareaBlock .textarea.big {
+  height: 200px;
 }
 .textareaBlock .error {
   position: absolute;

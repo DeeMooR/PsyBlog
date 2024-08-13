@@ -1,0 +1,14 @@
+.newPost {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.newPost .newPost__wrapper {
+  flex: 1;
+  margin: 40px auto 0;
+  width: 1080px;
+}
+.newPost .newPost__wrapper .newPost__title {
+  margin: 0 0 40px 0;
+  text-transform: none;
+}

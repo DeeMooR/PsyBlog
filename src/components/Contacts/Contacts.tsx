@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Input, SectionTemplate, Textarea } from 'src/components'
 import { whatsappIcon, telegramIcon } from 'src/assets'
 import { IOrderForm } from 'src/interfaces'
-import { schema } from './config'
+import { orderForm } from 'src/validation'
 import './Contacts.css'
 
 export const Contacts = () => {
@@ -15,7 +15,7 @@ export const Contacts = () => {
     formState: { isValid },
   } = useForm<IOrderForm>({
     mode: 'onSubmit',
-    resolver: yupResolver(schema),
+    resolver: yupResolver(orderForm),
   });
 
   const onSubmit = (data: IOrderForm) => {

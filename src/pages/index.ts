@@ -1,3 +1,4 @@
 export * from './MainPage/MainPage';
-export * from './Post/Post';
 export * from './AllPosts/AllPosts';
+export * from './Post/Post';
+export * from './NewPost/NewPost';

@@ -7,11 +7,12 @@ interface ITextarea {
   id: string;
   register: UseFormRegister<any>;
   placeholder?: string;
+  size?: 'small' | 'medium' | 'big';
   error?: string;
 }
 
-export const Textarea:FC<ITextarea> = ({id, placeholder, register, error}) => {
-  const textareaStyle = `textarea ${error ? 'warning' : ''}`
+export const Textarea:FC<ITextarea> = ({id, register, placeholder, size, error}) => {
+  const textareaStyle = `textarea ${error ? 'warning' : ''} ${size}`
   
   return (
     <div className='textareaBlock'>

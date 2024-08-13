@@ -19,6 +19,12 @@ export interface ICard {
   date: string,
 }
 
+export interface IOrderForm {
+  name: string,
+  email: string,
+  question: string,
+}
+
 export interface IShortCard {
   id: number,
   title: string,
@@ -27,8 +33,4 @@ export interface IShortCard {
   date: string,
 }
 
-export interface IOrderForm {
-  name: string,
-  email: string,
-  question: string,
-}
+export interface IShortCardWithoutId extends Omit<IShortCard, 'id'> {}
