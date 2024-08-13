@@ -3,7 +3,6 @@
 /*--------- CONST ----------*/
 :root {
   --font-family: 'Montserrat', Arial, sans-serif;
-  --white: #FFFFFF;
   --dirty-white: #F4F4F4;
   --footer: #E4E4E4;
   --black: #24262E;
@@ -14,6 +13,14 @@
   --border: #E8E8EA;
   --background-grey: #F0F0F0;
   --warning: #FFAA00;
+  
+  --white: #FFFFFF;
+  --background: #FFFAF5;
+  --green-text: #70806B;
+  --logo: #788772;
+  --beige-1: #F0DBCC;
+  --beige-2: #EFC3A9;
+  --beige-3: #D49C7D;
 }
 
 /*--------- NULLING STYLE ----------*/

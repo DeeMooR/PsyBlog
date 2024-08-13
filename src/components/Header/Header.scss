@@ -1,12 +1,11 @@
 .header {
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  top: 0;
-  height: 75px;
+  height: 80px;
   width: 100%;
-  background: var(--white);
+  background: var(--background);
   box-shadow: 0 0 4px rgba(0,0,0,.05);
   z-index: 10;
   .header__wrapper {
@@ -14,33 +13,36 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    width: 1080px;
-    .header__logo {
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
+    width: 1300px;
     .header__navigation {
       display: flex;
-      gap: 10px;
-      font-size: 16px;
-      font-weight: 400;
+      gap: 5px;
       a {
-        color: var(--green);
+        font-size: 13px;
+        font-weight: 400;
         padding: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--green-text);
         transition: all 0.1s ease-in-out 0s;        
         &:hover {
-          color: var(--gold);
+          color: var(--beige-2);
         }
       }
     }
-    .header__icons {
-      display: flex;
-      gap: 16px;
-      .header__icon {
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
+    .header__logo {
+      text-align: center;
+      text-transform: uppercase;
+      cursor: pointer;
+      .logo__name {
+        font-size: 22px;
+        color: var(--logo);
+        margin: 0 0 4px 0;
+      }
+      .logo__position {
+        font-size: 9px;
+        font-weight: 500;
+        color: var(--logo);
       }
     }
   }

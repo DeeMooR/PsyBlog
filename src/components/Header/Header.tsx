@@ -20,17 +20,19 @@ export const Header = () => {
   return (
     <header className='header'>
       <div className="header__wrapper">
-        <img className='header__logo' src={logoIcon} onClick={onClickLogo} />
         <div className='header__navigation'>
           <a href='#experience' onClick={() => scrollToSection('experience')}>Обо мне</a>
+          <a href='#prices' onClick={() => scrollToSection('prices')}>Консультации</a>
           <a href='#faq' onClick={() => scrollToSection('faq')} >Вопросы</a>
-          <a href='#blog' onClick={() => scrollToSection('blog')} >Блог</a>
-          <a href='#prices' onClick={() => scrollToSection('prices')}>Цены</a>
-          <a href='#contacts' onClick={() => scrollToSection('contacts')}>Записаться</a>
         </div>
-        <div className='header__icons'>
-          <img className='header__icon' src={telegramIcon} />
-          <img className='header__icon' src={whatsappIcon} />
+        <div className="header__logo" onClick={onClickLogo}>
+          <p className='logo__name'>Olga Razvalyaeva</p>
+          <p className='logo__position'>Психолог, Психоаналитик</p>
+        </div>
+        <div className='header__navigation'>
+          <a href='#prices' onClick={() => scrollToSection('prices')}>Квалификация</a>
+          <a href='#blog' onClick={() => scrollToSection('blog')} >Блог</a>
+          <a href='#contacts' onClick={() => scrollToSection('contacts')}>Контакты</a>
         </div>
         {/* <MenuIcon className='header__menu' onClick={() => setClickMenu(true)} /> */}
       </div>
