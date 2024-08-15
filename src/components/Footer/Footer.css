@@ -53,7 +53,7 @@
 }
 .footer .footer__copyright {
   background: var(--beige-3);
-  padding: 16px 0 8px 0;
+  padding: 16px 0 12px 0;
 }
 .footer .footer__copyright .copyright__text {
   font-size: 11px;

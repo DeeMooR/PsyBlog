@@ -16,6 +16,7 @@ export * from './Person/Person';
 export * from './NewPostRequired/NewPostRequired';
 export * from './Input/Input';
 export * from './Textarea/Textarea';
+export * from './MainPicture/MainPicture';
 
 export * from './postBlocks/Title';
 export * from './postBlocks/Text';

@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const MainImage = styled.div<{ image: string }>`
+  width: 100%;
+  height: 0px;
+  padding-bottom: 50%;
+  background: url(${props => props.image}) 50% 0 no-repeat;
+  background-size: cover;
+`;
+
 export const CardSmallImage = styled.div<{ image: string }>`
   width: calc(100% - 32px);
   height: 0px;

@@ -1,0 +1,19 @@
+.mainPicture {
+  position: relative;
+  width: 100%;
+}
+.mainPicture .mainPicture__quote {
+  position: absolute;
+  top: 40%;
+  left: calc((100% - 1080px) / 2);
+  color: var(--white);
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.mainPicture .mainPicture__quote span {
+  color: var(--white);
+  font-family: "Courier New";
+  text-transform: lowercase;
+}
