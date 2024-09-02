@@ -1,7 +1,7 @@
 import React from 'react'
-import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Quote, List } from 'src/components'
+import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
 import { card_1, card_2, card_3, card_4, card_5, card_6, humanIcon } from 'src/assets'
-import { IImage, IList, IQuote, ITwoImages } from 'src/components/postBlocks/interfaces'
+import { IImage, IList, IBlockquote, ITwoImages } from 'src/components/postBlocks/interfaces'
 import { PostImage } from 'src/styled'
 import './Post.css'
 
@@ -35,7 +35,7 @@ const obj7: ITwoImages = {
   image1: card_5,
   image2: card_6,
 }
-const obj8: IQuote = {
+const obj8: IBlockquote = {
   quote: 'Traveling can expose you to new environments and potential health risks, so it\'s crucial to take precautions to stay safe and healthy.'
 }
 const obj9: IList = {
@@ -89,7 +89,7 @@ export const Post = () => {
           <Text obj={obj1} />
           <TwoImages obj={obj7} />
           <Text obj={obj1} />
-          <Quote obj={obj8} />
+          <Blockquote obj={obj8} />
           <List obj={obj9} />
           <List obj={obj10} />
           <Text obj={obj11} />

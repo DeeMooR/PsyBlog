@@ -18,11 +18,12 @@ export * from './Input/Input';
 export * from './Textarea/Textarea';
 export * from './MainPicture/MainPicture';
 export * from './About/About';
+export * from './MainQuote/MainQuote';
 
 export * from './postBlocks/Title';
 export * from './postBlocks/Text';
 export * from './postBlocks/TitleAndText';
 export * from './postBlocks/Image';
 export * from './postBlocks/TwoImages';
-export * from './postBlocks/Quote';
+export * from './postBlocks/Blockquote';
 export * from './postBlocks/List';

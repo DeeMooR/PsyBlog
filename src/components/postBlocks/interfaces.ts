@@ -22,7 +22,7 @@ export interface ITwoImages {
   image2: string;
 }
 
-export interface IQuote {
+export interface IBlockquote {
   quote: string;
 }
 

@@ -1,7 +1,17 @@
 .prices {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin: 0 auto;
   max-width: 900px;
+  margin: 0 auto;
+  h3 {
+    margin: 0 0 50px 0;
+    text-align: center;
+  }
+  .prices__items {
+    display: flex;
+    gap: 100px;
+    margin: 0 0 50px 0;
+  }
+  .prices__button {
+    max-width: 260px;
+    margin: 0 auto;
+  }
 }

@@ -50,7 +50,7 @@
   border-radius: 8px;
 }
 
-.quote {
+.blockquote {
   padding: 24px;
   font-style: italic;
   letter-spacing: 0.02em;
@@ -59,10 +59,10 @@
   border-radius: 12px;
   border-left: 4px solid #E8E8EA;
 }
-.quote::before {
+.blockquote::before {
   content: "“";
 }
-.quote::after {
+.blockquote::after {
   content: "”";
 }
 

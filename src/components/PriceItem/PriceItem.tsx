@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { scrollToSection } from 'src/helpers';
-import { clockIcon } from 'src/assets';
+import { clockIcon, priceItemImage } from 'src/assets';
 import { IService } from 'src/interfaces'
+import { PriceItemImage } from 'src/styled';
 import './PriceItem.css'
 
 interface IPriceItem {
@@ -13,20 +14,16 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
 
   return (
     <div className='priceItem'>
-      <div className="priceItem__left">
-        <h5>{name}</h5>
-        <div className="time">
+      <div className="priceItem__image">
+        <PriceItemImage image={priceItemImage} />
+      </div>
+      <h4>{name}</h4>
+      <div className="priceItem__details">
+        <div className="priceItem__time">
           <img className='time__icon' src={clockIcon} />
           <p className='time__text'>{time}</p>
         </div>
-      </div>
-      <div className="priceItem__right">
         <p className='priceItem__price'>{price} ₽</p>
-        <a 
-          className='priceItem__button btnWhite' 
-          href='#contacts' 
-          onClick={() => scrollToSection('contacts')}
-        >Записаться</a>
       </div>
     </div>
   )

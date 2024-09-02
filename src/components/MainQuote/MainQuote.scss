@@ -1,0 +1,14 @@
+.mainQuote {
+  padding: 100px 0 20px 0;
+  background-color: var(--background);
+  .mainQuote__quote {
+    font-size: 44px;
+    color: var(--green-text);
+    text-align: center;
+    span {
+      color: var(--green-text);
+      font-family: 'Courier New';
+      text-transform: lowercase;
+    }
+  }
+}

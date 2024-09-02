@@ -12,8 +12,17 @@ export const AboutImage = styled.div<{ image: string }>`
   width: 100%;
   height: 0px;
   padding-bottom: 140%;
-  background: url(${props => props.image}) 50% 0 no-repeat;
+  background: url(${props => props.image}) 50% 50% no-repeat;
   background-size: cover;
+`;
+
+export const PriceItemImage = styled.div<{ image: string }>`
+  width: 100%;
+  height: 0px;
+  padding-bottom: 120%;
+  background: url(${props => props.image}) 50% 50% no-repeat;
+  background-size: cover;
+  border: 6px solid var(--white);
 `;
 
 
