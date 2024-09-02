@@ -1,30 +1,12 @@
 .faqItem {
-  border-bottom: 1px solid var(--gold);
-  .faqItem__openly {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    cursor: pointer;
-    .faqItem__icon {
-      width: 16px;
-      height: 16px;
-      transition: rotate 0.1s ease-in-out 0s;
-    }
+  width: 100%;
+  h4 {
+    padding: 0 0 10px 0;
+    color: var(--white);
+    border-bottom: 1px solid var(--white);
   }
-  .faqItem__hidden {
-    padding: 0 20px;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out 0s;
-  }
-  &.showText {
-    .faqItem__openly {
-     .faqItem__icon {
-      rotate: 180deg;
-     } 
-    }
-    .faqItem__hidden {
-      padding: 10px 20px 30px;
-    }
+  .faqItem__text {
+    padding: 30px 20px 0;
+    color: var(--white);
   }
 }

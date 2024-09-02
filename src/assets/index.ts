@@ -12,6 +12,7 @@ import warningIcon from './icons/warning.svg'
 
 import person from './images/person.jpg';
 import mainImage from './images/mainImage.jpg';
+import aboutImage from './images/aboutImage.jpg';
 
 import certificate_1 from './images/certificate_1.png'
 import certificate_2 from './images/certificate_2.png'
@@ -38,6 +39,7 @@ export {
   warningIcon,
   person,
   mainImage,
+  aboutImage,
   certificate_1,
   certificate_2,
   certificate_3,

@@ -1,20 +1,15 @@
 .sectionTemplate {
-  padding: 70px 0;
+  padding: 80px 0;
+  background-color: var(--background);
 }
-.sectionTemplate.background__white {
-  background-color: var(--white);
+.sectionTemplate.beige1 {
+  background-color: var(--beige-1);
 }
-.sectionTemplate.background__grey {
-  background-color: var(--background-grey);
+.sectionTemplate.green {
+  background-color: var(--green-bright);
 }
 .sectionTemplate .sectionTemplate__wrapper {
-  max-width: 1080px;
+  max-width: 1120px;
   margin: 0 auto;
-}
-.sectionTemplate .sectionTemplate__wrapper h2 {
-  margin: 0 0 70px 0;
-}
-.sectionTemplate .sectionTemplate__wrapper .sectionTemplate__button {
-  width: 400px;
-  margin: 70px auto 0;
+  padding: 0 20px;
 }

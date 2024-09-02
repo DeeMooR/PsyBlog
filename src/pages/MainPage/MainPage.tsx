@@ -1,5 +1,5 @@
 import React from 'react'
-import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts, Person, MainPicture } from 'src/components'
+import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts, Person, MainPicture, About } from 'src/components'
 
 export const MainPage = () => {
   return (
@@ -7,9 +7,10 @@ export const MainPage = () => {
       <Header />
       <div className="mainPage__blocks">
         <MainPicture />
+        <About />
+        <FAQ />
         <Person />
         <Experience />
-        <FAQ />
         <Blog />
         <Prices />
         <Contacts />

@@ -1,8 +1,7 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC } from 'react'
 import parse from 'html-react-parser';
-import './FAQItem.css'
 import { IFAQ } from 'src/interfaces';
-import { downArrowIcon } from 'src/assets';
+import './FAQItem.css'
 
 interface IFAQItem {
   obj: IFAQ
@@ -10,37 +9,11 @@ interface IFAQItem {
 
 export const FAQItem:FC<IFAQItem> = ({ obj }) => {
   const { title, text } = obj;
-  const [textHeight, setTextHeight] = useState(0);
-  const [isShowText, setShowText] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const onClickTitle = () => {
-    setShowText(!isShowText);
-  }
-
-  // подсчёт высоты скрытого блока
-  useEffect(() => {
-    if (ref.current) {
-      const countBr = text.split('<br /><br />').length - 1;
-      const height = ref.current?.clientHeight + 40 + countBr*16*1.2;
-      setTextHeight(height || 0);
-    }
-  }, []);
-
-  // изменение height, чтобы сработал transition
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.style.height = isShowText ? (textHeight + 'px') : '0px';
-    }
-  }, [isShowText]);
 
   return (
-    <div className={`faqItem ${isShowText ? 'showText' : ''}`}>
-      <div className="faqItem__openly" onClick={onClickTitle}>
-        <h5>{title}</h5>
-        <img className='faqItem__icon' src={downArrowIcon} />
-      </div>
-      <p className='faqItem__hidden' ref={ref}>{parse(text)}</p>
+    <div className='faqItem'>
+      <h4>{title}</h4>
+      <p className='faqItem__text'>{parse(text)}</p>
     </div>
   )
 }

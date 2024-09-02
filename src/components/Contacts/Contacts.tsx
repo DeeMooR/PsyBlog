@@ -23,7 +23,7 @@ export const Contacts = () => {
   }
 
   return (
-    <SectionTemplate title='Контакты' backgroundColor='white' id='contacts' >
+    <SectionTemplate id='contacts' >
       <div className='contacts'>
         <div className="contacts__info">
           <h5>Психоаналитик</h5>

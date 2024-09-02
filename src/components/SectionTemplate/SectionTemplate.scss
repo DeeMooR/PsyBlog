@@ -1,20 +1,15 @@
 .sectionTemplate {
-  padding: 70px 0;
-  &.background__white {
-    background-color: var(--white);
+  padding: 80px 0;
+  background-color: var(--background);
+  &.beige1 {
+    background-color: var(--beige-1);
   }
-  &.background__grey {
-    background-color: var(--background-grey);
+  &.green {
+    background-color: var(--green-bright);
   }
   .sectionTemplate__wrapper {
-    max-width: 1080px;
+    max-width: 1120px;
     margin: 0 auto;
-    h2 {
-      margin: 0 0 70px 0;
-    }
-    .sectionTemplate__button {
-      width: 400px;
-      margin: 70px auto 0;
-    }
+    padding: 0 20px;
   }
 }
