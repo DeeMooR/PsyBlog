@@ -37,12 +37,13 @@
       .logo__name {
         font-size: 22px;
         color: var(--logo);
-        margin: 0 0 4px 0;
+        line-height: 1.4;
       }
       .logo__position {
         font-size: 9px;
         font-weight: 500;
         color: var(--logo);
+        line-height: 1.4;
       }
     }
   }

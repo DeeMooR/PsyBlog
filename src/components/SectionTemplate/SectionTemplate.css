@@ -13,3 +13,11 @@
   margin: 0 auto;
   padding: 0 20px;
 }
+.sectionTemplate .sectionTemplate__wrapper .sectionTemplate__title {
+  margin: 0 0 50px 0;
+  color: var(--black);
+  text-align: center;
+}
+.sectionTemplate .sectionTemplate__wrapper .sectionTemplate__title.title__white {
+  color: var(--white);
+}

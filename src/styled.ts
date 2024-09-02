@@ -25,17 +25,24 @@ export const PriceItemImage = styled.div<{ image: string }>`
   border: 6px solid var(--white);
 `;
 
-
-
-export const CardSmallImage = styled.div<{ image: string }>`
-  width: calc(100% - 32px);
+export const ContactsImage = styled.div<{ image: string }>`
+  width: 100%;
   height: 0px;
-  padding-bottom: 56%;
-  margin: 16px auto 0;
+  padding-bottom: 100%;
   background: url(${props => props.image}) no-repeat center;
   background-size: cover;
-  border-radius: 6px;
 `;
+
+export const CardSmallImage = styled.div<{ image: string }>`
+  width: 100%;
+  height: 0px;
+  padding-bottom: 100%;
+  background: url(${props => props.image}) no-repeat center;
+  background-size: cover;
+`;
+
+
+
 
 export const CardMediumImage = styled.div<{ image: string }>`
   width: 100%;

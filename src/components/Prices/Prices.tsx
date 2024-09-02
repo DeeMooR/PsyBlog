@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom'
 
 export const Prices = () => {
   return (
-    <SectionTemplate id='prices' backgroundColor='beige1' >
+    <SectionTemplate id='prices' backgroundColor='beige1' title='Услуги' >
       <div className='prices'>
-        <h3>Working together</h3>
         <div className="prices__items">
           {services.map(item => (
             <PriceItem obj={item} key={item.id} />

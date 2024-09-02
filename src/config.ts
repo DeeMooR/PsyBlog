@@ -1,16 +1,18 @@
 import { IFAQ, IService, IShortCard } from "src/interfaces";
-import { card_1, card_2, card_3, card_4, card_5, card_6, certificate_1, certificate_2, certificate_3 } from 'src/assets';
+import { card_1, card_2, card_3, card_4, card_5, card_6, certificate_1, certificate_2, certificate_3, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
   {
     id: 1,
-    name: 'Консультация по видео в Skype или в WhatsApp',
+    image: service_1,
+    name: 'Индивидуальная консультация',
     price: 7000,
     time: '50 мин.'
   },
   {
     id: 2,
-    name: 'Консультация по видео в Telegram',
+    image: service_2,
+    name: 'Семейная консультация',
     price: 6000,
     time: '45 мин.'
   }
@@ -43,21 +45,21 @@ export const topCards: IShortCard[] = [
     id: 1,
     title: 'Психология!',
     description: 'Психология - наука.',
-    image: card_1,
+    image: post_1,
     date: '01.01.2024'
   },
   {
     id: 2,
     title: 'Что такое психология?',
     description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности.',
-    image: card_2,
+    image: post_2,
     date: '02.01.2024'
   },
   {
     id: 3,
     title: 'Что такое психология?',
     description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности. Добавил рандомного текста чтобы проверить точки но пока что они не появляются. Тестируем дальше эту фичу',
-    image: card_3,
+    image: post_3,
     date: '03.01.2024'
   }
 ];

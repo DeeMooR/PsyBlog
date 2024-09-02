@@ -20,14 +20,7 @@ export const CardSmall:FC<ICardSmall> = ({obj}) => {
   return (
     <div className='cardSmall' onClick={onClickCard}>
       <CardSmallImage image={image} />
-      <div className="cardSmall__content">
-        <h5 className='cardSmall__title'>{title}</h5>
-        <p className='cardSmall__description'>{description}</p>
-        <div className="cardSmall__bottom">
-          <p className='cardSmall__date'>{date}</p>
-          <img className='cardSmall__icon' src={upRightArrowIcon} />
-        </div>
-      </div>
+      <h4 className='cardSmall__title'>{title}</h4>
     </div>
   )
 }

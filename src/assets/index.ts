@@ -13,7 +13,10 @@ import warningIcon from './icons/warning.svg'
 import person from './images/person.jpg';
 import mainImage from './images/mainImage.jpg';
 import aboutImage from './images/aboutImage.jpg';
-import priceItemImage from './images/priceItemImage.jpg';
+import contactsImage from './images/contactsImage.png';
+
+import service_1 from './images/service_1.jpg';
+import service_2 from './images/service_2.jpg';
 
 import certificate_1 from './images/certificate_1.png'
 import certificate_2 from './images/certificate_2.png'
@@ -25,6 +28,10 @@ import card_3 from './images/card_3.png'
 import card_4 from './images/card_4.png'
 import card_5 from './images/card_5.png'
 import card_6 from './images/card_6.png'
+
+import post_1 from './images/post_1.png'
+import post_2 from './images/post_2.png'
+import post_3 from './images/post_3.jpg'
 
 export {
   logoIcon, 
@@ -41,10 +48,15 @@ export {
   person,
   mainImage,
   aboutImage,
-  priceItemImage,
+  contactsImage,
+  service_1,
+  service_2,
   certificate_1,
   certificate_2,
   certificate_3,
+  post_1, 
+  post_2, 
+  post_3,
   card_1,
   card_2,
   card_3,

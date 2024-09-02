@@ -11,10 +11,10 @@ export const MainPage = () => {
         <About />
         <Prices />
         <FAQ />
-        <Person />
-        <Experience />
         <Blog />
         <Contacts />
+        {/* <Person />
+        <Experience /> */}
       </div>
       <Footer />
     </div>

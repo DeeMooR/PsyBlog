@@ -23,6 +23,7 @@
   --beige-2: #EFC3A9;
   --beige-3: #D49C7D;
   --disabled: #8D8D8D;
+  --input: #FAFAFA;
 }
 
 /*--------- NULLING STYLE ----------*/
@@ -73,7 +74,7 @@ body {
 
 /*--------- STYLES ---------*/
 
-p, span, a,
+p, span, a, button,
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
   letter-spacing: 0.03em;
@@ -109,12 +110,13 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 54px;
   width: 100%;
   padding: 0 24px;
   line-height: 18px;
   letter-spacing: 0.02em;
-  background-color: var(--dirty-white);
+  background-color: var(--input);
+  border: 1px solid var(--green-bright);
   border-radius: 5px;
 }
 textarea {
@@ -123,7 +125,8 @@ textarea {
   padding: 21px 24px;
   line-height: 18px;
   letter-spacing: 0.02em;
-  background-color: var(--dirty-white);
+  background-color: var(--input);
+  border: 1px solid var(--green-bright);
   border-radius: 5px;
   resize: none;
 }

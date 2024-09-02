@@ -5,9 +5,8 @@ import './FAQ.css'
 
 export const FAQ = () => {
   return (
-    <SectionTemplate id='faq' backgroundColor='green' >
+    <SectionTemplate id='faq' backgroundColor='green' title='Вопросы' titleColor='white' >
       <div className='faq'>
-        <h3>Frequently Asked Questions</h3>
         <div className="faq__items">
           <div className="faq__column">
             {faqs.slice(0,2).map(item => (
