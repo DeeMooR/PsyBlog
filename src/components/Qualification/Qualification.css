@@ -9,6 +9,7 @@
 }
 .qualification .qualification__items .qualification__image {
   width: calc((100% - 40px) / 3);
+  cursor: zoom-in;
 }
 .qualification .qualification__items .qualification__image img {
   width: 100%;

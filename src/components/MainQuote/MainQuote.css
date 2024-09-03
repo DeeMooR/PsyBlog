@@ -3,12 +3,11 @@
   background-color: var(--background);
 }
 .mainQuote .mainQuote__quote {
+  font-family: var(--font-title);
   font-size: 36px;
   color: var(--green-text);
   text-align: center;
 }
 .mainQuote .mainQuote__quote span {
   color: var(--green-text);
-  font-family: "Courier New";
-  text-transform: lowercase;
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import { PriceItem, SectionTemplate } from 'src/components'
+import { scrollToSection } from 'src/helpers'
 import { services } from 'src/config'
 import './Prices.css'
-import { Link } from 'react-router-dom'
 
 export const Prices = () => {
   return (
@@ -13,7 +13,7 @@ export const Prices = () => {
             <PriceItem obj={item} key={item.id} />
           ))}
         </div>
-        <Link to='/contacts' className='button btnDark prices__button'>Записаться</Link>
+        <button onClick={() => scrollToSection('contacts', -80)} className='button btnDark prices__button'>Записаться</button>
       </div>
     </SectionTemplate>
   )

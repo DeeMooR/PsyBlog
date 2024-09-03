@@ -18,11 +18,12 @@
       display: flex;
       gap: 5px;
       a {
-        font-size: 13px;
+        font-family: var(--font-tall);
+        font-size: 14px;
         font-weight: 400;
         padding: 10px;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         color: var(--green-text);
         transition: all 0.1s ease-in-out 0s;        
         &:hover {
@@ -35,15 +36,17 @@
       text-transform: uppercase;
       cursor: pointer;
       .logo__name {
+        font-family: var(--font-title);
         font-size: 22px;
         color: var(--logo);
-        line-height: 1.4;
+        line-height: 1.3;
+        letter-spacing: 0.06em;
       }
       .logo__position {
-        font-size: 9px;
-        font-weight: 500;
+        font-size: 9.5px;
         color: var(--logo);
         line-height: 1.4;
+        letter-spacing: 0.05em;
       }
     }
   }

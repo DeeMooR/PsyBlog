@@ -5,9 +5,9 @@ import './MainPicture.css'
 
 export const MainPicture = () => {
   return (
-    <section className='mainPicture'>
+    <section className='mainPicture' id='up'>
       <MainImage image={mainImage} />
-      <blockquote className="mainPicture__quote">Психология — это выражение <span>словами</span><br/>того, чего нельзя ими выразить.</blockquote>
+      <blockquote className="mainPicture__quote">Психология — это выражение словами<br/>того, чего нельзя ими выразить.</blockquote>
     </section>
   )
 }

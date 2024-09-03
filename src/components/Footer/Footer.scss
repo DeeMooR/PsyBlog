@@ -11,11 +11,13 @@
       flex-direction: column;
       gap: 5px;
       a {
-        padding: 5px;
-        text-align: center;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 5px 20px;
+        font-family: var(--font-tall);
         line-height: 24px;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.1em;
         color: var(--white);
         transition: all 0.1s ease-in-out 0s;        
         &:hover {
@@ -31,22 +33,32 @@
       flex-direction: column;
       justify-content: center;
       .icons__text {
+        font-family: var(--font-tall);
         text-align: center;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.1em;
         color: var(--white);
-        margin: 0 0 15px 0;
+        margin: 0 0 10px 0;
       }
       .icons__block {
         display: flex;
         justify-content: center;
         gap: 15px;
-        img {
-          max-width: 45px;
-          max-height: 45px;
+        .icons__item {
+          width: 45px;
+          height: 45px;
           padding: 5px;
           cursor: pointer;
-        }
+          path:first-child {
+            fill: var(white);
+            transition: all 0.1s ease-in-out 0s;
+          }
+          &:hover {
+            path:first-child {
+              fill: var(--beige-3);
+            }
+          }
+        }   
       }
     }
   }
@@ -54,7 +66,7 @@
     background: var(--beige-3);
     padding: 16px 0 12px 0;
     .copyright__text {
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: 0.08em;
       text-align: center;
       color: var(--white);

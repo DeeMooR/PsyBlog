@@ -20,11 +20,11 @@ export const ExperienceSlider = () => {
       modules={[Autoplay, Navigation, Pagination, A11y]}
       className='mySwiper'
     >
-      {certificates.map(value => (
-        <SwiperSlide key={value}>
+      {certificates.map((obj, index) => (
+        <SwiperSlide key={index}>
           <div className="customSlide">
             <div className="content">
-              <img src={value} alt={value} />
+              <img src={obj.src} alt={obj.src} />
             </div>
           </div>
         </SwiperSlide>

@@ -1,9 +1,5 @@
 import logoIcon from './icons/logo.png'
 import menuIcon from './icons/menu.png'
-import telegramIcon from './icons/telegram.png'
-import telegramWhiteIcon from './icons/telegram-white.png'
-import whatsappIcon from './icons/whatsapp.png'
-import whatsappWhiteIcon from './icons/whatsapp-white.png'
 import clockIcon from './icons/clock.png'
 import downArrowIcon from './icons/down_arrow.png'
 import upRightArrowIcon from './icons/up_right_arrow.png'
@@ -30,10 +26,6 @@ import post_3 from './images/post_3.jpg'
 export {
   logoIcon, 
   menuIcon,
-  telegramIcon,
-  telegramWhiteIcon,
-  whatsappIcon,
-  whatsappWhiteIcon,
   clockIcon,
   downArrowIcon,
   upRightArrowIcon,
