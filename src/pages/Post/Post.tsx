@@ -1,6 +1,6 @@
 import React from 'react'
 import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
-import { card_1, card_2, card_3, card_4, card_5, card_6, humanIcon } from 'src/assets'
+import { post_1, post_2, post_3, humanIcon } from 'src/assets'
 import { IImage, IList, IBlockquote, ITwoImages } from 'src/components/postBlocks/interfaces'
 import { PostImage } from 'src/styled'
 import './Post.css'
@@ -17,23 +17,23 @@ const obj3 = {
 };
 
 const obj4: IImage = {
-  image: card_2,
+  image: post_1,
   size: 'big',
   withBorder: true,
 }
 const obj5: IImage = {
-  image: card_3,
+  image: post_2,
   size: 'medium',
   withBorder: false,
 }
 const obj6: IImage = {
-  image: card_4,
+  image: post_3,
   size: 'small',
   withBorder: true,
 }
 const obj7: ITwoImages = {
-  image1: card_5,
-  image2: card_6,
+  image1: post_1,
+  image2: post_2,
 }
 const obj8: IBlockquote = {
   quote: 'Traveling can expose you to new environments and potential health risks, so it\'s crucial to take precautions to stay safe and healthy.'
@@ -74,7 +74,7 @@ export const Post = () => {
           <p className="post__date">3 января 2024г.</p>
         </div>
         <div className="post__image">
-          <PostImage image={card_1} />
+          <PostImage image={post_1} />
           <div className="imageBorder" />
         </div>
         <div className="post__content">

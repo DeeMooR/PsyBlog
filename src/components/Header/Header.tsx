@@ -26,7 +26,7 @@ export const Header = () => {
           <a href='#faq' onClick={() => scrollToSection('faq')} >Вопросы</a>
         </div>
         <div className="header__logo" onClick={onClickLogo}>
-          <p className='logo__name'>Olga Razvalyaeva</p>
+          <p className='logo__name'>Ольга Разваляева</p>
           <p className='logo__position'>Психолог, Психоаналитик</p>
         </div>
         <div className='header__navigation'>

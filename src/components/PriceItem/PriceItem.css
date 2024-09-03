@@ -12,7 +12,7 @@
 .priceItem .priceItem__details {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
 }
 .priceItem .priceItem__details .priceItem__time {
   display: flex;

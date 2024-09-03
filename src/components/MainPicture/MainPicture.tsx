@@ -7,7 +7,7 @@ export const MainPicture = () => {
   return (
     <section className='mainPicture'>
       <MainImage image={mainImage} />
-      <blockquote className="mainPicture__quote">Helping to heal <span>the</span><br/>hurt that no one sees</blockquote>
+      <blockquote className="mainPicture__quote">Психология — это выражение <span>словами</span><br/>того, чего нельзя ими выразить.</blockquote>
     </section>
   )
 }

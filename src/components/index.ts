@@ -12,13 +12,13 @@ export * from './Blog/Blog';
 export * from './CardSmall/CardSmall';
 export * from './CardMedium/CardMedium';
 export * from './ScrollToTop/ScrollToTop';
-export * from './Person/Person';
 export * from './NewPostRequired/NewPostRequired';
 export * from './Input/Input';
 export * from './Textarea/Textarea';
 export * from './MainPicture/MainPicture';
 export * from './About/About';
 export * from './MainQuote/MainQuote';
+export * from './Qualification/Qualification';
 
 export * from './postBlocks/Title';
 export * from './postBlocks/Text';

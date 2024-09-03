@@ -13,11 +13,11 @@ export const About = () => {
           <AboutImage image={aboutImage} />
         </div>
         <div className="about__info">
-          <h3 className="about__title">Perhaps life looks like you always hoped it would. But inside, the picture is different.</h3>
+          <h3 className="about__title">Когда вы не осознаете происходящее внутри вас, снаружи это кажется судьбой.</h3>
           <p className="about__text">
-            As a clinical psychologist and a working mum specialising in women's health, I understand first-hand the challenges that come with juggling career, family, and personal well-being. <br/><br/>
-            My passion lies in supporting fellow working mothers like you, through a compassionate, holistic and evidence-based approach to mental health. <br/><br/>
-            Whether you're navigating maternal mental health issues, seeking to improve work-life balance, or simply looking for a space to prioritise your own well-being, I am here to empower you on your journey, providing personalised support and practical strategies.
+            Я помогаю понимать свои эмоции, обрести уверенность и легче справляться с тревогами. Чтобы получить устойчивые изменения и не допустить появления этих же проблем в будущем — работаю и с их причинами. <br/><br/>
+            Практикую с 2018 года в рамках психоаналитического подхода и имагинативной психотерапии, для контроля качества еженедельно хожу на супервизии. <br/><br/>
+            Я преподаю психоанализ, провожу супервизии для специалистов, являюсь действительным членом Ассоциации имагинативной психодинамической психотерапии, придерживаюсь этического кодекса.
           </p>
           <Link to='/qualification' className='button about__button'>Квалификация</Link>
         </div>

@@ -1,5 +1,5 @@
 import { IFAQ, IService, IShortCard } from "src/interfaces";
-import { card_1, card_2, card_3, card_4, card_5, card_6, certificate_1, certificate_2, certificate_3, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
+import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
   {
@@ -38,7 +38,7 @@ export const faqs: IFAQ[] = [
     text: 'Особенность психоанализа — работа с глубинными переживаниями. Психоаналитик помогает клиенту обнаружить и разрешить те конфликты, на почве которых в течение жизни постоянно формируются новые проблемы. Это как если из прохудившейся резиновой лодки не вычерпывать все время воду (что делает обычная психотерапия), а найти и заделать пробоину в днище.'  },
 ];
 
-export const certificates: string[] = [certificate_1, certificate_2, certificate_3];
+export const certificates: string[] = [certificate_1, certificate_2, certificate_3, certificate_4, certificate_5];
 
 export const topCards: IShortCard[] = [
   {
@@ -69,42 +69,42 @@ export const allCards: IShortCard[] = [
     id: 1,
     title: 'Психология!',
     description: 'Психология - наука.',
-    image: card_1,
+    image: post_1,
     date: '01.01.2024'
   },
   {
     id: 2,
     title: 'Что такое психология?',
     description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности.',
-    image: card_2,
+    image: post_2,
     date: '02.01.2024'
   },
   {
     id: 3,
     title: 'Что такое психология?',
     description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности. Добавил рандомного текста чтобы проверить точки но пока что они не появляются. Тестируем дальше эту фичу',
-    image: card_3,
+    image: post_3,
     date: '03.01.2024'
   },
   {
     id: 4,
     title: 'Психология!',
     description: 'Психология - наука.',
-    image: card_4,
+    image: post_1,
     date: '01.01.2024'
   },
   {
     id: 5,
     title: 'Что такое психология?',
     description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности.',
-    image: card_5,
+    image: post_2,
     date: '02.01.2024'
   },
   {
     id: 6,
     title: 'Что такое психология?',
     description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности. Добавил рандомного текста чтобы проверить точки но пока что они не появляются. Тестируем дальше эту фичу',
-    image: card_6,
+    image: post_3,
     date: '03.01.2024'
   }
 ];

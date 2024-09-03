@@ -1,5 +1,5 @@
 import React from 'react'
-import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts, Person, MainPicture, About, MainQuote } from 'src/components'
+import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts, MainPicture, About, MainQuote, Qualification } from 'src/components'
 
 export const MainPage = () => {
   return (
@@ -11,10 +11,10 @@ export const MainPage = () => {
         <About />
         <Prices />
         <FAQ />
+        <Qualification />
         <Blog />
         <Contacts />
-        {/* <Person />
-        <Experience /> */}
+        {/* <Experience /> */}
       </div>
       <Footer />
     </div>

@@ -21,3 +21,6 @@
 .sectionTemplate .sectionTemplate__wrapper .sectionTemplate__title.title__white {
   color: var(--white);
 }
+.sectionTemplate .sectionTemplate__wrapper .sectionTemplate__title.title__black {
+  color: var(--black);
+}

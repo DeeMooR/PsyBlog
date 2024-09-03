@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export const Prices = () => {
   return (
-    <SectionTemplate id='prices' backgroundColor='beige1' title='Услуги' >
+    <SectionTemplate id='prices' backgroundColor='beige1' >
       <div className='prices'>
         <div className="prices__items">
           {services.map(item => (

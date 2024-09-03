@@ -3,7 +3,7 @@
   background-color: var(--background);
 }
 .mainQuote .mainQuote__quote {
-  font-size: 44px;
+  font-size: 36px;
   color: var(--green-text);
   text-align: center;
 }
