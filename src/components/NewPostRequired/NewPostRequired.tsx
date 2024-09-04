@@ -55,7 +55,7 @@ export const NewPostRequired = () => {
             placeholder='Краткое описание' 
             error={errors.description?.message}
           />
-          <button type='submit' className='newPostRequired__button btnWhite smallBtn'>Сохранить</button>
+          <button className='newPostRequired__button smallBtn'>Сохранить</button>
         </div>
       </form>
     </div>

@@ -19,6 +19,8 @@ export * from './MainPicture/MainPicture';
 export * from './About/About';
 export * from './MainQuote/MainQuote';
 export * from './Qualification/Qualification';
+export * from './NewPostSelection/NewPostSelection';
+export * from './RadioOption/RadioOption';
 
 export * from './postBlocks/Title';
 export * from './postBlocks/Text';

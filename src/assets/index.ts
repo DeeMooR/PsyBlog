@@ -5,6 +5,9 @@ import downArrowIcon from './icons/down_arrow.png'
 import upRightArrowIcon from './icons/up_right_arrow.png'
 import humanIcon from './icons/human.png'
 import warningIcon from './icons/warning.svg'
+import crossIcon from './icons/cross.svg';
+import radioSelectedIcon from './icons/radioSelected.svg';
+import radioUnselectedIcon from './icons/radioUnselected.svg';
 
 import mainImage from './images/mainImage.jpg';
 import aboutImage from './images/aboutImage.jpg';
@@ -31,6 +34,9 @@ export {
   upRightArrowIcon,
   humanIcon,
   warningIcon,
+  crossIcon,
+  radioSelectedIcon,
+  radioUnselectedIcon,
   mainImage,
   aboutImage,
   contactsImage,

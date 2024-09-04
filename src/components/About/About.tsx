@@ -19,7 +19,7 @@ export const About = () => {
             <p className='about__text'>Практикую с 2018 года в рамках психоаналитического подхода и имагинативной психотерапии, для контроля качества еженедельно хожу на супервизии.</p>
             <p className='about__text'>Я преподаю психоанализ, провожу супервизии для специалистов, являюсь действительным членом Ассоциации имагинативной психодинамической психотерапии, придерживаюсь этического кодекса.</p>
           </p>
-          <button onClick={() => scrollToSection('qualification')} className='button about__button'>Квалификация</button>
+          <button onClick={() => scrollToSection('qualification')} className='about__button'>Квалификация</button>
         </div>
       </div>
     </SectionTemplate>

@@ -71,7 +71,7 @@
   --beige-1: #F0DBCC;
   --beige-2: #EFC3A9;
   --beige-3: #D49C7D;
-  --disabled: #8D8D8D;
+  --disabled: #a8a8a8;
   --input: #FAFAFA;
 }
 
@@ -159,7 +159,7 @@ input {
   width: 100%;
   padding: 0 24px;
   line-height: 18px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1em;
   background-color: var(--input);
   border: 1px solid var(--green-bright);
   border-radius: 5px;
@@ -169,7 +169,7 @@ textarea {
   width: 100%;
   padding: 21px 24px;
   line-height: 18px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1em;
   background-color: var(--input);
   border: 1px solid var(--green-bright);
   border-radius: 5px;
@@ -184,7 +184,7 @@ textarea::placeholder {
   color: var(--faint-text);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1em;
 }
 
 button, .button {

@@ -1,6 +1,5 @@
 .newPostRequired .newPostRequired__title {
-  margin: 0 0 15px 0;
-  text-transform: none;
+  margin: 0 0 10px 0;
 }
 .newPostRequired .newPostRequired__form {
   display: flex;
@@ -13,6 +12,9 @@
   flex-direction: column;
   gap: 20px;
 }
-.newPostRequired .newPostRequired__form .newPostRequired__button {
+.newPostRequired .newPostRequired__form .newPostRequired__left .newPostRequired__button,
+.newPostRequired .newPostRequired__form .newPostRequired__right .newPostRequired__button {
   margin-left: auto;
+  margin-top: -5px;
+  border-radius: 5px;
 }

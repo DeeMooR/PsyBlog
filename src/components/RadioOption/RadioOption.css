@@ -1,0 +1,16 @@
+.radioOption__box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.radioOption__box .radioOption__icon {
+  width: 22px;
+  height: 22px;
+}
+.radioOption__box .radioOption__text {
+  white-space: nowrap;
+}
+.radioOption__box input {
+  display: none;
+}

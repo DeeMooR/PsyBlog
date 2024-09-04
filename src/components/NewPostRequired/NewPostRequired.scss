@@ -1,7 +1,6 @@
 .newPostRequired {
   .newPostRequired__title {
-    margin: 0 0 15px 0;
-    text-transform: none;
+    margin: 0 0 10px 0;
   }
   .newPostRequired__form {
     display: flex;
@@ -12,9 +11,11 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-    }
-    .newPostRequired__button {
-      margin-left: auto;
+      .newPostRequired__button {
+        margin-left: auto;
+        margin-top: -5px;
+        border-radius: 5px;
+      }
     }
   }
 }

@@ -13,7 +13,7 @@ export const Prices = () => {
             <PriceItem obj={item} key={item.id} />
           ))}
         </div>
-        <button onClick={() => scrollToSection('contacts', -80)} className='button btnDark prices__button'>Записаться</button>
+        <button onClick={() => scrollToSection('contacts', -80)} className='btnDark prices__button'>Записаться</button>
       </div>
     </SectionTemplate>
   )
