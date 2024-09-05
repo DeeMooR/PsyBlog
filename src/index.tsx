@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter as Router } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-// import store from './store/store';
+import { Provider } from 'react-redux';
+import store from './store/store';
 import { ScrollToTop } from './components';
 import App from './App';
 import './index.css';
@@ -14,8 +14,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <Router>
     <ScrollToTop />
-    {/* <Provider store={store}> */}
+    <Provider store={store}>
         <App />
-    {/* </Provider> */}
+    </Provider>
   </Router>
 );

@@ -35,3 +35,14 @@ export interface IShortCard {
 }
 
 export interface IShortCardWithoutId extends Omit<IShortCard, 'id'> {}
+
+export interface IRequiredFileds {
+  title: string,
+  description: string,
+  image: string,
+  date: string,
+}
+
+export interface IPostRequiredData extends IRequiredFileds {
+  id: string;
+}

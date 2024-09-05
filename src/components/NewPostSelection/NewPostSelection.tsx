@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import { setNewPostNewBlockName, useAppDispatch } from 'src/store';
 import { RadioOption } from 'src/components'
 import { radioOptions } from 'src/config';
 import { crossIcon } from 'src/assets';
@@ -9,7 +10,13 @@ interface INewPostSelection {
 }
 
 export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
+  const dispatch = useAppDispatch();
   const [selected, setSelected] = useState<string>('');
+
+  const clickApplySelected = () => {
+    dispatch(setNewPostNewBlockName(selected));
+    clickClose();
+  }
 
   return (
     <div className='newPostSelection'>
@@ -29,7 +36,7 @@ export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
           </div>
         )}
       </div>
-      <button className='newPostSelection__button smallBtn' disabled={!selected}>Применить</button>
+      <button className='newPostSelection__button smallBtn' onClick={clickApplySelected} disabled={!selected}>Применить</button>
     </div>
   )
 }

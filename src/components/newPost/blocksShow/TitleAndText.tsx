@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import parse from 'html-react-parser';
-import { ITitleAndText } from './interfaces';
+import { ITitleAndText } from '../interfaces';
 import './postBlocks.css'
 
 export const TitleAndText:FC<{obj: ITitleAndText}> = ({ obj }) => {

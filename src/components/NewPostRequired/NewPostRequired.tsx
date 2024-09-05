@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Textarea } from 'src/components';
-import { IShortCardWithoutId } from 'src/interfaces';
+import { IRequiredFileds } from 'src/interfaces';
 import { newPostRequired } from 'src/validation';
 import './NewPostRequired.css'
 
@@ -12,12 +12,12 @@ export const NewPostRequired = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IShortCardWithoutId>({
+  } = useForm<IRequiredFileds>({
     mode: 'onSubmit',
     resolver: yupResolver(newPostRequired),
   });
 
-  const onSubmit = (data: IShortCardWithoutId) => {
+  const onSubmit = (data: IRequiredFileds) => {
     console.log(data);
   }
 

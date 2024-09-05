@@ -72,6 +72,8 @@
   --beige-2: #EFC3A9;
   --beige-3: #D49C7D;
   --disabled: #a8a8a8;
+  --disabled-light: #d9d9d9;
+  --cancel: #a8a8a8;
   --input: #FAFAFA;
 }
 
@@ -186,6 +188,11 @@ textarea::placeholder {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+input:disabled,
+textarea:disabled {
+  background-color: var(--disabled-light);
+  cursor: not-allowed;
+}
 
 button, .button {
   display: flex;
@@ -212,6 +219,9 @@ button:disabled,
 
 .btnDark {
   background-color: var(--beige-3);
+}
+.btnCancel {
+  background-color: var(--cancel);
 }
 
 .smallBtn {

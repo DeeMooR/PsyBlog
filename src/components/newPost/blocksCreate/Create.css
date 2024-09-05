@@ -1,0 +1,11 @@
+.newBlock .newBlock__fields {
+  margin: 0 0 15px 0;
+}
+.newBlock .newBlock__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+}
+.newBlock .newBlock__buttons button {
+  border-radius: 5px;
+}

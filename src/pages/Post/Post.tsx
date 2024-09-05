@@ -1,7 +1,7 @@
 import React from 'react'
 import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
-import { IImage, IList, IBlockquote, ITwoImages } from 'src/components/postBlocks/interfaces'
+import { IImage, IList, IBlockquote, ITwoImages } from 'src/components/newPost/interfaces'
 import { PostImage } from 'src/styled'
 import './Post.css'
 

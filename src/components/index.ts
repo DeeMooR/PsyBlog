@@ -21,11 +21,6 @@ export * from './MainQuote/MainQuote';
 export * from './Qualification/Qualification';
 export * from './NewPostSelection/NewPostSelection';
 export * from './RadioOption/RadioOption';
+export * from './BlockCreateTemplate/BlockCreateTemplate';
 
-export * from './postBlocks/Title';
-export * from './postBlocks/Text';
-export * from './postBlocks/TitleAndText';
-export * from './postBlocks/Image';
-export * from './postBlocks/TwoImages';
-export * from './postBlocks/Blockquote';
-export * from './postBlocks/List';
+export * from './newPost';

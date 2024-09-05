@@ -8,10 +8,11 @@ interface IInput {
   register: UseFormRegister<any>;
   type: string;
   placeholder?: string;
+  disabled?: boolean;
   error?: string;
 }
 
-export const Input:FC<IInput> = ({id, type, placeholder, register, error}) => {
+export const Input:FC<IInput> = ({id, register, type, placeholder, disabled, error}) => {
   const inputStyle = `${error ? 'warning' : ''}`
   
   return (
@@ -20,6 +21,7 @@ export const Input:FC<IInput> = ({id, type, placeholder, register, error}) => {
         id={id}
         {...register(id)}
         type={type}
+        disabled={disabled}
         placeholder={placeholder}
         className={inputStyle}
       />

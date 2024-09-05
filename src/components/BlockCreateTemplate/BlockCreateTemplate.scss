@@ -1,0 +1,18 @@
+.blockCreateTemplate {
+  position: relative;
+  padding: 25px 25px 20px;
+  background-color: var(--background);
+  border-radius: 15px;
+  .blockCreateTemplate__cross {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .blockCreateTemplate__title {
+    text-align: center;
+    margin: 0 0 15px 0;
+  }
+}

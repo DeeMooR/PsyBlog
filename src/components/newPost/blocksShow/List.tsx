@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import parse from 'html-react-parser';
-import { IList } from './interfaces';
+import { IList } from '../interfaces';
 import './postBlocks.css'
 
 export const List:FC<{obj: IList}> = ({ obj }) => {
