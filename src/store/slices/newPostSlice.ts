@@ -28,6 +28,13 @@ const newPostSlice = createSlice({
     setNewPostNewBlockName: (state, { payload }) => {
       state.newBlockName = payload;
     },
+    setNewPostErrorMessage: (state, { payload }) => {
+      state.errorMessage = payload;
+    },
+    clearNewPostMessages: (state) => {
+      state.successMessage = null;
+      state.errorMessage = null;
+    }
   },
   extraReducers: (builder) => {
     // builder
@@ -45,5 +52,5 @@ const newPostSlice = createSlice({
 
 export const {
   reducer: newPostReducer,
-  actions: {setNewPostNewBlockName},
+  actions: {setNewPostNewBlockName, setNewPostErrorMessage, clearNewPostMessages},
 } = newPostSlice;

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { Header, NewPostRequired, NewPostSelection, TitleCreate } from 'src/components'
-import { getNewPostSelector, useAppSelector } from 'src/store'
+import React, { useEffect, useState } from 'react'
+import { Header, NewPostRequired, NewPostSelection, TitleCreate, Notification } from 'src/components'
+import { clearNewPostMessages, getNewPostSelector, useAppDispatch, useAppSelector } from 'src/store'
 import { NewBlockNames } from 'src/config'
 import './NewPost.css'
 
@@ -9,8 +9,11 @@ const openNewBlock = {
 };
 
 export const NewPost = () => {
-  const { newBlockName } = useAppSelector(getNewPostSelector);
+  const dispatch = useAppDispatch();
+  const { newBlockName, errorMessage } = useAppSelector(getNewPostSelector);
   const [showSelection, setShowSelection] = useState(false);
+
+  const clearMessages = () => dispatch(clearNewPostMessages());
 
   return (
     <div className='newPost'>
@@ -38,6 +41,7 @@ export const NewPost = () => {
           </div>
         }
       </div>
+      {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
     </div>
   )
 }

@@ -61,7 +61,6 @@
   --green: #004523;
   --border: #E8E8EA;
   --background-grey: #F0F0F0;
-  --warning: #FFAA00;
   
   --white: #FFFFFF;
   --background: #FFFAF5;
@@ -75,6 +74,10 @@
   --disabled-light: #d9d9d9;
   --cancel: #a8a8a8;
   --input: #FAFAFA;
+  --warning: #FFAA00;
+  --success: #4DB84D;
+  --error: #DF5A5A;
+  --delete: #DC1D1D;
 }
 
 /*--------- NULLING STYLE ----------*/

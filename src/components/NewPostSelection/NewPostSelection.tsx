@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { setNewPostNewBlockName, useAppDispatch } from 'src/store';
+import { getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlockName, useAppDispatch, useAppSelector } from 'src/store';
 import { RadioOption } from 'src/components'
 import { radioOptions } from 'src/config';
 import { crossIcon } from 'src/assets';
@@ -11,11 +11,16 @@ interface INewPostSelection {
 
 export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
   const dispatch = useAppDispatch();
+  const { newBlockName } = useAppSelector(getNewPostSelector);
   const [selected, setSelected] = useState<string>('');
 
   const clickApplySelected = () => {
-    dispatch(setNewPostNewBlockName(selected));
-    clickClose();
+    if (!newBlockName) {
+      dispatch(setNewPostNewBlockName(selected));
+      clickClose();
+    } else {
+      dispatch(setNewPostErrorMessage(`Перед созданием нового блока завершите создание блока "${newBlockName}"`))
+    }
   }
 
   return (
