@@ -8,6 +8,7 @@ const initialState: newPostState = {
     description: '',
     image: '',
     date: '',
+    isActive: true,
   },
   newBlockName: null,
   isLoading: false,

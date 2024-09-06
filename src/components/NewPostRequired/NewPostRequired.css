@@ -1,4 +1,6 @@
-.newPostRequired .newPostRequired__title {
+.newPostRequired .newPostRequired__up {
+  display: flex;
+  justify-content: space-between;
   margin: 0 0 10px 0;
 }
 .newPostRequired .newPostRequired__form {

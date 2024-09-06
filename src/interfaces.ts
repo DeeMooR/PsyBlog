@@ -36,13 +36,15 @@ export interface IShortCard {
 
 export interface IShortCardWithoutId extends Omit<IShortCard, 'id'> {}
 
-export interface IRequiredFileds {
+export interface IPostFields {
+  id: string,
   title: string,
   description: string,
   image: string,
   date: string,
+  isActive: boolean,
 }
 
-export interface IPostRequiredData extends IRequiredFileds {
-  id: string;
-}
+export interface IPostRequiredFormFields extends Omit<IPostFields, 'id' | 'isActive'> {}
+
+export interface IPostRequiredFields extends Omit<IPostFields, 'id'> {}

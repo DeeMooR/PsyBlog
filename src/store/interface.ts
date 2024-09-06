@@ -1,7 +1,7 @@
-import { IPostRequiredData } from "src/interfaces";
+import { IPostFields } from "src/interfaces";
 
 export interface newPostState {
-  postData: IPostRequiredData,
+  postData: IPostFields,
   newBlockName: string | null,
   isLoading: boolean,
   successMessage: string | null,

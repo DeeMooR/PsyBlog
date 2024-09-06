@@ -1,29 +1,39 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Input, Textarea } from 'src/components';
-import { IRequiredFileds } from 'src/interfaces';
+import { Input, SwitchButton, Textarea } from 'src/components';
+import { IPostRequiredFormFields } from 'src/interfaces';
 import { newPostRequired } from 'src/validation';
 import './NewPostRequired.css'
+import { getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
 
 export const NewPostRequired = () => {
+  const dispatch = useAppDispatch();
+  const { isActive } = useAppSelector(getNewPostDataSelector);
   
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IRequiredFileds>({
+  } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
     resolver: yupResolver(newPostRequired),
   });
 
-  const onSubmit = (data: IRequiredFileds) => {
+  const onSubmit = (data: IPostRequiredFormFields) => {
     console.log(data);
+  }
+
+  const changeActivity = () => {
+    console.log(!isActive);
   }
 
   return (
     <div className='newPostRequired'>
-      <h4 className='newPostRequired__title'>Основные поля</h4>
+      <div className="newPostRequired__up">
+        <h4 className='newPostRequired__title'>Основные поля</h4>
+        <SwitchButton id='newPost' isActive={isActive} changeActivity={changeActivity} />
+      </div>
       <form className="newPostRequired__form" onSubmit={handleSubmit(onSubmit)}>
         <div className="newPostRequired__left">
           <Input 
