@@ -10,7 +10,7 @@ export const createTables = async () => {
       date VARCHAR(255) NOT NULL
     );
   `;
-  const postFields = `
+  const post_fields = `
     CREATE TABLE IF NOT EXISTS post_fields (
       id INT AUTO_INCREMENT PRIMARY KEY,
       post_id INT NOT NULL,
@@ -18,9 +18,16 @@ export const createTables = async () => {
       table_id INT NOT NULL
     );
   `;
+  const title = `
+    CREATE TABLE IF NOT EXISTS title (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(255) NOT NULL
+    );
+  `;
   try {
     await db.query(posts);
-    await db.query(postFields);
+    await db.query(post_fields);
+    await db.query(title);
     console.log('Успешная загрузка таблиц.')
   } catch (err) {
     console.error('Ошибка при создании таблицы.', err);
