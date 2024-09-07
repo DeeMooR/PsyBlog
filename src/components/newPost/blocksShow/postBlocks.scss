@@ -1,12 +1,9 @@
 .text {
-  letter-spacing: 0.02em;
-  line-height: 24px;
 }
 
 .title {
   font-size: 24px;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .titleAndText {
@@ -54,8 +51,6 @@
 .blockquote {
   padding: 24px;
   font-style: italic;
-  letter-spacing: 0.02em;
-  line-height: 24px;
   background-color: #F6F6F7;
   border-radius: 12px;
   border-left: 4px solid #E8E8EA;
@@ -68,10 +63,7 @@
 }
 
 .list {
-  li {
-    letter-spacing: 0.02em;
-    line-height: 24px;
-  }
+  li {}
   .text {
     margin: 0 0 12px 0;
   }

@@ -13,7 +13,7 @@
   height: 22px;
   cursor: pointer;
   border-radius: 14px;
-  background-color: var(--grey-light);
+  background-color: var(--disabled-light);
   transition: all 0.2s ease-in-out 0s;
 }
 .switchButton .switchButton__switcher::before {
@@ -23,7 +23,7 @@
   left: 3px;
   width: 17px;
   height: 17px;
-  background-color: var(--disabled-light);
+  background-color: var(--disabled);
   border-radius: 50%;
   transition: all 0.2s ease-in-out 0s;
 }
@@ -33,12 +33,12 @@
   opacity: 0;
 }
 .switchButton.isActive .switchButton__prefix {
-  color: var(--beige-3);
+  color: var(--beige-2);
 }
 .switchButton.isActive .switchButton__switcher {
   background-color: var(--beige-1);
 }
 .switchButton.isActive .switchButton__switcher::before {
   left: 20px;
-  background-color: var(--beige-3);
+  background-color: var(--beige-2);
 }

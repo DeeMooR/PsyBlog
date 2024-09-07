@@ -7,7 +7,7 @@ export const MainPicture = () => {
   return (
     <section className='mainPicture' id='up'>
       <MainImage image={mainImage} />
-      <blockquote className="mainPicture__quote">Психология — это выражение словами<br/>того, чего нельзя ими выразить.</blockquote>
+      <blockquote className="mainPicture__quote quote">Психология — это выражение словами<br/>того, чего нельзя ими выразить.</blockquote>
     </section>
   )
 }

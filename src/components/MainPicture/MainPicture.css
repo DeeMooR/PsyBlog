@@ -6,10 +6,6 @@
   position: absolute;
   top: 40%;
   left: calc((100% - 1200px) / 2 + 20px);
-  color: var(--white);
-  font-family: var(--font-pen);
   font-size: 24px;
-}
-.mainPicture .mainPicture__quote span {
   color: var(--white);
 }

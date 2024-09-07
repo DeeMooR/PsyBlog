@@ -1,13 +1,7 @@
 @charset "UTF-8";
-.text {
-  letter-spacing: 0.02em;
-  line-height: 24px;
-}
-
 .title {
   font-size: 24px;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .titleAndText .title {
@@ -53,8 +47,6 @@
 .blockquote {
   padding: 24px;
   font-style: italic;
-  letter-spacing: 0.02em;
-  line-height: 24px;
   background-color: #F6F6F7;
   border-radius: 12px;
   border-left: 4px solid #E8E8EA;
@@ -66,10 +58,6 @@
   content: "”";
 }
 
-.list li {
-  letter-spacing: 0.02em;
-  line-height: 24px;
-}
 .list .text {
   margin: 0 0 12px 0;
 }

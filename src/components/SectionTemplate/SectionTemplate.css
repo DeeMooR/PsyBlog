@@ -6,7 +6,7 @@
   background-color: var(--beige-1);
 }
 .sectionTemplate.bgGreen {
-  background-color: var(--green-bright);
+  background-color: var(--green);
 }
 .sectionTemplate.includeTitle {
   padding: 60px 0 80px;
@@ -18,12 +18,12 @@
 }
 .sectionTemplate .sectionTemplate__wrapper .sectionTemplate__title {
   margin: 0 0 40px 0;
-  color: var(--black);
+  color: var(--green-text);
   text-align: center;
 }
 .sectionTemplate .sectionTemplate__wrapper .sectionTemplate__title.title__white {
   color: var(--white);
 }
 .sectionTemplate .sectionTemplate__wrapper .sectionTemplate__title.title__black {
-  color: var(--black);
+  color: var(--green-text);
 }

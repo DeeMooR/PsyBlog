@@ -12,7 +12,7 @@ export const services: IService[] = [
   {
     id: 2,
     image: service_2,
-    name: 'Семейная консультация',
+    name: 'Бизнес консультация',
     price: 6000,
     time: '45 мин.'
   }

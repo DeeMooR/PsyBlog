@@ -9,7 +9,7 @@
   top: 0;
   width: 30%;
   height: 100%;
-  background-color: var(--green-bright);
+  background-color: var(--green);
   z-index: -1;
 }
 .contacts .contacts__wrapper {
@@ -46,7 +46,6 @@
 }
 .contacts .contacts__wrapper .contacts__form .form__content .form__policy {
   font-size: 10px;
-  line-height: 1.2;
   text-align: center;
   opacity: 0.8;
 }

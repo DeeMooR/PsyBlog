@@ -23,7 +23,7 @@
       font-size: 11px;
       padding: 8px 11px 8px 10px;
       color: var(--dark-grey);
-      background-color: var(--dirty-white);
+      background-color: var(--disabled);
       border-radius: 50%;
     }
   }
@@ -33,7 +33,7 @@
       font-size: 11px;
       padding: 8px 10px 8px 11px;
       color: var(--dark-grey);
-      background-color: var(--dirty-white);
+      background-color: var(--disabled);
       border-radius: 50%;
     }
   }
@@ -47,7 +47,7 @@
       border-radius: 2px;
       margin: 0 5px;
       &.swiper-pagination-bullet-active  {
-        background: var(--gold);
+        background: var(--beige-2);
       }
     }
   }

@@ -26,9 +26,6 @@
   background-color: transparent;
   border-radius: 50%;
 }
-.notification .notification__wrapper .notification__text {
-  line-height: 1.2;
-}
 .notification .notification__wrapper .notification__cross {
   position: absolute;
   padding: 5px;

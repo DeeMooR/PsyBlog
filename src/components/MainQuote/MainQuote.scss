@@ -2,12 +2,7 @@
   padding: 100px 0 20px 0;
   background-color: var(--background);
   .mainQuote__quote {
-    font-family: var(--font-title);
     font-size: 36px;
-    color: var(--green-text);
     text-align: center;
-    span {
-      color: var(--green-text);
-    }
   }
 }

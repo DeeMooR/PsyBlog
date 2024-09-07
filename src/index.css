@@ -1,85 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
-
 /*--------- FONTS ----------*/
 
 @font-face {
-  font-family: "Unageo";
-  src: url("./fonts/Unageo/Unageo-Light.ttf") format("truetype");
-  font-style: normal; 
-  font-weight: 300; 
-}
-@font-face {
-  font-family: "Unageo";
-  src: url("./fonts/Unageo/Unageo-Regular.ttf") format("truetype");
+  font-family: "TaylorSans";
+  src: url("./fonts/TaylorSans/TaylorSans-Regular.ttf") format("truetype");
   font-style: normal; 
   font-weight: 400; 
 }
 @font-face {
-  font-family: "Czizh";
-  src: url("./fonts/Czizh/CzizhBody.ttf") format("truetype");
+  font-family: "Museo";
+  src: url("./fonts/Museo/exljbris - Museo Cyrl 300.otf") format("opentype");
   font-style: normal; 
   font-weight: 400; 
 }
 @font-face {
-  font-family: "LiberationMono";
-  src: url("./fonts/LiberationMono/LiberationMono-Regular.ttf") format("truetype");
-  font-style: normal; 
-  font-weight: normal; 
-}
-
-@font-face {
-  font-family: "Dihjauti";
-  src: url("./fonts/Dihjauti/Dihjauti-Regular.otf") format("opentype");
+  font-family: "Inkhead";
+  src: url("./fonts/Inkhead/Inkhead.otf") format("opentype");
   font-style: normal; 
   font-weight: 400; 
 }
 @font-face {
-  font-family: "Dihjauti";
-  src: url("./fonts/Dihjauti/Dihjauti-Italic.otf") format("opentype");
-  font-style: italic; 
-  font-weight: 400; 
-}
-@font-face {
-  font-family: "Dihjauti";
-  src: url("./fonts/Dihjauti/Dihjauti-Bold.otf") format("opentype");
+  font-family: "Mr.Lonely";
+  src: url("./fonts/Mr.Lonely/Mr.Lonely.otf") format("opentype");
   font-style: normal; 
-  font-weight: 700; 
-}
-@font-face {
-  font-family: "Dihjauti";
-  src: url("./fonts/Dihjauti/Dihjauti-BoldItalic.otf") format("opentype");
-  font-style: italic; 
-  font-weight: 700; 
+  font-weight: 400; 
 }
 
 /*--------- CONST ----------*/
 :root {
-  --font-main: 'Unageo', Arial;
-  --font-pen: 'Czizh';
-  --font-title: 'Dihjauti';
-  --font-tall: 'LiberationMono';
-  --dirty-white: #F4F4F4;
-  --footer: #E4E4E4;
-  --black: #24262E;
-  --dark-grey: #383838;
-  --faint-text: #8D8D8D;
-  --gold: #D2BA7C;
-  --green: #004523;
-  --border: #E8E8EA;
-  --background-grey: #F0F0F0;
+  --font-main: 'Museo', 'Georgia';
+  --font-title: 'Museo', 'Georgia';
+  --font-pen: 'Inkhead', 'Georgia';
+  --font-tall: 'TaylorSans', 'Georgia';
+  --font-logo: 'Mr.Lonely';
   
   --white: #FFFFFF;
-  --grey-light: #f2f2f2;
-  --background: #FFFAF5;
-  --green-text: #70806B;
-  --logo: #788772;
-  --green-bright: #B5B096;
-  --beige-1: #F0DBCC;
-  --beige-2: #EFC3A9;
-  --beige-3: #D49C7D;
+  --background: #F9F3EB;
+  --green-text: #494706;
+  --black-text: #383838;
+  --green: #646b41;
+
+  --beige-1: #E8D4BC;
+  --beige-2: #D7B489;
+  
   --disabled: #a8a8a8;
   --disabled-light: #d9d9d9;
-  --cancel: #a8a8a8;
   --input: #FAFAFA;
   --warning: #FFAA00;
   --success: #4DB84D;
@@ -102,17 +66,15 @@ nav,footer,header,aside{display: block;}
 html,body{
 	height: 100%;
 	width: 100%;
-	font-size: 100%;
-	line-height: 1.2;
 	font-size: 16px;
   font-weight: 400;
   font-family: var(--font-main);
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--background);
+  color: var(--black-text);
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;}
-div, p, a, span {font-family: var(--font-main); color: var(--black);}
+div, p, a, span {font-family: var(--font-main);}
 input,button,textarea{font-family: var(--font-main);}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
@@ -121,7 +83,7 @@ a, a:visited{text-decoration: none; cursor: pointer; display: block;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{display: block; vertical-align: top;}
-h1,h2,h3,h4,h5,h6{font-family: var(--font-title); font-weight:400; line-height: 1.3;}
+h1,h2,h3,h4,h5,h6{font-family: var(--font-title); font-weight: 400}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -136,15 +98,13 @@ body {
 
 /*--------- STYLES ---------*/
 
-p, span, a, button {
-  line-height: 1.7;
-  letter-spacing: 0.03em;
-  color: var(--black);
+p, span, a {
+  line-height: 1.4;
+  letter-spacing: 0.04em;
 }
 
-h1 {
-  font-size: 48px;
-  color: var(--green);
+button, input, textarea {
+  letter-spacing: 0.05em;
 }
 
 h2 {
@@ -152,15 +112,12 @@ h2 {
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 24px;
 }
 
 h4 {
-  font-size: 20px;
-}
-
-h5 {
-  font-size: 16px;
+  font-size: 18px;
+  letter-spacing: 0.02em;
 }
 
 input {
@@ -170,33 +127,28 @@ input {
   height: 54px;
   width: 100%;
   padding: 0 24px;
-  line-height: 18px;
-  letter-spacing: 0.1em;
   background-color: var(--input);
-  border: 1px solid var(--green-bright);
+  border: 1px solid var(--green);
   border-radius: 5px;
 }
 textarea {
   height: 100px;
   width: 100%;
   padding: 21px 24px;
-  line-height: 18px;
-  letter-spacing: 0.1em;
   background-color: var(--input);
-  border: 1px solid var(--green-bright);
+  border: 1px solid var(--green);
   border-radius: 5px;
   resize: none;
 }
 input:focus,
 textarea:focus {
-  border: 1px solid var(--black);
+  border: 1px solid var(--black-text);
 }
 input::placeholder,
 textarea::placeholder {
-  color: var(--faint-text);
+  color: var(--disabled);
   font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
 }
 input:disabled,
 textarea:disabled {
@@ -210,16 +162,15 @@ button, .button {
   justify-content: center;
   height: 44px;
   font-size: 15px;
-  letter-spacing: 0.08em;
   padding: 0 24px;
   color: var(--white);
-  background-color: var(--beige-2);
+  background-color: var(--beige-1);
   text-transform: uppercase;
   transition: all 0.2s ease-in-out 0s;
 }
 button:hover:not(:disabled),
 .button:hover:not(:disabled)  {
-  background-color: var(--green-bright);
+  background-color: var(--green);
 }
 button:disabled,
 .button:disabled {
@@ -228,10 +179,10 @@ button:disabled,
 }
 
 .btnDark {
-  background-color: var(--beige-3);
+  background-color: var(--beige-2);
 }
 .btnCancel {
-  background-color: var(--cancel);
+  background-color: var(--disabled);
 }
 
 .smallBtn {
@@ -247,15 +198,12 @@ button:disabled,
   top: 16px;
   left: 16px;
   z-index: -1;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--beige-2);
   border-radius: 12px;
   opacity: 0.5;
 }
 
-.font-pen {
+.quote {
   font-family: var(--font-pen);
-}
-
-.yarl__button:disabled {
-  background-color: transparent;
+  color: var(--green-text);
 }

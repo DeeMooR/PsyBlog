@@ -6,7 +6,7 @@
   height: 80px;
   width: 100%;
   background: var(--background);
-  box-shadow: 0 0 4px rgba(0,0,0,.05);
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
   z-index: 10;
   .header__wrapper {
     display: flex;
@@ -22,9 +22,8 @@
         font-size: 14px;
         font-weight: 400;
         padding: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
         color: var(--green-text);
+        text-transform: uppercase;
         transition: all 0.1s ease-in-out 0s;        
         &:hover {
           color: var(--beige-2);
@@ -33,20 +32,19 @@
     }
     .header__logo {
       text-align: center;
-      text-transform: uppercase;
       cursor: pointer;
       .logo__name {
-        font-family: var(--font-title);
-        font-size: 22px;
-        color: var(--logo);
-        line-height: 1.3;
-        letter-spacing: 0.06em;
+        font-family: var(--font-logo);
+        font-size: 24px;
+        color: var(--green);
+        margin: 0 0 1px 0;
       }
       .logo__position {
+        font-family: var(--font-tall);
         font-size: 9.5px;
-        color: var(--logo);
-        line-height: 1.4;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.02em;
+        color: var(--green-text);
+        text-transform: uppercase;
       }
     }
   }

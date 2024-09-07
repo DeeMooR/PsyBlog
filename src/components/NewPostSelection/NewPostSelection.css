@@ -3,7 +3,7 @@
   padding: 25px 25px 20px;
   background-color: var(--background);
   border-radius: 15px;
-  border: 2px dashed var(--green-bright);
+  border: 2px dashed var(--green);
 }
 .newPostSelection .newPostSelection__cross {
   position: absolute;

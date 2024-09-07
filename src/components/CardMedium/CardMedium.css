@@ -4,7 +4,7 @@
   transition: all 0.2s ease-in-out 0s;
 }
 .cardMedium:hover {
-  box-shadow: 0 2px 10px 1px var(--border);
+  box-shadow: 0 2px 10px 1px var(--disabled-light);
 }
 .cardMedium .cardMedium__content {
   display: flex;
