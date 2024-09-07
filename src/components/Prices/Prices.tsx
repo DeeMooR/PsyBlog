@@ -1,6 +1,5 @@
 import React from 'react'
 import { PriceItem, SectionTemplate } from 'src/components'
-import { scrollToSection } from 'src/helpers'
 import { services } from 'src/config'
 import './Prices.css'
 
@@ -13,7 +12,6 @@ export const Prices = () => {
             <PriceItem obj={item} key={item.id} />
           ))}
         </div>
-        <button onClick={() => scrollToSection('contacts', -80)} className='btnDark prices__button'>Записаться</button>
       </div>
     </SectionTemplate>
   )

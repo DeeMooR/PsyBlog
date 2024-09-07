@@ -21,6 +21,7 @@ import certificate_2 from './images/certificate_2.png'
 import certificate_3 from './images/certificate_3.png'
 import certificate_4 from './images/certificate_4.png'
 import certificate_5 from './images/certificate_5.png'
+import certificate_6 from './images/certificate_6.png'
 
 import post_1 from './images/post_1.png'
 import post_2 from './images/post_2.png'
@@ -47,6 +48,7 @@ export {
   certificate_3,
   certificate_4,
   certificate_5,
+  certificate_6,
   post_1, 
   post_2, 
   post_3,

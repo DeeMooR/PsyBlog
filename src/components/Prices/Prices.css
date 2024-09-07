@@ -5,9 +5,4 @@
 .prices .prices__items {
   display: flex;
   gap: 100px;
-  margin: 0 0 50px 0;
-}
-.prices .prices__button {
-  width: 260px;
-  margin: 0 auto;
 }

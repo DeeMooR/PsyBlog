@@ -16,13 +16,13 @@
     padding: 0 20px;
     .sectionTemplate__title {
       margin: 0 0 40px 0;
-      color: var(--green-text);
+      color: var(--black);
       text-align: center;
       &.title__white {
         color: var(--white);
       }
       &.title__black {
-        color: var(--green-text);
+        color: var(--black);
       }
     }
   }

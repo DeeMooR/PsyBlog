@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { clockIcon } from 'src/assets';
 import { IService } from 'src/interfaces'
+import { scrollToSection } from 'src/helpers';
 import { PriceItemImage } from 'src/styled';
 import './PriceItem.css'
 
@@ -9,7 +10,7 @@ interface IPriceItem {
 }
 
 export const PriceItem:FC<IPriceItem> = ({ obj }) => {
-  const { image, name, price, time } = obj;
+  const { image, name, description, price, time } = obj;
 
   return (
     <div className='priceItem'>
@@ -18,12 +19,18 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
       </div>
       <h4>{name}</h4>
       <div className="priceItem__details">
-        <div className="priceItem__time">
-          <img className='time__icon' src={clockIcon} />
-          <p className='time__text'>{time}</p>
+        <p className="priceItem__description">{description}</p>
+        <div className="priceItem__timePrice">
+          {time &&
+            <div className="priceItem__time">
+              <img className='time__icon' src={clockIcon} />
+              <p className='time__text'>{time}</p>
+            </div>
+          }
+          {price && <p className='priceItem__price'>{price}</p>}
         </div>
-        <p className='priceItem__price'>{price} ₽</p>
       </div>
+      <button onClick={() => scrollToSection('contacts', -80)} className='btnDark priceItem__button'>Записаться</button>
     </div>
   )
 }

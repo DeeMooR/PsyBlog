@@ -36,7 +36,7 @@
   --white: #FFFFFF;
   --background: #F9F3EB;
   --green-text: #494706;
-  --black-text: #383838;
+  --black: #383838;
   --green: #646b41;
 
   --beige-1: #E8D4BC;
@@ -70,7 +70,7 @@ html,body{
   font-weight: 400;
   font-family: var(--font-main);
   background-color: var(--background);
-  color: var(--black-text);
+  color: var(--black);
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;}
@@ -99,7 +99,7 @@ body {
 /*--------- STYLES ---------*/
 
 p, span, a {
-  line-height: 1.4;
+  line-height: 1.5;
   letter-spacing: 0.04em;
 }
 
@@ -142,7 +142,7 @@ textarea {
 }
 input:focus,
 textarea:focus {
-  border: 1px solid var(--black-text);
+  border: 1px solid var(--black);
 }
 input::placeholder,
 textarea::placeholder {
@@ -207,3 +207,25 @@ button:disabled,
   font-family: var(--font-pen);
   color: var(--green-text);
 }
+
+.yarl__container {
+  background-color: var(--background);
+}
+.yarl__button {
+  filter: none;
+}
+.yarl__button g:last-child {
+  color: var(--black);
+}
+.yarl__button:disabled {
+  background-color: transparent;
+}
+.yarl__button:disabled g:last-child {
+  color: var(--disabled);
+}
+.yarl__button:not(:disabled):hover g:last-child {
+  color: var(--white);
+}
+/* .yarl__slide_image {
+  border: 2px solid var(--black);
+} */

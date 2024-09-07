@@ -2,8 +2,9 @@ export interface IService {
   id: number,
   image: string,
   name: string,
-  price: number,
-  time: string,
+  description: string,
+  price?: string,
+  time?: string,
 }
 
 export interface IFAQ {

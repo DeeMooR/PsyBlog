@@ -35,7 +35,15 @@
         text-align: center;
         text-transform: uppercase;
         color: var(--green-text);
-        margin: 0 0 10px 0;
+        margin: 0 0 7px 0;
+      }
+      .icons__email {
+        color: var(--green-text);
+        margin: 0 auto 4px;
+        transition: all 0.1s ease-in-out 0s;
+        &:hover {
+          color: var(--beige-2);
+        }
       }
       .icons__block {
         display: flex;

@@ -1,20 +1,20 @@
 import { IFAQ, IService, IShortCard } from "src/interfaces";
-import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
+import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
   {
     id: 1,
     image: service_1,
     name: 'Индивидуальная консультация',
-    price: 7000,
+    description: 'Для взрослых (21+)',
+    price: '7000 ₽',
     time: '50 мин.'
   },
   {
     id: 2,
     image: service_2,
     name: 'Бизнес консультация',
-    price: 6000,
-    time: '45 мин.'
+    description: 'Для взрослых (21+)'
   }
 ];
 
@@ -44,6 +44,7 @@ export const certificates: {src: string}[] = [
   { src: certificate_3 },
   { src: certificate_4 },
   { src: certificate_5 },
+  // { src: certificate_6 },
 ]
 
 export const topCards: IShortCard[] = [

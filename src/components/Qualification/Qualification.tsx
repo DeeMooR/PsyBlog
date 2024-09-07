@@ -4,9 +4,8 @@ import { certificates } from 'src/config'
 import './Qualification.css'
 
 import Lightbox from "yet-another-react-lightbox";
-import { Counter, Zoom } from "yet-another-react-lightbox/plugins";
+import { Zoom } from "yet-another-react-lightbox/plugins";
 import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/counter.css";
 
 export const Qualification = () => {
   const [index, setIndex] = useState<number>(-1);
@@ -36,7 +35,7 @@ export const Qualification = () => {
         </div>
       </div>
       <Lightbox
-        plugins={[Counter, Zoom]}
+        plugins={[Zoom]}
         index={index}
         open={index >= 0}
         close={() => setIndex(-1)}
