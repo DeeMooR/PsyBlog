@@ -1,18 +1,26 @@
 .qualification {
   width: 100%;
-  .qualification__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    .qualification__image {
-      width: calc((100% - 60px)/4);
-      cursor: zoom-in;
-      img {
-        width: 100%;
-        height: 100%;
-        border: 6px solid var(--white);
-      }
-    }
-  }
+  // .qualification__items {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   justify-content: center;
+  //   gap: 20px;
+  //   .qualification__image {
+  //     width: calc((100% - 60px)/4);
+  //     cursor: zoom-in;
+  //     img {
+  //       width: 100%;
+  //       height: 100%;
+  //       border: 6px solid var(--white);
+  //     }
+  //   }
+  // }
+}
+
+.react-photo-album--button {
+  height: auto;
+}
+.react-photo-album--image {
+  border: 5px solid var(--white);
+  cursor: zoom-in;
 }

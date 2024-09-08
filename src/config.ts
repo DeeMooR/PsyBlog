@@ -38,13 +38,22 @@ export const faqs: IFAQ[] = [
     text: 'Особенность психоанализа — работа с глубинными переживаниями. Психоаналитик помогает клиенту обнаружить и разрешить те конфликты, на почве которых в течение жизни постоянно формируются новые проблемы. Это как если из прохудившейся резиновой лодки не вычерпывать все время воду (что делает обычная психотерапия), а найти и заделать пробоину в днище.'  },
 ];
 
-export const certificates: {src: string}[] = [
+export const certificates = [
+  { src: certificate_1, width: 400, height: 300 },
+  { src: certificate_2, width: 400, height: 300 },
+  { src: certificate_3, width: 400, height: 300 },
+  { src: certificate_4, width: 400, height: 300 },
+  { src: certificate_5, width: 400, height: 300 },
+  { src: certificate_6, width: 300, height: 400 },
+];
+
+export const certificates_slides: {src: string}[] = [
   { src: certificate_1 },
   { src: certificate_2 },
   { src: certificate_3 },
   { src: certificate_4 },
   { src: certificate_5 },
-  // { src: certificate_6 },
+  { src: certificate_6 },
 ]
 
 export const topCards: IShortCard[] = [

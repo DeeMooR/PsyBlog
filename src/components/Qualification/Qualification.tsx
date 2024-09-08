@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { SectionTemplate } from 'src/components'
-import { certificates } from 'src/config'
+import { certificates, certificates_slides } from 'src/config'
 import './Qualification.css'
 
 import Lightbox from "yet-another-react-lightbox";
 import { Zoom } from "yet-another-react-lightbox/plugins";
 import "yet-another-react-lightbox/styles.css";
+
+import { RowsPhotoAlbum } from "react-photo-album";
+import "react-photo-album/rows.css";
 
 export const Qualification = () => {
   const [index, setIndex] = useState<number>(-1);
@@ -26,20 +29,21 @@ export const Qualification = () => {
   return (
     <SectionTemplate id='qualification' title='Квалификация' backgroundColor='beige1' >
       <div className='qualification'>
-        <div className="qualification__items">
+        <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} />
+        {/* <div className="qualification__items">
           {certificates.map((obj, index) => (
             <div className="qualification__image" key={index} onClick={() => setIndex(index)}>
               <img src={obj.src} alt='сертификат' />
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
       <Lightbox
         plugins={[Zoom]}
         index={index}
         open={index >= 0}
         close={() => setIndex(-1)}
-        slides={certificates}
+        slides={certificates_slides}
       />
     </SectionTemplate>
   )

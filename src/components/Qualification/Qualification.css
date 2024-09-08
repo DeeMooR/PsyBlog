@@ -1,18 +1,12 @@
 .qualification {
   width: 100%;
 }
-.qualification .qualification__items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+
+.react-photo-album--button {
+  height: auto;
 }
-.qualification .qualification__items .qualification__image {
-  width: calc((100% - 60px) / 4);
+
+.react-photo-album--image {
+  border: 5px solid var(--white);
   cursor: zoom-in;
-}
-.qualification .qualification__items .qualification__image img {
-  width: 100%;
-  height: 100%;
-  border: 6px solid var(--white);
 }
