@@ -24,6 +24,10 @@ class PostService {
     if (result.affectedRows === 0) throw new Error(`Пост с ID ${id} не найден`);
     return this.getOne(id);
   }
+  async delete(id) {
+    const [response] = await db.query('DELETE FROM posts WHERE id = ?', [id]);
+    return response.affectedRows > 0;
+  }
   async addBlock(post_id, table_name, body) {
     const fields = Object.keys(body);
     const values = Object.values(body);

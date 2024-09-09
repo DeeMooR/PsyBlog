@@ -1,37 +1,41 @@
 .newPost {
+  height: 100%;
+  padding: 40px 0 0 0;
+}
+.newPost .newPost__wrapper {
+  margin: 0 auto;
+  width: 1080px;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.newPost .newPost__wrapper {
+.newPost .newPost__wrapper .newPost__content {
   flex: 1;
-  margin: 40px auto 70px;
-  width: 1080px;
 }
-.newPost .newPost__wrapper .newPost__title {
+.newPost .newPost__wrapper .newPost__content .newPost__title {
   margin: 0 0 40px 0;
   text-align: center;
 }
-.newPost .newPost__wrapper .newPost__required {
+.newPost .newPost__wrapper .newPost__content .newPost__required {
   margin: 0 0 30px 0;
 }
-.newPost .newPost__wrapper .newPost__newBlock {
+.newPost .newPost__wrapper .newPost__content .newPost__newBlock {
   max-width: 800px;
   margin: 0 auto 30px;
 }
-.newPost .newPost__wrapper .newPost__addBlock {
+.newPost .newPost__wrapper .newPost__content .newPost__addBlock {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
 }
-.newPost .newPost__wrapper .newPost__addBlock .addBlock__line {
+.newPost .newPost__wrapper .newPost__content .newPost__addBlock .addBlock__line {
   width: 100%;
   height: 1px;
   border: 1px solid var(--green);
   border-radius: 1px;
 }
-.newPost .newPost__wrapper .newPost__addBlock .addBlock__plus {
+.newPost .newPost__wrapper .newPost__content .newPost__addBlock .addBlock__plus {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,11 +48,18 @@
   transition: all 0.1s ease-in-out 0s;
   cursor: pointer;
 }
-.newPost .newPost__wrapper .newPost__addBlock .addBlock__plus:hover {
+.newPost .newPost__wrapper .newPost__content .newPost__addBlock .addBlock__plus:hover {
   color: var(--beige-1);
   border: 2px dashed var(--beige-1);
 }
-.newPost .newPost__wrapper .newPost__selection {
+.newPost .newPost__wrapper .newPost__content .newPost__selection {
   max-width: 800px;
   margin: 0 auto;
+}
+.newPost .newPost__wrapper .newPost__btnDelete {
+  padding: 30px 0 20px 0;
+}
+.newPost .newPost__wrapper .newPost__btnDelete button {
+  margin-left: auto;
+  border-radius: 5px;
 }

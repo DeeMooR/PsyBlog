@@ -23,5 +23,7 @@ export * from './RadioOption/RadioOption';
 export * from './BlockCreateTemplate/BlockCreateTemplate';
 export * from './Notification/Notification';
 export * from './SwitchButton/SwitchButton';
+export * from './ModalConfirm/ModalConfirm';
+export * from './ModalTemplate/ModalTemplate';
 
 export * from './newPost';

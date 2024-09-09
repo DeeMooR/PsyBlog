@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
-import { createNewPostRequiredAction, updateNewPostRequiredAction } from 'src/store/actions';
-import { Input, SwitchButton, Textarea } from 'src/components';
+import { createNewPostAction, updateNewPostAction } from 'src/store/actions';
+import { Input, ModalConfirm, SwitchButton, Textarea } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
@@ -12,10 +12,12 @@ export const NewPostRequired = () => {
   const dispatch = useAppDispatch();
   const { id, isActive } = useAppSelector(getNewPostDataSelector);
   const [active, setActive] = useState<boolean>(isActive);
+  const [showModal, setShowModal] = useState(false);
   
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
@@ -24,8 +26,14 @@ export const NewPostRequired = () => {
 
   const onSubmit = (data: IPostRequiredFormFields) => {
     const body = {...data, isActive: active};
-    if (!id) dispatch(createNewPostRequiredAction(body));
-    else dispatch(updateNewPostRequiredAction({id, body}));
+    if (!id) dispatch(createNewPostAction(body));
+    else setShowModal(true);
+  }
+
+  const clickUpdate = () => {
+    const body = {...getValues(), isActive: active};
+    if (id) dispatch(updateNewPostAction({id, body}));
+    setShowModal(false);
   }
 
   const changeActivity = () => {
@@ -72,6 +80,7 @@ export const NewPostRequired = () => {
           <button className='newPostRequired__button smallBtn'>Сохранить</button>
         </div>
       </form>
+      {showModal && <ModalConfirm action='update' clickApply={clickUpdate} closeModal={() => setShowModal(false)} />}
     </div>
   )
 }

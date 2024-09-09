@@ -92,7 +92,7 @@ body {
 
 #root {
   height: 100%;
-  margin: 80px 0 0 0;
+  padding: 80px 0 0 0;
 }
 
 /*--------- STYLES ---------*/
@@ -185,12 +185,29 @@ button:disabled,
   background-color: var(--beige-2);
   color: var(--black);
 }
+
+
+.btnDelete {
+  background: var(--error);
+  border: 2px solid var(--error);
+  color: var(--white);
+}
+.btnDelete:hover:not(:disabled) {
+  background: var(--delete);
+  border: 2px solid var(--delete);
+  color: var(--white);
+}
 .btnCancel {
   background-color: var(--disabled);
 }
+.btnCancel:hover:not(:disabled) {
+  background-color: var(--disabled-light);
+  color: var(--black);
+}
+
 
 .smallBtn {
-  width: 150px;
+  min-width: 150px;
   height: 40px;
   font-size: 14px;
 }

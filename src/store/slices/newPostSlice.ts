@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
-import { createNewPostRequiredAction, updateNewPostRequiredAction } from '../actions';
+import { createNewPostAction, deleteNewPostAction, updateNewPostAction } from '../actions';
 
 const initialState: newPostState = {
   postData: {
@@ -40,26 +40,37 @@ const newPostSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createNewPostRequiredAction.pending, setLoading)
-      .addCase(createNewPostRequiredAction.fulfilled, (state, { payload }) => {
+      .addCase(createNewPostAction.pending, setLoading)
+      .addCase(createNewPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         Object.assign(state.postData, payload);
         state.successMessage = 'Пост успешно создан';
       })
-      .addCase(createNewPostRequiredAction.rejected, (state) => {
+      .addCase(createNewPostAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при создании поста';
       })
 
-      .addCase(updateNewPostRequiredAction.pending, setLoading)
-      .addCase(updateNewPostRequiredAction.fulfilled, (state, { payload }) => {
+      .addCase(updateNewPostAction.pending, setLoading)
+      .addCase(updateNewPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         Object.assign(state.postData, payload);
         state.successMessage = 'Пост успешно изменён';
       })
-      .addCase(updateNewPostRequiredAction.rejected, (state) => {
+      .addCase(updateNewPostAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при изменении поста';
+      })
+
+      .addCase(deleteNewPostAction.pending, setLoading)
+      .addCase(deleteNewPostAction.fulfilled, (state) => {
+        state.isLoading = false;
+        Object.assign(state.postData, initialState.postData);
+        state.successMessage = 'Пост успешно удалён';
+      })
+      .addCase(deleteNewPostAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при удалении поста';
       })
   },
 })
