@@ -1,19 +1,25 @@
 {
   "files": {
-    "main.css": "/PsyBlog/static/css/main.bd987b78.css",
-    "main.js": "/PsyBlog/static/js/main.55428b87.js",
+    "main.css": "/PsyBlog/static/css/main.f552a21a.css",
+    "main.js": "/PsyBlog/static/js/main.3602b077.js",
     "static/media/contactsImage.png": "/PsyBlog/static/media/contactsImage.780f83cf0142c5aba080.png",
     "static/media/certificate_6.png": "/PsyBlog/static/media/certificate_6.a905483021c408735d45.png",
     "static/media/aboutImage.jpg": "/PsyBlog/static/media/aboutImage.193ad809979b1000aab6.jpg",
     "static/media/certificate_3.png": "/PsyBlog/static/media/certificate_3.d8f07183cbe3d6d4e4fe.png",
     "static/media/certificate_2.png": "/PsyBlog/static/media/certificate_2.d288bc9584cc1763e300.png",
+    "static/media/post_5.png": "/PsyBlog/static/media/post_5.659005075a3a1c8d32f9.png",
+    "static/media/post_7.png": "/PsyBlog/static/media/post_7.1620cac83d7baa318fd1.png",
+    "static/media/post_4.png": "/PsyBlog/static/media/post_4.9533bcc910681b7ffb10.png",
     "static/media/Mr.Lonely.otf": "/PsyBlog/static/media/Mr.Lonely.3dd5c43cf7b5deeb27d6.otf",
     "static/media/post_1.png": "/PsyBlog/static/media/post_1.08f8c6a77d28711966be.png",
     "static/media/certificate_4.png": "/PsyBlog/static/media/certificate_4.735cd553898643f24d92.png",
+    "static/media/post_6.png": "/PsyBlog/static/media/post_6.58693d4ba616717b1398.png",
     "static/media/post_2.png": "/PsyBlog/static/media/post_2.c4938567b033dccd6ee5.png",
     "static/media/mainImage.jpg": "/PsyBlog/static/media/mainImage.8a1a53ca772e8d14286a.jpg",
     "static/media/certificate_1.jpg": "/PsyBlog/static/media/certificate_1.851b3ffa27e948e02907.jpg",
+    "static/media/certificate_8.jpg": "/PsyBlog/static/media/certificate_8.384faaa7c7c86bb4682c.jpg",
     "static/media/Inkhead.otf": "/PsyBlog/static/media/Inkhead.f25a6c4fe617a02e3319.otf",
+    "static/media/certificate_7.png": "/PsyBlog/static/media/certificate_7.cbeabf70fb48cdd9e7da.png",
     "static/media/certificate_5.png": "/PsyBlog/static/media/certificate_5.9af3860df805a05ad56b.png",
     "static/media/TaylorSans-Regular.ttf": "/PsyBlog/static/media/TaylorSans-Regular.289c482ca84d37370f09.ttf",
     "static/media/service_1.jpg": "/PsyBlog/static/media/service_1.db7d101d5c92106f1b92.jpg",
@@ -25,11 +31,11 @@
     "static/media/cross.svg": "/PsyBlog/static/media/cross.e398a2099c4457ddeb6a7849e9722a60.svg",
     "static/media/radioSelected.svg": "/PsyBlog/static/media/radioSelected.2d4112324b28948a989880383ed0e829.svg",
     "static/media/radioUnselected.svg": "/PsyBlog/static/media/radioUnselected.1938b005f8ef1fe1967b572c426ea2b8.svg",
-    "main.bd987b78.css.map": "/PsyBlog/static/css/main.bd987b78.css.map",
-    "main.55428b87.js.map": "/PsyBlog/static/js/main.55428b87.js.map"
+    "main.f552a21a.css.map": "/PsyBlog/static/css/main.f552a21a.css.map",
+    "main.3602b077.js.map": "/PsyBlog/static/js/main.3602b077.js.map"
   },
   "entrypoints": [
-    "static/css/main.bd987b78.css",
-    "static/js/main.55428b87.js"
+    "static/css/main.f552a21a.css",
+    "static/js/main.3602b077.js"
   ]
 }
