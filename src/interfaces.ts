@@ -24,7 +24,7 @@ export interface ICard {
 export interface IOrderForm {
   name: string,
   email: string,
-  question: string,
+  phone: string,
 }
 
 export interface IShortCard {

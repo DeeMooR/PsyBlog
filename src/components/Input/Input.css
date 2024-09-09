@@ -1,7 +1,7 @@
 .inputBlock {
   position: relative;
 }
-.inputBlock .warning {
+.inputBlock input.warning {
   border: 1px solid var(--warning);
 }
 .inputBlock .error {
@@ -12,5 +12,6 @@
 }
 .inputBlock .error span {
   font-size: 11px;
-  margin: 0 0 0 10px;
+  line-height: 1;
+  margin: 0 0 0 7px;
 }

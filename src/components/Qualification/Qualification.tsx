@@ -29,7 +29,7 @@ export const Qualification = () => {
   return (
     <SectionTemplate id='qualification' title='Квалификация' backgroundColor='beige1' >
       <div className='qualification'>
-        <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} />
+        <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={200}  />
         {/* <div className="qualification__items">
           {certificates.map((obj, index) => (
             <div className="qualification__image" key={index} onClick={() => setIndex(index)}>

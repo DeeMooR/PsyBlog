@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, SwitchButton, Textarea } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
-import { newPostRequired } from 'src/validation';
+import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
 import { getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
 
@@ -17,7 +17,7 @@ export const NewPostRequired = () => {
     formState: { errors },
   } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
-    resolver: yupResolver(newPostRequired),
+    resolver: yupResolver(postRequiredScheme),
   });
 
   const onSubmit = (data: IPostRequiredFormFields) => {

@@ -6,14 +6,14 @@ import './Blog.css'
 
 export const Blog = () => {
   return (
-    <SectionTemplate id='blog' title='Блог' >
+    <SectionTemplate id='blog' >
       <div className='blog'>
         <div className="blog__cards">
           {topCards.map(item => (
             <CardSmall obj={item} key={item.id} />
           ))}
         </div>
-        <Link to='/posts' className='button blog__button'>Все посты</Link>
+        <Link to='/posts' className='button blog__button'>Все статьи</Link>
       </div>
     </SectionTemplate>
   )

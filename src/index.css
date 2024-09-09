@@ -164,13 +164,14 @@ button, .button {
   font-size: 15px;
   padding: 0 24px;
   color: var(--white);
-  background-color: var(--beige-1);
+  background-color: var(--green);
   text-transform: uppercase;
   transition: all 0.2s ease-in-out 0s;
 }
 button:hover:not(:disabled),
 .button:hover:not(:disabled)  {
-  background-color: var(--green);
+  background-color: var(--beige-1);
+  color: var(--black);
 }
 button:disabled,
 .button:disabled {
@@ -179,7 +180,11 @@ button:disabled,
 }
 
 .btnDark {
+  background-color: var(--green);
+}
+.btnDark:hover:not(:disabled) {
   background-color: var(--beige-2);
+  color: var(--black);
 }
 .btnCancel {
   background-color: var(--disabled);

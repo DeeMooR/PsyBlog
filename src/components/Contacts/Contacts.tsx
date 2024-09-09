@@ -1,10 +1,10 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Input, SectionTemplate, Textarea } from 'src/components'
+import { Input } from 'src/components'
 import { contactsImage } from 'src/assets'
 import { IOrderForm } from 'src/interfaces'
-import { orderForm } from 'src/validation'
+import { orderScheme } from 'src/validation'
 import { ContactsImage } from 'src/styled'
 import './Contacts.css'
 
@@ -13,10 +13,10 @@ export const Contacts = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
+    formState: { errors },
   } = useForm<IOrderForm>({
     mode: 'onSubmit',
-    resolver: yupResolver(orderForm),
+    resolver: yupResolver(orderScheme),
   });
 
   const onSubmit = (data: IOrderForm) => {
@@ -38,20 +38,24 @@ export const Contacts = () => {
                 register={register}
                 type="text" 
                 placeholder='Ваше имя' 
+                error={errors.name?.message}
               />
               <Input
                 id='email' 
                 register={register}
-                type="email" 
+                type="text" 
                 placeholder='Почта' 
+                error={errors.email?.message}
               />
-              <Textarea 
-                id='question' 
+              <Input
+                id='phone' 
                 register={register}
-                placeholder='Вопрос' 
+                type="phone" 
+                placeholder='Телефон' 
+                error={errors.phone?.message}
               />
             </div>
-            <button className='form__button' disabled={!isValid}>Записаться</button>
+            <button className='form__button'>Записаться</button>
             <a href="#" className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </a>
           </div>
         </form>

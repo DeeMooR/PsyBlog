@@ -1,5 +1,5 @@
 import { IFAQ, IService, IShortCard } from "src/interfaces";
-import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
+import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
   {
@@ -13,7 +13,7 @@ export const services: IService[] = [
   {
     id: 2,
     image: service_2,
-    name: 'Бизнес консультация',
+    name: 'Психоаналитический коучинг',
     description: 'Для взрослых (21+)'
   }
 ];
@@ -44,7 +44,9 @@ export const certificates = [
   { src: certificate_3, width: 400, height: 300 },
   { src: certificate_4, width: 400, height: 300 },
   { src: certificate_5, width: 400, height: 300 },
+  { src: certificate_7, width: 400, height: 300 },
   { src: certificate_6, width: 300, height: 400 },
+  { src: certificate_8, width: 294, height: 100 },
 ];
 
 export const certificates_slides: {src: string}[] = [
@@ -53,7 +55,9 @@ export const certificates_slides: {src: string}[] = [
   { src: certificate_3 },
   { src: certificate_4 },
   { src: certificate_5 },
+  { src: certificate_7 },
   { src: certificate_6 },
+  { src: certificate_8 },
 ]
 
 export const topCards: IShortCard[] = [
@@ -129,6 +133,12 @@ export const radioOptions: string[][] = [
   ['Заголовок', 'Текст', 'Заголовок и текст'],
   ['Изображение S', 'Изображение M', 'Изображение L', 'Два изображения'],
   ['Цитата', 'Перечисление (пункты)', 'Перечисление (цифры)'],
+]
+
+export const quotes = [
+  'Психология — это выражение словами <br/>того, чего нельзя ими выразить.',
+  'Не всякий умный человек знает психологию. <br/>Но всякий, кто знает психологию, умён.',
+  'Не всякий умный человек знает психологию. <br/>Но всякий, кто знает психологию, умён.'
 ]
 
 export type NewBlockNames = 'Заголовок';

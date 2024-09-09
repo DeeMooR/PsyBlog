@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { FC } from 'react'
+import parse from 'html-react-parser';
 import './MainQuote.css'
 
-export const MainQuote = () => {
+interface IMainQuote {
+  quote: string,
+}
+
+export const MainQuote:FC<IMainQuote> = ({quote}) => {
   return (
     <section className="mainQuote">
-      <blockquote className="mainQuote__quote quote">
-        Не всякий умный человек знает психологию. <br/>Но всякий, кто знает психологию, умён.
-      </blockquote>
+      <blockquote className="mainQuote__quote quote">{parse(quote)}</blockquote>
     </section>
   )
 }

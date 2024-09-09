@@ -1,6 +1,6 @@
 .blog .blog__cards {
   display: flex;
-  gap: 30px;
+  gap: 50px;
   margin: 0 0 40px 0;
 }
 .blog .blog__button {
