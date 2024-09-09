@@ -10,10 +10,13 @@
 }
 .allPosts .allPosts__wrapper .allPosts__title {
   margin: 0 0 40px 0;
-  text-transform: none;
+  text-align: center;
 }
 .allPosts .allPosts__wrapper .allPosts__list {
   display: flex;
-  flex-direction: column;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 50px 30px;
+}
+.allPosts .allPosts__wrapper .allPosts__list .cardSmall {
+  width: calc((100% - 60px) / 3);
 }

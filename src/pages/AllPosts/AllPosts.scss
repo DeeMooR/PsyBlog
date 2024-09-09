@@ -8,12 +8,15 @@
     width: 1080px;
     .allPosts__title {
       margin: 0 0 40px 0;
-      text-transform: none;
+      text-align: center;
     }
     .allPosts__list {
       display: flex;
-      flex-direction: column;
-      gap: 40px;
+      flex-wrap: wrap;
+      gap: 50px 30px;
+      .cardSmall {
+        width: calc((100% - 60px)/3);
+      }
     }
   }
 }

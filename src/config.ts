@@ -1,5 +1,5 @@
 import { IFAQ, IService, IShortCard } from "src/interfaces";
-import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, post_1, post_2, post_3, service_1, service_2 } from 'src/assets';
+import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, post_1, post_2, post_3, post_4, post_5, post_6, post_7, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
   {
@@ -64,69 +64,56 @@ export const topCards: IShortCard[] = [
   {
     id: 1,
     title: 'Психология!',
-    description: 'Психология - наука.',
     image: post_1,
-    date: '01.01.2024'
   },
   {
     id: 2,
     title: 'Что такое психология?',
-    description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности.',
     image: post_2,
-    date: '02.01.2024'
   },
   {
     id: 3,
     title: 'Что такое психология?',
-    description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности. Добавил рандомного текста чтобы проверить точки но пока что они не появляются. Тестируем дальше эту фичу',
     image: post_3,
-    date: '03.01.2024'
-  }
+  },
 ];
 
 export const allCards: IShortCard[] = [
   {
     id: 1,
     title: 'Психология!',
-    description: 'Психология - наука.',
     image: post_1,
-    date: '01.01.2024'
   },
   {
     id: 2,
     title: 'Что такое психология?',
-    description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности.',
     image: post_2,
-    date: '02.01.2024'
   },
   {
     id: 3,
     title: 'Что такое психология?',
-    description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности. Добавил рандомного текста чтобы проверить точки но пока что они не появляются. Тестируем дальше эту фичу',
     image: post_3,
-    date: '03.01.2024'
   },
   {
     id: 4,
     title: 'Психология!',
-    description: 'Психология - наука.',
-    image: post_1,
-    date: '01.01.2024'
+    image: post_4,
   },
   {
     id: 5,
     title: 'Что такое психология?',
-    description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности.',
-    image: post_2,
-    date: '02.01.2024'
+    image: post_5,
   },
   {
     id: 6,
     title: 'Что такое психология?',
-    description: 'Психология - это наука, изучающая процессы и закономерности психической деятельности. Добавил рандомного текста чтобы проверить точки но пока что они не появляются. Тестируем дальше эту фичу',
-    image: post_3,
-    date: '03.01.2024'
-  }
+    image: post_6,
+  },
+  {
+    id: 7,
+    title: 'Что такое психология?',
+    image: post_7,
+  },
 ];
 
 export const radioOptions: string[][] = [

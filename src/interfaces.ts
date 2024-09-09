@@ -30,9 +30,7 @@ export interface IOrderForm {
 export interface IShortCard {
   id: number,
   title: string,
-  description: string,
   image: string,
-  date: string,
 }
 
 export interface IShortCardWithoutId extends Omit<IShortCard, 'id'> {}

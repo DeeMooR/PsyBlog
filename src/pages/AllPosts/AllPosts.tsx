@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardMedium, Footer, Header } from 'src/components'
+import { CardSmall, Footer, Header } from 'src/components'
 import { allCards } from 'src/config'
 import './AllPosts.css'
 
@@ -11,7 +11,7 @@ export const AllPosts = () => {
         <h2 className='allPosts__title'>Все посты</h2>
         <div className="allPosts__list">
           {allCards.map(item => (
-            <CardMedium obj={item} key={item.id} />
+            <CardSmall obj={item} key={item.id} />
           ))}
         </div>
       </div>

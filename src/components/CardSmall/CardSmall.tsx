@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { upRightArrowIcon } from 'src/assets'
 import { IShortCard } from 'src/interfaces'
 import { CardSmallImage } from 'src/styled'
 import './CardSmall.css'
@@ -11,10 +10,10 @@ interface ICardSmall {
 
 export const CardSmall:FC<ICardSmall> = ({obj}) => {
   const navigate = useNavigate();
-  const { image, title, description, date } = obj;
+  const { id, image, title } = obj;
 
   const onClickCard = () => {
-    navigate("/posts/1");
+    navigate(`/posts/${id}`);
   }
   
   return (
