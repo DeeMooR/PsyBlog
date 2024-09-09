@@ -11,9 +11,9 @@ class PostService {
     return response[0];
   }
   async create(body) {
-    const { title, description, image, date } = body;
-    const sql = 'INSERT INTO posts (title, description, image, date) VALUES (?, ?, ?, ?)';
-    const [result] = await db.query(sql, [title, description, image, date]);
+    const { title, description, image, date, isActive } = body;
+    const sql = 'INSERT INTO posts (title, description, image, date, isActive) VALUES (?, ?, ?, ?, ?)';
+    const [result] = await db.query(sql, [title, description, image, date, isActive]);
     const id = result.insertId;
     return this.getOne(id);
   }

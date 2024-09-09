@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
+import { createNewPostRequiredAction } from 'src/store/actions';
 import { Input, SwitchButton, Textarea } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
-import { getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
 
 export const NewPostRequired = () => {
   const dispatch = useAppDispatch();
   const { isActive } = useAppSelector(getNewPostDataSelector);
+  const [active, setActive] = useState<boolean>(isActive);
   
   const {
     register,
@@ -21,18 +23,19 @@ export const NewPostRequired = () => {
   });
 
   const onSubmit = (data: IPostRequiredFormFields) => {
-    console.log(data);
+    const body = {...data, isActive: active};
+    dispatch(createNewPostRequiredAction(body));
   }
 
   const changeActivity = () => {
-    console.log(!isActive);
+    setActive(!active);
   }
 
   return (
     <div className='newPostRequired'>
       <div className="newPostRequired__up">
         <h4 className='newPostRequired__title'>Основные поля</h4>
-        <SwitchButton id='newPost' isActive={isActive} changeActivity={changeActivity} />
+        <SwitchButton id='newPost' isActive={active} changeActivity={changeActivity} />
       </div>
       <form className="newPostRequired__form" onSubmit={handleSubmit(onSubmit)}>
         <div className="newPostRequired__left">

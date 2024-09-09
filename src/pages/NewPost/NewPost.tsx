@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Header, NewPostRequired, NewPostSelection, TitleCreate, Notification } from 'src/components'
-import { clearNewPostMessages, getNewPostSelector, useAppDispatch, useAppSelector } from 'src/store'
+import { clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector } from 'src/store'
 import { NewBlockNames } from 'src/config'
 import './NewPost.css'
 
@@ -10,8 +10,11 @@ const openNewBlock = {
 
 export const NewPost = () => {
   const dispatch = useAppDispatch();
-  const { newBlockName, errorMessage } = useAppSelector(getNewPostSelector);
+  const { newBlockName, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
+  const { id } = useAppSelector(getNewPostDataSelector);
   const [showSelection, setShowSelection] = useState(false);
+
+  const title = id ? 'Редактирование поста' : 'Создание поста';
 
   const clearMessages = () => dispatch(clearNewPostMessages());
 
@@ -19,7 +22,7 @@ export const NewPost = () => {
     <div className='newPost'>
       <Header />
       <div className='newPost__wrapper'>
-        <h2 className='newPost__title'>Создание поста</h2>
+        <h2 className='newPost__title'>{title}</h2>
         <div className='newPost__required'>
           <NewPostRequired />
         </div>
@@ -41,6 +44,7 @@ export const NewPost = () => {
           </div>
         }
       </div>
+      {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}
       {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
     </div>
   )

@@ -7,7 +7,8 @@ export const createTables = async () => {
       title VARCHAR(255) NOT NULL,
       description VARCHAR(255) NOT NULL,
       image VARCHAR(255) NOT NULL,
-      date VARCHAR(255) NOT NULL
+      date VARCHAR(255) NOT NULL,
+      isActive BOOLEAN NOT NULL DEFAULT false
     );
   `;
   const post_fields = `

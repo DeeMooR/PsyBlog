@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
+import { createNewPostRequiredAction } from '../actions';
 
 const initialState: newPostState = {
   postData: {
@@ -8,7 +9,7 @@ const initialState: newPostState = {
     description: '',
     image: '',
     date: '',
-    isActive: true,
+    isActive: false,
   },
   newBlockName: null,
   isLoading: false,
@@ -38,16 +39,17 @@ const newPostSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    // builder
-    //   .addCase(setReceiverEmailAction.pending, setLoading)
-    //   .addCase(setReceiverEmailAction.fulfilled, (state) => {
-    //     state.isLoading = false;
-    //     state.successMessage = 'Вы успешно подписались на рассылку';
-    //   })
-    //   .addCase(setReceiverEmailAction.rejected, (state) => {
-    //     state.isLoading = false;
-    //     state.errorMessage = 'Ошибка при подписке на рассылку';
-    //   })
+    builder
+      .addCase(createNewPostRequiredAction.pending, setLoading)
+      .addCase(createNewPostRequiredAction.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        Object.assign(state.postData, payload);
+        state.successMessage = 'Пост успешно создан';
+      })
+      .addCase(createNewPostRequiredAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при создании поста';
+      })
   },
 })
 

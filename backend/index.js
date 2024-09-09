@@ -1,13 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import mysql from 'mysql2/promise';
+import cors from 'cors';
 import router from './router.js';
 import {createTables} from './initTables.js';
+
 
 dotenv.config();
 const app = express();
 const port = 5000;
 
+app.use(cors());
 app.use(express.json());
 app.use('/api', router);
 

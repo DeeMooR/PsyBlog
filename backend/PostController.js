@@ -3,7 +3,7 @@ import PostService from "./PostService.js";
 class PostController {
   async create(req, res) {
     try {
-      const post = await PostService.create(req.headers['post_id'])
+      const post = await PostService.create(req.body)
       res.send(post);
     } catch (e) {
       res.status(500).json('Ошибка')
