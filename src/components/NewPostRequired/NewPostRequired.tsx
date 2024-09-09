@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
-import { createNewPostRequiredAction } from 'src/store/actions';
+import { createNewPostRequiredAction, updateNewPostRequiredAction } from 'src/store/actions';
 import { Input, SwitchButton, Textarea } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
@@ -10,7 +10,7 @@ import './NewPostRequired.css'
 
 export const NewPostRequired = () => {
   const dispatch = useAppDispatch();
-  const { isActive } = useAppSelector(getNewPostDataSelector);
+  const { id, isActive } = useAppSelector(getNewPostDataSelector);
   const [active, setActive] = useState<boolean>(isActive);
   
   const {
@@ -24,7 +24,8 @@ export const NewPostRequired = () => {
 
   const onSubmit = (data: IPostRequiredFormFields) => {
     const body = {...data, isActive: active};
-    dispatch(createNewPostRequiredAction(body));
+    if (!id) dispatch(createNewPostRequiredAction(body));
+    else dispatch(updateNewPostRequiredAction({id, body}));
   }
 
   const changeActivity = () => {

@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
-import { createNewPostRequiredAction } from '../actions';
+import { createNewPostRequiredAction, updateNewPostRequiredAction } from '../actions';
 
 const initialState: newPostState = {
   postData: {
-    id: '',
+    id: null,
     title: '',
     description: '',
     image: '',
@@ -49,6 +49,17 @@ const newPostSlice = createSlice({
       .addCase(createNewPostRequiredAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при создании поста';
+      })
+
+      .addCase(updateNewPostRequiredAction.pending, setLoading)
+      .addCase(updateNewPostRequiredAction.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        Object.assign(state.postData, payload);
+        state.successMessage = 'Пост успешно изменён';
+      })
+      .addCase(updateNewPostRequiredAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при изменении поста';
       })
   },
 })

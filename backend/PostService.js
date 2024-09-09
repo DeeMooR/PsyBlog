@@ -17,6 +17,13 @@ class PostService {
     const id = result.insertId;
     return this.getOne(id);
   }
+  async update(id, body) {
+    const { title, description, image, date, isActive } = body;
+    const sql = `UPDATE posts SET title = ?, description = ?, image = ?, date = ?, isActive = ? WHERE id = ?`;
+    const [result] = await db.query(sql, [title, description, image, date, isActive, id]);
+    if (result.affectedRows === 0) throw new Error(`Пост с ID ${id} не найден`);
+    return this.getOne(id);
+  }
   async addBlock(post_id, table_name, body) {
     const fields = Object.keys(body);
     const values = Object.values(body);

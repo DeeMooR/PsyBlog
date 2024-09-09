@@ -5,6 +5,7 @@ import PostFieldsController from "./PostFieldsController.js";
 const router = express.Router();
 
 router.post('/posts', PostController.create)
+router.put('/posts/:id', PostController.update)
 router.get('/posts', PostController.getAll)
 router.get('/posts/:id', PostController.getOne)
 router.post('/posts/addBlock', PostController.addBlock)

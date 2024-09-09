@@ -6,7 +6,7 @@ class PostFieldsController {
       const field = await PostFieldsService.create(req.body)
       res.send(field);
     } catch (e) {
-      res.status(500).json('Ошибка')
+      res.status(500).json('Ошибка', e)
     }
   }
   async getOnePostId(req, res) {
@@ -14,7 +14,7 @@ class PostFieldsController {
       const fields = await PostFieldsService.getOnePostId(req.query.post_id)
       res.send(fields);
     } catch (e) {
-      res.status(500).json('Ошибка')
+      res.status(500).json('Ошибка', e)
     }
   }
 }

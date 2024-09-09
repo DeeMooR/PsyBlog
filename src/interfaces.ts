@@ -36,7 +36,7 @@ export interface IShortCard {
 export interface IShortCardWithoutId extends Omit<IShortCard, 'id'> {}
 
 export interface IPostFields {
-  id: string,
+  id: number | null,
   title: string,
   description: string,
   image: string,
