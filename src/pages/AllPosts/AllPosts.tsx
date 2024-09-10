@@ -8,7 +8,7 @@ export const AllPosts = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { isAdmin } = useAppSelector(getAdminSelector);
-  const { shortPosts, isLoading, errorMessage, deletePostMessage } = useAppSelector(getAllPostsSelector);
+  const { shortPosts, isLoading, successMessage, errorMessage } = useAppSelector(getAllPostsSelector);
 
   useEffect(() => {
     if (isAdmin) dispatch(getShortPostsAdminAction())
@@ -33,7 +33,7 @@ export const AllPosts = () => {
             ))}
           </div>
         }
-        {deletePostMessage && <Notification type='success' message={deletePostMessage} clearMessage={clearMessages} />}
+        {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}
         {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
       </div>
       <Footer />

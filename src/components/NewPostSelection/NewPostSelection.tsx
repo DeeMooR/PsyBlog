@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react'
-import { getNewPostDataSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlockName, useAppDispatch, useAppSelector } from 'src/store';
-import { RadioOption } from 'src/components'
-import { radioOptions } from 'src/config';
+import { getNewPostDataSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
+import { NewBlockNames, RadioOption, radioOptions } from 'src/components'
 import { crossIcon } from 'src/assets';
 import './NewPostSelection.css'
 
@@ -13,7 +12,7 @@ export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
   const dispatch = useAppDispatch();
   const { newBlockName } = useAppSelector(getNewPostSelector);
   const { id } = useAppSelector(getNewPostDataSelector);
-  const [selected, setSelected] = useState<string>('');
+  const [selected, setSelected] = useState<NewBlockNames | null>(null);
 
   const clickApplySelected = () => {
     if (newBlockName) {
@@ -24,7 +23,7 @@ export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
       dispatch(setNewPostErrorMessage('Перед созданием нового блока необходимо заполнить "Основные поля"'));
       return;
     }
-    dispatch(setNewPostNewBlockName(selected));
+    if (selected) dispatch(setNewPostNewBlock(selected));
     clickClose();
   }
 

@@ -1,8 +1,8 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
-import { IImage, IList, IBlockquote, ITwoImages, ITitle, NewBlockTables } from 'src/components/newPost'
-import { getNewPostDataSelector, useAppSelector } from 'src/store'
+import { IImage, IList, IBlockquote, ITwoImages, ITitle } from 'src/components/newPost'
+import { getFullPostAction, getNewPostDataSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
 import './Post.css'
@@ -64,12 +64,30 @@ const obj11 = {
 
 const showBlock = {
   'title': (obj: ITitle) => <Title obj={obj} />,
-  'quote': (obj: IBlockquote) => <Blockquote obj={obj} />
+  'text': (obj: ITitle) => <Title obj={obj} />,
+  'title_and_text': (obj: ITitle) => <Title obj={obj} />,
+  'quote': (obj: IBlockquote) => <Blockquote obj={obj} />,
+  'list_point': (obj: ITitle) => <Title obj={obj} />,
+  'list_number': (obj: ITitle) => <Title obj={obj} />,
 };
 
 export const Post = () => {
+  const { id: param } = useParams();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { title, image, date, blocks } = useAppSelector(getNewPostDataSelector);
+
+  useEffect(() => {
+    const func = async () => {
+      try {
+        if (param) await dispatch(getFullPostAction(+param)).unwrap();
+      } catch {
+        dispatch(setAllPostsErrorMessage('Ошибка при получении статьи'));
+        navigate('/posts');
+      }
+    }
+    func();
+  }, [param])
 
   return (
     <div className='post'>
@@ -92,7 +110,7 @@ export const Post = () => {
           <div className="imageBorder" />
         </div>
         <div className="post__content">
-          {blocks.map(({table_name, fields}: {table_name: NewBlockTables, fields: ITitle | IBlockquote}) => 
+          {blocks.map(({table_name, fields}) => 
             showBlock[table_name](fields as any)
           )}
           

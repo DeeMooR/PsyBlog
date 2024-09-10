@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, TitleCreate, Notification, ModalConfirm, NewBlockTables } from 'src/components'
+import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, ITitle, Title, TitleCreate, Blockquote, IBlockquote } from 'src/components'
 import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData } from 'src/store'
 import './NewPost.css'
 
-const openNewBlock = {
+const showBlock = {
+  'title': (obj: ITitle) => <Title obj={obj} />,
+  'text': (obj: ITitle) => <Title obj={obj} />,
+  'title_and_text': (obj: ITitle) => <Title obj={obj} />,
+  'quote': (obj: IBlockquote) => <Blockquote obj={obj} />,
+  'list_point': (obj: ITitle) => <Title obj={obj} />,
+  'list_number': (obj: ITitle) => <Title obj={obj} />,
+};
+
+const createBlock = {
   'title': <TitleCreate />,
+  'text': <TitleCreate />,
+  'title_and_text': <TitleCreate />,
   'quote': <TitleCreate />,
+  'list_point': <TitleCreate />,
+  'list_number': <TitleCreate />,
 };
 
 export const NewPost = () => {
   const { id: param } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { newBlockName, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
-  const { id } = useAppSelector(getNewPostDataSelector);
+  const { newBlockTable, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
+  const { id, blocks } = useAppSelector(getNewPostDataSelector);
   const [showSelection, setShowSelection] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -57,9 +70,14 @@ export const NewPost = () => {
           <div className='newPost__required'>
             <NewPostRequired />
           </div>
-          {newBlockName &&
+          <div className="newPost__blocks">
+            {blocks.map(({table_name, fields}) => 
+              showBlock[table_name](fields as any)
+            )}
+          </div>
+          {newBlockTable &&
             <div className='newPost__newBlock'>
-              {openNewBlock[newBlockName as NewBlockTables]}
+              {createBlock[newBlockTable]}
             </div>
           }
           {!showSelection &&

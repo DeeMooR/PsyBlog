@@ -1,12 +1,13 @@
 import React, { FC } from 'react'
 import './RadioOption.css'
 import { radioSelectedIcon, radioUnselectedIcon } from 'src/assets'
+import { NewBlockNames } from '../newPost'
 
 interface IRadioOption {
-  value: string,
-  selected: string,
+  value: NewBlockNames,
+  selected: NewBlockNames | null,
   name: string,
-  onClickOption: (value: string) => void
+  onClickOption: (value: NewBlockNames) => void
 }
 
 export const RadioOption:FC<IRadioOption> = ({value, selected, name, onClickOption}) => {

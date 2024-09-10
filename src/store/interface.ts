@@ -1,9 +1,10 @@
-import { NewBlockTables } from "src/components";
+import { NewBlockNames, NewBlockTables } from "src/components";
 import { IFullPost, IShortPost } from "src/interfaces";
 
 export interface newPostState {
   postData: IFullPost,
-  newBlockName: NewBlockTables | null,
+  newBlockName: NewBlockNames | null,
+  newBlockTable: NewBlockTables | null,
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,
@@ -19,7 +20,6 @@ export interface adminState {
 export interface allPostsState {
   shortPosts: IShortPost[],
   isLoading: boolean,
-  deletePostMessage: string | null,
   successMessage: string | null,
   errorMessage: string | null,
 }

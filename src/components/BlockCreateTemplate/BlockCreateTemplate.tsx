@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { getNewPostSelector, setNewPostNewBlockName, useAppDispatch, useAppSelector } from 'src/store';
+import { getNewPostSelector, clearNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
 import { crossIcon } from 'src/assets';
 import './BlockCreateTemplate.css';
 
@@ -12,7 +12,7 @@ export const BlockCreateTemplate:FC<IBlockCreateTemplate> = ({children}) => {
   const { newBlockName } = useAppSelector(getNewPostSelector);
 
   const clickClose = () => {
-    dispatch(setNewPostNewBlockName(null));
+    dispatch(clearNewPostNewBlock());
   }
   
   return (

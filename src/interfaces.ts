@@ -1,4 +1,4 @@
-import { IBlockquote, ITitle, NewBlockTables } from "./components/newPost/interfaces"
+import { NewBlockTables, NewBlockTypes } from "./components"
 
 export interface IService {
   id: number,
@@ -56,7 +56,7 @@ export interface IOptionalPostFields extends Partial<IPostFields> {}
 
 export interface IPostBlock {
   table_name: NewBlockTables,
-  fields: ITitle | IBlockquote,
+  fields: NewBlockTypes,
 }
 
 export interface IFullPost {

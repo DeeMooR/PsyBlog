@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { BlockCreateTemplate, Input } from 'src/components';
-import { ITitle } from '../interfaces';
+import { IBlockquote, ITitle } from '../interfaces';
 import { useAppSelector, getNewPostDataSelector } from 'src/store';
 import cn from 'classnames';
 import './Create.css';
 
-export const TitleCreate = () => {
+interface ITitleCreate {
+  obj?: ITitle | IBlockquote
+}
+
+export const TitleCreate:FC<ITitleCreate> = ({obj}) => {
   const { id: post_id } = useAppSelector(getNewPostDataSelector);
   const [change, setChange] = useState(false);
   const block_id = '2';
@@ -18,7 +22,7 @@ export const TitleCreate = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { errors },
   } = useForm<ITitle>({
     mode: 'onSubmit',
     // resolver: yupResolver(orderForm),

@@ -5,23 +5,22 @@ import { deletePostAction, getShortPostsAction, getShortPostsAdminAction, update
 const initialState: allPostsState = {
   shortPosts: [],
   isLoading: false,
-  deletePostMessage: null,
   successMessage: null,
   errorMessage: null,
 }
 
 const setLoading = (state: allPostsState) => {
   state.isLoading = true;
-  state.successMessage = null;
-  state.errorMessage = null;
 }
 
 const allPostsSlice = createSlice({
   name: 'allPosts',
   initialState,
   reducers: {
+    setAllPostsErrorMessage: (state, { payload }) => {
+      state.errorMessage = payload;
+    },
     clearAllPostsMessages: (state) => {
-      state.deletePostMessage = null;
       state.successMessage = null;
       state.errorMessage = null;
     }
@@ -59,12 +58,12 @@ const allPostsSlice = createSlice({
       })
 
       .addCase(deletePostAction.fulfilled, (state) => {
-        state.deletePostMessage = 'Статья успешно удалена';
+        state.successMessage = 'Статья успешно удалена';
       })
   },
 })
 
 export const {
   reducer: allPostsReducer,
-  actions: {clearAllPostsMessages},
+  actions: {setAllPostsErrorMessage, clearAllPostsMessages},
 } = allPostsSlice;

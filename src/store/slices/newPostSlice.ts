@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
 import { createPostAction, deletePostAction, getFullPostAction, updatePostAction } from '../actions';
+import { NewBlockNames } from 'src/components';
+import { BlockNameToTableName } from '../config';
 
 const initialState: newPostState = {
   postData: {
@@ -13,6 +15,7 @@ const initialState: newPostState = {
     blocks: []
   },
   newBlockName: null,
+  newBlockTable: null,
   isLoading: false,
   successMessage: null,
   errorMessage: null,
@@ -28,8 +31,13 @@ const newPostSlice = createSlice({
   name: 'newPost',
   initialState,
   reducers: {
-    setNewPostNewBlockName: (state, { payload }) => {
+    setNewPostNewBlock: (state, { payload }: {payload: NewBlockNames}) => {
       state.newBlockName = payload;
+      state.newBlockTable = BlockNameToTableName[payload];
+    },
+    clearNewPostNewBlock: (state) => {
+      state.newBlockName = null;
+      state.newBlockTable = null;
     },
     setNewPostErrorMessage: (state, { payload }) => {
       state.errorMessage = payload;
@@ -90,5 +98,5 @@ const newPostSlice = createSlice({
 
 export const {
   reducer: newPostReducer,
-  actions: {setNewPostNewBlockName, setNewPostErrorMessage, clearNewPostPostData, clearNewPostMessages},
+  actions: {setNewPostNewBlock, clearNewPostNewBlock, setNewPostErrorMessage, clearNewPostPostData, clearNewPostMessages},
 } = newPostSlice;
