@@ -5,8 +5,11 @@
 }
 .allPosts .allPosts__wrapper {
   flex: 1;
-  margin: 40px auto 70px;
+  margin: 30px auto 70px;
   width: 1080px;
+}
+.allPosts .allPosts__wrapper .allPosts__crumbs {
+  margin: 0 0 5px 0;
 }
 .allPosts .allPosts__wrapper .allPosts__title {
   margin: 0 0 40px 0;

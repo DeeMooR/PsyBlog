@@ -1,6 +1,6 @@
 .newPost {
   height: 100%;
-  padding: 40px 0 0 0;
+  padding: 30px 0 0 0;
 }
 .newPost .newPost__wrapper {
   margin: 0 auto;
@@ -11,6 +11,9 @@
 }
 .newPost .newPost__wrapper .newPost__content {
   flex: 1;
+}
+.newPost .newPost__wrapper .newPost__content .newPost__crumbs {
+  margin: 0 0 5px 0;
 }
 .newPost .newPost__wrapper .newPost__content .newPost__title {
   margin: 0 0 40px 0;

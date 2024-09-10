@@ -230,6 +230,16 @@ button:disabled,
   color: var(--green-text);
 }
 
+.crumbs {
+  font-size: 14px;
+  color: var(--disabled);
+  width: fit-content;
+  cursor: pointer;
+}
+.crumbs:hover {
+  color: var(--beige-2);
+}
+
 .yarl__container {
   background-color: var(--background);
 }

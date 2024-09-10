@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
 import { IImage, IList, IBlockquote, ITwoImages } from 'src/components/newPost/interfaces'
@@ -61,10 +62,16 @@ const obj11 = {
 }
 
 export const Post = () => {
+  const navigate = useNavigate();
+
   return (
     <div className='post'>
       <Header />
       <div className='post__wrapper'>
+        <div className='post__crumbs'>
+          <span className='crumbs' onClick={() => navigate('/')}>Главная /</span>
+          <span className='crumbs' onClick={() => navigate('/posts')}> Все посты</span>
+        </div>
         <p className='post__title'>Что такое психология и с чем её едят?</p>
         <div className="post__shortInfo">
           <div className="post__author">

@@ -24,12 +24,12 @@ export const NewPost = () => {
     const func = async () => {
       try {
         if (param) await dispatch(getPostAction(+param)).unwrap();
+        else dispatch(clearNewPostPostData());
       } catch {
         navigate('/new-post');
       }
     }
     func();
-    dispatch(clearNewPostPostData());
   }, [param])
 
   const clickDelete = async () => {
@@ -49,6 +49,10 @@ export const NewPost = () => {
       <Header />
       <div className='newPost__wrapper'>
         <div className="newPost__content">
+          <div className='newPost__crumbs'>
+            <span className='crumbs' onClick={() => navigate('/')}>Главная /</span>
+            <span className='crumbs' onClick={() => navigate('/posts')}> Все посты</span>
+          </div>
           <h2 className='newPost__title'>{title}</h2>
           <div className='newPost__required'>
             <NewPostRequired />
