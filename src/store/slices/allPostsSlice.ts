@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { allPostsState } from '../interface';
-import { getShortPostsAction, getShortPostsAdminAction, updateShortPostsAction } from '../actions';
+import { deletePostAction, getShortPostsAction, getShortPostsAdminAction, updateShortPostsAction } from '../actions';
 
 const initialState: allPostsState = {
   shortPosts: [],
   isLoading: false,
+  deletePostMessage: null,
   successMessage: null,
   errorMessage: null,
 }
@@ -20,6 +21,7 @@ const allPostsSlice = createSlice({
   initialState,
   reducers: {
     clearAllPostsMessages: (state) => {
+      state.deletePostMessage = null;
       state.successMessage = null;
       state.errorMessage = null;
     }
@@ -54,6 +56,10 @@ const allPostsSlice = createSlice({
       .addCase(updateShortPostsAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при обновлении постов';
+      })
+
+      .addCase(deletePostAction.fulfilled, (state) => {
+        state.deletePostMessage = 'Пост успешно удалён';
       })
   },
 })

@@ -8,7 +8,7 @@ interface IUpdateShortPostsAction {
 }
 
 export const getShortPostsAction = createAsyncThunk<IShortPost[], void>(
-  'admin/getShortPostsAction',
+  'allPosts/getShortPostsAction',
   async () => {
     const response = await getShortPostsApi();
     return response;
@@ -16,7 +16,7 @@ export const getShortPostsAction = createAsyncThunk<IShortPost[], void>(
 )
 
 export const getShortPostsAdminAction = createAsyncThunk<IShortPost[], void>(
-  'admin/getShortPostsAdminAction',
+  'allPosts/getShortPostsAdminAction',
   async () => {
     const response = await getShortPostsAdminApi();
     return response;
@@ -24,7 +24,7 @@ export const getShortPostsAdminAction = createAsyncThunk<IShortPost[], void>(
 )
 
 export const updateShortPostsAction = createAsyncThunk<IShortPost[], IUpdateShortPostsAction>(
-  'admin/updateShortPostsAction',
+  'allPosts/updateShortPostsAction',
   async ({id, body}) => {
     await updatePostApi(id, body);
     const response = await getShortPostsAdminApi();

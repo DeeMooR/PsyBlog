@@ -5,6 +5,7 @@ import { IShortPost } from 'src/interfaces'
 import { CardSmallImage } from 'src/styled'
 import { updateShortPostsAction, useAppDispatch } from 'src/store'
 import './CardSmall.css'
+import { pencilIcon } from 'src/assets'
 
 interface ICardSmall {
   obj: IShortPost, 
@@ -16,8 +17,9 @@ export const CardSmall:FC<ICardSmall> = ({obj, isAdmin = false}) => {
   const dispatch = useAppDispatch();
   const { id, image, title, isActive } = obj;
 
-  const onClickCard = (event: MouseEvent<HTMLDivElement>) => {
-    if ((event.target as HTMLElement).closest('.switchButton')) return;
+  const clickCard = (event: MouseEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLElement;
+    if (target.closest('.switchButton') || target.closest('.cardSmall__pencil')) return;
     navigate(`/posts/${id}`);
   };
 
@@ -25,19 +27,28 @@ export const CardSmall:FC<ICardSmall> = ({obj, isAdmin = false}) => {
     const body = {isActive: !isActive};
     dispatch(updateShortPostsAction({id, body}));
   }
+
+  const clickPencil = () => {
+    navigate(`/new-post/${id}`);
+  }
   
   return (
-    <div className='cardSmall' onClick={onClickCard}>
+    <div className='cardSmall' onClick={clickCard}>
       <CardSmallImage image={image} />
       <div className="cardSmall__content">
         <h4 className='cardSmall__title'>{title}</h4>
         {isAdmin && 
-          <SwitchButton 
-            isActive={isActive} 
-            changeActivity={changeActivity} 
-            showPrefix={false} 
-            id={`${id}`} 
-          />
+        <>
+          <div className="cardSmall__activity">
+            <SwitchButton 
+              isActive={isActive} 
+              changeActivity={changeActivity} 
+              showPrefix={false} 
+              id={`${id}`} 
+            />
+          </div>
+          <img src={pencilIcon} className='cardSmall__pencil' onClick={clickPencil} alt="pencil" />
+        </>
         }
       </div>
     </div>

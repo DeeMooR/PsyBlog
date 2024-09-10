@@ -8,6 +8,7 @@ class PostService {
   }
   async getOne(id) {
     const [response] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
+    if (!response.length) throw new Error(`Пост с ID ${id} не найден`);
     return response[0];
   }
   async getFullPost(id) {

@@ -1,31 +1,46 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { createPostAction, updatePostAction, getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
+import { createPostAction, updatePostAction, getNewPostDataSelector, useAppDispatch, useAppSelector, getNewPostSelector } from 'src/store';
 import { Input, ModalConfirm, SwitchButton, Textarea } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
+import { useNavigate } from 'react-router-dom';
 
 export const NewPostRequired = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { postData } = useAppSelector(getNewPostSelector);
   const { id, isActive } = useAppSelector(getNewPostDataSelector);
-  const [active, setActive] = useState<boolean>(isActive);
+  const [active, setActive] = useState<boolean>(false);
   const [showModal, setShowModal] = useState(false);
   
   const {
     register,
     handleSubmit,
     getValues,
+    reset,
     formState: { errors },
   } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
     resolver: yupResolver(postRequiredScheme),
+    defaultValues: {...postData}
   });
+  
+  useEffect(() => {
+    reset({ ...postData });
+    setActive(isActive);
+  }, [postData, reset]);
 
-  const onSubmit = (data: IPostRequiredFormFields) => {
+  const onSubmit = async (data: IPostRequiredFormFields) => {
     const body = {...data, isActive: active};
-    if (!id) dispatch(createPostAction(body));
+    if (!id) {
+      try {
+        const post = await dispatch(createPostAction(body)).unwrap();
+        navigate(`/new-post/${post.id}`);
+      } catch {}
+    }
     else setShowModal(true);
   }
 

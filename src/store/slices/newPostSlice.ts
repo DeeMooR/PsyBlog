@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
-import { createPostAction, deletePostAction, updatePostAction } from '../actions';
+import { createPostAction, deletePostAction, getPostAction, updatePostAction } from '../actions';
 
 const initialState: newPostState = {
   postData: {
@@ -33,6 +33,9 @@ const newPostSlice = createSlice({
     setNewPostErrorMessage: (state, { payload }) => {
       state.errorMessage = payload;
     },
+    clearNewPostPostData: (state) => {
+      Object.assign(state.postData, initialState.postData);
+    },
     clearNewPostMessages: (state) => {
       state.successMessage = null;
       state.errorMessage = null;
@@ -40,6 +43,16 @@ const newPostSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(getPostAction.pending, setLoading)
+      .addCase(getPostAction.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.postData = {...payload};
+      })
+      .addCase(getPostAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при получении поста';
+      })
+
       .addCase(createPostAction.pending, setLoading)
       .addCase(createPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
@@ -66,7 +79,6 @@ const newPostSlice = createSlice({
       .addCase(deletePostAction.fulfilled, (state) => {
         state.isLoading = false;
         Object.assign(state.postData, initialState.postData);
-        state.successMessage = 'Пост успешно удалён';
       })
       .addCase(deletePostAction.rejected, (state) => {
         state.isLoading = false;
@@ -77,5 +89,5 @@ const newPostSlice = createSlice({
 
 export const {
   reducer: newPostReducer,
-  actions: {setNewPostNewBlockName, setNewPostErrorMessage, clearNewPostMessages},
+  actions: {setNewPostNewBlockName, setNewPostErrorMessage, clearNewPostPostData, clearNewPostMessages},
 } = newPostSlice;

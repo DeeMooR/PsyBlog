@@ -18,6 +18,7 @@ export interface adminState {
 export interface allPostsState {
   shortPosts: IShortPost[],
   isLoading: boolean,
+  deletePostMessage: string | null,
   successMessage: string | null,
   errorMessage: string | null,
 }

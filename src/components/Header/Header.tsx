@@ -8,8 +8,8 @@ export const Header = () => {
   const [clickMenu, setClickMenu] = useState(false);
 
   useEffect(() => {
-    if (clickMenu) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'auto';
+    if (clickMenu) document.body.style.overflowY = 'hidden';
+    else document.body.style.overflowY = 'scroll';
   }, [clickMenu]);
 
   const onClickLogo = () => {

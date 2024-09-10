@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Header, NewPostRequired, NewPostSelection, TitleCreate, Notification, ModalConfirm } from 'src/components'
-import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector } from 'src/store'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getPostAction, clearNewPostPostData } from 'src/store'
 import { NewBlockNames } from 'src/config'
 import './NewPost.css'
 
@@ -9,6 +10,8 @@ const openNewBlock = {
 };
 
 export const NewPost = () => {
+  const { id: param } = useParams();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { newBlockName, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
   const { id } = useAppSelector(getNewPostDataSelector);
@@ -17,8 +20,25 @@ export const NewPost = () => {
 
   const title = id ? 'Редактирование поста' : 'Создание поста';
 
-  const clickDelete = () => {
-    if (id) dispatch(deletePostAction(id));
+  useEffect(() => {
+    const func = async () => {
+      try {
+        if (param) await dispatch(getPostAction(+param)).unwrap();
+      } catch {
+        navigate('/new-post');
+      }
+    }
+    func();
+    dispatch(clearNewPostPostData());
+  }, [param])
+
+  const clickDelete = async () => {
+    if (id) {
+      try {
+        await dispatch(deletePostAction(id)).unwrap();
+        navigate('/posts');
+      } catch {}
+    }
     setShowModal(false);
   }
 

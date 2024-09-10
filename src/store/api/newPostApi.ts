@@ -4,6 +4,9 @@ import { IOptionalPostFields, IPostFields, IPostRequiredFields } from "src/inter
 
 const headers = { 'Content-Type': 'application/json' };
 
+export const getPostApi = (id: number): Promise<IPostFields> =>
+  axios.get(`${endpoints.posts}/${id}`).then(({ data }) => data);
+
 export const createPostApi = (body: IPostRequiredFields): Promise<IPostFields> =>
   axios.post(endpoints.posts, body, {headers}).then(({ data }) => data);
 

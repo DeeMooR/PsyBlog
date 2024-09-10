@@ -6,7 +6,7 @@ import './AllPosts.css'
 export const AllPosts = () => {
   const dispatch = useAppDispatch();
   const { isAdmin } = useAppSelector(getAdminSelector);
-  const { shortPosts, isLoading, errorMessage } = useAppSelector(getAllPostsSelector);
+  const { shortPosts, isLoading, errorMessage, deletePostMessage } = useAppSelector(getAllPostsSelector);
 
   useEffect(() => {
     if (isAdmin) dispatch(getShortPostsAdminAction())
@@ -27,6 +27,7 @@ export const AllPosts = () => {
             ))}
           </div>
         }
+        {deletePostMessage && <Notification type='success' message={deletePostMessage} clearMessage={clearMessages} />}
         {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
       </div>
       <Footer />
