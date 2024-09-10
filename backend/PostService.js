@@ -26,9 +26,11 @@ class PostService {
     return this.getOne(id);
   }
   async update(id, body) {
-    const { title, description, image, date, isActive } = body;
-    const sql = `UPDATE posts SET title = ?, description = ?, image = ?, date = ?, isActive = ? WHERE id = ?`;
-    const [result] = await db.query(sql, [title, description, image, date, isActive, id]);
+    const fields = Object.keys(body).map(key => `${key} = ?`);
+    const values = Object.values(body);
+    if (fields.length === 0) throw new Error('Нет данных для обновления');
+    const sql = `UPDATE posts SET ${fields.join(', ')} WHERE id = ?`;
+    const [result] = await db.query(sql, [...values, id]);
     if (result.affectedRows === 0) throw new Error(`Пост с ID ${id} не найден`);
     return this.getOne(id);
   }

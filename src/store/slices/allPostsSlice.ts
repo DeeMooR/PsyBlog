@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { adminState, allPostsState } from '../interface';
-import { getShortPostsAction, getShortPostsAdminAction } from '../actions';
+import { allPostsState } from '../interface';
+import { getShortPostsAction, getShortPostsAdminAction, updateShortPostsAction } from '../actions';
 
 const initialState: allPostsState = {
   shortPosts: [],
@@ -44,6 +44,16 @@ const allPostsSlice = createSlice({
       .addCase(getShortPostsAdminAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при получении постов';
+      })
+
+      .addCase(updateShortPostsAction.pending, setLoading)
+      .addCase(updateShortPostsAction.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.shortPosts = [...payload];
+      })
+      .addCase(updateShortPostsAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при обновлении постов';
       })
   },
 })

@@ -2,34 +2,12 @@
   width: 100%;
   cursor: pointer;
 }
-.cardSmall .cardSmall__title {
-  font-weight: 400;
-  padding: 20px 0 0 0;
-  text-align: center;
-}
 .cardSmall .cardSmall__content {
-  padding: 18px 20px;
-}
-.cardSmall .cardSmall__content .cardSmall__description {
-  font-size: 14px;
-  height: 48px;
-  margin: 12px 0 0 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.cardSmall .cardSmall__content .cardSmall__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 24px 0 0 0;
+  padding: 20px 0 0 0;
 }
-.cardSmall .cardSmall__content .cardSmall__bottom .cardSmall__date {
-  font-size: 12px;
-  opacity: 0.8;
-}
-.cardSmall .cardSmall__content .cardSmall__bottom .cardSmall__icon {
-  width: 16px;
-  height: 16px;
+.cardSmall .cardSmall__content .cardSmall__title {
+  margin: 0 auto;
 }

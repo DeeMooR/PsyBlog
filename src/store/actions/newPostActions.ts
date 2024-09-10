@@ -1,31 +1,31 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IPostFields, IPostRequiredFields } from "src/interfaces";
-import { createNewPostApi, deleteNewPostApi, updateNewPostApi } from "../api";
+import { IOptionalPostFields, IPostFields, IPostRequiredFields } from "src/interfaces";
+import { createPostApi, deletePostApi, updatePostApi } from "../api";
 
-interface IUpdateNewPostAction {
+interface IUpdatePostAction {
   id: number,
-  body: IPostRequiredFields
+  body: IOptionalPostFields
 }
 
-export const createNewPostAction = createAsyncThunk<IPostFields, IPostRequiredFields>(
-  'admin/createNewPostAction',
+export const createPostAction = createAsyncThunk<IPostFields, IPostRequiredFields>(
+  'admin/createPostAction',
   async (body) => {
-    const response = await createNewPostApi(body);
+    const response = await createPostApi(body);
     return response;
   }
 )
 
-export const updateNewPostAction = createAsyncThunk<IPostFields, IUpdateNewPostAction>(
-  'admin/updateNewPostAction',
+export const updatePostAction = createAsyncThunk<IPostFields, IUpdatePostAction>(
+  'admin/updatePostAction',
   async ({id, body}) => {
-    const response = await updateNewPostApi(id, body);
+    const response = await updatePostApi(id, body);
     return response;
   }
 )
 
-export const deleteNewPostAction = createAsyncThunk<void, number>(
-  'admin/deleteNewPostAction',
+export const deletePostAction = createAsyncThunk<void, number>(
+  'admin/deletePostAction',
   async (id) => {
-    await deleteNewPostApi(id);
+    await deletePostApi(id);
   }
 )

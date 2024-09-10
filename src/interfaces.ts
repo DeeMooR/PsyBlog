@@ -48,3 +48,5 @@ export interface IPostFields {
 export interface IPostRequiredFormFields extends Omit<IPostFields, 'id' | 'isActive'> {}
 
 export interface IPostRequiredFields extends Omit<IPostFields, 'id'> {}
+
+export interface IOptionalPostFields extends Partial<IPostFields> {}

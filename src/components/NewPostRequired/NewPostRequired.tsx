@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
-import { createNewPostAction, updateNewPostAction } from 'src/store/actions';
+import { createPostAction, updatePostAction, getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
 import { Input, ModalConfirm, SwitchButton, Textarea } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
@@ -26,13 +25,13 @@ export const NewPostRequired = () => {
 
   const onSubmit = (data: IPostRequiredFormFields) => {
     const body = {...data, isActive: active};
-    if (!id) dispatch(createNewPostAction(body));
+    if (!id) dispatch(createPostAction(body));
     else setShowModal(true);
   }
 
   const clickUpdate = () => {
     const body = {...getValues(), isActive: active};
-    if (id) dispatch(updateNewPostAction({id, body}));
+    if (id) dispatch(updatePostAction({id, body}));
     setShowModal(false);
   }
 

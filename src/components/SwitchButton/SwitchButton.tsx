@@ -1,14 +1,15 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import cn from 'classnames';
 import './SwitchButton.css'
 
 interface ISwitchButton {
-  isActive: boolean;
-  changeActivity: () => void;
   id: string;
+  isActive: boolean | undefined;
+  changeActivity: () => void;
+  showPrefix?: boolean;
 }
 
-export const SwitchButton:FC<ISwitchButton> = ({isActive, changeActivity, id}) => {
+export const SwitchButton:FC<ISwitchButton> = ({id, isActive, changeActivity, showPrefix = true}) => {
 
   const wrapperStyle = cn('switchButton', {
     isActive: isActive,
@@ -16,9 +17,9 @@ export const SwitchButton:FC<ISwitchButton> = ({isActive, changeActivity, id}) =
 
   return (
     <div className={wrapperStyle}>
-      <span className='switchButton__prefix'>{isActive ? 'Активен' : 'Неактивен'}</span>
+      {!!showPrefix && <span className='switchButton__prefix'>{isActive ? 'Активен' : 'Неактивен'}</span>}
       <label htmlFor={id} className='switchButton__switcher'>
-        <input id={id} type="checkbox" className='switchButton__input' onClick={changeActivity} />
+        <input id={id} type="checkbox" className='switchButton__input' onChange={changeActivity} />
       </label>
     </div>
   );

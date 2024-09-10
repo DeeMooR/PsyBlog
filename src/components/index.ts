@@ -25,5 +25,6 @@ export * from './Notification/Notification';
 export * from './SwitchButton/SwitchButton';
 export * from './ModalConfirm/ModalConfirm';
 export * from './ModalTemplate/ModalTemplate';
+export * from './Loading/Loading';
 
 export * from './newPost';

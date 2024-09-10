@@ -1,6 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IShortPost } from "src/interfaces";
-import { getShortPostsApi, getShortPostsAdminApi } from "../api";
+import { IOptionalPostFields, IPostFields, IShortPost } from "src/interfaces";
+import { getShortPostsApi, getShortPostsAdminApi, updatePostApi } from "../api";
+
+interface IUpdateShortPostsAction {
+  id: number,
+  body: IOptionalPostFields
+}
 
 export const getShortPostsAction = createAsyncThunk<IShortPost[], void>(
   'admin/getShortPostsAction',
@@ -13,6 +18,15 @@ export const getShortPostsAction = createAsyncThunk<IShortPost[], void>(
 export const getShortPostsAdminAction = createAsyncThunk<IShortPost[], void>(
   'admin/getShortPostsAdminAction',
   async () => {
+    const response = await getShortPostsAdminApi();
+    return response;
+  }
+)
+
+export const updateShortPostsAction = createAsyncThunk<IShortPost[], IUpdateShortPostsAction>(
+  'admin/updateShortPostsAction',
+  async ({id, body}) => {
+    await updatePostApi(id, body);
     const response = await getShortPostsAdminApi();
     return response;
   }

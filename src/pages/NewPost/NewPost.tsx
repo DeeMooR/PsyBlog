@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Header, NewPostRequired, NewPostSelection, TitleCreate, Notification, ModalConfirm } from 'src/components'
-import { clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector } from 'src/store'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector } from 'src/store'
 import { NewBlockNames } from 'src/config'
 import './NewPost.css'
-import { deleteNewPostAction } from 'src/store/actions'
 
 const openNewBlock = {
   'Заголовок': <TitleCreate />,
@@ -19,7 +18,7 @@ export const NewPost = () => {
   const title = id ? 'Редактирование поста' : 'Создание поста';
 
   const clickDelete = () => {
-    if (id) dispatch(deleteNewPostAction(id));
+    if (id) dispatch(deletePostAction(id));
     setShowModal(false);
   }
 
