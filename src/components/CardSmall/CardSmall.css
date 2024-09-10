@@ -5,7 +5,7 @@
 .cardSmall .cardSmall__content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   padding: 20px 0 0 0;
 }
 .cardSmall .cardSmall__content .cardSmall__title {

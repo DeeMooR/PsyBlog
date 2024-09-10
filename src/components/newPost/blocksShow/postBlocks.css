@@ -40,16 +40,16 @@
   gap: 20px;
 }
 .twoImage img {
-  width: 100%;
+  width: calc((100% - 20px) / 2);
   border-radius: 8px;
 }
 
 .blockquote {
   padding: 24px;
   font-style: italic;
-  background-color: #F6F6F7;
+  background-color: var(--beige-1);
   border-radius: 12px;
-  border-left: 4px solid #E8E8EA;
+  border-left: 4px solid var(--beige-2);
 }
 .blockquote::before {
   content: "“";
@@ -78,7 +78,7 @@
   height: 6px;
   width: 6px;
   rotate: 45deg;
-  background-color: var(--dark-grey);
+  background-color: var(--black);
 }
 .list ol {
   display: flex;

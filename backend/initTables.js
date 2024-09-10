@@ -11,8 +11,8 @@ export const createTables = async () => {
       isActive BOOLEAN NOT NULL DEFAULT false
     );
   `;
-  const post_fields = `
-    CREATE TABLE IF NOT EXISTS post_fields (
+  const post_blocks = `
+    CREATE TABLE IF NOT EXISTS post_blocks (
       id INT AUTO_INCREMENT PRIMARY KEY,
       post_id INT NOT NULL,
       table_name VARCHAR(20) NOT NULL,
@@ -25,10 +25,17 @@ export const createTables = async () => {
       title VARCHAR(255) NOT NULL
     );
   `;
+  const quote = `
+    CREATE TABLE IF NOT EXISTS quote (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      quote VARCHAR(255) NOT NULL
+    );
+  `;
   try {
     await db.query(posts);
-    await db.query(post_fields);
+    await db.query(post_blocks);
     await db.query(title);
+    await db.query(quote);
     console.log('Успешная загрузка таблиц.')
   } catch (err) {
     console.error('Ошибка при создании таблицы.', err);

@@ -1,5 +1,5 @@
 import db from './index.js';
-import PostFieldsService from "./PostFieldsService.js";
+import PostFieldsService from "./PostBlocksService.js";
 
 class PostService {
   async getAll() {
@@ -9,6 +9,18 @@ class PostService {
   async getOne(id) {
     const [response] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
     return response[0];
+  }
+  async getFullPost(id) {
+    let post = await this.getOne(id);
+    post.blocks = [];
+    const [post_blocks] = await db.query('SELECT table_name, table_id FROM post_blocks WHERE post_id = ?', [id]);
+    const blocksPromises = post_blocks.map(async ({ table_name, table_id }) => {
+      const [block] = await db.query(`SELECT * FROM ${table_name} WHERE id = ${table_id}`);
+      const {id, ...fields} = block[0];
+      return {table_name, fields: {...fields}};
+    });
+    post.blocks = await Promise.all(blocksPromises);
+    return post;
   }
   async getShortPosts() {
     const [rows] = await db.query('SELECT id, title, image FROM posts WHERE isActive = true');

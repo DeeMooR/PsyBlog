@@ -22,7 +22,7 @@
 .mySwiper .swiper-button-prev:after {
   font-size: 11px;
   padding: 8px 11px 8px 10px;
-  color: var(--dark-grey);
+  color: var(--black);
   background-color: var(--disabled);
   border-radius: 50%;
 }
@@ -32,7 +32,7 @@
 .mySwiper .swiper-button-next:after {
   font-size: 11px;
   padding: 8px 10px 8px 11px;
-  color: var(--dark-grey);
+  color: var(--black);
   background-color: var(--disabled);
   border-radius: 50%;
 }
