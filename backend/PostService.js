@@ -10,6 +10,14 @@ class PostService {
     const [response] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
     return response[0];
   }
+  async getShortPosts() {
+    const [rows] = await db.query('SELECT id, title, image FROM posts WHERE isActive = true');
+    return rows;
+  }
+  async getShortPostsAdmin() {
+    const [rows] = await db.query('SELECT id, title, image, isActive FROM posts');
+    return rows;
+  }
   async create(body) {
     const { title, description, image, date, isActive } = body;
     const sql = 'INSERT INTO posts (title, description, image, date, isActive) VALUES (?, ?, ?, ?, ?)';

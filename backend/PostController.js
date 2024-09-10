@@ -17,6 +17,22 @@ class PostController {
       res.status(500).json('Ошибка', e)
     }
   }
+  async getShortPosts(req, res) {
+    try {
+      const posts = await PostService.getShortPosts();
+      res.send(posts);
+    } catch (e) {
+      res.status(500).json('Ошибка', e)
+    }
+  }
+  async getShortPostsAdmin(req, res) {
+    try {
+      const posts = await PostService.getShortPostsAdmin();
+      res.send(posts);
+    } catch (e) {
+      res.status(500).json('Ошибка', e)
+    }
+  }
   async create(req, res) {
     try {
       const post = await PostService.create(req.body)

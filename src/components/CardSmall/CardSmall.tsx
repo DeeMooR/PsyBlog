@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { IShortCard } from 'src/interfaces'
+import { IShortPost } from 'src/interfaces'
 import { CardSmallImage } from 'src/styled'
 import './CardSmall.css'
 
 interface ICardSmall {
-  obj: IShortCard
+  obj: IShortPost
 }
 
 export const CardSmall:FC<ICardSmall> = ({obj}) => {

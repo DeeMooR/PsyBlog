@@ -43,7 +43,7 @@ const newPostSlice = createSlice({
       .addCase(createNewPostAction.pending, setLoading)
       .addCase(createNewPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        Object.assign(state.postData, payload);
+        state.postData = {...payload};
         state.successMessage = 'Пост успешно создан';
       })
       .addCase(createNewPostAction.rejected, (state) => {
@@ -54,7 +54,7 @@ const newPostSlice = createSlice({
       .addCase(updateNewPostAction.pending, setLoading)
       .addCase(updateNewPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        Object.assign(state.postData, payload);
+        state.postData = {...payload};
         state.successMessage = 'Пост успешно изменён';
       })
       .addCase(updateNewPostAction.rejected, (state) => {

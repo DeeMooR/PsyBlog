@@ -1,4 +1,4 @@
-import { IFAQ, IService, IShortCard } from "src/interfaces";
+import { IFAQ, IService, IShortPost } from "src/interfaces";
 import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, post_1, post_2, post_3, post_4, post_5, post_6, post_7, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
@@ -60,7 +60,7 @@ export const certificates_slides: {src: string}[] = [
   { src: certificate_8 },
 ]
 
-export const topCards: IShortCard[] = [
+export const topCards: IShortPost[] = [
   {
     id: 1,
     title: 'Психология!',
@@ -78,7 +78,7 @@ export const topCards: IShortCard[] = [
   },
 ];
 
-export const allCards: IShortCard[] = [
+export const allCards: IShortPost[] = [
   {
     id: 1,
     title: 'Психология!',

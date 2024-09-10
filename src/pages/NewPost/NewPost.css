@@ -38,7 +38,6 @@
 .newPost .newPost__wrapper .newPost__content .newPost__addBlock .addBlock__plus {
   display: flex;
   justify-content: center;
-  align-items: center;
   font-size: 35px;
   min-width: 50px;
   height: 50px;

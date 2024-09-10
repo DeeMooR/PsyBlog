@@ -27,13 +27,14 @@ export interface IOrderForm {
   phone: string,
 }
 
-export interface IShortCard {
+export interface IShortPost {
   id: number,
   title: string,
   image: string,
+  isActive?: boolean,
 }
 
-export interface IShortCardWithoutId extends Omit<IShortCard, 'id'> {}
+export interface IShortPostWithoutId extends Omit<IShortPost, 'id'> {}
 
 export interface IPostFields {
   id: number | null,
