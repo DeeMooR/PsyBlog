@@ -1,8 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
+import { IImage, IList, IBlockquote, ITwoImages, ITitle, NewBlockTables } from 'src/components/newPost'
+import { getNewPostDataSelector, useAppSelector } from 'src/store'
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
-import { IImage, IList, IBlockquote, ITwoImages } from 'src/components/newPost/interfaces'
 import { PostImage } from 'src/styled'
 import './Post.css'
 
@@ -61,8 +62,14 @@ const obj11 = {
   text: 'Конец)'
 }
 
+const showBlock = {
+  'title': (obj: ITitle) => <Title obj={obj} />,
+  'quote': (obj: IBlockquote) => <Blockquote obj={obj} />
+};
+
 export const Post = () => {
   const navigate = useNavigate();
+  const { title, image, date, blocks } = useAppSelector(getNewPostDataSelector);
 
   return (
     <div className='post'>
@@ -70,21 +77,25 @@ export const Post = () => {
       <div className='post__wrapper'>
         <div className='post__crumbs'>
           <span className='crumbs' onClick={() => navigate('/')}>Главная /</span>
-          <span className='crumbs' onClick={() => navigate('/posts')}> Все посты</span>
+          <span className='crumbs' onClick={() => navigate('/posts')}> Все статьи</span>
         </div>
-        <p className='post__title'>Что такое психология и с чем её едят?</p>
+        <p className='post__title'>{title}</p>
         <div className="post__shortInfo">
           <div className="post__author">
             <img className='author__icon' src={humanIcon} />
             <p className="author__text">Ольга Разваляева</p>
           </div>
-          <p className="post__date">3 января 2024г.</p>
+          <p className="post__date">{date}</p>
         </div>
         <div className="post__image">
-          <PostImage image={post_1} />
+          <PostImage image={image} />
           <div className="imageBorder" />
         </div>
         <div className="post__content">
+          {blocks.map(({table_name, fields}: {table_name: NewBlockTables, fields: ITitle | IBlockquote}) => 
+            showBlock[table_name](fields as any)
+          )}
+          
           <Text obj={obj1} />
           <Title obj={obj2} />
           <TitleAndText obj={obj3} />

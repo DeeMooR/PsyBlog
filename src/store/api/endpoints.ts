@@ -4,4 +4,5 @@ export const endpoints = {
   posts: `${baseURL}/posts`,
   shortPosts: `${baseURL}/shortPosts`,
   shortPostsAdmin: `${baseURL}/shortPosts/admin`,
+  fullPost: `${baseURL}/fullPost`,
 };

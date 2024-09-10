@@ -31,3 +31,5 @@ export interface IList {
   type: 'pointer' | 'number';
   items: string[];
 }
+
+export type NewBlockTables = 'title' | 'quote';

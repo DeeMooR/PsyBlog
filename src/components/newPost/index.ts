@@ -7,3 +7,5 @@ export * from './blocksShow/Blockquote';
 export * from './blocksShow/List';
 
 export * from './blocksCreate/TitleCreate';
+
+export * from './interfaces';

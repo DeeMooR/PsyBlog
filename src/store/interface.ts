@@ -1,8 +1,9 @@
-import { IPostFields, IShortPost } from "src/interfaces";
+import { NewBlockTables } from "src/components";
+import { IFullPost, IShortPost } from "src/interfaces";
 
 export interface newPostState {
-  postData: IPostFields,
-  newBlockName: string | null,
+  postData: IFullPost,
+  newBlockName: NewBlockTables | null,
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,

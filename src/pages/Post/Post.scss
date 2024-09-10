@@ -12,12 +12,13 @@
     .post__title {
       font-size: 36px;
       font-weight: 500;
+      margin: 0 0 8px 0;
     }
     .post__shortInfo {
       display: flex;
       align-items: center;
       gap: 24px;
-      margin: 20px 0 0 0;
+      margin: 0 0 20px 0;
       .post__author {
         display: flex;
         align-items: center;
@@ -37,7 +38,7 @@
       }
     }
     .post__image {
-      margin: 24px 0 0 0;
+      margin: 0 0 0 0;
       position: relative;
       z-index: 0;
     }
@@ -45,7 +46,6 @@
       display: flex;
       flex-direction: column;
       gap: 32px;
-      margin: 40px 0 0 0;
     }
   }
 }

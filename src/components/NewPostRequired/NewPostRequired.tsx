@@ -12,7 +12,7 @@ export const NewPostRequired = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { postData } = useAppSelector(getNewPostSelector);
-  const { id, isActive } = useAppSelector(getNewPostDataSelector);
+  const { id } = useAppSelector(getNewPostDataSelector);
   const [active, setActive] = useState<boolean>(false);
   const [showModal, setShowModal] = useState(false);
   
@@ -29,7 +29,8 @@ export const NewPostRequired = () => {
   });
   
   useEffect(() => {
-    reset({ ...postData });
+    const {id, blocks, isActive, ...defaultValues} = postData;
+    reset({ ...defaultValues });
     setActive(isActive);
   }, [postData, reset]);
 

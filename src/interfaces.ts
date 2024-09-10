@@ -1,3 +1,5 @@
+import { IBlockquote, ITitle, NewBlockTables } from "./components/newPost/interfaces"
+
 export interface IService {
   id: number,
   image: string,
@@ -50,3 +52,19 @@ export interface IPostRequiredFormFields extends Omit<IPostFields, 'id' | 'isAct
 export interface IPostRequiredFields extends Omit<IPostFields, 'id'> {}
 
 export interface IOptionalPostFields extends Partial<IPostFields> {}
+
+
+export interface IPostBlock {
+  table_name: NewBlockTables,
+  fields: ITitle | IBlockquote,
+}
+
+export interface IFullPost {
+  id: number | null,
+  title: string,
+  description: string,
+  image: string,
+  date: string,
+  isActive: boolean,
+  blocks: IPostBlock[]
+}

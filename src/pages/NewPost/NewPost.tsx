@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, TitleCreate, Notification, ModalConfirm } from 'src/components'
-import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getPostAction, clearNewPostPostData } from 'src/store'
-import { NewBlockNames } from 'src/config'
+import { Header, NewPostRequired, NewPostSelection, TitleCreate, Notification, ModalConfirm, NewBlockTables } from 'src/components'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData } from 'src/store'
 import './NewPost.css'
 
 const openNewBlock = {
-  'Заголовок': <TitleCreate />,
+  'title': <TitleCreate />,
+  'quote': <TitleCreate />,
 };
 
 export const NewPost = () => {
@@ -18,12 +18,12 @@ export const NewPost = () => {
   const [showSelection, setShowSelection] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const title = id ? 'Редактирование поста' : 'Создание поста';
+  const title = id ? 'Редактирование статьи' : 'Создание статьи';
 
   useEffect(() => {
     const func = async () => {
       try {
-        if (param) await dispatch(getPostAction(+param)).unwrap();
+        if (param) await dispatch(getFullPostAction(+param)).unwrap();
         else dispatch(clearNewPostPostData());
       } catch {
         navigate('/new-post');
@@ -51,7 +51,7 @@ export const NewPost = () => {
         <div className="newPost__content">
           <div className='newPost__crumbs'>
             <span className='crumbs' onClick={() => navigate('/')}>Главная /</span>
-            <span className='crumbs' onClick={() => navigate('/posts')}> Все посты</span>
+            <span className='crumbs' onClick={() => navigate('/posts')}> Все статьи</span>
           </div>
           <h2 className='newPost__title'>{title}</h2>
           <div className='newPost__required'>
@@ -59,7 +59,7 @@ export const NewPost = () => {
           </div>
           {newBlockName &&
             <div className='newPost__newBlock'>
-              {openNewBlock[newBlockName as NewBlockNames]}
+              {openNewBlock[newBlockName as NewBlockTables]}
             </div>
           }
           {!showSelection &&
@@ -77,7 +77,7 @@ export const NewPost = () => {
         </div>
         {id &&
           <div className="newPost__btnDelete">
-            <button className='smallBtn btnDelete' onClick={() => setShowModal(true)}>Удалить пост</button>
+            <button className='smallBtn btnDelete' onClick={() => setShowModal(true)}>Удалить статью</button>
           </div>
         }
       </div>

@@ -1,21 +1,21 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IOptionalPostFields, IPostFields, IPostRequiredFields } from "src/interfaces";
-import { createPostApi, deletePostApi, getPostApi, updatePostApi } from "../api";
+import { IOptionalPostFields, IFullPost, IPostRequiredFields } from "src/interfaces";
+import { createPostApi, deletePostApi, getFullPostApi, updatePostApi } from "../api";
 
 interface IUpdatePostAction {
   id: number,
   body: IOptionalPostFields
 }
 
-export const getPostAction = createAsyncThunk<IPostFields, number>(
-  'newPost/getPostAction',
+export const getFullPostAction = createAsyncThunk<IFullPost, number>(
+  'newPost/getFullPostAction',
   async (id) => {
-    const response = await getPostApi(id);
+    const response = await getFullPostApi(id);
     return response;
   }
 )
 
-export const createPostAction = createAsyncThunk<IPostFields, IPostRequiredFields>(
+export const createPostAction = createAsyncThunk<IFullPost, IPostRequiredFields>(
   'newPost/createPostAction',
   async (body) => {
     const response = await createPostApi(body);
@@ -23,7 +23,7 @@ export const createPostAction = createAsyncThunk<IPostFields, IPostRequiredField
   }
 )
 
-export const updatePostAction = createAsyncThunk<IPostFields, IUpdatePostAction>(
+export const updatePostAction = createAsyncThunk<IFullPost, IUpdatePostAction>(
   'newPost/updatePostAction',
   async ({id, body}) => {
     const response = await updatePostApi(id, body);

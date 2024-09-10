@@ -8,7 +8,7 @@ class PostService {
   }
   async getOne(id) {
     const [response] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
-    if (!response.length) throw new Error(`Пост с ID ${id} не найден`);
+    if (!response.length) throw new Error(`Статья с ID ${id} не найден`);
     return response[0];
   }
   async getFullPost(id) {
@@ -36,7 +36,7 @@ class PostService {
     const sql = 'INSERT INTO posts (title, description, image, date, isActive) VALUES (?, ?, ?, ?, ?)';
     const [result] = await db.query(sql, [title, description, image, date, isActive]);
     const id = result.insertId;
-    return this.getOne(id);
+    return this.getFullPost(id);
   }
   async update(id, body) {
     const fields = Object.keys(body).map(key => `${key} = ?`);
@@ -44,8 +44,8 @@ class PostService {
     if (fields.length === 0) throw new Error('Нет данных для обновления');
     const sql = `UPDATE posts SET ${fields.join(', ')} WHERE id = ?`;
     const [result] = await db.query(sql, [...values, id]);
-    if (result.affectedRows === 0) throw new Error(`Пост с ID ${id} не найден`);
-    return this.getOne(id);
+    if (result.affectedRows === 0) throw new Error(`Статья с ID ${id} не найден`);
+    return this.getFullPost(id);
   }
   async delete(id) {
     const [response] = await db.query('DELETE FROM posts WHERE id = ?', [id]);

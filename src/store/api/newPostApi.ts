@@ -1,16 +1,16 @@
 import axios from "axios";
 import { endpoints } from "./endpoints";
-import { IOptionalPostFields, IPostFields, IPostRequiredFields } from "src/interfaces";
+import { IFullPost, IOptionalPostFields, IPostRequiredFields } from "src/interfaces";
 
 const headers = { 'Content-Type': 'application/json' };
 
-export const getPostApi = (id: number): Promise<IPostFields> =>
-  axios.get(`${endpoints.posts}/${id}`).then(({ data }) => data);
+export const getFullPostApi = (id: number): Promise<IFullPost> =>
+  axios.get(`${endpoints.fullPost}/${id}`).then(({ data }) => data);
 
-export const createPostApi = (body: IPostRequiredFields): Promise<IPostFields> =>
+export const createPostApi = (body: IPostRequiredFields): Promise<IFullPost> =>
   axios.post(endpoints.posts, body, {headers}).then(({ data }) => data);
 
-export const updatePostApi = (id: number, body: IOptionalPostFields): Promise<IPostFields> =>
+export const updatePostApi = (id: number, body: IOptionalPostFields): Promise<IFullPost> =>
   axios.put(`${endpoints.posts}/${id}`, body, {headers}).then(({ data }) => data);
 
 export const deletePostApi = (id: number) =>

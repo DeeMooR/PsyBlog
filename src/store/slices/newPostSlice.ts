@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
-import { createPostAction, deletePostAction, getPostAction, updatePostAction } from '../actions';
+import { createPostAction, deletePostAction, getFullPostAction, updatePostAction } from '../actions';
 
 const initialState: newPostState = {
   postData: {
@@ -10,6 +10,7 @@ const initialState: newPostState = {
     image: '',
     date: '',
     isActive: false,
+    blocks: []
   },
   newBlockName: null,
   isLoading: false,
@@ -43,36 +44,36 @@ const newPostSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getPostAction.pending, setLoading)
-      .addCase(getPostAction.fulfilled, (state, { payload }) => {
+      .addCase(getFullPostAction.pending, setLoading)
+      .addCase(getFullPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.postData = {...payload};
       })
-      .addCase(getPostAction.rejected, (state) => {
+      .addCase(getFullPostAction.rejected, (state) => {
         state.isLoading = false;
-        state.errorMessage = 'Ошибка при получении поста';
+        state.errorMessage = 'Ошибка при получении статьи';
       })
 
       .addCase(createPostAction.pending, setLoading)
       .addCase(createPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.postData = {...payload};
-        state.successMessage = 'Пост успешно создан';
+        state.successMessage = 'Статья успешно создана';
       })
       .addCase(createPostAction.rejected, (state) => {
         state.isLoading = false;
-        state.errorMessage = 'Ошибка при создании поста';
+        state.errorMessage = 'Ошибка при создании статьи';
       })
 
       .addCase(updatePostAction.pending, setLoading)
       .addCase(updatePostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.postData = {...payload};
-        state.successMessage = 'Пост успешно изменён';
+        state.successMessage = 'Статья успешно изменена';
       })
       .addCase(updatePostAction.rejected, (state) => {
         state.isLoading = false;
-        state.errorMessage = 'Ошибка при изменении поста';
+        state.errorMessage = 'Ошибка при изменении статьи';
       })
 
       .addCase(deletePostAction.pending, setLoading)
@@ -82,7 +83,7 @@ const newPostSlice = createSlice({
       })
       .addCase(deletePostAction.rejected, (state) => {
         state.isLoading = false;
-        state.errorMessage = 'Ошибка при удалении поста';
+        state.errorMessage = 'Ошибка при удалении статьи';
       })
   },
 })

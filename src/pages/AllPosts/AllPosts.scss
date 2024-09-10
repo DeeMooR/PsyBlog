@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 100%;
   .allPosts__wrapper {
+    position: relative;
     flex: 1;
     margin: 30px auto 70px;
     width: 1080px;
@@ -12,6 +13,12 @@
     .allPosts__title {
       margin: 0 0 40px 0;
       text-align: center;
+    }
+    .allPosts__btnAddPost {
+      position: absolute;
+      top: 24px;
+      right: 0;
+      border-radius: 5px;
     }
     .allPosts__list {
       display: flex;
