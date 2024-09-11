@@ -68,3 +68,9 @@ export interface IFullPost {
   isActive: boolean,
   blocks: IPostBlock[]
 }
+
+export interface ICreateNewBlock {
+  post_id: number,
+  table_name: NewBlockTables,
+  fields: NewBlockTypes
+}

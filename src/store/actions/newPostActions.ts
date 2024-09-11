@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IOptionalPostFields, IFullPost, IPostRequiredFields } from "src/interfaces";
-import { createPostApi, deletePostApi, getFullPostApi, updatePostApi } from "../api";
+import { IOptionalPostFields, IFullPost, IPostRequiredFields, ICreateNewBlock } from "src/interfaces";
+import { createNewBlockApi, createPostApi, deletePostApi, getFullPostApi, updatePostApi } from "../api";
+import { NewBlockTables, NewBlockTypes } from "src/components";
 
 interface IUpdatePostAction {
   id: number,
@@ -35,5 +36,13 @@ export const deletePostAction = createAsyncThunk<void, number>(
   'newPost/deletePostAction',
   async (id) => {
     await deletePostApi(id);
+  }
+)
+
+export const createNewBlockAction = createAsyncThunk<void, ICreateNewBlock>(
+  'newPost/createNewBlockAction',
+  async ({post_id, table_name, fields}, {dispatch}) => {
+    await createNewBlockApi({post_id, table_name, fields});
+    dispatch(getFullPostAction(post_id));
   }
 )

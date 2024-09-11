@@ -1,6 +1,6 @@
 import axios from "axios";
 import { endpoints } from "./endpoints";
-import { IFullPost, IOptionalPostFields, IPostRequiredFields } from "src/interfaces";
+import { ICreateNewBlock, IFullPost, IOptionalPostFields, IPostRequiredFields } from "src/interfaces";
 
 const headers = { 'Content-Type': 'application/json' };
 
@@ -15,3 +15,6 @@ export const updatePostApi = (id: number, body: IOptionalPostFields): Promise<IF
 
 export const deletePostApi = (id: number) =>
   axios.delete(`${endpoints.posts}/${id}`, {headers});
+
+export const createNewBlockApi = (body: ICreateNewBlock) =>
+  axios.post(endpoints.addBlock, body, {headers});

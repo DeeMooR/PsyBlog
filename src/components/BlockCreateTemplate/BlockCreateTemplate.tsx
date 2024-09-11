@@ -20,6 +20,10 @@ export const BlockCreateTemplate:FC<IBlockCreateTemplate> = ({children}) => {
       <h4 className="blockCreateTemplate__title">{`Создание блока "${newBlockName}"`}</h4>
       <img src={crossIcon} className='blockCreateTemplate__cross' onClick={clickClose} alt="cross" />
       {children}
+      <div className="blockCreateTemplate__buttons">
+        <button type='button' className='smallBtn btnCancel' onClick={clickClose}>Отменить</button>
+        <button className='smallBtn btnDark'>Сохранить</button>
+      </div>
     </div>
   )
 }

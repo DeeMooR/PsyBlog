@@ -39,10 +39,12 @@
   --black: #383838;
   --green: #646b41;
 
+  --beige-light: #e8d4bc92;
   --beige-1: #E8D4BC;
   --beige-2: #D7B489;
   
   --disabled: #a8a8a8;
+  --disabled-hover: #c9c9c9;
   --disabled-light: #d9d9d9;
   --input: #FAFAFA;
   --warning: #FFAA00;
@@ -202,8 +204,8 @@ button:disabled,
   background-color: var(--disabled);
 }
 .btnCancel:hover:not(:disabled) {
-  background-color: var(--disabled-light);
-  color: var(--black);
+  background-color: var(--disabled-hover);
+  color: var(--white);
 }
 
 

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, ITitle, Title, TitleCreate, Blockquote, IBlockquote } from 'src/components'
 import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData } from 'src/store'
 import './NewPost.css'
+import { basketIcon, pencilIcon } from 'src/assets'
 
 const showBlock = {
   'title': (obj: ITitle) => <Title obj={obj} />,
@@ -72,7 +73,15 @@ export const NewPost = () => {
           </div>
           <div className="newPost__blocks">
             {blocks.map(({table_name, fields}) => 
-              showBlock[table_name](fields as any)
+              <div className="block__wrapper">
+                <div className="block__content">
+                  {showBlock[table_name](fields as any)}
+                </div>
+                <div className="block__icons">
+                  <img src={pencilIcon} alt="pencil" />
+                  <img src={basketIcon} alt="basket" />
+                </div>
+              </div>
             )}
           </div>
           {newBlockTable &&

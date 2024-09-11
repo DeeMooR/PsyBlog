@@ -1,23 +1,20 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { BlockCreateTemplate, Input } from 'src/components';
-import { IBlockquote, ITitle } from '../interfaces';
-import { useAppSelector, getNewPostDataSelector } from 'src/store';
-import cn from 'classnames';
+import { useAppSelector, getNewPostDataSelector, useAppDispatch, createNewBlockAction } from 'src/store';
+import { titleScheme } from 'src/validation';
+import { ITitle } from '../interfaces';
 import './Create.css';
+import { ICreateNewBlock } from 'src/interfaces';
 
 interface ITitleCreate {
-  obj?: ITitle | IBlockquote
+  obj?: ITitle
 }
 
 export const TitleCreate:FC<ITitleCreate> = ({obj}) => {
+  const dispatch = useAppDispatch();
   const { id: post_id } = useAppSelector(getNewPostDataSelector);
-  const [change, setChange] = useState(false);
-  const block_id = '2';
-
-  const btnStyle = cn('smallBtn', {
-    btnCancel: change
-  });
 
   const {
     register,
@@ -25,37 +22,33 @@ export const TitleCreate:FC<ITitleCreate> = ({obj}) => {
     formState: { errors },
   } = useForm<ITitle>({
     mode: 'onSubmit',
-    // resolver: yupResolver(orderForm),
+    resolver: yupResolver(titleScheme),
   });
 
   const onSubmit = (data: ITitle) => {
-    const obj = {
-      post_id,
-      table: 'title',
-      fields: data
+    if (post_id) {
+      const obj: ICreateNewBlock = {
+        post_id,
+        table_name: 'title',
+        fields: data
+      }
+      dispatch(createNewBlockAction(obj))
     }
-    console.log(obj);
   }
 
   return (
-    <BlockCreateTemplate>
-      <form className="titleCreate newBlock" onSubmit={handleSubmit(onSubmit)}>
+    <form className="titleCreate newBlock" onSubmit={handleSubmit(onSubmit)}>
+      <BlockCreateTemplate>
         <div className="newBlock__fields">
           <Input 
             id='title' 
             register={register}
             type="text" 
             placeholder='Заголовок'
-            disabled={!change}
             error={errors.title?.message}
           />
         </div>
-        <div className="newBlock__buttons">
-          {block_id && <button type='button' className={btnStyle} onClick={() => setChange(!change)}>{change ? 'Отменить' : 'Изменить'}</button>}
-          {!block_id || change && <button className='smallBtn'>Сохранить</button>}
-        </div>
-      </form>
-    </BlockCreateTemplate>
-   
+      </BlockCreateTemplate>
+    </form>
   )
 }

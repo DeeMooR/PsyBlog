@@ -1,7 +1,7 @@
 .blockCreateTemplate {
   position: relative;
   padding: 25px 25px 20px;
-  background-color: var(--background);
+  background-color: var(--beige-light);
   border-radius: 15px;
 }
 .blockCreateTemplate .blockCreateTemplate__cross {
@@ -15,4 +15,12 @@
 .blockCreateTemplate .blockCreateTemplate__title {
   text-align: center;
   margin: 0 0 15px 0;
+}
+.blockCreateTemplate .blockCreateTemplate__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+}
+.blockCreateTemplate .blockCreateTemplate__buttons button {
+  border-radius: 5px;
 }

@@ -67,8 +67,8 @@ class PostController {
   }
   async addBlock(req, res) {
     try {
-      const { post_id, table_name } = req.headers;
-      const post = await PostService.addBlock(post_id, table_name, req.body);
+      const { post_id, table_name, fields } = req.body;
+      const post = await PostService.addBlock(post_id, table_name, fields);
       res.send(post);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });

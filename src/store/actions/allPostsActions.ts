@@ -23,11 +23,10 @@ export const getShortPostsAdminAction = createAsyncThunk<IShortPost[], void>(
   }
 )
 
-export const updateShortPostsAction = createAsyncThunk<IShortPost[], IUpdateShortPostsAction>(
+export const updateShortPostsAction = createAsyncThunk<void, IUpdateShortPostsAction>(
   'allPosts/updateShortPostsAction',
-  async ({id, body}) => {
+  async ({id, body}, {dispatch}) => {
     await updatePostApi(id, body);
-    const response = await getShortPostsAdminApi();
-    return response;
+    dispatch(getShortPostsAdminAction());
   }
 )

@@ -9,6 +9,7 @@ import crossIcon from './icons/cross.svg';
 import radioSelectedIcon from './icons/radioSelected.svg';
 import radioUnselectedIcon from './icons/radioUnselected.svg';
 import pencilIcon from './icons/pencil.svg';
+import basketIcon from './icons/basket.svg';
 
 import mainImage from './images/mainImage.jpg';
 import aboutImage from './images/aboutImage.jpg';
@@ -46,6 +47,7 @@ export {
   radioSelectedIcon,
   radioUnselectedIcon,
   pencilIcon,
+  basketIcon,
   mainImage,
   aboutImage,
   contactsImage,

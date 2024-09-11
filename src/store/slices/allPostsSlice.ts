@@ -48,9 +48,8 @@ const allPostsSlice = createSlice({
       })
 
       .addCase(updateShortPostsAction.pending, setLoading)
-      .addCase(updateShortPostsAction.fulfilled, (state, { payload }) => {
+      .addCase(updateShortPostsAction.fulfilled, (state) => {
         state.isLoading = false;
-        state.shortPosts = [...payload];
       })
       .addCase(updateShortPostsAction.rejected, (state) => {
         state.isLoading = false;
