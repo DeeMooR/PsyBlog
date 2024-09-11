@@ -1,5 +1,6 @@
 .inputBlock {
   position: relative;
+  width: 100%;
 }
 .inputBlock input.warning {
   border: 1px solid var(--warning);

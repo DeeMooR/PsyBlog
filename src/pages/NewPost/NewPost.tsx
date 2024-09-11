@@ -68,39 +68,43 @@ export const NewPost = () => {
             <span className='crumbs' onClick={() => navigate('/posts')}> Все статьи</span>
           </div>
           <h2 className='newPost__title'>{title}</h2>
-          <div className='newPost__required'>
-            <NewPostRequired />
-          </div>
-          <div className="newPost__blocks">
-            {blocks.map(({table_name, fields}) => 
-              <div className="block__wrapper">
-                <div className="block__content">
-                  {showBlock[table_name](fields as any)}
-                </div>
-                <div className="block__icons">
-                  <img src={pencilIcon} alt="pencil" />
-                  <img src={basketIcon} alt="basket" />
-                </div>
+          <div className="newPost__flex">
+            <div className='newPost__required'>
+              <NewPostRequired />
+            </div>
+            {!!blocks.length &&
+              <div className="newPost__blocks">
+                {blocks.map(({table_name, fields}) => 
+                  <div className="block__wrapper">
+                    <div className="block__content">
+                      {showBlock[table_name](fields as any)}
+                    </div>
+                    <div className="block__icons">
+                      <img src={pencilIcon} alt="pencil" />
+                      <img src={basketIcon} alt="basket" />
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
+            }
+            {newBlockTable &&
+              <div className='newPost__newBlock'>
+                {createBlock[newBlockTable]}
+              </div>
+            }
+            {!showSelection &&
+              <div className='newPost__addBlock'>
+                <div className="addBlock__line"></div>
+                <div className="addBlock__plus" onClick={() => setShowSelection(true)}>+</div>
+                <div className="addBlock__line"></div>
+              </div>
+            }
+            {showSelection &&
+              <div className='newPost__selection'>
+                <NewPostSelection clickClose={() => setShowSelection(false)} />
+              </div>
+            }
           </div>
-          {newBlockTable &&
-            <div className='newPost__newBlock'>
-              {createBlock[newBlockTable]}
-            </div>
-          }
-          {!showSelection &&
-            <div className='newPost__addBlock'>
-              <div className="addBlock__line"></div>
-              <div className="addBlock__plus" onClick={() => setShowSelection(true)}>+</div>
-              <div className="addBlock__line"></div>
-            </div>
-          }
-          {showSelection &&
-            <div className='newPost__selection'>
-              <NewPostSelection clickClose={() => setShowSelection(false)} />
-            </div>
-          }
         </div>
         {id &&
           <div className="newPost__btnDelete">

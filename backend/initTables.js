@@ -5,7 +5,6 @@ export const createTables = async () => {
     CREATE TABLE IF NOT EXISTS posts (
       id INT AUTO_INCREMENT PRIMARY KEY,
       title VARCHAR(255) NOT NULL,
-      description VARCHAR(255) NOT NULL,
       image VARCHAR(255) NOT NULL,
       date VARCHAR(255) NOT NULL,
       isActive BOOLEAN NOT NULL DEFAULT false

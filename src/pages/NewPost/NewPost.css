@@ -4,7 +4,7 @@
 }
 .newPost .newPost__wrapper {
   margin: 0 auto;
-  width: 1080px;
+  width: 1000px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -19,51 +19,53 @@
   margin: 0 0 40px 0;
   text-align: center;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__required {
-  margin: 0 0 30px 0;
+.newPost .newPost__wrapper .newPost__content .newPost__flex {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__blocks {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__blocks {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin: 0 0 20px 0;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__blocks .block__wrapper {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__blocks .block__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 50px;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__blocks .block__wrapper .block__content {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__blocks .block__wrapper .block__content {
   width: 100%;
   max-width: 800px;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__blocks .block__wrapper .block__icons {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__blocks .block__wrapper .block__icons {
   display: flex;
   gap: 20px;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__blocks .block__wrapper .block__icons img {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__blocks .block__wrapper .block__icons img {
   width: 24px;
   height: 24px;
   cursor: pointer;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__newBlock {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__newBlock {
+  width: 100%;
   max-width: 800px;
-  margin: 0 auto 30px;
+  margin: 0 auto;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__addBlock {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__addBlock {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__addBlock .addBlock__line {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__addBlock .addBlock__line {
   width: 100%;
   height: 1px;
   border: 1px solid var(--green);
   border-radius: 1px;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__addBlock .addBlock__plus {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__addBlock .addBlock__plus {
   display: flex;
   justify-content: center;
   font-size: 35px;
@@ -75,11 +77,12 @@
   transition: all 0.1s ease-in-out 0s;
   cursor: pointer;
 }
-.newPost .newPost__wrapper .newPost__content .newPost__addBlock .addBlock__plus:hover {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__addBlock .addBlock__plus:hover {
   color: var(--beige-1);
   border: 2px dashed var(--beige-1);
 }
-.newPost .newPost__wrapper .newPost__content .newPost__selection {
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__selection {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
 }

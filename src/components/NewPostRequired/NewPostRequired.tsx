@@ -62,7 +62,7 @@ export const NewPostRequired = () => {
         <SwitchButton id='newPost' isActive={active} changeActivity={changeActivity} />
       </div>
       <form className="newPostRequired__form" onSubmit={handleSubmit(onSubmit)}>
-        <div className="newPostRequired__left">
+        <div className="newPostRequired__line">
           <Input 
             id='title' 
             register={register}
@@ -70,6 +70,8 @@ export const NewPostRequired = () => {
             placeholder='Заголовок' 
             error={errors.title?.message}
           />
+        </div>
+        <div className="newPostRequired__line">
           <Input 
             id='image' 
             register={register}
@@ -77,8 +79,6 @@ export const NewPostRequired = () => {
             placeholder='Изображение' 
             error={errors.image?.message}
           />
-        </div>
-        <div className="newPostRequired__right">
           <Input 
             id='date' 
             register={register}
@@ -86,14 +86,8 @@ export const NewPostRequired = () => {
             placeholder='Дата' 
             error={errors.date?.message}
           />
-          <Textarea
-            id='description'
-            register={register}
-            placeholder='Краткое описание' 
-            error={errors.description?.message}
-          />
-          <button className='newPostRequired__button smallBtn'>Сохранить</button>
         </div>
+        <button className='newPostRequired__button smallBtn'>Сохранить</button>
       </form>
       {showModal && <ModalConfirm action='update' clickApply={clickUpdate} closeModal={() => setShowModal(false)} />}
     </div>

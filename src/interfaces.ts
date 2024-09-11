@@ -41,7 +41,6 @@ export interface IShortPostWithoutId extends Omit<IShortPost, 'id'> {}
 export interface IPostFields {
   id: number | null,
   title: string,
-  description: string,
   image: string,
   date: string,
   isActive: boolean,
@@ -62,7 +61,6 @@ export interface IPostBlock {
 export interface IFullPost {
   id: number | null,
   title: string,
-  description: string,
   image: string,
   date: string,
   isActive: boolean,

@@ -8,7 +8,6 @@ const initialState: newPostState = {
   postData: {
     id: null,
     title: '',
-    description: '',
     image: '',
     date: '',
     isActive: false,

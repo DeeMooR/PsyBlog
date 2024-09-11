@@ -3,7 +3,7 @@
   padding: 30px 0 0 0;
   .newPost__wrapper {
     margin: 0 auto;
-    width: 1080px;
+    width: 1000px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -16,69 +16,72 @@
         margin: 0 0 40px 0;
         text-align: center;
       }
-      .newPost__required {
-        margin: 0 0 30px 0;
-      }
-      .newPost__blocks {
+      .newPost__flex {
         display: flex;
         flex-direction: column;
-        gap: 32px;
-        margin: 0 0 20px 0;
-        .block__wrapper {
+        gap: 30px;
+        .newPost__blocks {
           display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 50px;
-          .block__content {
-            width: 100%;
-            max-width: 800px;
-          }
-          .block__icons {
+          flex-direction: column;
+          gap: 32px;
+          .block__wrapper {
             display: flex;
-            gap: 20px;
-            img {
-              width: 24px;
-              height: 24px;
-              cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            .block__content {
+              width: 100%;
+              max-width: 800px;
+            }
+            .block__icons {
+              display: flex;
+              gap: 20px;
+              img {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+              }
             }
           }
         }
-      }
-      .newPost__newBlock {
-        max-width: 800px; 
-        margin: 0 auto 30px;
-      }
-      .newPost__addBlock {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        .addBlock__line {
+        .newPost__newBlock {
           width: 100%;
-          height: 1px;
-          border: 1px solid var(--green);
-          border-radius: 1px;
+          max-width: 800px; 
+          margin: 0 auto;
         }
-        .addBlock__plus {
+        .newPost__addBlock {
           display: flex;
           justify-content: center;
-          font-size: 35px;
-          min-width: 50px;
-          height: 50px;
-          color: var(--green);
-          border-radius: 50%;
-          border: 2px dashed var(--green);
-          transition: all 0.1s ease-in-out 0s;  
-          cursor: pointer;
-          &:hover {
-            color: var(--beige-1);
-            border: 2px dashed var(--beige-1);
+          align-items: center;
+          gap: 15px;
+          .addBlock__line {
+            width: 100%;
+            height: 1px;
+            border: 1px solid var(--green);
+            border-radius: 1px;
+          }
+          .addBlock__plus {
+            display: flex;
+            justify-content: center;
+            font-size: 35px;
+            min-width: 50px;
+            height: 50px;
+            color: var(--green);
+            border-radius: 50%;
+            border: 2px dashed var(--green);
+            transition: all 0.1s ease-in-out 0s;  
+            cursor: pointer;
+            &:hover {
+              color: var(--beige-1);
+              border: 2px dashed var(--beige-1);
+            }
           }
         }
-      }
-      .newPost__selection {
-        max-width: 800px; 
-        margin: 0 auto;
+        .newPost__selection {
+          width: 100%;
+          max-width: 800px; 
+          margin: 0 auto;
+        }
       }
     }
     .newPost__btnDelete {

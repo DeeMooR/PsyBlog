@@ -1,5 +1,6 @@
 .textareaBlock {
   position: relative;
+  width: 100%;
   .textarea {
     &.warning {
       border: 1px solid var(--warning);
