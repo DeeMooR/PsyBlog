@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
-import { IImage, IList, IBlockquote, ITwoImages, ITitle } from 'src/components/newPost'
+import { IImage, IList, IBlockquote, ITwoImages, ITitle, IText, ITitleAndText } from 'src/components/newPost'
 import { getFullPostAction, getNewPostDataSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
@@ -64,8 +64,8 @@ const obj11 = {
 
 const showBlock = {
   'title': (obj: ITitle) => <Title obj={obj} />,
-  'text': (obj: ITitle) => <Title obj={obj} />,
-  'title_and_text': (obj: ITitle) => <Title obj={obj} />,
+  'text': (obj: IText) => <Text obj={obj} />,
+  'title_and_text': (obj: ITitleAndText) => <TitleAndText obj={obj} />,
   'quote': (obj: IBlockquote) => <Blockquote obj={obj} />,
   'list_point': (obj: ITitle) => <Title obj={obj} />,
   'list_number': (obj: ITitle) => <Title obj={obj} />,

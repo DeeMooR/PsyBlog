@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, ITitle, Title, TitleCreate, Blockquote, IBlockquote, ShowBlockInNewPost } from 'src/components'
-import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData, deleteBlockAction } from 'src/store'
+import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate } from 'src/components'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData } from 'src/store'
 import './NewPost.css'
-import { basketIcon, pencilIcon } from 'src/assets'
 
 const createBlock = {
   'title': <TitleCreate />,
-  'text': <TitleCreate />,
-  'title_and_text': <TitleCreate />,
-  'quote': <TitleCreate />,
+  'text': <TextCreate />,
+  'title_and_text': <TitleAndTextCreate />,
+  'quote': <BlockquoteCreate />,
   'list_point': <TitleCreate />,
   'list_number': <TitleCreate />,
 };

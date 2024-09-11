@@ -32,7 +32,7 @@ export interface IList {
   items: string[];
 }
 
-export type NewBlockTypes = ITitle | IBlockquote;
+export type NewBlockTypes = ITitle | IText | IBlockquote;
 
 export const BlockNameToTableName = {
   'Заголовок': 'title',

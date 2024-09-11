@@ -25,6 +25,19 @@ export const createTables = async () => {
       title VARCHAR(255) NOT NULL
     );
   `;
+  const text = `
+    CREATE TABLE IF NOT EXISTS text (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      text VARCHAR(2000) NOT NULL
+    );
+  `;
+  const title_and_text = `
+    CREATE TABLE IF NOT EXISTS title_and_text (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(255) NOT NULL,
+      text VARCHAR(2000) NOT NULL
+    );
+  `;
   const quote = `
     CREATE TABLE IF NOT EXISTS quote (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -35,6 +48,8 @@ export const createTables = async () => {
     await db.query(posts);
     await db.query(post_blocks);
     await db.query(title);
+    await db.query(text);
+    await db.query(title_and_text);
     await db.query(quote);
     console.log('Успешная загрузка таблиц.')
   } catch (err) {

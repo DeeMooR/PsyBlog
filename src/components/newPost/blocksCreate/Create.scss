@@ -1,5 +1,8 @@
 .newBlock {
   .newBlock__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     margin: 0 0 15px 0;
   }
 }
