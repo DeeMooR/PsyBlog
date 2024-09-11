@@ -54,6 +54,7 @@ export interface IOptionalPostFields extends Partial<IPostFields> {}
 
 
 export interface IPostBlock {
+  block_number: number,
   table_name: NewBlockTables,
   fields: NewBlockTypes,
 }

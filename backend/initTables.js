@@ -14,6 +14,7 @@ export const createTables = async () => {
     CREATE TABLE IF NOT EXISTS post_blocks (
       id INT AUTO_INCREMENT PRIMARY KEY,
       post_id INT NOT NULL,
+      block_number INT NOT NULL,
       table_name VARCHAR(20) NOT NULL,
       table_id INT NOT NULL
     );

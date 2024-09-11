@@ -11,10 +11,16 @@ class PostFieldsService {
   }
   async create(body) {
     const { post_id, table_name, table_id } = body;
-    const sql = 'INSERT INTO post_blocks (post_id, table_name, table_id) VALUES (?, ?, ?)';
-    const [result] = await db.query(sql, [post_id, table_name, table_id]);
+    const blocks = await this.getOnePostId(post_id);
+    let max_number = blocks.length ? Math.max(...blocks.map(block => block.block_number)) : 0;
+    const sql = 'INSERT INTO post_blocks (post_id, block_number, table_name, table_id) VALUES (?, ?, ?, ?)';
+    const [result] = await db.query(sql, [post_id, ++max_number, table_name, table_id]);
     const id = result.insertId;
     return this.getOne(id);
+  }
+  async deleteBlock(post_id, block_number) {
+    const [response] = await db.query('DELETE FROM post_blocks WHERE post_id = ? AND block_number = ?', [post_id, block_number]);
+    return response.affectedRows > 0;
   }
 }
 

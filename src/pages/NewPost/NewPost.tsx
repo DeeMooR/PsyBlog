@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, ITitle, Title, TitleCreate, Blockquote, IBlockquote } from 'src/components'
-import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData } from 'src/store'
+import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, ITitle, Title, TitleCreate, Blockquote, IBlockquote, ShowBlockInNewPost } from 'src/components'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData, deleteBlockAction } from 'src/store'
 import './NewPost.css'
 import { basketIcon, pencilIcon } from 'src/assets'
-
-const showBlock = {
-  'title': (obj: ITitle) => <Title obj={obj} />,
-  'text': (obj: ITitle) => <Title obj={obj} />,
-  'title_and_text': (obj: ITitle) => <Title obj={obj} />,
-  'quote': (obj: IBlockquote) => <Blockquote obj={obj} />,
-  'list_point': (obj: ITitle) => <Title obj={obj} />,
-  'list_number': (obj: ITitle) => <Title obj={obj} />,
-};
 
 const createBlock = {
   'title': <TitleCreate />,
@@ -29,8 +20,9 @@ export const NewPost = () => {
   const dispatch = useAppDispatch();
   const { newBlockTable, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
   const { id, blocks } = useAppSelector(getNewPostDataSelector);
+
   const [showSelection, setShowSelection] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [modal, setModal] = useState(false);
 
   const title = id ? 'Редактирование статьи' : 'Создание статьи';
 
@@ -46,14 +38,14 @@ export const NewPost = () => {
     func();
   }, [param])
 
-  const clickDelete = async () => {
+  const deletePost = async () => {
     if (id) {
       try {
         await dispatch(deletePostAction(id)).unwrap();
         navigate('/posts');
       } catch {}
     }
-    setShowModal(false);
+    setModal(false);
   }
 
   const clearMessages = () => dispatch(clearNewPostMessages());
@@ -74,16 +66,8 @@ export const NewPost = () => {
             </div>
             {!!blocks.length &&
               <div className="newPost__blocks">
-                {blocks.map(({table_name, fields}) => 
-                  <div className="block__wrapper">
-                    <div className="block__content">
-                      {showBlock[table_name](fields as any)}
-                    </div>
-                    <div className="block__icons">
-                      <img src={pencilIcon} alt="pencil" />
-                      <img src={basketIcon} alt="basket" />
-                    </div>
-                  </div>
+                {blocks.map((obj) => 
+                  <ShowBlockInNewPost obj={obj} />
                 )}
               </div>
             }
@@ -108,11 +92,11 @@ export const NewPost = () => {
         </div>
         {id &&
           <div className="newPost__btnDelete">
-            <button className='smallBtn btnDelete' onClick={() => setShowModal(true)}>Удалить статью</button>
+            <button className='smallBtn btnDelete' onClick={() => setModal(true)}>Удалить статью</button>
           </div>
         }
       </div>
-      {showModal && <ModalConfirm action='delete' clickApply={clickDelete} closeModal={() => setShowModal(false)} />}
+      {modal && <ModalConfirm action='delete_post' clickApply={deletePost} closeModal={() => setModal(false)} />}
       {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}
       {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
     </div>

@@ -5,5 +5,6 @@ export const endpoints = {
   shortPosts: `${baseURL}/shortPosts`,
   shortPostsAdmin: `${baseURL}/shortPosts/admin`,
   fullPost: `${baseURL}/fullPost`,
-  addBlock: `${baseURL}/posts/addBlock`
+  addBlock: `${baseURL}/posts/addBlock`,
+  deleteBlock: `${baseURL}/post_blocks/block`
 };

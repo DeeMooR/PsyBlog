@@ -14,11 +14,12 @@ class PostService {
   async getFullPost(id) {
     let post = await this.getOne(id);
     post.blocks = [];
-    const [post_blocks] = await db.query('SELECT table_name, table_id FROM post_blocks WHERE post_id = ?', [id]);
-    const blocksPromises = post_blocks.map(async ({ table_name, table_id }) => {
+    const [post_blocks] = await db.query('SELECT table_name, block_number, table_id FROM post_blocks WHERE post_id = ?', [id]);
+    const sorted_blocks = post_blocks.sort((a, b) => a.block_number - b.block_number);
+    const blocksPromises = sorted_blocks.map(async ({ table_name, block_number, table_id }) => {
       const [block] = await db.query(`SELECT * FROM ${table_name} WHERE id = ${table_id}`);
       const {id, ...fields} = block[0];
-      return {table_name, fields: {...fields}};
+      return {table_name, block_number, fields: {...fields}};
     });
     post.blocks = await Promise.all(blocksPromises);
     return post;

@@ -19,5 +19,6 @@ router.post('/posts/addBlock', PostController.addBlock)
 
 router.post('/post_blocks', PostBlocksController.create)
 router.get('/post_blocks', PostBlocksController.getOnePostId)
+router.delete('/post_blocks/block', PostBlocksController.deleteBlock)
 
 export default router;

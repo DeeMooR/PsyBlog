@@ -5,8 +5,13 @@ interface IModalConfirmData {
 }
 
 export const ModalConfirmData: { [action: string]: IModalConfirmData } = {
-  delete: {
+  delete_post: {
     title: 'Удалить статью?',
+    btnYes: 'Да, удалить',
+    btnNo: 'Нет, оставить'
+  },
+  delete_block: {
+    title: 'Удалить блок?',
     btnYes: 'Да, удалить',
     btnNo: 'Нет, оставить'
   },

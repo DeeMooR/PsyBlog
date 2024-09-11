@@ -1,0 +1,19 @@
+.showBlockInNewPost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+.showBlockInNewPost .showBlockInNewPost__content {
+  width: 100%;
+  max-width: 800px;
+}
+.showBlockInNewPost .showBlockInNewPost__icons {
+  display: flex;
+  gap: 20px;
+}
+.showBlockInNewPost .showBlockInNewPost__icons img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

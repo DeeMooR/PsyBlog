@@ -24,25 +24,6 @@
           display: flex;
           flex-direction: column;
           gap: 32px;
-          .block__wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-            .block__content {
-              width: 100%;
-              max-width: 800px;
-            }
-            .block__icons {
-              display: flex;
-              gap: 20px;
-              img {
-                width: 24px;
-                height: 24px;
-                cursor: pointer;
-              }
-            }
-          }
         }
         .newPost__newBlock {
           width: 100%;

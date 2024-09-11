@@ -1,11 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IOptionalPostFields, IFullPost, IPostRequiredFields, ICreateNewBlock } from "src/interfaces";
-import { createNewBlockApi, createPostApi, deletePostApi, getFullPostApi, updatePostApi } from "../api";
-import { NewBlockTables, NewBlockTypes } from "src/components";
+import { createNewBlockApi, createPostApi, deleteBlockApi, deletePostApi, getFullPostApi, updatePostApi } from "../api";
 
 interface IUpdatePostAction {
   id: number,
   body: IOptionalPostFields
+}
+
+export interface IDeleteBlockAction {
+  post_id: number,
+  block_number: number
 }
 
 export const getFullPostAction = createAsyncThunk<IFullPost, number>(
@@ -43,6 +47,14 @@ export const createNewBlockAction = createAsyncThunk<void, ICreateNewBlock>(
   'newPost/createNewBlockAction',
   async ({post_id, table_name, fields}, {dispatch}) => {
     await createNewBlockApi({post_id, table_name, fields});
+    dispatch(getFullPostAction(post_id));
+  }
+)
+
+export const deleteBlockAction = createAsyncThunk<void, IDeleteBlockAction>(
+  'newPost/deleteBlockAction',
+  async ({post_id, block_number}, {dispatch}) => {
+    await deleteBlockApi({post_id, block_number});
     dispatch(getFullPostAction(post_id));
   }
 )
