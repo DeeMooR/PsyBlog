@@ -17,6 +17,10 @@ class PostService {
     const [post_blocks] = await db.query('SELECT table_name, block_number, table_id FROM post_blocks WHERE post_id = ?', [id]);
     const sorted_blocks = post_blocks.sort((a, b) => a.block_number - b.block_number);
     const blocksPromises = sorted_blocks.map(async ({ table_name, block_number, table_id }) => {
+      if (table_name === 'list') {
+        const fields = await PostFieldsService.getList(table_id);
+        return {table_name, block_number, fields}
+      }
       const [block] = await db.query(`SELECT * FROM ${table_name} WHERE id = ${table_id}`);
       const {id, ...fields} = block[0];
       return {table_name, block_number, fields: {...fields}};
@@ -53,9 +57,12 @@ class PostService {
     return response.affectedRows > 0;
   }
   async addBlock(post_id, table_name, body) {
+    if (table_name === 'list') {
+      return PostFieldsService.createList(post_id, body)
+    }
+
     const fields = Object.keys(body);
     const values = Object.values(body);
-
     const fieldNames = fields.join(', ');
     const placeholders = fields.map(() => '?').join(', ');
     const sql = `INSERT INTO ${table_name} (${fieldNames}) VALUES (${placeholders})`;

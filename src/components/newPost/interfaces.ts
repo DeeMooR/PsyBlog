@@ -39,8 +39,8 @@ export const BlockNameToTableName = {
   'Текст': 'text',
   'Заголовок и текст': 'title_and_text',
   'Цитата': 'quote',
-  'Перечисление (пункты)': 'list_point',
-  'Перечисление (цифры)': 'list_number'
+  'Перечисление (пункты)': 'list',
+  'Перечисление (цифры)': 'list'
 } as const;
 
 export type NewBlockNames = keyof typeof BlockNameToTableName;

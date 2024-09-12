@@ -9,8 +9,7 @@ const createBlock = {
   'text': <TextCreate />,
   'title_and_text': <TitleAndTextCreate />,
   'quote': <BlockquoteCreate />,
-  'list_point': <TitleCreate />,
-  'list_number': <TitleCreate />,
+  'list': <TitleCreate />,
 };
 
 export const NewPost = () => {

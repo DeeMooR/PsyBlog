@@ -44,6 +44,20 @@ export const createTables = async () => {
       quote VARCHAR(255) NOT NULL
     );
   `;
+  const list = `
+    CREATE TABLE IF NOT EXISTS list (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(255) NOT NULL,
+      type VARCHAR(255) NOT NULL
+    );
+  `;
+  const list_item = `
+    CREATE TABLE IF NOT EXISTS list_item (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      list_id INT NOT NULL,
+      item VARCHAR(255) NOT NULL
+    );
+  `;
   try {
     await db.query(posts);
     await db.query(post_blocks);
@@ -51,6 +65,8 @@ export const createTables = async () => {
     await db.query(text);
     await db.query(title_and_text);
     await db.query(quote);
+    await db.query(list);
+    await db.query(list_item);
     console.log('Успешная загрузка таблиц.')
   } catch (err) {
     console.error('Ошибка при создании таблицы.', err);
