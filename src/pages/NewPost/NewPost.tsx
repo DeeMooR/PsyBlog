@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate } from 'src/components'
+import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate } from 'src/components'
 import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData } from 'src/store'
 import './NewPost.css'
 
@@ -9,7 +9,7 @@ const createBlock = {
   'text': <TextCreate />,
   'title_and_text': <TitleAndTextCreate />,
   'quote': <BlockquoteCreate />,
-  'list': <TitleCreate />,
+  'list': <ListCreate />,
 };
 
 export const NewPost = () => {

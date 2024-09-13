@@ -11,10 +11,10 @@ class PostFieldsService {
   }
   async getList(table_id) {
     const [listTable] = await db.query(`SELECT * FROM list WHERE id = ?`, [table_id]);
-    const {id: list_id, title, type} = listTable[0];
+    const {id: list_id, text, type} = listTable[0];
     const [ItemTable] = await db.query(`SELECT * FROM list_item WHERE list_id = ?`, [list_id]);
     const items = ItemTable.map(({ item }) => item);
-    return {title, type, items};
+    return {text, type, items};
   }
   async create(body) {
     const { post_id, table_name, table_id } = body;
@@ -26,8 +26,8 @@ class PostFieldsService {
     return this.getOne(id);
   }
   async createList(post_id, body) {
-    const sql = `INSERT INTO list (title, type) VALUES (?, ?)`;
-    const [result] = await db.query(sql, [body.title, body.type]);
+    const sql = `INSERT INTO list (text, type) VALUES (?, ?)`;
+    const [result] = await db.query(sql, [body.text, body.type]);
     const list_id = result.insertId;
  
     body.items.map(async (item) => {

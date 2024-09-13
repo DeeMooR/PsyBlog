@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { getNewPostDataSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
+import { getNewPostDataSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, setNewPostNewBlockListType, useAppDispatch, useAppSelector } from 'src/store';
 import { NewBlockNames, RadioOption, radioOptions } from 'src/components'
 import { crossIcon } from 'src/assets';
 import './NewPostSelection.css'
@@ -23,7 +23,11 @@ export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
       dispatch(setNewPostErrorMessage('Перед созданием нового блока необходимо заполнить "Основные поля"'));
       return;
     }
-    if (selected) dispatch(setNewPostNewBlock(selected));
+    if (selected) {
+      dispatch(setNewPostNewBlock(selected));
+      if (selected === 'Перечисление (пункты)') setNewPostNewBlockListType('point');
+      if (selected === 'Перечисление (цифры)') setNewPostNewBlockListType('number');
+    }
     clickClose();
   }
 
@@ -32,8 +36,8 @@ export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
       <h4 className='newPostSelection__title'>Добавление блока</h4>
       <img src={crossIcon} className='newPostSelection__cross' onClick={clickClose} alt="cross" />
       <div className="newPostSelection__list">
-        {radioOptions.map(column =>
-          <div className="newPostSelection__column">
+        {radioOptions.map((column, index) =>
+          <div className="newPostSelection__column" key={index}>
             {column.map(value => 
               <RadioOption 
                 value={value} 

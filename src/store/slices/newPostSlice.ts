@@ -15,6 +15,7 @@ const initialState: newPostState = {
   },
   newBlockName: null,
   newBlockTable: null,
+  newBlockListType: 'point',
   isLoading: false,
   successMessage: null,
   errorMessage: null,
@@ -34,9 +35,13 @@ const newPostSlice = createSlice({
       state.newBlockName = payload;
       state.newBlockTable = BlockNameToTableName[payload];
     },
+    setNewPostNewBlockListType: (state, { payload }) => {
+      state.newBlockListType = payload;
+    },
     clearNewPostNewBlock: (state) => {
       state.newBlockName = null;
       state.newBlockTable = null;
+      state.newBlockListType = 'point';
     },
     setNewPostErrorMessage: (state, { payload }) => {
       state.errorMessage = payload;
@@ -118,5 +123,5 @@ const newPostSlice = createSlice({
 
 export const {
   reducer: newPostReducer,
-  actions: {setNewPostNewBlock, clearNewPostNewBlock, setNewPostErrorMessage, clearNewPostPostData, clearNewPostMessages},
+  actions: {setNewPostNewBlock, setNewPostNewBlockListType, clearNewPostNewBlock, setNewPostErrorMessage, clearNewPostPostData, clearNewPostMessages},
 } = newPostSlice;

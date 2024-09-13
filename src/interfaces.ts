@@ -73,3 +73,8 @@ export interface ICreateNewBlock {
   table_name: NewBlockTables,
   fields: NewBlockTypes
 }
+
+export interface IListForm {
+  text?: string | null;
+  items: string;
+}

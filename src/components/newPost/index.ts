@@ -10,5 +10,6 @@ export * from './blocksCreate/TitleCreate';
 export * from './blocksCreate/TextCreate';
 export * from './blocksCreate/TitleAndTextCreate';
 export * from './blocksCreate/BlockquoteCreate';
+export * from './blocksCreate/ListCreate';
 
 export * from './interfaces';

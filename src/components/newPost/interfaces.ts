@@ -27,12 +27,12 @@ export interface IBlockquote {
 }
 
 export interface IList {
-  text: string;
-  type: 'pointer' | 'number';
+  text: string | null;
+  type: 'point' | 'number';
   items: string[];
 }
 
-export type NewBlockTypes = ITitle | IText | IBlockquote;
+export type NewBlockTypes = ITitle | IText | ITitleAndText | IBlockquote | IList;
 
 export const BlockNameToTableName = {
   'Заголовок': 'title',

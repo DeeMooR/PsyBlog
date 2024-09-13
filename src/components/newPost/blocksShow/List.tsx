@@ -7,8 +7,8 @@ export const List:FC<{obj: IList}> = ({ obj }) => {
   const { text, type, items } = obj;
   return (
     <div className="list">
-      <p className='text'>{parse(text)}</p>
-      {type === 'pointer' ? (
+      {text && <p className='text'>{parse(text)}</p>}
+      {type === 'point' ? (
         <ul>
           {items.map((item, index) => 
             <li key={index}>{parse(item)}</li>
