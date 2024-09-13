@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { BlockCreateTemplate, Input, RadioOption, Textarea } from 'src/components';
+import { BaseBlockCreateTemplate, FormBlockCreateTemplate, Input, RadioOption, Textarea } from 'src/components';
 import { useAppSelector, getNewPostDataSelector, useAppDispatch, getNewPostSelector, setNewPostErrorMessage, getNewPostNewBlockSelector } from 'src/store';
 import { createObjListCreate, requestNewBlock } from 'src/helpers';
 import { listScheme } from 'src/validation';
@@ -44,7 +44,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
 
   return (
     <form className="listCreate newBlock" onSubmit={handleSubmit(onSubmit)}>
-      <BlockCreateTemplate>
+      <BaseBlockCreateTemplate>
         <div className="newBlock__radio">
           {list_types.map(value => 
             <RadioOption 
@@ -71,7 +71,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
             error={errors.items?.message}
           />
         </div>
-      </BlockCreateTemplate>
+      </BaseBlockCreateTemplate>
     </form>
   )
 }

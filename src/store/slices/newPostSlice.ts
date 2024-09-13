@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
 import { createNewBlockAction, createPostAction, deleteBlockAction, deletePostAction, getFullPostAction, updateBlockAction, updatePostAction } from '../actions';
-import { NewBlockNames, NewBlockTables } from 'src/components';
+import { NewBlockNames } from 'src/components';
 import { BlockNameToTableName, ISetNewPostUpdate, TableNameToBlockName } from '../config';
 
 const initialState: newPostState = {

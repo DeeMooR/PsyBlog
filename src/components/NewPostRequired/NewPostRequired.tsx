@@ -52,7 +52,8 @@ export const NewPostRequired = () => {
   }
 
   const changeActivity = () => {
-    setActive(!active);
+    const body = {isActive: !active};
+    if (id) dispatch(updatePostAction({id, body}));
   }
 
   return (

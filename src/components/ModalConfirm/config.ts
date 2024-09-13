@@ -17,7 +17,7 @@ export const ModalConfirmData: { [action: string]: IModalConfirmData } = {
     btnApply: 'Да, изменить',
   },
   update_block: {
-    title: 'Изменить статью?',
+    title: 'Изменить блок?',
     btnApply: 'Да, изменить',
   }
 };

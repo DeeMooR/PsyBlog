@@ -1,10 +1,10 @@
-.blockCreateTemplate {
+.baseBlockCreateTemplate {
   position: relative;
   padding: 25px 25px 20px;
   background-color: var(--beige-light);
   border-radius: 15px;
 }
-.blockCreateTemplate .blockCreateTemplate__cross {
+.baseBlockCreateTemplate .baseBlockCreateTemplate__cross {
   position: absolute;
   top: 18px;
   right: 18px;
@@ -12,15 +12,15 @@
   height: 20px;
   cursor: pointer;
 }
-.blockCreateTemplate .blockCreateTemplate__title {
+.baseBlockCreateTemplate .baseBlockCreateTemplate__title {
   text-align: center;
   margin: 0 0 15px 0;
 }
-.blockCreateTemplate .blockCreateTemplate__buttons {
+.baseBlockCreateTemplate .baseBlockCreateTemplate__buttons {
   display: flex;
   justify-content: end;
   gap: 15px;
 }
-.blockCreateTemplate .blockCreateTemplate__buttons button {
+.baseBlockCreateTemplate .baseBlockCreateTemplate__buttons button {
   border-radius: 5px;
 }
