@@ -39,8 +39,7 @@ export const BlockNameToTableName = {
   'Текст': 'text',
   'Заголовок и текст': 'title_and_text',
   'Цитата': 'quote',
-  'Перечисление (пункты)': 'list',
-  'Перечисление (цифры)': 'list'
+  'Перечисление': 'list'
 } as const;
 
 export type NewBlockNames = keyof typeof BlockNameToTableName;
@@ -49,5 +48,5 @@ export type NewBlockTables = typeof BlockNameToTableName[NewBlockNames];
 export const radioOptions: NewBlockNames[][] = [
   ['Заголовок', 'Текст', 'Заголовок и текст'],
   // ['Изображение S', 'Изображение M', 'Изображение L', 'Два изображения'],
-  ['Цитата', 'Перечисление (пункты)', 'Перечисление (цифры)'],
+  ['Цитата', 'Перечисление'],
 ]

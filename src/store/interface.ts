@@ -5,7 +5,6 @@ export interface newPostState {
   postData: IFullPost,
   newBlockName: NewBlockNames | null,
   newBlockTable: NewBlockTables | null,
-  newBlockListType: 'point' | 'number',
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,

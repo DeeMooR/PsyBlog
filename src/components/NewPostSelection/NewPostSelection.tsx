@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { getNewPostDataSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, setNewPostNewBlockListType, useAppDispatch, useAppSelector } from 'src/store';
+import { getNewPostDataSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
 import { NewBlockNames, RadioOption, radioOptions } from 'src/components'
 import { crossIcon } from 'src/assets';
 import './NewPostSelection.css'
@@ -25,8 +25,6 @@ export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
     }
     if (selected) {
       dispatch(setNewPostNewBlock(selected));
-      if (selected === 'Перечисление (пункты)') setNewPostNewBlockListType('point');
-      if (selected === 'Перечисление (цифры)') setNewPostNewBlockListType('number');
     }
     clickClose();
   }

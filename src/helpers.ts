@@ -1,7 +1,8 @@
 import { scroller } from "react-scroll";
-import { ICreateNewBlock } from "./interfaces";
+import { ICreateNewBlock, IListForm } from "./interfaces";
 import { NewBlockTables, NewBlockTypes } from "./components";
 import { createNewBlockAction } from "./store";
+import { ListTypes, convert_list_type } from "./config";
 
 interface IRequestNewBlock {
   post_id: number | null,
@@ -28,4 +29,18 @@ export const requestNewBlock = ({post_id, newBlockTable, data, dispatch}: IReque
     }
     dispatch(createNewBlockAction(obj))
   }
+}
+
+export const createObjListCreate = (form: IListForm, type: ListTypes) => {
+  const items = form.items
+    .split('\n')
+    .map(item => item.substring(3)) // удалить [-]
+    .map(item => item.trim())
+    .filter(item => item !== '');
+  const data = {
+    text: form.text || null,
+    type: convert_list_type[type],
+    items
+  }
+  return data;
 }

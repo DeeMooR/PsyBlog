@@ -3,6 +3,5 @@ export const BlockNameToTableName = {
   'Текст': 'text',
   'Заголовок и текст': 'title_and_text',
   'Цитата': 'quote',
-  'Перечисление (пункты)': 'list',
-  'Перечисление (цифры)': 'list'
+  'Перечисление': 'list',
 } as const;

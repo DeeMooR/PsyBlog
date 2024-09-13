@@ -122,4 +122,13 @@ export const quotes = [
   'Не всякий умный человек знает психологию. <br/>Но всякий, кто знает психологию, умён.'
 ]
 
-export const list_placeholder = '[-] первый пункт \n[-] второй пункт \n[-] третий пункт'
+export const list_placeholder = '[-] первый пункт \n[-] второй пункт \n[-] третий пункт';
+
+export const list_types = ['Цифры', 'Пункты'];
+
+export type ListTypes = 'Цифры' | 'Пункты';
+
+export enum convert_list_type {
+  'Цифры' = 'number',
+  'Пункты' = 'point'
+}

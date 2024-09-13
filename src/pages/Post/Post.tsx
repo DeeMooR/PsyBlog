@@ -67,7 +67,7 @@ const showBlock = {
   'text': (obj: IText) => <Text obj={obj} />,
   'title_and_text': (obj: ITitleAndText) => <TitleAndText obj={obj} />,
   'quote': (obj: IBlockquote) => <Blockquote obj={obj} />,
-  'list': (obj: ITitle) => <Title obj={obj} />,
+  'list': (obj: IList) => <List obj={obj} />,
 };
 
 export const Post = () => {

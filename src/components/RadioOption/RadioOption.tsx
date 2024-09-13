@@ -4,10 +4,10 @@ import { radioSelectedIcon, radioUnselectedIcon } from 'src/assets'
 import { NewBlockNames } from '../newPost'
 
 interface IRadioOption {
-  value: NewBlockNames,
-  selected: NewBlockNames | null,
+  value: string,
+  selected: string | null,
   name: string,
-  onClickOption: (value: NewBlockNames) => void
+  onClickOption: (value: any) => void
 }
 
 export const RadioOption:FC<IRadioOption> = ({value, selected, name, onClickOption}) => {
