@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useState } from 'react'
+import React, { ChangeEvent, FC, useRef, useState } from 'react'
 import { UseFormRegister } from 'react-hook-form';
 import { warningIcon } from 'src/assets';
 import './Textarea.css'

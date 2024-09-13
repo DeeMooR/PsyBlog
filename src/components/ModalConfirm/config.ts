@@ -1,23 +1,23 @@
 interface IModalConfirmData {
   title: string,
-  btnYes: string,
-  btnNo: string,
+  btnApply: string,
 }
 
 export const ModalConfirmData: { [action: string]: IModalConfirmData } = {
   delete_post: {
     title: 'Удалить статью?',
-    btnYes: 'Да, удалить',
-    btnNo: 'Нет, оставить'
+    btnApply: 'Да, удалить',
   },
   delete_block: {
     title: 'Удалить блок?',
-    btnYes: 'Да, удалить',
-    btnNo: 'Нет, оставить'
+    btnApply: 'Да, удалить',
   },
-  update: {
+  update_post: {
     title: 'Изменить статью?',
-    btnYes: 'Да, изменить',
-    btnNo: 'Нет, оставить'
+    btnApply: 'Да, изменить',
+  },
+  update_block: {
+    title: 'Изменить статью?',
+    btnApply: 'Да, изменить',
   }
 };

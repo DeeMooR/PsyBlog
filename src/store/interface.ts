@@ -3,8 +3,15 @@ import { IFullPost, IShortPost } from "src/interfaces";
 
 export interface newPostState {
   postData: IFullPost,
-  newBlockName: NewBlockNames | null,
-  newBlockTable: NewBlockTables | null,
+  newBlock: {
+    newBlockName: NewBlockNames | null,
+    newBlockTable: NewBlockTables | null,
+  },
+  update: {
+    updateName: NewBlockNames | null,
+    updateTable: NewBlockTables | null,
+    updateBlockNumber: number | null,
+  },
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,

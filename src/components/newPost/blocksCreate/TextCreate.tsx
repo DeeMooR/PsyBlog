@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { BlockCreateTemplate, Textarea } from 'src/components';
-import { useAppSelector, getNewPostDataSelector, useAppDispatch, getNewPostSelector } from 'src/store';
+import { useAppSelector, getNewPostDataSelector, useAppDispatch, getNewPostSelector, getNewPostNewBlockSelector } from 'src/store';
 import { requestNewBlock } from 'src/helpers';
 import { textScheme } from 'src/validation';
 import { IText } from '../interfaces';
@@ -15,7 +15,7 @@ interface ITextCreate {
 export const TextCreate:FC<ITextCreate> = ({obj}) => {
   const dispatch = useAppDispatch();
   const { id: post_id } = useAppSelector(getNewPostDataSelector);
-  const { newBlockTable } = useAppSelector(getNewPostSelector);
+  const { newBlockTable } = useAppSelector(getNewPostNewBlockSelector);
 
   const {
     register,

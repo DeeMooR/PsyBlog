@@ -74,6 +74,12 @@ export interface ICreateNewBlock {
   fields: NewBlockTypes
 }
 
+export interface IUpdateBlock {
+  post_id: number,
+  block_number: number,
+  fields: NewBlockTypes
+}
+
 export interface IListForm {
   text?: string | null;
   items: string;

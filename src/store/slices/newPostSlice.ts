@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
-import { createNewBlockAction, createPostAction, deleteBlockAction, deletePostAction, getFullPostAction, updatePostAction } from '../actions';
-import { NewBlockNames } from 'src/components';
-import { BlockNameToTableName } from '../config';
+import { createNewBlockAction, createPostAction, deleteBlockAction, deletePostAction, getFullPostAction, updateBlockAction, updatePostAction } from '../actions';
+import { NewBlockNames, NewBlockTables } from 'src/components';
+import { BlockNameToTableName, ISetNewPostUpdate, TableNameToBlockName } from '../config';
 
 const initialState: newPostState = {
   postData: {
@@ -13,8 +13,15 @@ const initialState: newPostState = {
     isActive: false,
     blocks: []
   },
-  newBlockName: null,
-  newBlockTable: null,
+  newBlock: {
+    newBlockName: null,
+    newBlockTable: null,
+  },
+  update: {
+    updateName: null,
+    updateTable: null,
+    updateBlockNumber: null,
+  },
   isLoading: false,
   successMessage: null,
   errorMessage: null,
@@ -31,12 +38,20 @@ const newPostSlice = createSlice({
   initialState,
   reducers: {
     setNewPostNewBlock: (state, { payload }: {payload: NewBlockNames}) => {
-      state.newBlockName = payload;
-      state.newBlockTable = BlockNameToTableName[payload];
+      state.newBlock.newBlockName = payload;
+      state.newBlock.newBlockTable = BlockNameToTableName[payload];
     },
     clearNewPostNewBlock: (state) => {
-      state.newBlockName = null;
-      state.newBlockTable = null;
+      Object.assign(state.newBlock, initialState.newBlock);
+    },
+    setNewPostUpdate: (state, { payload }) => {
+      const {table_name, block_number}: ISetNewPostUpdate = payload;
+      state.update.updateTable = table_name;
+      state.update.updateName = TableNameToBlockName[table_name];
+      state.update.updateBlockNumber = block_number;
+    },
+    clearNewPostUpdate: (state) => {
+      Object.assign(state.update, initialState.update);
     },
     setNewPostErrorMessage: (state, { payload }) => {
       state.errorMessage = payload;
@@ -96,12 +111,22 @@ const newPostSlice = createSlice({
       .addCase(createNewBlockAction.pending, setLoading)
       .addCase(createNewBlockAction.fulfilled, (state) => {
         state.isLoading = false;
-        state.newBlockName = null;
-        state.newBlockTable = null;
+        Object.assign(state.newBlock, initialState.newBlock);
       })
       .addCase(createNewBlockAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при создании блока';
+      })
+      
+      .addCase(updateBlockAction.pending, setLoading)
+      .addCase(updateBlockAction.fulfilled, (state) => {
+        state.isLoading = false;
+        Object.assign(state.update, initialState.update);
+        state.successMessage = 'Блок успешно изменён';
+      })
+      .addCase(updateBlockAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при изменении блока';
       })
 
       .addCase(deleteBlockAction.pending, setLoading)
@@ -118,5 +143,13 @@ const newPostSlice = createSlice({
 
 export const {
   reducer: newPostReducer,
-  actions: {setNewPostNewBlock, clearNewPostNewBlock, setNewPostErrorMessage, clearNewPostPostData, clearNewPostMessages},
+  actions: {
+    setNewPostNewBlock, 
+    clearNewPostNewBlock, 
+    setNewPostUpdate, 
+    clearNewPostUpdate, 
+    setNewPostErrorMessage, 
+    clearNewPostPostData, 
+    clearNewPostMessages
+  },
 } = newPostSlice;

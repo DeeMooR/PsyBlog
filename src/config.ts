@@ -128,7 +128,12 @@ export const list_types = ['Цифры', 'Пункты'];
 
 export type ListTypes = 'Цифры' | 'Пункты';
 
-export enum convert_list_type {
+export enum convert_list_type_eng {
   'Цифры' = 'number',
   'Пункты' = 'point'
+}
+
+export enum convert_list_type_ru {
+  'number' = 'Цифры',
+  'point' = 'Пункты'
 }

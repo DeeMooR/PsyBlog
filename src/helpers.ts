@@ -1,12 +1,19 @@
 import { scroller } from "react-scroll";
-import { ICreateNewBlock, IListForm } from "./interfaces";
+import { ICreateNewBlock, IListForm, IUpdateBlock } from "./interfaces";
 import { NewBlockTables, NewBlockTypes } from "./components";
-import { createNewBlockAction } from "./store";
-import { ListTypes, convert_list_type } from "./config";
+import { createNewBlockAction, updateBlockAction } from "./store";
+import { ListTypes, convert_list_type_eng } from "./config";
 
 interface IRequestNewBlock {
   post_id: number | null,
   newBlockTable: NewBlockTables | null,
+  data: NewBlockTypes,
+  dispatch: any,
+}
+
+interface IRequestUpdate {
+  post_id: number | null,
+  updateBlockNumber: number | null,
   data: NewBlockTypes,
   dispatch: any,
 }
@@ -31,6 +38,17 @@ export const requestNewBlock = ({post_id, newBlockTable, data, dispatch}: IReque
   }
 }
 
+export const requestUpdateBlock = ({post_id, updateBlockNumber, data, dispatch}: IRequestUpdate) => {
+  if (post_id && updateBlockNumber) {
+    const obj: IUpdateBlock = {
+      post_id,
+      block_number: updateBlockNumber,
+      fields: data
+    }
+    dispatch(updateBlockAction(obj))
+  }
+}
+
 export const createObjListCreate = (form: IListForm, type: ListTypes) => {
   const items = form.items
     .split('\n')
@@ -39,7 +57,7 @@ export const createObjListCreate = (form: IListForm, type: ListTypes) => {
     .filter(item => item !== '');
   const data = {
     text: form.text || null,
-    type: convert_list_type[type],
+    type: convert_list_type_eng[type],
     items
   }
   return data;

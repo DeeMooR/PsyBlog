@@ -3,7 +3,7 @@ import { IPostBlock } from 'src/interfaces'
 import { basketIcon, pencilIcon } from 'src/assets'
 import { Blockquote, IBlockquote, ITitle, Title, Text, IText, ModalConfirm, TitleAndText, ITitleAndText, IList, List } from 'src/components';
 import './ShowBlockInNewPost.css'
-import { deleteBlockAction, getNewPostDataSelector, useAppDispatch, useAppSelector } from 'src/store';
+import { deleteBlockAction, getNewPostDataSelector, setNewPostUpdate, useAppDispatch, useAppSelector } from 'src/store';
 
 const showBlock = {
   'title': (obj: ITitle) => <Title obj={obj} />,
@@ -37,6 +37,10 @@ export const ShowBlockInNewPost:FC<IShowBlockInNewPost> = ({obj}) => {
     }
     setModal(false);
   }
+
+  const setUpdateBlock = () => {
+    dispatch(setNewPostUpdate({table_name, block_number}));
+  }
   
   return (
     <div className="showBlockInNewPost">
@@ -44,7 +48,7 @@ export const ShowBlockInNewPost:FC<IShowBlockInNewPost> = ({obj}) => {
         {showBlock[table_name](fields as any)}
       </div>
       <div className="showBlockInNewPost__icons">
-        <img src={pencilIcon} alt="pencil" />
+        <img src={pencilIcon} onClick={setUpdateBlock} alt="pencil" />
         <img src={basketIcon} onClick={() => deleteBlockOpenModal(block_number)} alt="basket" />
       </div>
       {modal && <ModalConfirm action='delete_block' clickApply={deleteBlock} closeModal={() => setModal(false)} />}

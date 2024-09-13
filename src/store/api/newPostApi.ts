@@ -1,6 +1,6 @@
 import axios from "axios";
 import { endpoints } from "./endpoints";
-import { ICreateNewBlock, IFullPost, IOptionalPostFields, IPostRequiredFields } from "src/interfaces";
+import { ICreateNewBlock, IFullPost, IOptionalPostFields, IPostRequiredFields, IUpdateBlock } from "src/interfaces";
 import { IDeleteBlockAction } from "../actions";
 
 const headers = { 'Content-Type': 'application/json' };
@@ -19,6 +19,9 @@ export const deletePostApi = (id: number) =>
 
 export const createNewBlockApi = (body: ICreateNewBlock) =>
   axios.post(endpoints.addBlock, body, {headers});
+
+export const updateBlockApi = (body: IUpdateBlock) =>
+  axios.put(endpoints.updateBlock, body, {headers});
 
 export const deleteBlockApi = (body: IDeleteBlockAction) =>
   axios.delete(endpoints.deleteBlock, {headers, data: body});

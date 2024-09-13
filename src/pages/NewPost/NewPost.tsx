@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate } from 'src/components'
-import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData } from 'src/store'
+import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate, ITitle, IText, ITitleAndText, IBlockquote, IList } from 'src/components'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store'
 import './NewPost.css'
+import { IPostBlock } from 'src/interfaces'
 
 const createBlock = {
   'title': <TitleCreate />,
@@ -12,11 +13,21 @@ const createBlock = {
   'list': <ListCreate />,
 };
 
+const updateBlock = {
+  'title': (obj: ITitle) => <TitleCreate obj={obj} />,
+  'text': (obj: IText) => <TextCreate obj={obj} />,
+  'title_and_text': (obj: ITitleAndText) => <TitleAndTextCreate obj={obj} />,
+  'quote': (obj: IBlockquote) => <BlockquoteCreate obj={obj} />,
+  'list': (obj: IList) => <ListCreate obj={obj} />,
+};
+
 export const NewPost = () => {
   const { id: param } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { newBlockTable, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
+  const { newBlockTable } = useAppSelector(getNewPostNewBlockSelector);
+  const { updateTable, updateBlockNumber } = useAppSelector(getNewPostUpdateSelector);
+  const { errorMessage, successMessage } = useAppSelector(getNewPostSelector);
   const { id, blocks } = useAppSelector(getNewPostDataSelector);
 
   const [showSelection, setShowSelection] = useState(false);
@@ -46,6 +57,10 @@ export const NewPost = () => {
     setModal(false);
   }
 
+  const itemIsUpdate = (obj: IPostBlock) => {
+    return updateTable === obj.table_name && updateBlockNumber === obj.block_number;
+  }
+
   const clearMessages = () => dispatch(clearNewPostMessages());
 
   return (
@@ -64,9 +79,16 @@ export const NewPost = () => {
             </div>
             {!!blocks.length &&
               <div className="newPost__blocks">
-                {blocks.map((obj) => 
-                  <ShowBlockInNewPost obj={obj} />
-                )}
+                {blocks.map((obj) => (
+                  itemIsUpdate(obj) && updateTable ? (
+                    <div className="newPost__updateBlock">
+                      {/* @ts-ignore */}
+                      {updateBlock[updateTable](obj.fields)}
+                    </div>
+                  ) : (
+                    <ShowBlockInNewPost obj={obj} />
+                  )
+                ))}
               </div>
             }
             {newBlockTable &&

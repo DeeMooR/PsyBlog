@@ -29,6 +29,11 @@
   flex-direction: column;
   gap: 32px;
 }
+.newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__blocks .newPost__updateBlock {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
 .newPost .newPost__wrapper .newPost__content .newPost__flex .newPost__newBlock {
   width: 100%;
   max-width: 800px;

@@ -37,6 +37,15 @@ class PostFieldsService {
 
     return this.create({post_id, table_name: 'list', table_id: list_id});
   }
+  async updateBlock(post_id, block_number, body) {
+    const fields = Object.keys(body).map(key => `${key} = ?`);
+    const values = Object.values(body);
+
+    const [response] = await db.query('SELECT * FROM post_blocks WHERE post_id = ? AND block_number = ?', [post_id, block_number]);
+    const {table_name, table_id} = response[0];
+    const [block] = await db.query(`UPDATE ${table_name} SET ${fields.join(', ')} WHERE id = ?`, [...values, table_id]);
+    return block[0];
+  }
   async deleteBlock(post_id, block_number) {
     const [response] = await db.query('DELETE FROM post_blocks WHERE post_id = ? AND block_number = ?', [post_id, block_number]);
     return response.affectedRows > 0;

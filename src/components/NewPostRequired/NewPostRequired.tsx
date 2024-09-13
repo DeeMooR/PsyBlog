@@ -89,7 +89,7 @@ export const NewPostRequired = () => {
         </div>
         <button className='newPostRequired__button smallBtn'>Сохранить</button>
       </form>
-      {showModal && <ModalConfirm action='update' clickApply={clickUpdate} closeModal={() => setShowModal(false)} />}
+      {showModal && <ModalConfirm action='update_post' clickApply={clickUpdate} closeModal={() => setShowModal(false)} />}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { getNewPostDataSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
+import { getNewPostDataSelector, getNewPostNewBlockSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
 import { NewBlockNames, RadioOption, radioOptions } from 'src/components'
 import { crossIcon } from 'src/assets';
 import './NewPostSelection.css'
@@ -10,7 +10,7 @@ interface INewPostSelection {
 
 export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
   const dispatch = useAppDispatch();
-  const { newBlockName } = useAppSelector(getNewPostSelector);
+  const { newBlockName } = useAppSelector(getNewPostNewBlockSelector);
   const { id } = useAppSelector(getNewPostDataSelector);
   const [selected, setSelected] = useState<NewBlockNames | null>(null);
 
