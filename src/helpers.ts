@@ -1,8 +1,8 @@
 import { scroller } from "react-scroll";
 import { ICreateNewBlock, IListForm, IUpdateBlock } from "./interfaces";
-import { NewBlockTables, NewBlockTypes } from "./components";
+import { IList, NewBlockTables, NewBlockTypes } from "./components";
 import { createNewBlockAction, updateBlockAction } from "./store";
-import { ListTypes, convert_list_type_eng } from "./config";
+import { ListTypes, convertListTypeEng } from "./config";
 
 interface IRequestNewBlock {
   post_id: number | null,
@@ -14,7 +14,7 @@ interface IRequestNewBlock {
 interface IRequestUpdate {
   post_id: number | null,
   updateBlockNumber: number | null,
-  data: NewBlockTypes,
+  data: Partial<NewBlockTypes>,
   dispatch: any,
 }
 
@@ -57,8 +57,12 @@ export const createObjListCreate = (form: IListForm, type: ListTypes) => {
     .filter(item => item !== '');
   const data = {
     text: form.text || null,
-    type: convert_list_type_eng[type],
+    type: convertListTypeEng[type],
     items
   }
   return data;
+}
+
+export const convertItemsToText = (obj: IList | undefined) => {
+  return obj ? ('[-] ' + obj?.items.join('\n[-] ')) : '';
 }

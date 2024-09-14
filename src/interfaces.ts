@@ -77,7 +77,7 @@ export interface ICreateNewBlock {
 export interface IUpdateBlock {
   post_id: number,
   block_number: number,
-  fields: NewBlockTypes
+  fields: Partial<NewBlockTypes>
 }
 
 export interface IListForm {

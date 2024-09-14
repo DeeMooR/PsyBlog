@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { BaseBlockCreateTemplate, FormBlockCreateTemplate, Input, RadioOption, Textarea } from 'src/components';
-import { useAppSelector, getNewPostDataSelector, useAppDispatch, getNewPostSelector, setNewPostErrorMessage, getNewPostNewBlockSelector } from 'src/store';
-import { createObjListCreate, requestNewBlock } from 'src/helpers';
+import { BaseBlockCreateTemplate, FormBlockCreateTemplate, Input, ModalConfirm, RadioOption, Textarea } from 'src/components';
+import { useAppSelector, getNewPostDataSelector, useAppDispatch, getNewPostSelector, setNewPostErrorMessage, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store';
+import { convertItemsToText, createObjListCreate, requestNewBlock, requestUpdateBlock } from 'src/helpers';
 import { listScheme } from 'src/validation';
 import { IList } from '../interfaces';
 import { IListForm } from 'src/interfaces';
-import { ListTypes, convert_list_type_ru, list_placeholder, list_types } from 'src/config';
+import { ListTypes, convertListTypeEng, convertListTypeRu, list_placeholder, list_types } from 'src/config';
 import './Create.css';
 
 interface IListCreate {
@@ -18,15 +18,18 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
   const dispatch = useAppDispatch();
   const { id: post_id } = useAppSelector(getNewPostDataSelector);
   const { newBlockTable } = useAppSelector(getNewPostNewBlockSelector);
+  const { updateBlockNumber } = useAppSelector(getNewPostUpdateSelector);
 
-  const defaultItems = obj ? ('[-] ' + obj?.items.join('\n[-] ')) : '';
-  const defaultType = obj ? convert_list_type_ru[obj.type] : null
+  const defaultItems = convertItemsToText(obj);
+  const defaultType = obj ? convertListTypeRu[obj.type] : null
   const [type, setType] = useState<ListTypes | null>(defaultType);
+  const [modal, setModal] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    getValues,
+    formState: { errors, isDirty },
   } = useForm<IListForm>({
     mode: 'onSubmit',
     resolver: yupResolver(listScheme),
@@ -38,8 +41,20 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
       dispatch(setNewPostErrorMessage('Необходимо выбрать тип перечисления'));
       return;
     }
-    const data = createObjListCreate(form, type);
-    requestNewBlock({post_id, newBlockTable, data, dispatch});
+    if (!obj) {
+      const data = createObjListCreate(form, type);
+      requestNewBlock({post_id, newBlockTable, data, dispatch});
+    } 
+    else setModal(true);
+  }
+
+  const clickUpdateBlock = () => {
+    if (type) {
+      console.log(isDirty)
+      const data = isDirty ? createObjListCreate(getValues(), type) : {type: convertListTypeEng[type]};
+      requestUpdateBlock({post_id, updateBlockNumber, data, dispatch});
+    }
+    setModal(false);
   }
 
   return (
@@ -52,6 +67,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
               selected={type} 
               name='listType' 
               onClickOption={setType} 
+              key={value}
             />
           )}
         </div>
@@ -72,6 +88,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
           />
         </div>
       </BaseBlockCreateTemplate>
+      {modal && <ModalConfirm action='update_block' clickApply={clickUpdateBlock} closeModal={() => setModal(false)} />}
     </form>
   )
 }

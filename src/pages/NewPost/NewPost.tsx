@@ -79,14 +79,14 @@ export const NewPost = () => {
             </div>
             {!!blocks.length &&
               <div className="newPost__blocks">
-                {blocks.map((obj) => (
+                {blocks.map((obj, index) => (
                   itemIsUpdate(obj) && updateTable ? (
-                    <div className="newPost__updateBlock">
+                    <div className="newPost__updateBlock" key={index}>
                       {/* @ts-ignore */}
                       {updateBlock[updateTable](obj.fields)}
                     </div>
                   ) : (
-                    <ShowBlockInNewPost obj={obj} />
+                    <ShowBlockInNewPost obj={obj} key={index} />
                   )
                 ))}
               </div>

@@ -21,7 +21,7 @@ export const NewPostRequired = () => {
     handleSubmit,
     getValues,
     reset,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
     resolver: yupResolver(postRequiredScheme),
@@ -88,7 +88,7 @@ export const NewPostRequired = () => {
             error={errors.date?.message}
           />
         </div>
-        <button className='newPostRequired__button smallBtn'>Сохранить</button>
+        <button className='newPostRequired__button smallBtn' disabled={!!id && !isDirty}>{id ? 'Изменить' : 'Сохранить'}</button>
       </form>
       {showModal && <ModalConfirm action='update_post' clickApply={clickUpdate} closeModal={() => setShowModal(false)} />}
     </div>
