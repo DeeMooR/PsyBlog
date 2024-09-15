@@ -41,21 +41,21 @@ export interface IShortPostWithoutId extends Omit<IShortPost, 'id'> {}
 export interface IPostFields {
   id: number | null,
   title: string,
-  image?: FileList | null,
+  image: FileList | null,
   date: string,
   isActive: boolean,
 }
 
-export interface IPostRequiredFormFields extends Omit<IPostFields, 'id' | 'isActive'> {}
+export interface IPostRequiredFormFields extends Omit<IPostFields, 'id' | 'isActive' | 'image'> {}
 
 export interface IPostRequiredFields {
   title: string,
-  image: File,
+  image: File | null,
   date: string,
   isActive: boolean,
 }
 
-export interface IOptionalPostFields extends Partial<IPostFields> {}
+export interface IOptionalPostFields extends Partial<IPostRequiredFields> {}
 
 
 export interface IPostBlock {

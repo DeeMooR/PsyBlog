@@ -13,6 +13,7 @@ export * from './CardSmall/CardSmall';
 export * from './ScrollToTop/ScrollToTop';
 export * from './NewPostRequired/NewPostRequired';
 export * from './Input/Input';
+export * from './InputFile/InputFile';
 export * from './Textarea/Textarea';
 export * from './MainPicture/MainPicture';
 export * from './About/About';

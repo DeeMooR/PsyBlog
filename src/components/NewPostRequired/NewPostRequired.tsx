@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPostAction, updatePostAction, getNewPostDataSelector, useAppDispatch, useAppSelector, getNewPostSelector } from 'src/store';
-import { Input, ModalConfirm, SwitchButton } from 'src/components';
+import { Input, InputFile, ModalConfirm, SwitchButton } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
@@ -13,7 +13,9 @@ export const NewPostRequired = () => {
   const dispatch = useAppDispatch();
   const { postData } = useAppSelector(getNewPostSelector);
   const { id } = useAppSelector(getNewPostDataSelector);
+
   const [active, setActive] = useState<boolean>(false);
+  const [file, setFile] = useState<File | null>(null);
   const [showModal, setShowModal] = useState(false);
   
   const {
@@ -25,7 +27,6 @@ export const NewPostRequired = () => {
   } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
     resolver: yupResolver(postRequiredScheme),
-    // defaultValues: {...postData}
   });
   
   useEffect(() => {
@@ -35,21 +36,18 @@ export const NewPostRequired = () => {
   }, [postData, reset]);
 
   const onSubmit = async (data: IPostRequiredFormFields) => {
-    const { image, ...fields} = data;
     if (!id) {
       try {
-        if (image instanceof FileList) {
-          const body = {...fields, image: image[0], isActive: active};
-          const post_id = await dispatch(createPostAction(body)).unwrap();
-          if (post_id) navigate(`/new-post/${post_id}`);
-        }
+        const body = {...data, image: file, isActive: active};
+        const post_id = await dispatch(createPostAction(body)).unwrap();
+        if (post_id) navigate(`/new-post/${post_id}`);
       } catch {}
     }
     else setShowModal(true);
   }
 
   const clickUpdate = () => {
-    const body = {...getValues(), isActive: active};
+    let body = {...getValues(), image: file};
     if (id) dispatch(updatePostAction({id, body}));
     setShowModal(false);
   }
@@ -86,12 +84,11 @@ export const NewPostRequired = () => {
             placeholder='Дата' 
             error={errors.date?.message}
           />
-          <Input 
-            id='image' 
-            register={register}
-            type="file" 
-            placeholder='Изображение' 
-            error={errors.image?.message}
+          <InputFile 
+            id='image'
+            imageLink={postData.image}
+            file={file}
+            setFile={setFile}
           />
         </div>
         <button className='newPostRequired__button smallBtn'>{id ? 'Изменить' : 'Сохранить'}</button>

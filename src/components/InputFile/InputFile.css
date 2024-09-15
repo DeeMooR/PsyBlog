@@ -1,0 +1,20 @@
+.inputFileBlock {
+  position: relative;
+  width: 100%;
+}
+.inputFileBlock .inputFileBlock__label .inputFile {
+  display: none;
+}
+.inputFileBlock .inputFileBlock__label .inputFileBlock__custom {
+  height: 140px;
+  cursor: pointer;
+}
+.inputFileBlock .inputFileBlock__label .inputFileBlock__custom.showDefault {
+  background-image: url("../../assets/icons/imageUpload.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.inputFileBlock .inputFileBlock__label .inputFileBlock__custom .inputFileBlock__previewImage {
+  padding: 5px;
+  height: 100%;
+}

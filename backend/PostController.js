@@ -58,6 +58,15 @@ class PostController {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
   }
+  async updateImage(req, res) {
+    try {
+      const image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+      const post = await PostService.updateImage(+req.body.post_id, image)
+      res.send(post);
+    } catch (e) {
+      res.status(500).json({ error: `Ошибка сервера: ${e}` });
+    }
+  }
   async update(req, res) {
     try {
       const post = await PostService.update(req.params.id, req.body)

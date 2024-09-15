@@ -10,6 +10,7 @@ import radioSelectedIcon from './icons/radioSelected.svg';
 import radioUnselectedIcon from './icons/radioUnselected.svg';
 import pencilIcon from './icons/pencil.svg';
 import basketIcon from './icons/basket.svg';
+import imageUploadIcon from './icons/imageUpload.svg';
 
 import mainImage from './images/mainImage.jpg';
 import aboutImage from './images/aboutImage.jpg';
@@ -48,6 +49,7 @@ export {
   radioUnselectedIcon,
   pencilIcon,
   basketIcon,
+  imageUploadIcon,
   mainImage,
   aboutImage,
   contactsImage,

@@ -12,6 +12,7 @@ const createRouter = (upload) => {
   router.get('/shortPosts/admin', PostController.getShortPostsAdmin)
   router.post('/posts', PostController.create)
   router.post('/post/image', upload.single('image'), PostController.createImage)
+  router.put('/post/image', upload.single('image'), PostController.updateImage)
   router.put('/posts/:id', PostController.update)
   router.delete('/posts/:id', PostController.delete)
 

@@ -1,5 +1,5 @@
 import { NewBlockTables } from "src/components";
-import { ICreatePostImageApi } from "./api";
+import { IImageApi } from "./api";
 
 export const BlockNameToTableName = {
   'Заголовок': 'title',
@@ -22,7 +22,7 @@ export interface ISetNewPostUpdate {
   block_number: number,
 }
 
-export const convertToFormData = (body: ICreatePostImageApi) => {
+export const convertToFormData = (body: IImageApi) => {
   const formData = new FormData();
   formData.append('post_id', body.post_id.toString());
   if (body.image instanceof File) formData.append('image', body.image);

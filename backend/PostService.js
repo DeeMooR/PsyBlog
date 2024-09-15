@@ -1,4 +1,5 @@
 import { db } from './index.js';
+import { promises as fsPromises } from 'fs';
 import PostFieldsService from "./PostBlocksService.js";
 
 class PostService {
@@ -45,6 +46,18 @@ class PostService {
   }
   async createImage(post_id, image) {
     await db.query(`UPDATE posts SET image = ? WHERE id = ?`, [image, post_id]);
+    return this.getFullPost(post_id);
+  }
+  async updateImage(post_id, image) {
+    const [post] = await db.query('SELECT image FROM posts WHERE id = ?', [post_id]);
+    const url = new URL(post[0].image);
+    const filePath = url.pathname.substring(1);
+    try {
+      await fsPromises.unlink(filePath);
+      await db.query('UPDATE posts SET image = ? WHERE id = ?', [image, post_id]);
+    } catch (err) {
+      throw new Error(`Ошибка при обновлении изображения: ${err.message}`);
+    }
     return this.getFullPost(post_id);
   }
   async update(id, body) {
