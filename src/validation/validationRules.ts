@@ -13,9 +13,6 @@ export const fieldValidation = Yup.string().nullable();
 // поле (обязательное)
 export const fieldRequiredValidation = Yup.string().required('Обязательное поле');
 
-// изображение (обязательное)
-export const imageRequiredValidation = Yup.mixed().required('Обязательное поле');
-
 
 // имя (обязательное)
 export const nameRequiredValidation = Yup.string()
@@ -36,3 +33,9 @@ export const phoneRequiredValidation = Yup.string()
 export const listRequiredValidation = Yup.string()
   .required('Обязательное поле')
   .matches(LIST_PATTERN, 'Некорректная запись');
+
+// дата (обязательное)
+export const dateRequiredValidation = Yup.date()
+  .required('Обязательное поле')
+  .nullable()
+  .typeError('Некорректная дата');

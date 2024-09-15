@@ -30,9 +30,13 @@ export const AllPosts = () => {
         }
         {isLoading ? <Loading /> :
           <div className="allPosts__list">
-            {shortPosts.map(item => (
-              <CardSmall obj={item} isAdmin={isAdmin} key={item.id} />
-            ))}
+            {!!shortPosts.length ? (
+              shortPosts.map(item => (
+                <CardSmall obj={item} isAdmin={isAdmin} key={item.id} />
+              ))
+            ) : (
+              <h3 className='allPosts__empty'>Статьи временно отсутствуют. Заходите позже</h3>
+            )}
           </div>
         }
         {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}

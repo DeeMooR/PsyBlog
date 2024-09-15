@@ -36,10 +36,13 @@ export const NewPost = () => {
   const title = id ? 'Редактирование статьи' : 'Создание статьи';
 
   useEffect(() => {
+    dispatch(clearNewPostPostData());
+  }, []);
+
+  useEffect(() => {
     const func = async () => {
       try {
         if (param) await dispatch(getFullPostAction(+param)).unwrap();
-        else dispatch(clearNewPostPostData());
       } catch {
         navigate('/new-post');
       }

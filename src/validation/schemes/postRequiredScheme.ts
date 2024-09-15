@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
-import { fieldRequiredValidation, imageRequiredValidation } from '../validationRules';
+import { fieldRequiredValidation, dateRequiredValidation } from '../validationRules';
 
 export const postRequiredScheme = Yup.object().shape({
   title: fieldRequiredValidation,
-  date: fieldRequiredValidation,
+  date: dateRequiredValidation,
 });

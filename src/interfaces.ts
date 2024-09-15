@@ -38,24 +38,22 @@ export interface IShortPost {
 
 export interface IShortPostWithoutId extends Omit<IShortPost, 'id'> {}
 
-export interface IPostFields {
-  id: number | null,
-  title: string,
-  image: FileList | null,
-  date: string,
-  isActive: boolean,
-}
 
-export interface IPostRequiredFormFields extends Omit<IPostFields, 'id' | 'isActive' | 'image'> {}
+export interface IPostRequiredFieldsForm {
+  title: string,
+  date: Date | null,
+}
 
 export interface IPostRequiredFields {
   title: string,
   image: File | null,
-  date: string,
+  date: Date,
   isActive: boolean,
 }
 
 export interface IOptionalPostFields extends Partial<IPostRequiredFields> {}
+
+
 
 
 export interface IPostBlock {
@@ -68,7 +66,7 @@ export interface IFullPost {
   id: number | null,
   title: string,
   image: string | null,
-  date: string,
+  date: Date | null,
   isActive: boolean,
   blocks: IPostBlock[]
 }

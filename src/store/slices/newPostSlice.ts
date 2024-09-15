@@ -9,7 +9,7 @@ const initialState: newPostState = {
     id: null,
     title: '',
     image: null,
-    date: '',
+    date: null,
     isActive: false,
     blocks: []
   },

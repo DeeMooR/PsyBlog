@@ -1,16 +1,19 @@
 import { db } from './index.js';
 import { promises as fsPromises } from 'fs';
+import { formatISOToDate, postWithTrueDate } from './helpers.js';
 import PostFieldsService from "./PostBlocksService.js";
 
 class PostService {
   async getAll() {
     const [rows] = await db.query('SELECT * FROM posts');
-    return rows;
+    const posts = rows.map(post => postWithTrueDate(post));
+    return posts;
   }
   async getOne(id) {
     const [response] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
     if (!response.length) throw new Error(`Статья с ID ${id} не найден`);
-    return response[0];
+    const post = response[0];
+    return postWithTrueDate(post);
   }
   async getFullPost(id) {
     let post = await this.getOne(id);
@@ -38,7 +41,8 @@ class PostService {
     return rows;
   }
   async create(body) {
-    const { title, date, isActive } = body;
+    const { title, isActive } = body;
+    const date = formatISOToDate(body.date);
     const sql = 'INSERT INTO posts (title, date, isActive) VALUES (?, ?, ?)';
     const [result] = await db.query(sql, [title, date, isActive]);
     const id = result.insertId;
@@ -61,8 +65,11 @@ class PostService {
     return this.getFullPost(post_id);
   }
   async update(id, body) {
-    const fields = Object.keys(body).map(key => `${key} = ?`);
-    const values = Object.values(body);
+    const date = formatISOToDate(body.date);
+    const data = {...body, date}
+    
+    const fields = Object.keys(data).map(key => `${key} = ?`);
+    const values = Object.values(data);
     if (fields.length === 0) throw new Error('Нет данных для обновления');
     const sql = `UPDATE posts SET ${fields.join(', ')} WHERE id = ?`;
     const [result] = await db.query(sql, [...values, id]);

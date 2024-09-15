@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPostAction, updatePostAction, getNewPostDataSelector, useAppDispatch, useAppSelector, getNewPostSelector } from 'src/store';
 import { Input, InputFile, ModalConfirm, SwitchButton } from 'src/components';
-import { IPostRequiredFormFields } from 'src/interfaces';
+import { IPostRequiredFieldsForm } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
 import { useNavigate } from 'react-router-dom';
+import { formatISOToShortDate } from 'src/helpers';
 
 export const NewPostRequired = () => {
   const navigate = useNavigate();
@@ -24,31 +25,39 @@ export const NewPostRequired = () => {
     getValues,
     reset,
     formState: { errors },
-  } = useForm<IPostRequiredFormFields>({
+  } = useForm<IPostRequiredFieldsForm>({
     mode: 'onSubmit',
     resolver: yupResolver(postRequiredScheme),
   });
   
   useEffect(() => {
-    const {id, blocks, isActive, image, ...defaultValues} = postData;
-    reset({ ...defaultValues });
+    const {isActive, title, date} = postData;
+    const dateStr = date ? formatISOToShortDate(new Date(date)) : null;
+    //@ts-ignore
+    reset({ title, date: dateStr });
     setActive(isActive);
   }, [postData, reset]);
 
-  const onSubmit = async (data: IPostRequiredFormFields) => {
+  const onSubmit = async (data: IPostRequiredFieldsForm) => {
+    const {date, title} = data;
     if (!id) {
       try {
-        const body = {...data, image: file, isActive: active};
-        const post_id = await dispatch(createPostAction(body)).unwrap();
-        if (post_id) navigate(`/new-post/${post_id}`);
+        if (date) {
+          const body = {date, title, image: file, isActive: active};
+          const post_id = await dispatch(createPostAction(body)).unwrap();
+          if (post_id) navigate(`/new-post/${post_id}`);
+        }
       } catch {}
     }
     else setShowModal(true);
   }
 
   const clickUpdate = () => {
-    let body = {...getValues(), image: file};
-    if (id) dispatch(updatePostAction({id, body}));
+    let {date, title} = getValues();
+    if (id && date) {
+      const body = {date, title, image: file}
+      dispatch(updatePostAction({id, body}));
+    }
     setShowModal(false);
   }
 
@@ -80,7 +89,7 @@ export const NewPostRequired = () => {
           <Input 
             id='date' 
             register={register}
-            type="text" 
+            type="date" 
             placeholder='Дата' 
             error={errors.date?.message}
           />

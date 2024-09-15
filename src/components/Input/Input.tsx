@@ -10,10 +10,9 @@ interface IInput {
   placeholder?: string;
   disabled?: boolean;
   error?: string;
-  name?: string;
 }
 
-export const Input:FC<IInput> = ({id, register, type, placeholder, disabled, error, name}) => {
+export const Input:FC<IInput> = ({id, register, type, placeholder, disabled, error}) => {
   const inputStyle = `${error ? 'warning' : ''}`
   
   return (
@@ -25,7 +24,6 @@ export const Input:FC<IInput> = ({id, register, type, placeholder, disabled, err
         disabled={disabled}
         placeholder={placeholder}
         className={inputStyle}
-        name={id}
       />
       {error &&
         <p className='error'>

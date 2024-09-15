@@ -15,7 +15,7 @@ export interface IImageApi {
 export const getFullPostApi = (id: number): Promise<IFullPost> =>
   axios.get(`${endpoints.fullPost}/${id}`).then(({ data }) => data);
 
-
+  
 export const createPostApi = (body: Omit<IPostRequiredFields, 'image'>): Promise<IFullPost> =>
   axios.post(endpoints.posts, body).then(({ data }) => data);
 

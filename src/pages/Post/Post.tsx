@@ -6,6 +6,7 @@ import { getFullPostAction, getNewPostDataSelector, setAllPostsErrorMessage, use
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
 import './Post.css'
+import { formatDate } from 'src/helpers'
 
 const obj1 = {
   text: 'Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful and overwhelming, especially if you don\'t plan and prepare adequately. In this blog article, we\'ll explore tips and tricks for a memorable journey and how to make the most of your travels.<br /><br />One of the most rewarding aspects of traveling is immersing yourself in the local culture and customs. This includes trying local cuisine, attending cultural events and festivals, and interacting with locals. Learning a few phrases in the local language can also go a long way in making connections and showing respect.'
@@ -102,7 +103,7 @@ export const Post = () => {
             <img className='author__icon' src={humanIcon} />
             <p className="author__text">Ольга Разваляева</p>
           </div>
-          <p className="post__date">{date}</p>
+          {date && <p className="post__date">{formatDate(new Date(date))}</p>}
         </div>
         <div className="post__image">
           <PostImage image={image} />

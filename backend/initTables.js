@@ -6,7 +6,7 @@ export const createTables = async () => {
       id INT AUTO_INCREMENT PRIMARY KEY,
       title VARCHAR(255) NOT NULL,
       image VARCHAR(255),
-      date VARCHAR(255) NOT NULL,
+      date DATE NOT NULL,
       isActive BOOLEAN NOT NULL DEFAULT false
     );
   `;
