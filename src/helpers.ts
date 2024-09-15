@@ -1,9 +1,8 @@
 import { scroller } from "react-scroll";
 import { ICreateNewBlock, IListForm, IUpdateBlock } from "./interfaces";
 import { IList, NewBlockTables, NewBlockTypes } from "./components";
-import { ICreatePostImageApi, createNewBlockAction, updateBlockAction } from "./store";
+import { createNewBlockAction, updateBlockAction } from "./store";
 import { ListTypes, convertListTypeEng } from "./config";
-import { base64StringToBlob } from "blob-util";
 
 interface IRequestNewBlock {
   post_id: number | null,

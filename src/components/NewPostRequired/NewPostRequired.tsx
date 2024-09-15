@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPostAction, updatePostAction, getNewPostDataSelector, useAppDispatch, useAppSelector, getNewPostSelector } from 'src/store';
-import { Input, ModalConfirm, SwitchButton, Textarea } from 'src/components';
+import { Input, ModalConfirm, SwitchButton } from 'src/components';
 import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
 import { useNavigate } from 'react-router-dom';
-import { convertFileToFileList } from 'src/helpers';
 
 export const NewPostRequired = () => {
   const navigate = useNavigate();
@@ -25,16 +24,13 @@ export const NewPostRequired = () => {
     formState: { errors },
   } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
-    // @ts-ignore
     resolver: yupResolver(postRequiredScheme),
     // defaultValues: {...postData}
   });
   
   useEffect(() => {
     const {id, blocks, isActive, image, ...defaultValues} = postData;
-    const newImage = convertFileToFileList(image);
-    console.log(newImage)
-    reset({ image: newImage, ...defaultValues });
+    reset({ ...defaultValues });
     setActive(isActive);
   }, [postData, reset]);
 

@@ -15,7 +15,7 @@ export interface ICreatePostImageApi {
 export const createPostApi = (body: Omit<IPostRequiredFields, 'image'>): Promise<IFullPost> =>
   axios.post(endpoints.posts, body).then(({ data }) => data);
 
-export const createPostImageApi = (body: ICreatePostImageApi): Promise<File> =>
+export const createPostImageApi = (body: ICreatePostImageApi): Promise<IFullPost> =>
   axios.post(endpoints.postImage, convertToFormData(body)).then(({ data }) => data);
 
 

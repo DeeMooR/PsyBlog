@@ -4,5 +4,4 @@ import { fieldRequiredValidation, imageRequiredValidation } from '../validationR
 export const postRequiredScheme = Yup.object().shape({
   title: fieldRequiredValidation,
   date: fieldRequiredValidation,
-  image: imageRequiredValidation,
 });

@@ -1,20 +1,15 @@
 import { db } from './index.js';
-import { postToPostFile } from './helpers.js';
 import PostFieldsService from "./PostBlocksService.js";
 
 class PostService {
   async getAll() {
     const [rows] = await db.query('SELECT * FROM posts');
-    const posts = await Promise.all(
-      rows.map(async (post) => postToPostFile(post))
-    );
-    return posts;
+    return rows;
   }
   async getOne(id) {
     const [response] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
     if (!response.length) throw new Error(`Статья с ID ${id} не найден`);
-    const post = await postToPostFile(response[0]);
-    return post;
+    return response[0];
   }
   async getFullPost(id) {
     let post = await this.getOne(id);
@@ -35,17 +30,11 @@ class PostService {
   }
   async getShortPosts() {
     const [rows] = await db.query('SELECT id, title, image FROM posts WHERE isActive = true');
-    const posts = await Promise.all(
-      rows.map(async (post) => postToPostFile(post))
-    );
-    return posts;
+    return rows;
   }
   async getShortPostsAdmin() {
     const [rows] = await db.query('SELECT id, title, image, isActive FROM posts');
-    const posts = await Promise.all(
-      rows.map(async (post) => postToPostFile(post))
-    );
-    return posts;
+    return rows;
   }
   async create(body) {
     const { title, date, isActive } = body;

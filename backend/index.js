@@ -7,9 +7,6 @@ import cors from 'cors';
 import createRouter from './router.js';
 import {createTables} from './initTables.js';
 
-// const __filename = url.fileURLToPath(import.meta.url);
-// export const __dirname = path.dirname(__filename);
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'images');
@@ -18,7 +15,6 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname));
   }
 });
-
 export const upload = multer({ storage: storage });
 
 dotenv.config();
@@ -27,13 +23,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('images'));
 
 const router = createRouter(upload);
 app.use('/api', router);
-// app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/images', express.static('images'));
 
-// Создаем пул соединений с базой данных
 export const db = mysql.createPool({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,

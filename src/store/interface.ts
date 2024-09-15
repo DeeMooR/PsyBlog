@@ -1,5 +1,5 @@
 import { NewBlockNames, NewBlockTables } from "src/components";
-import { IFullPost, IShortPost, IShortPostFile } from "src/interfaces";
+import { IFullPost, IShortPost } from "src/interfaces";
 
 export interface newPostState {
   postData: IFullPost,
@@ -25,7 +25,7 @@ export interface adminState {
 }
 
 export interface allPostsState {
-  shortPosts: IShortPostFile[],
+  shortPosts: IShortPost[],
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,

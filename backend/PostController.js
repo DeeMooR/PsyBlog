@@ -51,7 +51,7 @@ class PostController {
   }
   async createImage(req, res) {
     try {
-      const image = req.file.path || null;
+      const image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
       const post = await PostService.createImage(+req.body.post_id, image)
       res.send(post);
     } catch (e) {

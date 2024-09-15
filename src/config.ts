@@ -1,4 +1,4 @@
-import { IFAQ, IService, IShortPost, IShortPostFile } from "src/interfaces";
+import { IFAQ, IService, IShortPost } from "src/interfaces";
 import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, post_1, post_2, post_3, post_4, post_5, post_6, post_7, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
@@ -60,22 +60,22 @@ export const certificates_slides: {src: string}[] = [
   { src: certificate_8 },
 ]
 
-export const topCards: IShortPostFile[] = [
-  // {
-  //   id: 1,
-  //   title: 'Психология!',
-  //   image: post_1,
-  // },
-  // {
-  //   id: 2,
-  //   title: 'Что такое психология?',
-  //   image: post_2,
-  // },
-  // {
-  //   id: 3,
-  //   title: 'Что такое психология?',
-  //   image: post_3,
-  // },
+export const topCards: IShortPost[] = [
+  {
+    id: 1,
+    title: 'Психология!',
+    image: post_1,
+  },
+  {
+    id: 2,
+    title: 'Что такое психология?',
+    image: post_2,
+  },
+  {
+    id: 3,
+    title: 'Что такое психология?',
+    image: post_3,
+  },
 ];
 
 export const allCards: IShortPost[] = [

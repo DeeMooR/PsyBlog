@@ -78,9 +78,8 @@ const newPostSlice = createSlice({
       })
 
       .addCase(createPostAction.pending, setLoading)
-      .addCase(createPostAction.fulfilled, (state, { payload }) => {
+      .addCase(createPostAction.fulfilled, (state) => {
         state.isLoading = false;
-        state.successMessage = 'Статья успешно создана';
       })
       .addCase(createPostAction.rejected, (state) => {
         state.isLoading = false;

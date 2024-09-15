@@ -1,28 +1,24 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IOptionalPostFields, IPostFields, IShortPost, IShortPostFile } from "src/interfaces";
+import { IOptionalPostFields, IShortPost } from "src/interfaces";
 import { getShortPostsApi, getShortPostsAdminApi, updatePostApi } from "../api";
-import { base64StringToBlob } from "blob-util";
-import { postsToPostsFile } from "../config";
 
 interface IUpdateShortPostsAction {
   id: number,
   body: IOptionalPostFields
 }
 
-export const getShortPostsAction = createAsyncThunk<IShortPostFile[], void>(
+export const getShortPostsAction = createAsyncThunk<IShortPost[], void>(
   'allPosts/getShortPostsAction',
   async () => {
-    const response = await getShortPostsApi();
-    const posts = postsToPostsFile(response);
+    const posts = await getShortPostsApi();
     return posts;
   }
 )
 
-export const getShortPostsAdminAction = createAsyncThunk<IShortPostFile[], void>(
+export const getShortPostsAdminAction = createAsyncThunk<IShortPost[], void>(
   'allPosts/getShortPostsAdminAction',
   async () => {
-    const response = await getShortPostsAdminApi();
-    const posts = postsToPostsFile(response);
+    const posts = await getShortPostsAdminApi();
     return posts;
   }
 )

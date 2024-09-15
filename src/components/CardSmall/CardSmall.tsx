@@ -1,14 +1,14 @@
 import React, { ChangeEvent, FC, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SwitchButton } from 'src/components'
-import { IShortPostFile } from 'src/interfaces'
+import { IShortPost } from 'src/interfaces'
 import { CardSmallImage } from 'src/styled'
 import { updateShortPostsAction, useAppDispatch } from 'src/store'
 import './CardSmall.css'
 import { pencilIcon } from 'src/assets'
 
 interface ICardSmall {
-  obj: IShortPostFile, 
+  obj: IShortPost, 
   isAdmin?: boolean
 }
 

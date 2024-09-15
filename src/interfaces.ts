@@ -36,19 +36,12 @@ export interface IShortPost {
   isActive?: boolean,
 }
 
-export interface IShortPostFile {
-  id: number,
-  title: string,
-  image: File | null,
-  isActive?: boolean,
-}
-
 export interface IShortPostWithoutId extends Omit<IShortPost, 'id'> {}
 
 export interface IPostFields {
   id: number | null,
   title: string,
-  image: FileList | null,
+  image?: FileList | null,
   date: string,
   isActive: boolean,
 }
@@ -74,7 +67,7 @@ export interface IPostBlock {
 export interface IFullPost {
   id: number | null,
   title: string,
-  image: File | null,
+  image: string | null,
   date: string,
   isActive: boolean,
   blocks: IPostBlock[]
