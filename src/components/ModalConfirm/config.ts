@@ -13,7 +13,7 @@ export const ModalConfirmData: { [action: string]: IModalConfirmData } = {
     btnApply: 'Да, удалить',
   },
   update_post: {
-    title: 'Изменить статью?',
+    title: 'Изменить основные поля?',
     btnApply: 'Да, изменить',
   },
   update_block: {

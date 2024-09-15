@@ -50,7 +50,6 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
 
   const clickUpdateBlock = () => {
     if (type) {
-      console.log(isDirty)
       const data = isDirty ? createObjListCreate(getValues(), type) : {type: convertListTypeEng[type]};
       requestUpdateBlock({post_id, updateBlockNumber, data, dispatch});
     }

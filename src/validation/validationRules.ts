@@ -13,6 +13,9 @@ export const fieldValidation = Yup.string().nullable();
 // поле (обязательное)
 export const fieldRequiredValidation = Yup.string().required('Обязательное поле');
 
+// изображение (обязательное)
+export const imageRequiredValidation = Yup.mixed().required('Обязательное поле');
+
 
 // имя (обязательное)
 export const nameRequiredValidation = Yup.string()

@@ -10,6 +10,8 @@ export const AllPosts = () => {
   const { isAdmin } = useAppSelector(getAdminSelector);
   const { shortPosts, isLoading, successMessage, errorMessage } = useAppSelector(getAllPostsSelector);
 
+  console.log(shortPosts)
+
   useEffect(() => {
     if (isAdmin) dispatch(getShortPostsAdminAction())
     else dispatch(getShortPostsAction());

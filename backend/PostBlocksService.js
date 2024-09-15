@@ -1,4 +1,4 @@
-import db from './index.js';
+import { db } from './index.js';
 
 class PostFieldsService {
   async getOne(id) {

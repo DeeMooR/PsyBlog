@@ -8,7 +8,7 @@ const initialState: newPostState = {
   postData: {
     id: null,
     title: '',
-    image: '',
+    image: null,
     date: '',
     isActive: false,
     blocks: []
@@ -69,6 +69,7 @@ const newPostSlice = createSlice({
       .addCase(getFullPostAction.pending, setLoading)
       .addCase(getFullPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        console.log(payload)
         state.postData = {...payload};
       })
       .addCase(getFullPostAction.rejected, (state) => {
@@ -79,7 +80,6 @@ const newPostSlice = createSlice({
       .addCase(createPostAction.pending, setLoading)
       .addCase(createPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.postData = {...payload};
         state.successMessage = 'Статья успешно создана';
       })
       .addCase(createPostAction.rejected, (state) => {

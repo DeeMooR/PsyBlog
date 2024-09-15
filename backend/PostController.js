@@ -12,7 +12,7 @@ class PostController {
   async getOne(req, res) {
     try {
       const post = await PostService.getOne(req.params.id);
-      res.send(post);
+      res.json(post);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -35,7 +35,7 @@ class PostController {
   }
   async getShortPostsAdmin(req, res) {
     try {
-      const posts = await PostService.getShortPostsAdmin();
+      const posts = await PostService.getShortPostsAdmin(req);
       res.send(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
@@ -44,6 +44,15 @@ class PostController {
   async create(req, res) {
     try {
       const post = await PostService.create(req.body)
+      res.send(post);
+    } catch (e) {
+      res.status(500).json({ error: `Ошибка сервера: ${e}` });
+    }
+  }
+  async createImage(req, res) {
+    try {
+      const image = req.file.path || null;
+      const post = await PostService.createImage(+req.body.post_id, image)
       res.send(post);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });

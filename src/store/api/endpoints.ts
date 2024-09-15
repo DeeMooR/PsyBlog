@@ -2,6 +2,7 @@ const baseURL = 'http://localhost:5000/api'
 
 export const endpoints = {
   posts: `${baseURL}/posts`,
+  postImage: `${baseURL}/post/image`,
   shortPosts: `${baseURL}/shortPosts`,
   shortPostsAdmin: `${baseURL}/shortPosts/admin`,
   fullPost: `${baseURL}/fullPost`,

@@ -1,8 +1,9 @@
 import { scroller } from "react-scroll";
 import { ICreateNewBlock, IListForm, IUpdateBlock } from "./interfaces";
 import { IList, NewBlockTables, NewBlockTypes } from "./components";
-import { createNewBlockAction, updateBlockAction } from "./store";
+import { ICreatePostImageApi, createNewBlockAction, updateBlockAction } from "./store";
 import { ListTypes, convertListTypeEng } from "./config";
+import { base64StringToBlob } from "blob-util";
 
 interface IRequestNewBlock {
   post_id: number | null,
@@ -61,6 +62,12 @@ export const createObjListCreate = (form: IListForm, type: ListTypes) => {
     items
   }
   return data;
+}
+
+export const convertFileToFileList = (file: File | null) => {
+  const dataTransfer = new DataTransfer();
+  if (file) dataTransfer.items.add(file);
+  return dataTransfer.files;
 }
 
 export const convertItemsToText = (obj: IList | undefined) => {

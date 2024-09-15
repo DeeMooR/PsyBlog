@@ -1,15 +1,20 @@
-import db from './index.js';
+import { db } from './index.js';
+import { postToPostFile } from './helpers.js';
 import PostFieldsService from "./PostBlocksService.js";
 
 class PostService {
   async getAll() {
     const [rows] = await db.query('SELECT * FROM posts');
-    return rows;
+    const posts = await Promise.all(
+      rows.map(async (post) => postToPostFile(post))
+    );
+    return posts;
   }
   async getOne(id) {
     const [response] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
     if (!response.length) throw new Error(`Статья с ID ${id} не найден`);
-    return response[0];
+    const post = await postToPostFile(response[0]);
+    return post;
   }
   async getFullPost(id) {
     let post = await this.getOne(id);
@@ -30,18 +35,28 @@ class PostService {
   }
   async getShortPosts() {
     const [rows] = await db.query('SELECT id, title, image FROM posts WHERE isActive = true');
-    return rows;
+    const posts = await Promise.all(
+      rows.map(async (post) => postToPostFile(post))
+    );
+    return posts;
   }
   async getShortPostsAdmin() {
     const [rows] = await db.query('SELECT id, title, image, isActive FROM posts');
-    return rows;
+    const posts = await Promise.all(
+      rows.map(async (post) => postToPostFile(post))
+    );
+    return posts;
   }
   async create(body) {
-    const { title, image, date, isActive } = body;
-    const sql = 'INSERT INTO posts (title, image, date, isActive) VALUES (?, ?, ?, ?)';
-    const [result] = await db.query(sql, [title, image, date, isActive]);
+    const { title, date, isActive } = body;
+    const sql = 'INSERT INTO posts (title, date, isActive) VALUES (?, ?, ?)';
+    const [result] = await db.query(sql, [title, date, isActive]);
     const id = result.insertId;
     return this.getFullPost(id);
+  }
+  async createImage(post_id, image) {
+    await db.query(`UPDATE posts SET image = ? WHERE id = ?`, [image, post_id]);
+    return this.getFullPost(post_id);
   }
   async update(id, body) {
     const fields = Object.keys(body).map(key => `${key} = ?`);

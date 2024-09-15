@@ -7,6 +7,7 @@ import { IPostRequiredFormFields } from 'src/interfaces';
 import { postRequiredScheme } from 'src/validation';
 import './NewPostRequired.css'
 import { useNavigate } from 'react-router-dom';
+import { convertFileToFileList } from 'src/helpers';
 
 export const NewPostRequired = () => {
   const navigate = useNavigate();
@@ -21,25 +22,31 @@ export const NewPostRequired = () => {
     handleSubmit,
     getValues,
     reset,
-    formState: { errors, isDirty },
+    formState: { errors },
   } = useForm<IPostRequiredFormFields>({
     mode: 'onSubmit',
+    // @ts-ignore
     resolver: yupResolver(postRequiredScheme),
-    defaultValues: {...postData}
+    // defaultValues: {...postData}
   });
   
   useEffect(() => {
-    const {id, blocks, isActive, ...defaultValues} = postData;
-    reset({ ...defaultValues });
+    const {id, blocks, isActive, image, ...defaultValues} = postData;
+    const newImage = convertFileToFileList(image);
+    console.log(newImage)
+    reset({ image: newImage, ...defaultValues });
     setActive(isActive);
   }, [postData, reset]);
 
   const onSubmit = async (data: IPostRequiredFormFields) => {
-    const body = {...data, isActive: active};
+    const { image, ...fields} = data;
     if (!id) {
       try {
-        const post = await dispatch(createPostAction(body)).unwrap();
-        navigate(`/new-post/${post.id}`);
+        if (image instanceof FileList) {
+          const body = {...fields, image: image[0], isActive: active};
+          const post_id = await dispatch(createPostAction(body)).unwrap();
+          if (post_id) navigate(`/new-post/${post_id}`);
+        }
       } catch {}
     }
     else setShowModal(true);
@@ -52,8 +59,11 @@ export const NewPostRequired = () => {
   }
 
   const changeActivity = () => {
-    const body = {isActive: !active};
-    if (id) dispatch(updatePostAction({id, body}));
+    if (id) {
+      const body = {isActive: !active};
+      dispatch(updatePostAction({id, body}));
+    }
+    else setActive(!active);
   }
 
   return (
@@ -62,7 +72,7 @@ export const NewPostRequired = () => {
         <h4 className='newPostRequired__title'>Основные поля</h4>
         <SwitchButton id='newPost' isActive={active} changeActivity={changeActivity} />
       </div>
-      <form className="newPostRequired__form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="newPostRequired__form" onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className="newPostRequired__line">
           <Input 
             id='title' 
@@ -74,21 +84,21 @@ export const NewPostRequired = () => {
         </div>
         <div className="newPostRequired__line">
           <Input 
-            id='image' 
-            register={register}
-            type="text" 
-            placeholder='Изображение' 
-            error={errors.image?.message}
-          />
-          <Input 
             id='date' 
             register={register}
             type="text" 
             placeholder='Дата' 
             error={errors.date?.message}
           />
+          <Input 
+            id='image' 
+            register={register}
+            type="file" 
+            placeholder='Изображение' 
+            error={errors.image?.message}
+          />
         </div>
-        <button className='newPostRequired__button smallBtn' disabled={!!id && !isDirty}>{id ? 'Изменить' : 'Сохранить'}</button>
+        <button className='newPostRequired__button smallBtn'>{id ? 'Изменить' : 'Сохранить'}</button>
       </form>
       {showModal && <ModalConfirm action='update_post' clickApply={clickUpdate} closeModal={() => setShowModal(false)} />}
     </div>

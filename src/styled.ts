@@ -33,11 +33,11 @@ export const ContactsImage = styled.div<{ image: string }>`
   background-size: cover;
 `;
 
-export const CardSmallImage = styled.div<{ image: string }>`
+export const CardSmallImage = styled.div<{ image: File | null }>`
   width: 100%;
   height: 0px;
   padding-bottom: 100%;
-  background: url(${props => props.image}) no-repeat center;
+  background: url(${props => props.image && URL.createObjectURL(props.image)}) no-repeat center;
   background-size: cover;
 `;
 
@@ -53,11 +53,11 @@ export const CardMediumImage = styled.div<{ image: string }>`
   border-radius: 6px;
 `;
 
-export const PostImage = styled.div<{ image: string }>`
+export const PostImage = styled.div<{ image: File | null }>`
   width: 100%;
   height: 0px;
   padding-bottom: 56%;
-  background: url(${props => props.image}) no-repeat center;
+  background: url(${props => props.image && URL.createObjectURL(props.image)}) no-repeat center;
   background-size: cover;
   border-radius: 12px;
 `;
