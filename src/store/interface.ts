@@ -30,3 +30,10 @@ export interface allPostsState {
   successMessage: string | null,
   errorMessage: string | null,
 }
+
+export interface mainState {
+  topPosts: IShortPost[],
+  isLoading: boolean,
+  successMessage: string | null,
+  errorMessage: string | null,
+}

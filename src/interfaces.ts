@@ -34,6 +34,7 @@ export interface IShortPost {
   title: string,
   image: string,
   isActive?: boolean,
+  topPriority?: boolean,
 }
 
 export interface IShortPostWithoutId extends Omit<IShortPost, 'id'> {}
@@ -49,6 +50,7 @@ export interface IPostRequiredFields {
   image: File | null,
   date: Date,
   isActive: boolean,
+  topPriority: boolean,
 }
 
 export interface IOptionalPostFields extends Partial<IPostRequiredFields> {}
@@ -68,6 +70,7 @@ export interface IFullPost {
   image: string | null,
   date: Date | null,
   isActive: boolean,
+  topPriority: boolean,
   blocks: IPostBlock[]
 }
 

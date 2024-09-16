@@ -41,10 +41,9 @@ export const CardSmall:FC<ICardSmall> = ({obj, isAdmin = false}) => {
         <>
           <div className="cardSmall__activity">
             <SwitchButton 
+              id={`${id}`} 
               isActive={isActive} 
               changeActivity={changeActivity} 
-              showPrefix={false} 
-              id={`${id}`} 
             />
           </div>
           <img src={pencilIcon} className='cardSmall__pencil' onClick={clickPencil} alt="pencil" />

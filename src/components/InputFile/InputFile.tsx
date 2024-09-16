@@ -1,19 +1,23 @@
 import React, { FC, useEffect, useState } from 'react'
 import cn from 'classnames';
 import './InputFile.css'
+import { warningIcon } from 'src/assets';
 
 interface IInputFile {
   id: string,
   imageLink: string | null,
   file: File | null,
-  setFile: (value: File) => void
+  setFile: (value: File) => void,
+  error?: string,
+  setError?: (value: string) => void
 }
 
-export const InputFile:FC<IInputFile> = ({id, imageLink, file, setFile}) => {
+export const InputFile:FC<IInputFile> = ({id, imageLink, file, setFile, error, setError}) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (file) {
+      if (setError) setError('');
       const reader = new FileReader();
       reader.onload = () => {
         setPreviewUrl(reader.result as string);
@@ -40,9 +44,9 @@ export const InputFile:FC<IInputFile> = ({id, imageLink, file, setFile}) => {
   };
 
   const customStyle = cn('inputFileBlock__custom input', {
-      showDefault: !previewUrl,
-    }
-  );
+    showDefault: !previewUrl,
+    warning: error,
+  });
   
   return (
     <div className='inputFileBlock' onDragOver={handleDragOver} onDrop={handleDrop}>
@@ -57,6 +61,12 @@ export const InputFile:FC<IInputFile> = ({id, imageLink, file, setFile}) => {
           {previewUrl && <img className='inputFileBlock__previewImage' src={previewUrl} alt="preview" />}
         </div>
       </label>
+      {error &&
+        <p className='error'>
+          <img src={warningIcon} alt="warning" />
+          <span>{error}</span>
+        </p>
+      }
     </div>
   )
 }

@@ -33,6 +33,14 @@ class PostController {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
   }
+  async getShortPostsTop(req, res) {
+    try {
+      const posts = await PostService.getShortPostsTop();
+      res.send(posts);
+    } catch (e) {
+      res.status(500).json({ error: `Ошибка сервера: ${e}` });
+    }
+  }
   async getShortPostsAdmin(req, res) {
     try {
       const posts = await PostService.getShortPostsAdmin(req);

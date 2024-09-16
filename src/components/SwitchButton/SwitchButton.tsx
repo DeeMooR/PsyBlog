@@ -6,20 +6,22 @@ interface ISwitchButton {
   id: string;
   isActive: boolean | undefined;
   changeActivity: () => void;
-  showPrefix?: boolean;
+  textActive?: string;
+  textInactive?: string;
+  disabled?: boolean;
 }
 
-export const SwitchButton:FC<ISwitchButton> = ({id, isActive, changeActivity, showPrefix = true}) => {
-
+export const SwitchButton:FC<ISwitchButton> = ({id, isActive, changeActivity, textActive, textInactive, disabled}) => {
   const wrapperStyle = cn('switchButton', {
     isActive: isActive,
+    isDisabled: disabled,
   });
 
   return (
     <div className={wrapperStyle}>
-      {!!showPrefix && <span className='switchButton__prefix'>{isActive ? 'Активен' : 'Неактивен'}</span>}
+      {textActive && textInactive && <span className='switchButton__prefix'>{isActive ? textActive : textInactive}</span>}
       <label htmlFor={id} className='switchButton__switcher'>
-        <input id={id} type="checkbox" className='switchButton__input' onChange={changeActivity} />
+        <input id={id} type="checkbox" className='switchButton__input' onChange={changeActivity} disabled={disabled} />
       </label>
     </div>
   );

@@ -1,20 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { CardSmall, SectionTemplate } from 'src/components'
-import { topCards } from 'src/config'
+import { CardSmall, SectionTemplate, Notification } from 'src/components'
 import './Blog.css'
+import { clearMainMessages, getMainSelector, getShortPostsTopAction, useAppDispatch, useAppSelector } from 'src/store'
 
 export const Blog = () => {
+  const dispatch = useAppDispatch();
+  const { topPosts, errorMessage } = useAppSelector(getMainSelector);
+
+  useEffect(() => {
+    dispatch(getShortPostsTopAction());
+  }, [])
+
+  const clearMessages = () => dispatch(clearMainMessages());
+
   return (
-    <SectionTemplate id='blog' >
-      <div className='blog'>
-        <div className="blog__cards">
-          {topCards.map(item => (
-            <CardSmall obj={item} key={item.id} />
-          ))}
+    <>
+    {!!topPosts.length &&
+      <SectionTemplate id='blog' >
+        <div className='blog'>
+          <div className="blog__cards">
+            {topPosts.map(item => (
+              <CardSmall obj={item} key={item.id} />
+            ))}
+          </div>
+          <Link to='/posts' className='button blog__button'>Все статьи</Link>
         </div>
-        <Link to='/posts' className='button blog__button'>Все статьи</Link>
-      </div>
-    </SectionTemplate>
+        {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
+      </SectionTemplate>
+    }
+    </>
   )
 }

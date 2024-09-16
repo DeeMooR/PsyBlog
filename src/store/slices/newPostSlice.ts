@@ -11,6 +11,7 @@ const initialState: newPostState = {
     image: null,
     date: null,
     isActive: false,
+    topPriority: false,
     blocks: []
   },
   newBlock: {
@@ -69,7 +70,6 @@ const newPostSlice = createSlice({
       .addCase(getFullPostAction.pending, setLoading)
       .addCase(getFullPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        console.log(payload)
         state.postData = {...payload};
       })
       .addCase(getFullPostAction.rejected, (state) => {

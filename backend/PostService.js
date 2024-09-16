@@ -36,6 +36,10 @@ class PostService {
     const [rows] = await db.query('SELECT id, title, image FROM posts WHERE isActive = true');
     return rows;
   }
+  async getShortPostsTop() {
+    const [rows] = await db.query('SELECT id, title, image FROM posts WHERE topPriority = true AND isActive = true');
+    return rows;
+  }
   async getShortPostsAdmin() {
     const [rows] = await db.query('SELECT id, title, image, isActive FROM posts');
     return rows;
@@ -65,8 +69,11 @@ class PostService {
     return this.getFullPost(post_id);
   }
   async update(id, body) {
-    const date = formatISOToDate(body.date);
-    const data = {...body, date}
+    let data = {...body}
+    if (body.date) {
+      const date = formatISOToDate(body.date);
+      data.date = date;
+    }
     
     const fields = Object.keys(data).map(key => `${key} = ?`);
     const values = Object.values(data);

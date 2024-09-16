@@ -9,6 +9,9 @@
   height: 140px;
   cursor: pointer;
 }
+.inputFileBlock .inputFileBlock__label .inputFileBlock__custom.warning {
+  border: 1px solid var(--warning);
+}
 .inputFileBlock .inputFileBlock__label .inputFileBlock__custom.showDefault {
   background-image: url("../../assets/icons/imageUpload.svg");
   background-repeat: no-repeat;
@@ -17,4 +20,15 @@
 .inputFileBlock .inputFileBlock__label .inputFileBlock__custom .inputFileBlock__previewImage {
   padding: 5px;
   height: 100%;
+}
+.inputFileBlock .error {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin: 3px 0 0 3px;
+}
+.inputFileBlock .error span {
+  font-size: 11px;
+  line-height: 1;
+  margin: 0 0 0 7px;
 }
