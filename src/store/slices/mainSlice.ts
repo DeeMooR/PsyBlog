@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { mainState } from '../interface';
-import { getShortPostsTopAction } from '../actions';
+import { createUserAction, getShortPostsTopAction } from '../actions';
 
 const initialState: mainState = {
   topPosts: [],
@@ -34,6 +34,16 @@ const mainSlice = createSlice({
       .addCase(getShortPostsTopAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при получении статей';
+      })
+
+      .addCase(createUserAction.pending, setLoading)
+      .addCase(createUserAction.fulfilled, (state) => {
+        state.isLoading = false;
+        state.successMessage = 'Вы успешно записались на консультацию. Скоро с Вами свяжется Ольга';
+      })
+      .addCase(createUserAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при записи на консультацию';
       })
   },
 })

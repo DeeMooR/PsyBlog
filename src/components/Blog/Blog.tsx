@@ -6,13 +6,11 @@ import { clearMainMessages, getMainSelector, getShortPostsTopAction, useAppDispa
 
 export const Blog = () => {
   const dispatch = useAppDispatch();
-  const { topPosts, errorMessage } = useAppSelector(getMainSelector);
+  const { topPosts } = useAppSelector(getMainSelector);
 
   useEffect(() => {
     dispatch(getShortPostsTopAction());
   }, [])
-
-  const clearMessages = () => dispatch(clearMainMessages());
 
   return (
     <>
@@ -26,7 +24,6 @@ export const Blog = () => {
           </div>
           <Link to='/posts' className='button blog__button'>Все статьи</Link>
         </div>
-        {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
       </SectionTemplate>
     }
     </>

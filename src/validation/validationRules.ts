@@ -3,7 +3,6 @@ import * as Yup from 'yup';
 import {
   NAME_PATTERN,
   EMAIL_PATTERN,
-  PHONE_PATTERN,
   LIST_PATTERN,
 } from './regExp';
 
@@ -23,11 +22,6 @@ export const nameRequiredValidation = Yup.string()
 export const emailRequiredValidation = Yup.string()
   .required('Обязательное поле')
   .matches(EMAIL_PATTERN, 'Некорректная почта');
-
-// телефон (обязательное)
-export const phoneRequiredValidation = Yup.string()
-  .required('Обязательное поле')
-  .matches(PHONE_PATTERN, 'Некорректный номер телефона');
 
 // список (обязательное)
 export const listRequiredValidation = Yup.string()

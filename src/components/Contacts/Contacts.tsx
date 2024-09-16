@@ -3,24 +3,26 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from 'src/components'
 import { contactsImage } from 'src/assets'
-import { IOrderForm } from 'src/interfaces'
+import { IUser } from 'src/interfaces'
 import { orderScheme } from 'src/validation'
 import { ContactsImage } from 'src/styled'
 import './Contacts.css'
+import { createUserAction, useAppDispatch } from 'src/store'
 
 export const Contacts = () => {
+  const dispatch = useAppDispatch();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IOrderForm>({
+  } = useForm<IUser>({
     mode: 'onSubmit',
     resolver: yupResolver(orderScheme),
   });
 
-  const onSubmit = (data: IOrderForm) => {
-    console.log(data);
+  const onSubmit = (data: IUser) => {
+    dispatch(createUserAction(data));
   }
 
   return (

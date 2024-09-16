@@ -45,10 +45,10 @@ class PostService {
     return rows;
   }
   async create(body) {
-    const { title, isActive } = body;
+    const { title, isActive, topPriority } = body;
     const date = formatISOToDate(body.date);
-    const sql = 'INSERT INTO posts (title, date, isActive) VALUES (?, ?, ?)';
-    const [result] = await db.query(sql, [title, date, isActive]);
+    const sql = 'INSERT INTO posts (title, date, isActive, topPriority) VALUES (?, ?, ?, ?)';
+    const [result] = await db.query(sql, [title, date, isActive, topPriority]);
     const id = result.insertId;
     return this.getFullPost(id);
   }

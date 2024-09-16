@@ -9,5 +9,6 @@ export const endpoints = {
   fullPost: `${baseURL}/fullPost`,
   addBlock: `${baseURL}/posts/addBlock`,
   updateBlock: `${baseURL}/post_blocks/block`,
-  deleteBlock: `${baseURL}/post_blocks/block`
+  deleteBlock: `${baseURL}/post_blocks/block`,
+  user: `${baseURL}/user`,
 };

@@ -1,6 +1,14 @@
 import { db } from './index.js';
 
 export const createTables = async () => {
+  const users = `
+    CREATE TABLE IF NOT EXISTS users (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NOT NULL,
+      phone VARCHAR(255) NOT NULL
+    );
+  `;
   const posts = `
     CREATE TABLE IF NOT EXISTS posts (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -60,6 +68,7 @@ export const createTables = async () => {
     );
   `;
   try {
+    await db.query(users);
     await db.query(posts);
     await db.query(post_blocks);
     await db.query(title);
