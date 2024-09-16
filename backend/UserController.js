@@ -1,6 +1,6 @@
 import UserService from "./UserService.js";
 
-class PostController {
+class UserController {
   async create(req, res) {
     try {
       const user = await UserService.create(req.body)
@@ -11,4 +11,4 @@ class PostController {
   }
 }
 
-export default new PostController();
+export default new UserController();

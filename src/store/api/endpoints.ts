@@ -11,4 +11,5 @@ export const endpoints = {
   updateBlock: `${baseURL}/post_blocks/block`,
   deleteBlock: `${baseURL}/post_blocks/block`,
   user: `${baseURL}/user`,
+  checkAdmin: `${baseURL}/admin/check`,
 };

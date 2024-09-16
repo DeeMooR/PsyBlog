@@ -29,6 +29,11 @@ export interface IUser {
   phone: string,
 }
 
+export interface IAuth {
+  login: string,
+  password: string,
+}
+
 export interface IShortPost {
   id: number,
   title: string,

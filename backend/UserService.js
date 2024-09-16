@@ -7,7 +7,7 @@ class UserService {
     const sql = 'INSERT INTO users (name, email, phone) VALUES (?, ?, ?)';
     const [user] = await db.query(sql, [name, email, phone]);
     await sendEmail(body);
-    return user;
+    return user.insertId;
   }
 }
 

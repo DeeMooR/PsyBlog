@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { adminState } from '../interface';
+import { checkAdminAction } from '../actions';
 
 const initialState: adminState = {
-  isAdmin: true,
+  isAdmin: false,
   isLoading: false,
   successMessage: null,
   errorMessage: null,
@@ -24,6 +25,16 @@ const adminSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
+    builder
+      .addCase(checkAdminAction.pending, setLoading)
+      .addCase(checkAdminAction.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.isAdmin = payload;
+      })
+      .addCase(checkAdminAction.rejected, (state) => {
+        state.isLoading = false;
+        state.errorMessage = 'Ошибка при входе в админ.панель';
+      })
   },
 })
 

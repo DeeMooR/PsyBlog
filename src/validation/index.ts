@@ -1,4 +1,5 @@
 export * from './schemes/orderScheme';
+export * from './schemes/authScheme';
 export * from './schemes/postRequiredScheme';
 export * from './schemes/titleScheme';
 export * from './schemes/textScheme';

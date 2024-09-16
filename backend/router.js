@@ -2,6 +2,7 @@ import express from 'express';
 import PostController from "./PostController.js";
 import PostBlocksController from "./PostBlocksController.js";
 import UserController from './UserController.js';
+import AdminController from './AdminController.js';
 
 const createRouter = (upload) => {
   const router = express.Router();
@@ -28,6 +29,9 @@ const createRouter = (upload) => {
   router.delete('/post_blocks/block', PostBlocksController.deleteBlock)
 
   router.post('/user', UserController.create)
+
+  router.post('/admin', AdminController.create)
+  router.post('/admin/check', AdminController.check)
 
   return router;
 }
