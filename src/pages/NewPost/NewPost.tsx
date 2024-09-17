@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate, ITitle, IText, ITitleAndText, IBlockquote, IList } from 'src/components'
+import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate, ITitle, IText, ITitleAndText, IBlockquote, IList, HeaderAdmin } from 'src/components'
 import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store'
 import './NewPost.css'
 import { IPostBlock } from 'src/interfaces'
@@ -68,7 +68,7 @@ export const NewPost = () => {
 
   return (
     <div className='newPost'>
-      <Header />
+      <HeaderAdmin />
       <div className='newPost__wrapper'>
         <div className="newPost__content">
           <div className='newPost__crumbs'>

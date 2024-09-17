@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AllPosts, MainPage, Post, NewPost, AuthPage } from './pages'
+import { setAdminIsAdmin, useAppDispatch } from './store';
 
 const App = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const adminToken = localStorage.getItem('adminToken');
+    if (adminToken === 'adminToken') dispatch(setAdminIsAdmin(true))
+  }, [])
+
   return (
     <Routes>
       <Route path='/' element={<MainPage />} />

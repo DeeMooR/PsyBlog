@@ -29,5 +29,6 @@ export * from './ModalConfirm/ModalConfirm';
 export * from './ModalTemplate/ModalTemplate';
 export * from './Loading/Loading';
 export * from './ShowBlockInNewPost/ShowBlockInNewPost';
+export * from './HeaderAdmin/HeaderAdmin';
 
 export * from './newPost';

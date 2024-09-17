@@ -2,14 +2,14 @@ import React, { useEffect } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
-import { clearAdminMessages, getAdminSelector, useAppDispatch, useAppSelector, checkAdminAction } from 'src/store'
+import { clearAdminMessages, getAdminSelector, useAppDispatch, useAppSelector, checkAdminAction, setMainSuccessMessage } from 'src/store'
 import { Header, Footer, Notification, Input } from 'src/components';
 import { authScheme } from 'src/validation';
 import { IAuth } from 'src/interfaces';
 import './AuthPage.css'
 
 export const AuthPage = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { isAdmin, errorMessage } = useAppSelector(getAdminSelector);
 
@@ -23,8 +23,10 @@ export const AuthPage = () => {
   });
 
   useEffect(() => {
-    // if (isAdmin) navigate('/admin');
-    console.log(isAdmin)
+    if (isAdmin) {
+      navigate('/');
+      dispatch(setMainSuccessMessage('Вы успешно авторизовались как АДМИН'));
+    }
   }, [isAdmin])
 
   const onSubmit = (data: IAuth) => {

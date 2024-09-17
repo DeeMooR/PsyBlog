@@ -19,6 +19,9 @@ const adminSlice = createSlice({
   name: 'admin',
   initialState,
   reducers: {
+    setAdminIsAdmin: (state, { payload }) => {
+      state.isAdmin = payload;
+    },
     clearAdminMessages: (state) => {
       state.successMessage = null;
       state.errorMessage = null;
@@ -30,6 +33,7 @@ const adminSlice = createSlice({
       .addCase(checkAdminAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isAdmin = payload;
+        localStorage.setItem('adminToken', 'adminToken');
       })
       .addCase(checkAdminAction.rejected, (state) => {
         state.isLoading = false;
@@ -40,5 +44,5 @@ const adminSlice = createSlice({
 
 export const {
   reducer: adminReducer,
-  actions: {clearAdminMessages},
+  actions: {setAdminIsAdmin, clearAdminMessages},
 } = adminSlice;

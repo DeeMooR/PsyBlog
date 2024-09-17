@@ -1,0 +1,65 @@
+.headerAdmin {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  width: 100%;
+  background: var(--background);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+.headerAdmin .headerAdmin__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 1300px;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__navigation {
+  display: flex;
+  gap: 5px;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__navigation a {
+  font-family: var(--font-tall);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px;
+  color: var(--green-text);
+  text-transform: uppercase;
+  transition: all 0.1s ease-in-out 0s;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__navigation a:hover {
+  color: var(--beige-2);
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__logo {
+  text-align: center;
+  cursor: pointer;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__logo .logo__name {
+  font-family: var(--font-logo);
+  font-size: 24px;
+  color: var(--green);
+  margin: 0 0 1px 0;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__logo .logo__position {
+  font-family: var(--font-tall);
+  font-size: 9.5px;
+  letter-spacing: 0.02em;
+  color: var(--green-text);
+  text-transform: uppercase;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__right .headerAdmin__adminText {
+  font-family: var(--font-tall);
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.headerAdmin .headerAdmin__wrapper .headerAdmin__right .headerAdmin__exit {
+  max-width: 120px;
+  border-radius: 5px;
+}

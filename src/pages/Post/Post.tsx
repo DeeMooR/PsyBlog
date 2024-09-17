@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List } from 'src/components'
+import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List, HeaderAdmin } from 'src/components'
 import { IImage, IList, IBlockquote, ITwoImages, ITitle, IText, ITitleAndText } from 'src/components/newPost'
-import { getFullPostAction, getNewPostDataSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
+import { getAdminSelector, getFullPostAction, getNewPostDataSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
 import './Post.css'
@@ -76,6 +76,7 @@ export const Post = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { title, image, date, blocks } = useAppSelector(getNewPostDataSelector);
+  const { isAdmin } = useAppSelector(getAdminSelector);
 
   useEffect(() => {
     const func = async () => {
@@ -91,7 +92,7 @@ export const Post = () => {
 
   return (
     <div className='post'>
-      <Header />
+      {isAdmin ? <HeaderAdmin /> : <Header />}
       <div className='post__wrapper'>
         <div className='post__crumbs'>
           <span className='crumbs' onClick={() => navigate('/')}>Главная /</span>

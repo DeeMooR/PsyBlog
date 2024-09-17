@@ -1,17 +1,18 @@
 import React from 'react'
-import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts, MainPicture, About, MainQuote, Qualification, Notification } from 'src/components'
+import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts, MainPicture, About, MainQuote, Qualification, Notification, HeaderAdmin } from 'src/components'
 import { quotes } from 'src/config'
-import { clearMainMessages, getMainSelector, useAppDispatch, useAppSelector } from 'src/store';
+import { clearMainMessages, getAdminSelector, getMainSelector, useAppDispatch, useAppSelector } from 'src/store';
 
 export const MainPage = () => {
   const dispatch = useAppDispatch();
   const { errorMessage, successMessage } = useAppSelector(getMainSelector);
+  const { isAdmin } = useAppSelector(getAdminSelector);
 
   const clearMessages = () => dispatch(clearMainMessages());
   
   return (
     <div className='mainPage'>
-      <Header />
+       {isAdmin ? <HeaderAdmin /> : <Header />}
       <div className="mainPage__blocks">
         <MainPicture />
         <MainQuote quote={quotes[1]} />
