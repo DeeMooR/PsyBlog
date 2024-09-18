@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List, HeaderAdmin } from 'src/components'
+import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List, HeaderAdmin, Loading } from 'src/components'
 import { IImage, IList, IBlockquote, ITwoImages, ITitle, IText, ITitleAndText } from 'src/components/newPost'
-import { getAdminSelector, getFullPostAction, getNewPostDataSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
+import { clearPostData, getAdminSelector, getFullPostAction, getNewPostDataSelector, getPostDataSelector, getPostSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
 import { post_1, post_2, post_3, humanIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
 import './Post.css'
@@ -75,63 +75,78 @@ export const Post = () => {
   const { id: param } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { title, image, date, blocks } = useAppSelector(getNewPostDataSelector);
+  const { id, title, image, date, blocks, isActive } = useAppSelector(getPostDataSelector);
+  const { isLoading, errorMessage } = useAppSelector(getPostSelector)
   const { isAdmin } = useAppSelector(getAdminSelector);
+  const [isPostCleared, setIsPostCleared] = useState(false);
 
   useEffect(() => {
-    const func = async () => {
-      try {
-        if (param) await dispatch(getFullPostAction(+param)).unwrap();
-      } catch {
-        dispatch(setAllPostsErrorMessage('Ошибка при получении статьи'));
-        navigate('/posts');
-      }
+    const clearData = async () => {
+      await dispatch(clearPostData());
+      if (param) await dispatch(getFullPostAction(+param));
+      setIsPostCleared(true);
+    };
+    clearData();
+  }, [param]);
+
+  useEffect(() => {
+    if (errorMessage && isPostCleared) {
+      dispatch(setAllPostsErrorMessage(errorMessage));
+      navigate('/posts');
     }
-    func();
-  }, [param])
+  }, [errorMessage, isPostCleared])
+
+  useEffect(() => {
+    if (id && !isActive && !isAdmin && isPostCleared) {
+      dispatch(setAllPostsErrorMessage('Статья временно недоступна. Повторите попытку позже'));
+      navigate('/posts');
+    }
+  }, [id, isPostCleared])
 
   return (
     <div className='post'>
       {isAdmin ? <HeaderAdmin /> : <Header />}
-      <div className='post__wrapper'>
-        <div className='post__crumbs'>
-          <span className='crumbs' onClick={() => navigate('/')}>Главная /</span>
-          <span className='crumbs' onClick={() => navigate('/posts')}> Все статьи</span>
-        </div>
-        <p className='post__title'>{title}</p>
-        <div className="post__shortInfo">
-          <div className="post__author">
-            <img className='author__icon' src={humanIcon} />
-            <p className="author__text">Ольга Разваляева</p>
+      {isLoading ? <Loading isPage /> : (
+        <div className='post__wrapper'>
+          <div className='post__crumbs'>
+            <span className='crumbs' onClick={() => navigate('/')}>Главная /</span>
+            <span className='crumbs' onClick={() => navigate('/posts')}> Все статьи</span>
           </div>
-          {date && <p className="post__date">{formatDate(new Date(date))}</p>}
+          <p className='post__title'>{title}</p>
+          <div className="post__shortInfo">
+            <div className="post__author">
+              <img className='author__icon' src={humanIcon} />
+              <p className="author__text">Ольга Разваляева</p>
+            </div>
+            {date && <p className="post__date">{formatDate(new Date(date))}</p>}
+          </div>
+          <div className="post__image">
+            <PostImage image={image} />
+            <div className="imageBorder" />
+          </div>
+          <div className="post__content">
+            {blocks.map(({table_name, fields}) => 
+              showBlock[table_name](fields as any)
+            )}
+            
+            <Text obj={obj1} />
+            <Title obj={obj2} />
+            <TitleAndText obj={obj3} />
+            <Image obj={obj4} />
+            <Text obj={obj1} />
+            <Image obj={obj5} />
+            <Text obj={obj1} />
+            <Image obj={obj6} />
+            <Text obj={obj1} />
+            <TwoImages obj={obj7} />
+            <Text obj={obj1} />
+            <Blockquote obj={obj8} />
+            <List obj={obj9} />
+            <List obj={obj10} />
+            <Text obj={obj11} />
+          </div>
         </div>
-        <div className="post__image">
-          <PostImage image={image} />
-          <div className="imageBorder" />
-        </div>
-        <div className="post__content">
-          {blocks.map(({table_name, fields}) => 
-            showBlock[table_name](fields as any)
-          )}
-          
-          <Text obj={obj1} />
-          <Title obj={obj2} />
-          <TitleAndText obj={obj3} />
-          <Image obj={obj4} />
-          <Text obj={obj1} />
-          <Image obj={obj5} />
-          <Text obj={obj1} />
-          <Image obj={obj6} />
-          <Text obj={obj1} />
-          <TwoImages obj={obj7} />
-          <Text obj={obj1} />
-          <Blockquote obj={obj8} />
-          <List obj={obj9} />
-          <List obj={obj10} />
-          <Text obj={obj11} />
-        </div>
-      </div>
+      )}
       <Footer />
     </div>
   )

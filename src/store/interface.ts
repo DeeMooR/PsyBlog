@@ -17,6 +17,13 @@ export interface newPostState {
   errorMessage: string | null,
 }
 
+export interface postState {
+  postData: IFullPost,
+  isLoading: boolean,
+  successMessage: string | null,
+  errorMessage: string | null,
+}
+
 export interface adminState {
   isAdmin: boolean,
   isLoading: boolean,
@@ -36,6 +43,7 @@ export interface mainState {
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,
+  loadingRegister: boolean,
 }
 
 export interface usersState {

@@ -10,12 +10,18 @@
     border-color: rgba(0, 0, 0, 0.1);
     border-style: solid;
     border-width: 5px;
-    border-top-color: #000000;
+    border-top-color: var(--black);
     border-radius: 50%;
     animation: spin 1s ease-in-out infinite;
   }
   &.isPage {
-    min-height: 100vh;
+    min-height: calc(100vh - 80px);
+  }
+  &.isWrapperContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 

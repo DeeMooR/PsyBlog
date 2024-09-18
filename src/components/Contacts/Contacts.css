@@ -17,7 +17,6 @@
   margin: 0 auto;
   padding: 70px 20px;
   display: flex;
-  align-items: center;
   gap: 100px;
 }
 .contacts .contacts__wrapper .contacts__image {
@@ -25,9 +24,13 @@
 }
 .contacts .contacts__wrapper .contacts__form {
   width: 55%;
+  padding: 55px 0 0 0;
 }
 .contacts .contacts__wrapper .contacts__form .form__content {
   max-width: 450px;
+}
+.contacts .contacts__wrapper .contacts__form .form__content .form__loading {
+  margin: 40px 0 0 0;
 }
 .contacts .contacts__wrapper .contacts__form .form__content .form__title {
   text-align: center;

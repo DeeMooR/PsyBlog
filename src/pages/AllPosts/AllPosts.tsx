@@ -21,12 +21,12 @@ export const AllPosts = () => {
     <div className='allPosts'>
       {isAdmin ? <HeaderAdmin /> : <Header />}
       <div className='allPosts__wrapper'>
-        <p className='allPosts__crumbs crumbs' onClick={() => navigate('/')}>Главная /</p>
+        <p className='crumbs' onClick={() => navigate('/')}>Главная /</p>
         <h2 className='allPosts__title'>Все статьи</h2>
         {isAdmin &&
           <button className='allPosts__btnAddPost smallBtn' onClick={() => navigate('/new-post')}>Новая статья</button>
         }
-        {isLoading ? <Loading /> :
+        {isLoading ? <Loading isWrapperContent /> :
           <div className="allPosts__list">
             {!!shortPosts.length ? (
               shortPosts.map(item => (

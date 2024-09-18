@@ -240,6 +240,7 @@ button:disabled,
   font-size: 14px;
   color: var(--disabled);
   width: fit-content;
+  margin: 0 0 5px 0;
   cursor: pointer;
 }
 .crumbs:hover {

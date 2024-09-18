@@ -1,5 +1,5 @@
 import React from 'react'
-import { Blog, Experience, FAQ, Footer, Header, Prices, Contacts, MainPicture, About, MainQuote, Qualification, Notification, HeaderAdmin } from 'src/components'
+import { Blog, FAQ, Footer, Header, Prices, Contacts, MainPicture, About, MainQuote, Qualification, Notification, HeaderAdmin } from 'src/components'
 import { quotes } from 'src/config'
 import { clearMainMessages, getAdminSelector, getMainSelector, useAppDispatch, useAppSelector } from 'src/store';
 
@@ -23,7 +23,6 @@ export const MainPage = () => {
         <MainQuote quote={quotes[2]} />
         <Blog />
         <Contacts />
-        {/* <Experience /> */}
       </div>
       <Footer />
       {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} displayTime={5000} />}

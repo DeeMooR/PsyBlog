@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { usersState } from '../interface';
-import { createUserAction, deleteUserAction, getShortPostsTopAction, getUsersAction } from '../actions';
+import { deleteUserAction, getUsersAction } from '../actions';
 
 const initialState: usersState = {
   users: [],
@@ -11,8 +11,6 @@ const initialState: usersState = {
 
 const setLoading = (state: usersState) => {
   state.isLoading = true;
-  state.successMessage = null;
-  state.errorMessage = null;
 }
 
 const usersSlice = createSlice({
@@ -33,16 +31,18 @@ const usersSlice = createSlice({
       })
       .addCase(getUsersAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при получении пользователей';
       })
 
       .addCase(deleteUserAction.pending, setLoading)
       .addCase(deleteUserAction.fulfilled, (state) => {
-        state.isLoading = false;
+        state.errorMessage = null;
         state.successMessage = 'Пользователь успешно удалён';
       })
       .addCase(deleteUserAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при удалении пользователя';
       })
   },

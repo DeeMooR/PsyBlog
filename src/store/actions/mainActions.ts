@@ -16,7 +16,6 @@ export const createUserAction = createAsyncThunk<void, IUserForm>(
   async (body) => {
     const date = formatDateToDateTime(new Date());
     const newBody = {...body, date};
-    const posts = await createUserApi(newBody);
-    return posts;
+    await createUserApi(newBody);
   }
 )

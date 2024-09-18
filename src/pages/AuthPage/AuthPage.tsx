@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { clearAdminMessages, getAdminSelector, useAppDispatch, useAppSelector, checkAdminAction, setMainSuccessMessage } from 'src/store'
-import { Header, Footer, Notification, Input } from 'src/components';
+import { Header, Footer, Notification, Input, Loading } from 'src/components';
 import { authScheme } from 'src/validation';
 import { IAuth } from 'src/interfaces';
 import './AuthPage.css'
@@ -11,7 +11,7 @@ import './AuthPage.css'
 export const AuthPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { isAdmin, errorMessage } = useAppSelector(getAdminSelector);
+  const { isAdmin, isLoading, errorMessage } = useAppSelector(getAdminSelector);
 
   const {
     register,
@@ -41,26 +41,37 @@ export const AuthPage = () => {
     <>
       <Header/>
       <section className="authPage">
-        <h1 className='authPage__title'>Вход в админ-панель</h1>
-        <form className="authPage__form" onSubmit={handleSubmit(onSubmit)}>
-          <div className="authPage__fields">
-            <Input
-              id='login'
-              register={register}
-              type="text"
-              placeholder='Логин'
-              error={errors.login?.message}
-            />
-            <Input
-              id='password'
-              register={register}
-              type="password"
-              placeholder='Пароль'
-              error={errors.password?.message}
-            />
+        <div className="authPage__wrapper">
+          <p className='crumbs' onClick={() => navigate('/')}>Главная /</p>
+          <div className="authPage__content">
+            <h1 className='authPage__title'>Вход в админ-панель</h1>
+            {isLoading ? (
+              <div className="authPage__loading">
+                <Loading />
+              </div>
+            ) : (
+              <form className="authPage__form" onSubmit={handleSubmit(onSubmit)}>
+                <div className="authPage__fields">
+                  <Input
+                    id='login'
+                    register={register}
+                    type="text"
+                    placeholder='Логин'
+                    error={errors.login?.message}
+                  />
+                  <Input
+                    id='password'
+                    register={register}
+                    type="password"
+                    placeholder='Пароль'
+                    error={errors.password?.message}
+                  />
+                </div>
+                <button type='submit' className='authPage__button'>Войти</button>
+              </form>
+            )}
           </div>
-          <button type='submit' className='authPage__button'>Войти</button>
-        </form>
+        </div>
       </section>
       <Footer/>
       {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}

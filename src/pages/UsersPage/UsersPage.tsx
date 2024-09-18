@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
-import { Footer, HeaderAdmin, Notification, UsersPageTableHeader, UsersPageTableLines } from 'src/components'
+import { useNavigate } from 'react-router-dom'
+import { Footer, HeaderAdmin, Loading, Notification, UsersPageTableHeader, UsersPageTableLines, Wait } from 'src/components'
 import { useAppSelector, getUsersSelector, useAppDispatch, clearUsersMessages, getUsersAction } from 'src/store'
 import './UsersPage.css'
 
 export const UsersPage = () => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { users, successMessage, errorMessage } = useAppSelector(getUsersSelector);
+  const { users, isLoading, successMessage, errorMessage } = useAppSelector(getUsersSelector);
 
   useEffect(() => {
     dispatch(getUsersAction());
@@ -17,15 +19,18 @@ export const UsersPage = () => {
     <div className='usersPage'>
       <HeaderAdmin />
       <div className="usersPage__wrapper">
+        <p className='crumbs' onClick={() => navigate('/')}>Главная /</p>
         <h2 className='usersPage__title'>Все заявки</h2>
-        <div className="usersPage__table">
-          <UsersPageTableHeader />
-          {!!users.length ? (
-            <UsersPageTableLines />
-          ) : (
-            <p className='usersPage__empty'>Заявок нет</p>
-          )}
-        </div>
+        {isLoading ? <Loading isWrapperContent /> : 
+          <div className="usersPage__table">
+            <UsersPageTableHeader />
+            {!!users.length ? (
+              <UsersPageTableLines />
+            ) : (
+              <p className='usersPage__empty'>Заявок нет</p>
+            )}
+          </div>
+        }
       </div>
       <Footer />
       {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}

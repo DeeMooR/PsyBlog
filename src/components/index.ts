@@ -32,5 +32,6 @@ export * from './ShowBlockInNewPost/ShowBlockInNewPost';
 export * from './HeaderAdmin/HeaderAdmin';
 export * from './UsersPageTableHeader/UsersPageTableHeader';
 export * from './UsersPageTableLines/UsersPageTableLines';
+export * from './Wait/Wait';
 
 export * from './newPost';

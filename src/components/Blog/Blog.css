@@ -1,3 +1,7 @@
+.blog__loading {
+  padding: 80px 0;
+}
+
 .blog .blog__cards {
   display: flex;
   justify-content: center;
