@@ -4,7 +4,7 @@ class UserController {
   async getAll(req, res) {
     try {
       const posts = await UserService.getAll();
-      res.send(posts);
+      res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -12,7 +12,7 @@ class UserController {
   async create(req, res) {
     try {
       const user = await UserService.create(req.body)
-      res.send(user);
+      res.status(200).json(user);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -20,7 +20,7 @@ class UserController {
   async delete(req, res) {
     try {
       const response = await UserService.delete(req.params.id);
-      res.send(response);
+      res.status(200).json(response);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }

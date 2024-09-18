@@ -12,3 +12,7 @@
   margin: 0 0 40px 0;
   text-align: center;
 }
+.usersPage .usersPage__wrapper .usersPage__table .usersPage__empty {
+  text-align: center;
+  padding: 20px 0 0 0;
+}

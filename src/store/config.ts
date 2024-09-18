@@ -28,3 +28,13 @@ export const convertToFormData = (body: IImageApi) => {
   if (body.image instanceof File) formData.append('image', body.image);
   return formData;
 }
+
+export const formatDateToDateTime = (date: Date): string => {
+  return date.toLocaleString('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+};

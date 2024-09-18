@@ -16,13 +16,13 @@ export const UsersPageTableLines = () => {
 
   return (
     <div className='usersPageTableLines'>
-      {users.map(user => (
+      {users.map(({id, date, email, name, phone}) => (
         <div className="usersPageTableLines__line">
-          <p className='name'>{user.name}</p>
-          <p className='email'>{user.email}</p>
-          <p className='phone'>{user.phone}</p>
-          <p className='date'>25 января 2024 16:35</p>
-          <img src={basketIcon} onClick={() => setDeleteUserId(user.id)} className='delete' alt="basket" />
+          <p className='name'>{name}</p>
+          <p className='email'>{email}</p>
+          <p className='phone'>{phone}</p>
+          <p className='date'>{date}</p>
+          <img src={basketIcon} onClick={() => setDeleteUserId(id)} className='delete' alt="basket" />
         </div>
       ))}
       {deleteUserId && <ModalConfirm action='delete_user' clickApply={deleteUser} closeModal={() => setDeleteUserId(null)} />}

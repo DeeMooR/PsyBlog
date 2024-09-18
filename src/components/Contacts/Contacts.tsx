@@ -15,6 +15,7 @@ export const Contacts = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<IUserForm>({
     mode: 'onSubmit',
@@ -22,7 +23,10 @@ export const Contacts = () => {
   });
 
   const onSubmit = (data: IUserForm) => {
-    dispatch(createUserAction(data));
+    try {
+      dispatch(createUserAction(data)).unwrap();
+      reset();
+    } catch {}
   }
 
   return (
