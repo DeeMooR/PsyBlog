@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IShortPost, IUser } from "src/interfaces";
+import { IShortPost, IUserForm } from "src/interfaces";
 import { getShortPostsTopApi, createUserApi } from "../api";
 
 export const getShortPostsTopAction = createAsyncThunk<IShortPost[], void>(
@@ -10,7 +10,7 @@ export const getShortPostsTopAction = createAsyncThunk<IShortPost[], void>(
   }
 )
 
-export const createUserAction = createAsyncThunk<void, IUser>(
+export const createUserAction = createAsyncThunk<void, IUserForm>(
   'main/createUserAction',
   async (body) => {
     const posts = await createUserApi(body);

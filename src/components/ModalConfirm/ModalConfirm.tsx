@@ -5,14 +5,14 @@ import { ModalConfirmData } from './config';
 import './ModalConfirm.css'
 
 interface IModalConfirm {
-  action: 'update_post' | 'update_block' | 'delete_post' | 'delete_block'
+  action: 'update_post' | 'update_block' | 'delete_post' | 'delete_block' | 'delete_user'
   clickApply: () => void,
   closeModal: () => void
 }
 
 export const ModalConfirm:FC<IModalConfirm> = ({action, clickApply, closeModal}) => {
   const { title, btnApply } = ModalConfirmData[action];
-  const isDelete = action === 'delete_post' || action === 'delete_block';
+  const isDelete = action === 'delete_post' || action === 'delete_block' || action === 'delete_user';
 
   const btnApplyStyle = cn({
     btnDelete: isDelete,

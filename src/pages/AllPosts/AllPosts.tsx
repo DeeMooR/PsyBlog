@@ -37,10 +37,10 @@ export const AllPosts = () => {
             )}
           </div>
         }
-        {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}
-        {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
       </div>
       <Footer />
+      {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}
+      {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
     </div>
   )
 }

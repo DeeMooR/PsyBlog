@@ -12,6 +12,10 @@ export const ModalConfirmData: { [action: string]: IModalConfirmData } = {
     title: 'Удалить блок?',
     btnApply: 'Да, удалить',
   },
+  delete_user: {
+    title: 'Удалить пользователя?',
+    btnApply: 'Да, удалить',
+  },
   update_post: {
     title: 'Изменить основные поля?',
     btnApply: 'Да, изменить',

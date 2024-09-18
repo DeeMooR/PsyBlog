@@ -30,5 +30,7 @@ export * from './ModalTemplate/ModalTemplate';
 export * from './Loading/Loading';
 export * from './ShowBlockInNewPost/ShowBlockInNewPost';
 export * from './HeaderAdmin/HeaderAdmin';
+export * from './UsersPageTableHeader/UsersPageTableHeader';
+export * from './UsersPageTableLines/UsersPageTableLines';
 
 export * from './newPost';

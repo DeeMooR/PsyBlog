@@ -23,10 +23,18 @@ export interface ICard {
   date: string,
 }
 
-export interface IUser {
+export interface IUserForm {
   name: string,
   email: string,
   phone: string,
+}
+
+export interface IUser {
+  id: number,
+  name: string,
+  email: string,
+  phone: string,
+  date: string
 }
 
 export interface IAuth {

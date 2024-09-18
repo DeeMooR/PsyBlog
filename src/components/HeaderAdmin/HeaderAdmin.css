@@ -60,6 +60,6 @@
   text-transform: uppercase;
 }
 .headerAdmin .headerAdmin__wrapper .headerAdmin__right .headerAdmin__exit {
-  max-width: 120px;
+  min-width: 120px;
   border-radius: 5px;
 }

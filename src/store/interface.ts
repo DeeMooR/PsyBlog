@@ -1,5 +1,5 @@
 import { NewBlockNames, NewBlockTables } from "src/components";
-import { IFullPost, IShortPost } from "src/interfaces";
+import { IFullPost, IShortPost, IUser } from "src/interfaces";
 
 export interface newPostState {
   postData: IFullPost,
@@ -33,6 +33,13 @@ export interface allPostsState {
 
 export interface mainState {
   topPosts: IShortPost[],
+  isLoading: boolean,
+  successMessage: string | null,
+  errorMessage: string | null,
+}
+
+export interface usersState {
+  users: IUser[],
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,

@@ -28,7 +28,9 @@ const createRouter = (upload) => {
   router.put('/post_blocks/block', PostBlocksController.updateBlock)
   router.delete('/post_blocks/block', PostBlocksController.deleteBlock)
 
-  router.post('/user', UserController.create)
+  router.get('/users', UserController.getAll)
+  router.post('/users', UserController.create)
+  router.delete('/users/:id', UserController.delete)
 
   router.post('/admin', AdminController.create)
   router.post('/admin/check', AdminController.check)

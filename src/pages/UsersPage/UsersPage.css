@@ -1,0 +1,14 @@
+.usersPage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.usersPage .usersPage__wrapper {
+  flex: 1;
+  margin: 30px auto 70px;
+  width: 1080px;
+}
+.usersPage .usersPage__wrapper .usersPage__title {
+  margin: 0 0 40px 0;
+  text-align: center;
+}

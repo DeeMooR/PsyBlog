@@ -1,0 +1,31 @@
+.usersPageTableLines {
+  .usersPageTableLines__line {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    height: 44px;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--disabled-hover);
+    .name {
+      flex: 2;
+    }
+
+    .email {
+      flex: 3;
+      overflow: hidden;
+    }
+
+    .phone {
+      flex: 3;
+    }
+
+    .date {
+      flex: 3;
+    }
+
+    .delete {
+      max-width: 24px;
+      cursor: pointer;
+    }
+  }
+}

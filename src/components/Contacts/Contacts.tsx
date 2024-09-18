@@ -1,13 +1,13 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { createUserAction, useAppDispatch } from 'src/store'
 import { Input } from 'src/components'
 import { contactsImage } from 'src/assets'
-import { IUser } from 'src/interfaces'
+import { IUserForm } from 'src/interfaces'
 import { orderScheme } from 'src/validation'
 import { ContactsImage } from 'src/styled'
 import './Contacts.css'
-import { createUserAction, useAppDispatch } from 'src/store'
 
 export const Contacts = () => {
   const dispatch = useAppDispatch();
@@ -16,12 +16,12 @@ export const Contacts = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IUser>({
+  } = useForm<IUserForm>({
     mode: 'onSubmit',
     resolver: yupResolver(orderScheme),
   });
 
-  const onSubmit = (data: IUser) => {
+  const onSubmit = (data: IUserForm) => {
     dispatch(createUserAction(data));
   }
 

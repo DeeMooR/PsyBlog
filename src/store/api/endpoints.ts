@@ -10,6 +10,7 @@ export const endpoints = {
   addBlock: `${baseURL}/posts/addBlock`,
   updateBlock: `${baseURL}/post_blocks/block`,
   deleteBlock: `${baseURL}/post_blocks/block`,
-  user: `${baseURL}/user`,
+  users: `${baseURL}/users`,
   checkAdmin: `${baseURL}/admin/check`,
+
 };

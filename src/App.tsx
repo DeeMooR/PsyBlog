@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { AllPosts, MainPage, Post, NewPost, AuthPage } from './pages'
+import { AllPosts, MainPage, Post, NewPost, AuthPage, UsersPage } from './pages'
 import { setAdminIsAdmin, useAppDispatch } from './store';
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
       <Route path='/posts/:id' element={<Post />} />
       <Route path='/new-post' element={<NewPost />} />
       <Route path='/new-post/:id' element={<NewPost />} />
+      <Route path='/users' element={<UsersPage />} />
       <Route path='/auth' element={<AuthPage />} />
       <Route path='*' element={<Navigate to="/" />} />
     </Routes>

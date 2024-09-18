@@ -1,0 +1,25 @@
+.usersPageTableHeader {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  height: 56px;
+  padding: 0 70px 0 20px;
+  background-color: var(--beige-1);
+  .usersPageTableHeader__column {
+    &.name {
+      flex: 2;
+    }
+
+    &.email {
+      flex: 3;
+    }
+
+    &.phone {
+      flex: 3;
+    }
+
+    &.date {
+      flex: 3;
+    }
+  }
+}
