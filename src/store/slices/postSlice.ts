@@ -12,7 +12,7 @@ const initialState: postState = {
     topPriority: false,
     blocks: []
   },
-  isLoading: true,
+  isLoading: false,
   successMessage: null,
   errorMessage: null,
 }
@@ -40,7 +40,7 @@ const postSlice = createSlice({
       .addCase(getFullPostAction.pending, setLoading)
       .addCase(getFullPostAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.postData = payload;
+        state.postData = {...payload};
       })
       .addCase(getFullPostAction.rejected, (state) => {
         state.isLoading = false;

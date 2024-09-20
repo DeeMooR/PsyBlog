@@ -30,8 +30,6 @@ const initialState: newPostState = {
 
 const setLoading = (state: newPostState) => {
   state.isLoading = true;
-  state.successMessage = null;
-  state.errorMessage = null;
 }
 
 const newPostSlice = createSlice({
@@ -74,6 +72,7 @@ const newPostSlice = createSlice({
       })
       .addCase(getFullPostAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при получении статьи';
       })
 
@@ -83,17 +82,18 @@ const newPostSlice = createSlice({
       })
       .addCase(createPostAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при создании статьи';
       })
 
       .addCase(updatePostAction.pending, setLoading)
-      .addCase(updatePostAction.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.postData = {...payload};
+      .addCase(updatePostAction.fulfilled, (state) => {
+        state.errorMessage = null;
         state.successMessage = 'Статья успешно изменена';
       })
       .addCase(updatePostAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при изменении статьи';
       })
 
@@ -104,37 +104,40 @@ const newPostSlice = createSlice({
       })
       .addCase(deletePostAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при удалении статьи';
       })
 
       .addCase(createBlockAction.pending, setLoading)
       .addCase(createBlockAction.fulfilled, (state) => {
-        state.isLoading = false;
         Object.assign(state.newBlock, initialState.newBlock);
       })
       .addCase(createBlockAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при создании блока';
       })
       
       .addCase(updateBlockAction.pending, setLoading)
       .addCase(updateBlockAction.fulfilled, (state) => {
-        state.isLoading = false;
         Object.assign(state.update, initialState.update);
+        state.errorMessage = null;
         state.successMessage = 'Блок успешно изменён';
       })
       .addCase(updateBlockAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при изменении блока';
       })
 
       .addCase(deleteBlockAction.pending, setLoading)
       .addCase(deleteBlockAction.fulfilled, (state) => {
-        state.isLoading = false;
+        state.errorMessage = null;
         state.successMessage = 'Блок успешно удалён';
       })
       .addCase(deleteBlockAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при удалении блока';
       })
   },

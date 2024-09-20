@@ -25,24 +25,22 @@ export const createPostAction = createAsyncThunk<number | null, IPostRequiredFie
   async (body) => {
     const {image, ...fields} = body;
     const postId = await createPostApi(fields);
-    console.log(postId)
     if (postId) {
-      const imageObj = {post_id: postId, image};
-      await createPostImageApi(imageObj);
+      await createPostImageApi({post_id: postId, image});
     }
     return postId;
   }
 )
 
-export const updatePostAction = createAsyncThunk<IFullPost, IUpdatePostAction>(
+export const updatePostAction = createAsyncThunk<void, IUpdatePostAction>(
   'newPost/updatePostAction',
-  async ({id, body}) => {
+  async ({id, body}, {dispatch}) => {
     const {image, ...fields} = body;
-    let post = await updatePostApi(id, fields);
+    await updatePostApi(id, fields);
     if (image) {
-      post = await updatePostImageApi(id, image);
+      await updatePostImageApi(id, image);
     }
-    return post;
+    dispatch(getFullPostAction(id));
   }
 )
 

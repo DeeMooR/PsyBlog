@@ -35,7 +35,7 @@ const allPostsSlice = createSlice({
       .addCase(getShortPostsAction.rejected, (state) => {
         state.isLoading = false;
         state.shortPosts = [];
-        state.successMessage = '';
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при получении статей';
       })
 
@@ -47,19 +47,20 @@ const allPostsSlice = createSlice({
       .addCase(getShortPostsAdminAction.rejected, (state) => {
         state.isLoading = false;
         state.shortPosts = [];
-        state.successMessage = '';
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при получении статей';
       })
 
       .addCase(updateShortPostsAction.pending, setLoading)
-      .addCase(updateShortPostsAction.fulfilled, (state) => {})
+      .addCase(updateShortPostsAction.fulfilled, () => {})
       .addCase(updateShortPostsAction.rejected, (state) => {
         state.isLoading = false;
-        state.successMessage = '';
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при обновлении статьи';
       })
 
       .addCase(deletePostAction.fulfilled, (state) => {
+        state.successMessage = null;
         state.successMessage = 'Статья успешно удалена';
       })
   },

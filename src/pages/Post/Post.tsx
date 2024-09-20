@@ -44,8 +44,6 @@ export const Post = () => {
     }
   }, [id])
 
-  console.log(isLoading)
-
   return (
     <div className='post'>
       {isAdmin ? <HeaderAdmin /> : <Header />}

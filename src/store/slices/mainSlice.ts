@@ -10,11 +10,6 @@ const initialState: mainState = {
   loadingRegister: false,
 }
 
-const setLoading = (state: mainState) => {
-  state.successMessage = null;
-  state.errorMessage = null;
-}
-
 const mainSlice = createSlice({
   name: 'main',
   initialState,
@@ -30,28 +25,29 @@ const mainSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getShortPostsTopAction.pending, (state) => {
-        setLoading(state);
         state.isLoading = true;
       })
       .addCase(getShortPostsTopAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.topPosts = payload;
+        state.topPosts = {...payload};
       })
       .addCase(getShortPostsTopAction.rejected, (state) => {
         state.isLoading = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при получении статей';
       })
 
       .addCase(createUserAction.pending, (state) => {
-        setLoading(state);
         state.loadingRegister = true;
       })
       .addCase(createUserAction.fulfilled, (state) => {
         state.loadingRegister = false;
+        state.errorMessage = null;
         state.successMessage = 'Вы успешно записались на консультацию. Скоро с Вами свяжется Ольга';
       })
       .addCase(createUserAction.rejected, (state) => {
         state.loadingRegister = false;
+        state.successMessage = null;
         state.errorMessage = 'Ошибка при записи на консультацию';
       })
   },
