@@ -23,9 +23,9 @@ export const Contacts = () => {
     resolver: yupResolver(orderScheme),
   });
 
-  const onSubmit = (data: IUserForm) => {
+  const onSubmit = async (data: IUserForm) => {
     try {
-      dispatch(createUserAction(data)).unwrap();
+      await dispatch(createUserAction(data)).unwrap();
       reset();
     } catch {}
   }

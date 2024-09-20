@@ -9,31 +9,29 @@ const createRouter = (upload) => {
 
   router.get('/posts', PostController.getAll)
   router.get('/posts/:id', PostController.getOne)
-  router.get('/fullPost/:id', PostController.getFullPost)
+  router.get('/fullPosts/:id', PostController.getFullPost)
   router.get('/shortPosts', PostController.getShortPosts)
   router.get('/shortPosts/top', PostController.getShortPostsTop)
   router.get('/shortPosts/admin', PostController.getShortPostsAdmin)
-  router.post('/posts', PostController.create)
+  
+  router.post('/posts', PostController.createPost)
+  router.put('/posts/:id', PostController.updatePost)
+  router.delete('/posts/:id', PostController.deletePost)
+  
   router.post('/post/image', upload.single('image'), PostController.createImage)
   router.put('/post/image', upload.single('image'), PostController.updateImage)
-  router.put('/posts/:id', PostController.update)
-  router.delete('/posts/:id', PostController.delete)
 
-  router.post('/posts/addBlock', PostController.addBlock)
-  // router.put('/posts', PostController.update)
-  // router.delete('/posts/:id', PostController.delete)
+  router.get('/post_blocks', PostBlocksController.getBlocksPostId)
+  router.post('/post_blocks', PostBlocksController.createBlock)
+  router.put('/post_blocks', PostBlocksController.updateBlock)
+  router.delete('/post_blocks', PostBlocksController.deleteBlock)
 
-  router.post('/post_blocks', PostBlocksController.create)
-  router.get('/post_blocks', PostBlocksController.getOnePostId)
-  router.put('/post_blocks/block', PostBlocksController.updateBlock)
-  router.delete('/post_blocks/block', PostBlocksController.deleteBlock)
+  router.get('/users', UserController.getAllUsers)
+  router.post('/users', UserController.createUser)
+  router.delete('/users/:id', UserController.deleteUser)
 
-  router.get('/users', UserController.getAll)
-  router.post('/users', UserController.create)
-  router.delete('/users/:id', UserController.delete)
-
-  router.post('/admin', AdminController.create)
-  router.post('/admin/check', AdminController.check)
+  router.post('/admin', AdminController.createAdmin)
+  router.post('/admin/check', AdminController.checkAdmin)
 
   return router;
 }

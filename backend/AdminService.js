@@ -2,13 +2,12 @@ import { db } from './index.js';
 import { objsEqual } from './helpers.js';
 
 class AdminService {
-  async create(body) {
+  async createAdmin(body) {
     const { login, password } = body;
     const sql = 'INSERT INTO admin (login, password) VALUES (?, ?)';
-    const [admin] = await db.query(sql, [login, password]);
-    return admin.insertId;
+    await db.query(sql, [login, password]);
   }
-  async check(body) {
+  async checkAdmin(body) {
     const [admin] = await db.query('SELECT login, password FROM admin');
     const bool = objsEqual(body, admin[0])
     return bool;

@@ -4,7 +4,7 @@ class PostController {
   async getAll(req, res) {
     try {
       const posts = await PostService.getAll();
-      res.send(posts);
+      res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -12,7 +12,7 @@ class PostController {
   async getOne(req, res) {
     try {
       const post = await PostService.getOne(req.params.id);
-      res.json(post);
+      res.status(200).json(post);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -20,7 +20,7 @@ class PostController {
   async getFullPost(req, res) {
     try {
       const post = await PostService.getFullPost(req.params.id);
-      res.send(post);
+      res.status(200).json(post);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -28,7 +28,7 @@ class PostController {
   async getShortPosts(req, res) {
     try {
       const posts = await PostService.getShortPosts();
-      res.send(posts);
+      res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -36,7 +36,7 @@ class PostController {
   async getShortPostsTop(req, res) {
     try {
       const posts = await PostService.getShortPostsTop();
-      res.send(posts);
+      res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -44,15 +44,31 @@ class PostController {
   async getShortPostsAdmin(req, res) {
     try {
       const posts = await PostService.getShortPostsAdmin(req);
-      res.send(posts);
+      res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
   }
-  async create(req, res) {
+  async createPost(req, res) {
     try {
-      const post = await PostService.create(req.body)
-      res.send(post);
+      const postId = await PostService.createPost(req.body)
+      res.status(200).json(postId);
+    } catch (e) {
+      res.status(500).json({ error: `Ошибка сервера: ${e}` });
+    }
+  }
+  async updatePost(req, res) {
+    try {
+      await PostService.updatePost(req.params.id, req.body)
+      res.sendStatus(204);
+    } catch (e) {
+      res.status(500).json({ error: `Ошибка сервера: ${e}` });
+    }
+  }
+  async deletePost(req, res) {
+    try {
+      await PostService.deletePost(req.params.id);
+      res.sendStatus(204);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -60,8 +76,8 @@ class PostController {
   async createImage(req, res) {
     try {
       const image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-      const post = await PostService.createImage(+req.body.post_id, image)
-      res.send(post);
+      await PostService.createImage(+req.body.post_id, image)
+      res.sendStatus(204);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }
@@ -69,33 +85,8 @@ class PostController {
   async updateImage(req, res) {
     try {
       const image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-      const post = await PostService.updateImage(+req.body.post_id, image)
-      res.send(post);
-    } catch (e) {
-      res.status(500).json({ error: `Ошибка сервера: ${e}` });
-    }
-  }
-  async update(req, res) {
-    try {
-      const post = await PostService.update(req.params.id, req.body)
-      res.send(post);
-    } catch (e) {
-      res.status(500).json({ error: `Ошибка сервера: ${e}` });
-    }
-  }
-  async delete(req, res) {
-    try {
-      const response = await PostService.delete(req.params.id);
-      res.send(response);
-    } catch (e) {
-      res.status(500).json({ error: `Ошибка сервера: ${e}` });
-    }
-  }
-  async addBlock(req, res) {
-    try {
-      const { post_id, table_name, fields } = req.body;
-      const post = await PostService.addBlock(post_id, table_name, fields);
-      res.send(post);
+      await PostService.updateImage(+req.body.post_id, image)
+      res.sendStatus(204);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e}` });
     }

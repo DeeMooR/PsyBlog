@@ -1,7 +1,7 @@
 import { scroller } from "react-scroll";
 import { ICreateNewBlock, IListForm, IUpdateBlock } from "./interfaces";
 import { IList, NewBlockTables, NewBlockTypes } from "./components";
-import { createNewBlockAction, updateBlockAction } from "./store";
+import { createBlockAction, updateBlockAction } from "./store";
 import { ListTypes, convertListTypeEng } from "./config";
 
 interface IRequestNewBlock {
@@ -34,7 +34,7 @@ export const requestNewBlock = ({post_id, newBlockTable, data, dispatch}: IReque
       table_name: newBlockTable,
       fields: data
     }
-    dispatch(createNewBlockAction(obj))
+    dispatch(createBlockAction(obj))
   }
 }
 

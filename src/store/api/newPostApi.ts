@@ -13,14 +13,14 @@ export interface IImageApi {
 }
 
 export const getFullPostApi = (id: number): Promise<IFullPost> =>
-  axios.get(`${endpoints.fullPost}/${id}`).then(({ data }) => data);
+  axios.get(`${endpoints.fullPosts}/${id}`).then(({ data }) => data);
 
   
-export const createPostApi = (body: Omit<IPostRequiredFields, 'image'>): Promise<IFullPost> =>
+export const createPostApi = (body: Omit<IPostRequiredFields, 'image'>): Promise<number | null> =>
   axios.post(endpoints.posts, body).then(({ data }) => data);
 
-export const createPostImageApi = (body: IImageApi): Promise<IFullPost> =>
-  axios.post(endpoints.postImage, convertToFormData(body)).then(({ data }) => data);
+export const createPostImageApi = (body: IImageApi): Promise<void> =>
+  axios.post(endpoints.postImage, convertToFormData(body));
 
 
 export const updatePostApi = (id: number, body: IOptionalPostFields): Promise<IFullPost> =>
@@ -30,14 +30,14 @@ export const updatePostImageApi = (post_id: number, image: File): Promise<IFullP
   axios.put(endpoints.postImage, convertToFormData({post_id, image})).then(({ data }) => data);
 
   
-export const deletePostApi = (id: number) =>
+export const deletePostApi = (id: number): Promise<void> =>
   axios.delete(`${endpoints.posts}/${id}`, {headers});
 
-export const createNewBlockApi = (body: ICreateNewBlock) =>
-  axios.post(endpoints.addBlock, body, {headers});
+export const createBlockApi = (body: ICreateNewBlock): Promise<void> =>
+  axios.post(endpoints.postBlock, body, {headers});
 
-export const updateBlockApi = (body: IUpdateBlock) =>
-  axios.put(endpoints.updateBlock, body, {headers});
+export const updateBlockApi = (body: IUpdateBlock): Promise<void> =>
+  axios.put(endpoints.postBlock, body, {headers});
 
-export const deleteBlockApi = (body: IDeleteBlockAction) =>
-  axios.delete(endpoints.deleteBlock, {headers, data: body});
+export const deleteBlockApi = (body: IDeleteBlockAction): Promise<void> =>
+  axios.delete(endpoints.postBlock, {headers, data: body});

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IOptionalPostFields, IFullPost, IPostRequiredFields, ICreateNewBlock, IUpdateBlock } from "src/interfaces";
-import { createNewBlockApi, createPostApi, createPostImageApi, deleteBlockApi, deletePostApi, getFullPostApi, updateBlockApi, updatePostApi, updatePostImageApi } from "../api";
+import { createBlockApi, createPostApi, createPostImageApi, deleteBlockApi, deletePostApi, getFullPostApi, updateBlockApi, updatePostApi, updatePostImageApi } from "../api";
 
 interface IUpdatePostAction {
   id: number,
@@ -24,12 +24,13 @@ export const createPostAction = createAsyncThunk<number | null, IPostRequiredFie
   'newPost/createPostAction',
   async (body) => {
     const {image, ...fields} = body;
-    let post = await createPostApi(fields);
-    if (post.id) {
-      const imageObj = {post_id: post.id, image};
+    const postId = await createPostApi(fields);
+    console.log(postId)
+    if (postId) {
+      const imageObj = {post_id: postId, image};
       await createPostImageApi(imageObj);
     }
-    return post.id;
+    return postId;
   }
 )
 
@@ -47,15 +48,13 @@ export const updatePostAction = createAsyncThunk<IFullPost, IUpdatePostAction>(
 
 export const deletePostAction = createAsyncThunk<void, number>(
   'newPost/deletePostAction',
-  async (id) => {
-    await deletePostApi(id);
-  }
+  (id) => deletePostApi(id)
 )
 
-export const createNewBlockAction = createAsyncThunk<void, ICreateNewBlock>(
-  'newPost/createNewBlockAction',
+export const createBlockAction = createAsyncThunk<void, ICreateNewBlock>(
+  'newPost/createBlockAction',
   async ({post_id, table_name, fields}, {dispatch}) => {
-    await createNewBlockApi({post_id, table_name, fields});
+    await createBlockApi({post_id, table_name, fields});
     dispatch(getFullPostAction(post_id));
   }
 )

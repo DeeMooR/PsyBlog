@@ -2,20 +2,18 @@ import { db } from './index.js';
 import { sendEmail } from './email.js';
 
 class UserService {
-  async getAll() {
+  async getAllUsers() {
     const [users] = await db.query('SELECT * FROM users');
     return users.reverse();
   }
-  async create(body) {
+  async createUser(body) {
     const { name, email, phone, date } = body;
     const sql = 'INSERT INTO users (name, email, phone, date) VALUES (?, ?, ?, ?)';
-    const [user] = await db.query(sql, [name, email, phone, date]);
-    await sendEmail(body);
-    return user.insertId;
+    await db.query(sql, [name, email, phone, date]);
+    sendEmail(body);
   }
-  async delete(id) {
-    const [response] = await db.query('DELETE FROM users WHERE id = ?', [id]);
-    return response.affectedRows > 0;
+  async deleteUser(id) {
+    await db.query('DELETE FROM users WHERE id = ?', [id]);
   }
 }
 

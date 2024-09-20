@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
-import { createNewBlockAction, createPostAction, deleteBlockAction, deletePostAction, getFullPostAction, updateBlockAction, updatePostAction } from '../actions';
+import { createBlockAction, createPostAction, deleteBlockAction, deletePostAction, getFullPostAction, updateBlockAction, updatePostAction } from '../actions';
 import { NewBlockNames } from 'src/components';
 import { BlockNameToTableName, ISetNewPostUpdate, TableNameToBlockName } from '../config';
 
@@ -107,12 +107,12 @@ const newPostSlice = createSlice({
         state.errorMessage = 'Ошибка при удалении статьи';
       })
 
-      .addCase(createNewBlockAction.pending, setLoading)
-      .addCase(createNewBlockAction.fulfilled, (state) => {
+      .addCase(createBlockAction.pending, setLoading)
+      .addCase(createBlockAction.fulfilled, (state) => {
         state.isLoading = false;
         Object.assign(state.newBlock, initialState.newBlock);
       })
-      .addCase(createNewBlockAction.rejected, (state) => {
+      .addCase(createBlockAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при создании блока';
       })

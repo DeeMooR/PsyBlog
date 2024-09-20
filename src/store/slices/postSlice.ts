@@ -12,7 +12,7 @@ const initialState: postState = {
     topPriority: false,
     blocks: []
   },
-  isLoading: false,
+  isLoading: true,
   successMessage: null,
   errorMessage: null,
 }
@@ -27,8 +27,8 @@ const postSlice = createSlice({
   name: 'post',
   initialState,
   reducers: {
-    clearPostData: (state) => {
-      Object.assign(state.postData, initialState.postData);
+    clearPost: (state) => {
+      Object.assign(state, initialState);
     },
     clearPostMessages: (state) => {
       state.successMessage = null;
@@ -51,5 +51,5 @@ const postSlice = createSlice({
 
 export const {
   reducer: postReducer,
-  actions: {clearPostData, clearPostMessages},
+  actions: {clearPost, clearPostMessages},
 } = postSlice;

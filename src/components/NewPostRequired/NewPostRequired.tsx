@@ -53,8 +53,9 @@ export const NewPostRequired = () => {
       try {
         if (date) {
           const body = {date, title, image: file, isActive: active, topPriority: isTop};
-          const post_id = await dispatch(createPostAction(body)).unwrap();
-          if (post_id) navigate(`/new-post/${post_id}`);
+          const postId = await dispatch(createPostAction(body)).unwrap();
+          console.log(postId)
+          if (postId) navigate(`/new-post/${postId}`);
         }
       } catch {}
     }
