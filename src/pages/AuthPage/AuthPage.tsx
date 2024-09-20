@@ -25,7 +25,7 @@ export const AuthPage = () => {
   useEffect(() => {
     if (isAdmin) {
       navigate('/');
-      dispatch(setMainSuccessMessage('Вы успешно авторизовались как АДМИН'));
+      dispatch(setMainSuccessMessage('Вы успешно авторизованы как АДМИН'));
     }
   }, [isAdmin])
 

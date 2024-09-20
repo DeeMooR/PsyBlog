@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CardSmall, Footer, Header, HeaderAdmin, Loading, Notification } from 'src/components'
-import { getShortPostsAction, getShortPostsAdminAction, clearAllPostsMessages, getAdminSelector, getAllPostsSelector, useAppDispatch, useAppSelector } from 'src/store'
+import { getShortPostsAction, getShortPostsAdminAction, clearAllPostsMessages, clearAllPosts, getAdminSelector, getAllPostsSelector, useAppDispatch, useAppSelector } from 'src/store'
 import './AllPosts.css'
 
 export const AllPosts = () => {
@@ -9,6 +9,8 @@ export const AllPosts = () => {
   const dispatch = useAppDispatch();
   const { isAdmin } = useAppSelector(getAdminSelector);
   const { shortPosts, isLoading, successMessage, errorMessage } = useAppSelector(getAllPostsSelector);
+
+  useEffect(() => () => { dispatch(clearAllPosts()) }, []);
 
   useEffect(() => {
     if (isAdmin) dispatch(getShortPostsAdminAction())

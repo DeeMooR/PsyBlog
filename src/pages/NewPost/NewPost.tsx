@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Header, NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, ShowBlockInNewPost, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate, ITitle, IText, ITitleAndText, IBlockquote, IList, HeaderAdmin } from 'src/components'
-import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPostPostData, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store'
+import { NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate, HeaderAdmin, NewPostBlocks, Loading } from 'src/components'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPost, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store'
 import './NewPost.css'
 import { IPostBlock } from 'src/interfaces'
 
@@ -13,21 +13,12 @@ const createBlock = {
   'list': <ListCreate />,
 };
 
-const updateBlock = {
-  'title': (obj: ITitle) => <TitleCreate obj={obj} />,
-  'text': (obj: IText) => <TextCreate obj={obj} />,
-  'title_and_text': (obj: ITitleAndText) => <TitleAndTextCreate obj={obj} />,
-  'quote': (obj: IBlockquote) => <BlockquoteCreate obj={obj} />,
-  'list': (obj: IList) => <ListCreate obj={obj} />,
-};
-
 export const NewPost = () => {
   const { id: param } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { newBlockTable } = useAppSelector(getNewPostNewBlockSelector);
-  const { updateTable, updateBlockNumber } = useAppSelector(getNewPostUpdateSelector);
-  const { errorMessage, successMessage } = useAppSelector(getNewPostSelector);
+  const { isLoading, isLoadingBlock, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
   const { id, blocks } = useAppSelector(getNewPostDataSelector);
 
   const [showSelection, setShowSelection] = useState(false);
@@ -35,9 +26,7 @@ export const NewPost = () => {
 
   const title = id ? 'Редактирование статьи' : 'Создание статьи';
 
-  useEffect(() => {
-    dispatch(clearNewPostPostData());
-  }, []);
+  useEffect(() => () => { dispatch(clearNewPost()) }, []);
 
   useEffect(() => {
     const func = async () => {
@@ -51,17 +40,13 @@ export const NewPost = () => {
   }, [param])
 
   const deletePost = async () => {
+    setModal(false);
     if (id) {
       try {
         await dispatch(deletePostAction(id)).unwrap();
         navigate('/posts');
       } catch {}
     }
-    setModal(false);
-  }
-
-  const itemIsUpdate = (obj: IPostBlock) => {
-    return updateTable === obj.table_name && updateBlockNumber === obj.block_number;
   }
 
   const clearMessages = () => dispatch(clearNewPostMessages());
@@ -76,44 +61,39 @@ export const NewPost = () => {
             <span className='crumbs' onClick={() => navigate('/posts')}> Все статьи</span>
           </div>
           <h2 className='newPost__title'>{title}</h2>
-          <div className="newPost__flex">
-            <div className='newPost__required'>
-              <NewPostRequired />
+          {isLoading ? <Loading isWrapperContent /> : (
+            <div className="newPost__flex">
+              <div className='newPost__required'>
+                <NewPostRequired />
+              </div>
+              {isLoadingBlock ? <Loading /> : (
+                <>
+                {!!blocks.length &&
+                  <NewPostBlocks />
+                }
+                {newBlockTable &&
+                  <div className='newPost__newBlock'>
+                    {createBlock[newBlockTable]}
+                  </div>
+                }
+                {!showSelection &&
+                  <div className='newPost__addBlock'>
+                    <div className="addBlock__line"></div>
+                    <div className="addBlock__plus" onClick={() => setShowSelection(true)}>+</div>
+                    <div className="addBlock__line"></div>
+                  </div>
+                }
+                {showSelection &&
+                  <div className='newPost__selection'>
+                    <NewPostSelection clickClose={() => setShowSelection(false)} />
+                  </div>
+                }
+                </>
+              )}
             </div>
-            {!!blocks.length &&
-              <div className="newPost__blocks">
-                {blocks.map((obj, index) => (
-                  itemIsUpdate(obj) && updateTable ? (
-                    <div className="newPost__updateBlock" key={index}>
-                      {/* @ts-ignore */}
-                      {updateBlock[updateTable](obj.fields)}
-                    </div>
-                  ) : (
-                    <ShowBlockInNewPost obj={obj} key={index} />
-                  )
-                ))}
-              </div>
-            }
-            {newBlockTable &&
-              <div className='newPost__newBlock'>
-                {createBlock[newBlockTable]}
-              </div>
-            }
-            {!showSelection &&
-              <div className='newPost__addBlock'>
-                <div className="addBlock__line"></div>
-                <div className="addBlock__plus" onClick={() => setShowSelection(true)}>+</div>
-                <div className="addBlock__line"></div>
-              </div>
-            }
-            {showSelection &&
-              <div className='newPost__selection'>
-                <NewPostSelection clickClose={() => setShowSelection(false)} />
-              </div>
-            }
-          </div>
+          )}
         </div>
-        {id &&
+        {id && !isLoading && !isLoadingBlock &&
           <div className="newPost__btnDelete">
             <button className='smallBtn btnDelete' onClick={() => setModal(true)}>Удалить статью</button>
           </div>

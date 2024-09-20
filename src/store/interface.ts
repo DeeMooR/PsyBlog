@@ -13,6 +13,7 @@ export interface newPostState {
     updateBlockNumber: number | null,
   },
   isLoading: boolean,
+  isLoadingBlock: boolean,
   successMessage: string | null,
   errorMessage: string | null,
 }

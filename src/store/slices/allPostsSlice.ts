@@ -23,7 +23,10 @@ const allPostsSlice = createSlice({
     clearAllPostsMessages: (state) => {
       state.successMessage = null;
       state.errorMessage = null;
-    }
+    },
+    clearAllPosts: (state) => {
+      Object.assign(state, initialState);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -68,5 +71,5 @@ const allPostsSlice = createSlice({
 
 export const {
   reducer: allPostsReducer,
-  actions: {setAllPostsErrorMessage, clearAllPostsMessages},
+  actions: {setAllPostsErrorMessage, clearAllPostsMessages, clearAllPosts},
 } = allPostsSlice;

@@ -1,0 +1,10 @@
+.newPostBlocks {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.newPostBlocks .newPostBlocks__updateBlock {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
