@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { scrollToSection } from 'src/helpers';
+import { displayScroll, hiddenScroll, scrollToSection } from 'src/helpers';
 import './Header.css'
 
 export const Header = () => {
@@ -8,8 +8,8 @@ export const Header = () => {
   const [clickMenu, setClickMenu] = useState(false);
 
   useEffect(() => {
-    if (clickMenu) document.body.style.overflowY = 'hidden';
-    else document.body.style.overflowY = 'scroll';
+    if (clickMenu) hiddenScroll()
+    else displayScroll()
   }, [clickMenu]);
 
   const onClickLogo = () => {

@@ -1,4 +1,4 @@
-import { IFAQ, IService, IShortPost } from "src/interfaces";
+import { IFAQ, IService } from "src/interfaces";
 import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, post_1, post_2, post_3, post_4, post_5, post_6, post_7, service_1, service_2 } from 'src/assets';
 
 export const services: IService[] = [
@@ -60,62 +60,6 @@ export const certificates_slides: {src: string}[] = [
   { src: certificate_8 },
 ]
 
-export const topCards: IShortPost[] = [
-  {
-    id: 1,
-    title: 'Психология!',
-    image: post_1,
-  },
-  {
-    id: 2,
-    title: 'Что такое психология?',
-    image: post_2,
-  },
-  {
-    id: 3,
-    title: 'Что такое психология?',
-    image: post_3,
-  },
-];
-
-export const allCards: IShortPost[] = [
-  {
-    id: 1,
-    title: 'Психология!',
-    image: post_1,
-  },
-  {
-    id: 2,
-    title: 'Что такое психология?',
-    image: post_2,
-  },
-  {
-    id: 3,
-    title: 'Что такое психология?',
-    image: post_3,
-  },
-  {
-    id: 4,
-    title: 'Психология!',
-    image: post_4,
-  },
-  {
-    id: 5,
-    title: 'Что такое психология?',
-    image: post_5,
-  },
-  {
-    id: 6,
-    title: 'Что такое психология?',
-    image: post_6,
-  },
-  {
-    id: 7,
-    title: 'Что такое психология?',
-    image: post_7,
-  },
-];
-
 export const quotes = [
   'Психология — это выражение словами <br/>того, чего нельзя ими выразить.',
   'Не всякий умный человек знает психологию. <br/>Но всякий, кто знает психологию, умён.',
@@ -123,17 +67,3 @@ export const quotes = [
 ]
 
 export const list_placeholder = '[-] первый пункт \n[-] второй пункт \n[-] третий пункт';
-
-export const list_types = ['Цифры', 'Пункты'];
-
-export type ListTypes = 'Цифры' | 'Пункты';
-
-export enum convertListTypeEng {
-  'Цифры' = 'number',
-  'Пункты' = 'point'
-}
-
-export enum convertListTypeRu {
-  'number' = 'Цифры',
-  'point' = 'Пункты'
-}

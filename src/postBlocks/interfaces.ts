@@ -50,3 +50,19 @@ export const radioOptions: NewBlockNames[][] = [
   // ['Изображение S', 'Изображение M', 'Изображение L', 'Два изображения'],
   ['Цитата', 'Перечисление'],
 ]
+
+
+
+export const list_types = ['Цифры', 'Пункты'];
+
+export type ListTypes = 'Цифры' | 'Пункты';
+
+export enum convertListTypeEng {
+  'Цифры' = 'number',
+  'Пункты' = 'point'
+}
+
+export enum convertListTypeRu {
+  'number' = 'Цифры',
+  'point' = 'Пункты'
+}

@@ -1,8 +1,10 @@
 import React from 'react'
 import { getNewPostDataSelector, getNewPostUpdateSelector, useAppSelector } from 'src/store';
-import { BlockquoteCreate, IBlockquote, IList, IText, ITitle, ITitleAndText, ListCreate, ShowBlockInNewPost, TextCreate, TitleAndTextCreate, TitleCreate } from 'src/components';
-import './NewPostBlocks.css'
+import { IBlockquote, IList, IText, ITitle, ITitleAndText } from 'src/postBlocks/interfaces';
+import { BlockquoteCreate, ListCreate, TextCreate, TitleAndTextCreate, TitleCreate } from 'src/postBlocks/blocksCreate';
+import { ShowBlockInNewPost } from 'src/components';
 import { IPostBlock } from 'src/interfaces';
+import './NewPostBlocks.css'
 
 const updateBlock = {
   'title': (obj: ITitle) => <TitleCreate obj={obj} />,

@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { BaseBlockCreateTemplate, FormBlockCreateTemplate, Input, ModalConfirm, RadioOption, Textarea } from 'src/components';
+import { BaseBlockCreateTemplate, Input, ModalConfirm, RadioOption, Textarea } from 'src/components';
 import { useAppSelector, getNewPostDataSelector, useAppDispatch, getNewPostSelector, setNewPostErrorMessage, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store';
-import { convertItemsToText, createObjListCreate, requestNewBlock, requestUpdateBlock } from 'src/helpers';
+import { convertListItemsToText, createObjList, requestNewBlock, requestUpdateBlock } from 'src/helpers';
 import { listScheme } from 'src/validation';
-import { IList } from '../interfaces';
+import { IList, ListTypes, convertListTypeEng, convertListTypeRu, list_types } from '../interfaces';
 import { IListForm } from 'src/interfaces';
-import { ListTypes, convertListTypeEng, convertListTypeRu, list_placeholder, list_types } from 'src/config';
+import { list_placeholder } from 'src/config';
 import './Create.css';
 
 interface IListCreate {
@@ -20,7 +20,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
   const { newBlockTable } = useAppSelector(getNewPostNewBlockSelector);
   const { updateBlockNumber } = useAppSelector(getNewPostUpdateSelector);
 
-  const defaultItems = convertItemsToText(obj);
+  const defaultItems = convertListItemsToText(obj);
   const defaultType = obj ? convertListTypeRu[obj.type] : null
   const [type, setType] = useState<ListTypes | null>(defaultType);
   const [modal, setModal] = useState(false);
@@ -42,7 +42,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
       return;
     }
     if (!obj) {
-      const data = createObjListCreate(form, type);
+      const data = createObjList(form, type);
       requestNewBlock({post_id, newBlockTable, data, dispatch});
     } 
     else setModal(true);
@@ -50,7 +50,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
 
   const clickUpdateBlock = () => {
     if (type) {
-      const data = isDirty ? createObjListCreate(getValues(), type) : {type: convertListTypeEng[type]};
+      const data = isDirty ? createObjList(getValues(), type) : {type: convertListTypeEng[type]};
       requestUpdateBlock({post_id, updateBlockNumber, data, dispatch});
     }
     setModal(false);

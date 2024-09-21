@@ -1,10 +1,9 @@
-.text {
-}
-
 .title {
   font-size: 24px;
   font-weight: 600;
 }
+
+.text {}
 
 .titleAndText {
   .title {
@@ -63,7 +62,6 @@
 }
 
 .list {
-  li {}
   .text {
     margin: 0 0 12px 0;
   }

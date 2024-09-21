@@ -1,4 +1,4 @@
-import { NewBlockNames, NewBlockTables } from "src/components";
+import { NewBlockNames, NewBlockTables } from "src/postBlocks/interfaces";
 import { IFullPost, IShortPost, IUser } from "src/interfaces";
 
 export interface newPostState {

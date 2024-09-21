@@ -5,7 +5,6 @@
   background: rgba(0, 0, 0, 0.7);
   opacity: 1;
   pointer-events: auto;
-  overflow-y: auto;
   .modal {
     position: absolute;
     left: 50%;
@@ -28,11 +27,6 @@
         top: 10px;
         right: 10px;
         cursor: pointer;
-      }
-      p {
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 135%;
       }
       button {
         width: 100%;

@@ -23,7 +23,6 @@
 .headerAdmin .headerAdmin__wrapper .headerAdmin__navigation a {
   font-family: var(--font-tall);
   font-size: 14px;
-  font-weight: 400;
   padding: 10px;
   color: var(--green-text);
   text-transform: uppercase;

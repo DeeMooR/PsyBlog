@@ -1,22 +1,7 @@
 import { scroller } from "react-scroll";
-import { ICreateNewBlock, IListForm, IUpdateBlock } from "./interfaces";
-import { IList, NewBlockTables, NewBlockTypes } from "./components";
+import { ICreateNewBlock, IListForm, IRequestNewBlock, IRequestUpdate, IUpdateBlock } from "./interfaces";
 import { createBlockAction, updateBlockAction } from "./store";
-import { ListTypes, convertListTypeEng } from "./config";
-
-interface IRequestNewBlock {
-  post_id: number | null,
-  newBlockTable: NewBlockTables | null,
-  data: NewBlockTypes,
-  dispatch: any,
-}
-
-interface IRequestUpdate {
-  post_id: number | null,
-  updateBlockNumber: number | null,
-  data: Partial<NewBlockTypes>,
-  dispatch: any,
-}
+import { IList, ListTypes, convertListTypeEng } from "./postBlocks/interfaces";
 
 export const scrollToSection = (page: string, padding?: number) => {
   scroller.scrollTo(page, {
@@ -49,10 +34,10 @@ export const requestUpdateBlock = ({post_id, updateBlockNumber, data, dispatch}:
   }
 }
 
-export const createObjListCreate = (form: IListForm, type: ListTypes) => {
+export const createObjList = (form: IListForm, type: ListTypes) => {
   const items = form.items
     .split('\n')
-    .map(item => item.substring(3)) // удалить [-]
+    .map(item => item.substring(3))
     .map(item => item.trim())
     .filter(item => item !== '');
   const data = {
@@ -69,7 +54,7 @@ export const convertFileToFileList = (file: File | null) => {
   return dataTransfer.files;
 }
 
-export const convertItemsToText = (obj: IList | undefined) => {
+export const convertListItemsToText = (obj: IList | undefined) => {
   return obj ? ('[-] ' + obj?.items.join('\n[-] ')) : '';
 }
 
@@ -86,4 +71,18 @@ export const formatISOToShortDate = (date: Date) => {
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
+}
+
+export const hiddenScroll = () => {
+  const header = document.querySelector('header');
+  document.body.style.overflowY = 'hidden';
+  document.body.style.padding = '0 17px 0 0';
+  if (header) header.style.padding = '0 17px 0 0';
+}
+
+export const displayScroll = () => {
+  const header = document.querySelector('header');
+  document.body.style.overflowY = 'scroll';
+  document.body.style.padding = '0';
+  if (header) header.style.padding = '0';
 }

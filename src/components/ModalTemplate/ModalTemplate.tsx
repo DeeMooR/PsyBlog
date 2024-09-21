@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useEffect } from 'react'
 import { crossIcon } from 'src/assets';
 import './ModalTemplate.css'
+import { displayScroll, hiddenScroll } from 'src/helpers';
 
 interface IModalTemplate {
   closeModal: () => void,
@@ -9,6 +10,9 @@ interface IModalTemplate {
 }
 
 export const ModalTemplate:FC<IModalTemplate> = ({ closeModal, children, className = '' }) => {
+
+  useEffect(() => hiddenScroll(), []);
+  useEffect(() => () => displayScroll(), []);
 
   const clickBackground = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) closeModal();

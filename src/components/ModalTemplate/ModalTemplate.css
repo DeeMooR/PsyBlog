@@ -5,7 +5,6 @@
   background: rgba(0, 0, 0, 0.7);
   opacity: 1;
   pointer-events: auto;
-  overflow-y: auto;
 }
 .modal__background .modal {
   position: absolute;
@@ -31,11 +30,6 @@
   top: 10px;
   right: 10px;
   cursor: pointer;
-}
-.modal__background .modal .modal__content p {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 135%;
 }
 .modal__background .modal .modal__content button {
   width: 100%;

@@ -1,9 +1,11 @@
 import React, { FC, useState } from 'react'
+import { deleteBlockAction, getNewPostDataSelector, setNewPostUpdate, useAppDispatch, useAppSelector } from 'src/store';
+import { ITitle, IText, ITitleAndText, IBlockquote, IList } from 'src/postBlocks/interfaces'
+import { Title, Text, TitleAndText, Blockquote, List } from 'src/postBlocks/blocksShow'
 import { IPostBlock } from 'src/interfaces'
 import { basketIcon, pencilIcon } from 'src/assets'
-import { Blockquote, IBlockquote, ITitle, Title, Text, IText, ModalConfirm, TitleAndText, ITitleAndText, IList, List } from 'src/components';
+import {ModalConfirm} from 'src/components';
 import './ShowBlockInNewPost.css'
-import { deleteBlockAction, getNewPostDataSelector, setNewPostUpdate, useAppDispatch, useAppSelector } from 'src/store';
 
 const showBlock = {
   'title': (obj: ITitle) => <Title obj={obj} />,

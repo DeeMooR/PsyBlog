@@ -17,7 +17,7 @@ export const UsersPageTableLines = () => {
   return (
     <div className='usersPageTableLines'>
       {users.map(({id, date, email, name, phone}) => (
-        <div className="usersPageTableLines__line">
+        <div className="usersPageTableLines__line" key={id}>
           <p className='name'>{name}</p>
           <p className='email'>{email}</p>
           <p className='phone'>{phone}</p>

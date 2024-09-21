@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { SectionTemplate } from 'src/components'
 import { certificates, certificates_slides } from 'src/config'
+import { displayScroll, hiddenScroll } from 'src/helpers';
 import './Qualification.css'
 
 import Lightbox from "yet-another-react-lightbox";
@@ -14,29 +15,14 @@ export const Qualification = () => {
   const [index, setIndex] = useState<number>(-1);
 
   useEffect(() => {
-    const header = document.querySelector('header');
-    if (index >= 0) {
-      document.body.style.overflowY = 'hidden';
-      document.body.style.padding = '0 17px 0 0';
-      if (header) header.style.padding = '0 17px 0 0';
-    } else {
-      document.body.style.overflowY = 'auto';
-      document.body.style.padding = '0';
-      if (header) header.style.padding = '0';
-    }
+    if (index >= 0) hiddenScroll() 
+    else displayScroll();
   }, [index])
 
   return (
     <SectionTemplate id='qualification' title='Квалификация' backgroundColor='beige1' >
       <div className='qualification'>
         <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={200}  />
-        {/* <div className="qualification__items">
-          {certificates.map((obj, index) => (
-            <div className="qualification__image" key={index} onClick={() => setIndex(index)}>
-              <img src={obj.src} alt='сертификат' />
-            </div>
-          ))}
-        </div> */}
       </div>
       <Lightbox
         plugins={[Zoom]}

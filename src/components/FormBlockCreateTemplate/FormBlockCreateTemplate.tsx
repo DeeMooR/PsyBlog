@@ -1,10 +1,10 @@
 import React, { FC, ReactNode, useState } from 'react'
 import { UseFormHandleSubmit } from 'react-hook-form';
-import { getNewPostSelector, clearNewPostNewBlock, useAppDispatch, useAppSelector, getNewPostNewBlockSelector, getNewPostUpdateSelector, clearNewPostUpdate, getNewPostDataSelector } from 'src/store';
+import { useAppDispatch, useAppSelector, getNewPostNewBlockSelector, getNewPostUpdateSelector, getNewPostDataSelector } from 'src/store';
 import { requestNewBlock, requestUpdateBlock } from 'src/helpers';
-import { BaseBlockCreateTemplate, ModalConfirm, NewBlockTypes } from 'src/components';
-import { crossIcon } from 'src/assets';
+import { BaseBlockCreateTemplate, ModalConfirm } from 'src/components';
 import './FormBlockCreateTemplate.css';
+import { NewBlockTypes } from 'src/postBlocks/interfaces';
 
 interface IFormBlockCreateTemplate {
   children: ReactNode;

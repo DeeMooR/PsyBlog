@@ -31,14 +31,15 @@
   --font-title: 'Museo', 'Georgia';
   --font-pen: 'Inkhead', 'Georgia';
   --font-tall: 'TaylorSans', 'Georgia';
-  --font-logo: 'Mr.Lonely';
+  --font-logo: 'Mr.Lonely', 'Georgia';
   
   --white: #FFFFFF;
-  --background: #F9F3EB;
-  --green-text: #494706;
+  --input: #FAFAFA;
   --black: #383838;
+  --green-text: #494706;
   --green: #646b41;
-
+  
+  --background: #F9F3EB;
   --beige-light: #e8d4bc92;
   --beige-1: #E8D4BC;
   --beige-2: #D7B489;
@@ -46,9 +47,8 @@
   --disabled: #a8a8a8;
   --disabled-hover: #c9c9c9;
   --disabled-light: #d9d9d9;
-  --input: #FAFAFA;
-  --warning: #FFAA00;
   --success: #4DB84D;
+  --warning: #FFAA00;
   --error: #DF5A5A;
   --delete: #DC1D1D;
 }
@@ -126,6 +126,7 @@ h4 {
   letter-spacing: 0.02em;
 }
 
+
 input,
 .input {
   display: flex;
@@ -162,6 +163,7 @@ textarea:disabled {
   cursor: not-allowed;
 }
 
+
 button, .button {
   display: flex;
   align-items: center;
@@ -193,7 +195,6 @@ button:disabled,
   color: var(--black);
 }
 
-
 .btnDelete {
   background: var(--error);
   border: 2px solid var(--error);
@@ -204,6 +205,7 @@ button:disabled,
   border: 2px solid var(--delete);
   color: var(--white);
 }
+
 .btnCancel {
   background-color: var(--disabled);
 }
@@ -212,12 +214,13 @@ button:disabled,
   color: var(--white);
 }
 
-
 .smallBtn {
   min-width: 150px;
   height: 40px;
   font-size: 14px;
 }
+
+/*--------- CLASSES ---------*/
 
 .imageBorder {
   position: absolute;
@@ -247,6 +250,8 @@ button:disabled,
   color: var(--beige-2);
 }
 
+/*--------- LIBRARIES ---------*/
+
 .yarl__container {
   background-color: var(--background);
 }
@@ -265,6 +270,3 @@ button:disabled,
 .yarl__button:not(:disabled):hover g:last-child {
   color: var(--white);
 }
-/* .yarl__slide_image {
-  border: 2px solid var(--black);
-} */

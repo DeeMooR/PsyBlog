@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { CardSmall, SectionTemplate, Notification, Wait, Loading } from 'src/components'
+import { CardSmall, SectionTemplate, Loading } from 'src/components'
 import './Blog.css'
 import { clearMainMessages, getMainSelector, getShortPostsTopAction, useAppDispatch, useAppSelector } from 'src/store'
 

@@ -1,4 +1,4 @@
-import { NewBlockTables } from "src/components";
+import { NewBlockTables } from "src/postBlocks/interfaces";
 import { IImageApi } from "./api";
 
 export const BlockNameToTableName = {

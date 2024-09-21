@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import './RadioOption.css'
 import { radioSelectedIcon, radioUnselectedIcon } from 'src/assets'
-import { NewBlockNames } from '../newPost'
 
 interface IRadioOption {
   value: string,

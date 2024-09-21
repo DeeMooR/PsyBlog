@@ -29,7 +29,7 @@ const mainSlice = createSlice({
       })
       .addCase(getShortPostsTopAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.topPosts = {...payload};
+        state.topPosts = [...payload];
       })
       .addCase(getShortPostsTopAction.rejected, (state) => {
         state.isLoading = false;

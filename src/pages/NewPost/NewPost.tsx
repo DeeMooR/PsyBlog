@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { NewPostRequired, NewPostSelection, Notification, ModalConfirm, TitleCreate, TextCreate, BlockquoteCreate, TitleAndTextCreate, ListCreate, HeaderAdmin, NewPostBlocks, Loading } from 'src/components'
-import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPost, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store'
+import { NewPostRequired, NewPostSelection, Notification, ModalConfirm, HeaderAdmin, NewPostBlocks, Loading } from 'src/components'
+import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPost, getNewPostNewBlockSelector } from 'src/store'
+import { BlockquoteCreate, ListCreate, TextCreate, TitleAndTextCreate, TitleCreate } from 'src/postBlocks/blocksCreate';
 import './NewPost.css'
-import { IPostBlock } from 'src/interfaces'
 
 const createBlock = {
   'title': <TitleCreate />,

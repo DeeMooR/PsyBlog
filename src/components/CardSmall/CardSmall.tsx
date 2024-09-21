@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SwitchButton } from 'src/components'
 import { IShortPost } from 'src/interfaces'
-import { CardSmallImage } from 'src/styled'
+import { CardImage } from 'src/styled'
 import { updateShortPostsAction, useAppDispatch } from 'src/store'
 import './CardSmall.css'
 import { pencilIcon } from 'src/assets'
@@ -34,7 +34,7 @@ export const CardSmall:FC<ICardSmall> = ({obj, isAdmin = false}) => {
   
   return (
     <div className='cardSmall' onClick={clickCard}>
-      <CardSmallImage image={image} />
+      <CardImage image={image} />
       <div className="cardSmall__content">
         <h4 className='cardSmall__title'>{title}</h4>
         {isAdmin && 

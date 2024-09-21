@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react'
-import { getNewPostDataSelector, getNewPostNewBlockSelector, getNewPostSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
-import { NewBlockNames, RadioOption, radioOptions } from 'src/components'
+import { getNewPostDataSelector, getNewPostNewBlockSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
+import { NewBlockNames, radioOptions } from 'src/postBlocks/interfaces';
+import { RadioOption } from 'src/components'
 import { crossIcon } from 'src/assets';
 import './NewPostSelection.css'
 

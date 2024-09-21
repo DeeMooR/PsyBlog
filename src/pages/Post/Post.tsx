@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Footer, Header, Text, Title, TitleAndText, Image, TwoImages, Blockquote, List, HeaderAdmin, Loading, Wait } from 'src/components'
-import { IImage, IList, IBlockquote, ITwoImages, ITitle, IText, ITitleAndText } from 'src/components/newPost'
-import { clearPost, getAdminSelector, getFullPostAction, getNewPostDataSelector, getPostDataSelector, getPostSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
-import { post_1, post_2, post_3, humanIcon } from 'src/assets'
+import { Footer, Header, HeaderAdmin, Loading } from 'src/components'
+import { clearPost, getAdminSelector, getFullPostAction, getPostDataSelector, getPostSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
+import { ITitle, IText, ITitleAndText, IBlockquote, IList } from 'src/postBlocks/interfaces'
+import { Title, Text, TitleAndText, Blockquote, List } from 'src/postBlocks/blocksShow'
+import { humanIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
-import './Post.css'
 import { formatDate } from 'src/helpers'
+import './Post.css'
 
 const showBlock = {
   'title': (obj: ITitle) => <Title obj={obj} />,

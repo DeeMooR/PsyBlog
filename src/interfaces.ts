@@ -1,4 +1,4 @@
-import { NewBlockTables, NewBlockTypes } from "./components"
+import { NewBlockTables, NewBlockTypes } from "src/postBlocks/interfaces";
 
 export interface IService {
   id: number,
@@ -104,4 +104,18 @@ export interface IUpdateBlock {
 export interface IListForm {
   text?: string | null;
   items: string;
+}
+
+export interface IRequestNewBlock {
+  post_id: number | null,
+  newBlockTable: NewBlockTables | null,
+  data: NewBlockTypes,
+  dispatch: any,
+}
+
+export interface IRequestUpdate {
+  post_id: number | null,
+  updateBlockNumber: number | null,
+  data: Partial<NewBlockTypes>,
+  dispatch: any,
 }
