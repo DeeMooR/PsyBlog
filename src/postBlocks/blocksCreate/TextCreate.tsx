@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormBlockCreateTemplate, Textarea } from 'src/components';
+import { FormBlockTemplate } from 'src/components';
+import { Textarea } from 'src/UI';
 import { textScheme } from 'src/validation';
 import { IText } from '../interfaces';
-import './Create.css';
+import './Create.scss';
 
 interface ITextCreate {
   obj?: IText
@@ -23,7 +24,7 @@ export const TextCreate:FC<ITextCreate> = ({obj}) => {
   });
   
   return (
-    <FormBlockCreateTemplate handleSubmit={handleSubmit} data={getValues()}>
+    <FormBlockTemplate handleSubmit={handleSubmit} data={getValues()}>
       <div className="newBlock__fields">
         <Textarea 
           id='text' 
@@ -33,6 +34,6 @@ export const TextCreate:FC<ITextCreate> = ({obj}) => {
           error={errors.text?.message}
         />
       </div>
-    </FormBlockCreateTemplate>
+    </FormBlockTemplate>
   )
 }

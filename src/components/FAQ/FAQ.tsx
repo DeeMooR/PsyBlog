@@ -1,7 +1,7 @@
 import React from 'react'
 import { FAQItem, SectionTemplate } from 'src/components'
 import { faqs } from 'src/config'
-import './FAQ.css'
+import './FAQ.scss'
 
 export const FAQ = () => {
   return (

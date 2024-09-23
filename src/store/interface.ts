@@ -1,15 +1,15 @@
-import { NewBlockNames, NewBlockTables } from "src/postBlocks/interfaces";
+import { BlockNames, BlockTables } from "src/postBlocks/interfaces";
 import { IFullPost, IShortPost, IUser } from "src/interfaces";
 
 export interface newPostState {
   postData: IFullPost,
   newBlock: {
-    newBlockName: NewBlockNames | null,
-    newBlockTable: NewBlockTables | null,
+    newBlockName: BlockNames | null,
+    newBlockTable: BlockTables | null,
   },
   update: {
-    updateName: NewBlockNames | null,
-    updateTable: NewBlockTables | null,
+    updateName: BlockNames | null,
+    updateTable: BlockTables | null,
     updateBlockNumber: number | null,
   },
   isLoading: boolean,

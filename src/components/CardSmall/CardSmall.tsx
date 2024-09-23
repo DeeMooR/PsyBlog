@@ -1,11 +1,11 @@
-import React, { ChangeEvent, FC, MouseEvent } from 'react'
+import React, { FC, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { SwitchButton } from 'src/components'
-import { IShortPost } from 'src/interfaces'
-import { CardImage } from 'src/styled'
 import { updateShortPostsAction, useAppDispatch } from 'src/store'
-import './CardSmall.css'
+import { SwitchButton } from 'src/UI'
+import { IOptionalPostFields, IShortPost } from 'src/interfaces'
+import { CardImage } from 'src/styled'
 import { pencilIcon } from 'src/assets'
+import './CardSmall.scss'
 
 interface ICardSmall {
   obj: IShortPost, 
@@ -24,7 +24,8 @@ export const CardSmall:FC<ICardSmall> = ({obj, isAdmin = false}) => {
   };
 
   const changeActivity = () => {
-    const body = {isActive: !isActive};
+    let body: IOptionalPostFields = {isActive: !isActive};
+    if (isActive == true) body.topPriority = false;
     dispatch(updateShortPostsAction({id, body}));
   }
 

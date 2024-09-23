@@ -3,7 +3,7 @@ import parse from 'html-react-parser';
 import { mainImage } from 'src/assets'
 import { MainImage } from 'src/styled'
 import { quotes } from 'src/config'
-import './MainPicture.css'
+import './MainPicture.scss'
 
 
 export const MainPicture = () => {

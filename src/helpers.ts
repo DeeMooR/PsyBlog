@@ -1,5 +1,5 @@
 import { scroller } from "react-scroll";
-import { ICreateNewBlock, IListForm, IRequestNewBlock, IRequestUpdate, IUpdateBlock } from "./interfaces";
+import { ICreateBlock, IListForm, IRequestNewBlock, IRequestUpdate, IUpdateBlock } from "./interfaces";
 import { createBlockAction, updateBlockAction } from "./store";
 import { IList, ListTypes, convertListTypeEng } from "./postBlocks/interfaces";
 
@@ -14,7 +14,7 @@ export const scrollToSection = (page: string, padding?: number) => {
 
 export const requestNewBlock = ({post_id, newBlockTable, data, dispatch}: IRequestNewBlock) => {
   if (post_id && newBlockTable) {
-    const obj: ICreateNewBlock = {
+    const obj: ICreateBlock = {
       post_id,
       table_name: newBlockTable,
       fields: data
@@ -36,8 +36,7 @@ export const requestUpdateBlock = ({post_id, updateBlockNumber, data, dispatch}:
 
 export const createObjList = (form: IListForm, type: ListTypes) => {
   const items = form.items
-    .split('\n')
-    .map(item => item.substring(3))
+    .split('[-]')
     .map(item => item.trim())
     .filter(item => item !== '');
   const data = {
@@ -86,3 +85,7 @@ export const displayScroll = () => {
   document.body.style.padding = '0';
   if (header) header.style.padding = '0';
 }
+
+export const formatTextLines = (text: string) => {
+  return text.split('\n').join('<br />');
+};

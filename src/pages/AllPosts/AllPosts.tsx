@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CardSmall, Footer, Header, HeaderAdmin, Loading, Notification } from 'src/components'
 import { getShortPostsAction, getShortPostsAdminAction, clearAllPostsMessages, clearAllPosts, getAdminSelector, getAllPostsSelector, useAppDispatch, useAppSelector } from 'src/store'
-import './AllPosts.css'
+import { CardSmall, Footer, Header, HeaderAdmin } from 'src/components'
+import { Loading, Notification } from 'src/UI'
+import './AllPosts.scss'
 
 export const AllPosts = () => {
   const navigate = useNavigate();

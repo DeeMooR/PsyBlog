@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import parse from 'html-react-parser';
 import { IFAQ } from 'src/interfaces';
-import './FAQItem.css'
+import './FAQItem.scss'
 
 interface IFAQItem {
   obj: IFAQ

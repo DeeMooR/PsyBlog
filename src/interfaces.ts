@@ -1,4 +1,4 @@
-import { NewBlockTables, NewBlockTypes } from "src/postBlocks/interfaces";
+import { BlockTables, BlockTypes } from "src/postBlocks/interfaces";
 
 export interface IService {
   id: number,
@@ -15,14 +15,6 @@ export interface IFAQ {
   text: string,
 }
 
-export interface ICard {
-  id: number,
-  title: string,
-  text: string,
-  image: string,
-  date: string,
-}
-
 export interface IUser {
   id: number,
   name: string,
@@ -31,13 +23,9 @@ export interface IUser {
   date: string
 }
 
-export interface IUserForm {
-  name: string,
-  email: string,
-  phone: string,
-}
-
 export interface IUserWithoutId extends Omit<IUser, 'id'> {}
+
+export interface IUserForm extends Omit<IUser, 'id' | 'date'> {}
 
 export interface IAuth {
   login: string,
@@ -54,12 +42,6 @@ export interface IShortPost {
 
 export interface IShortPostWithoutId extends Omit<IShortPost, 'id'> {}
 
-
-export interface IPostRequiredFieldsForm {
-  title: string,
-  date: Date | null,
-}
-
 export interface IPostRequiredFields {
   title: string,
   image: File | null,
@@ -70,13 +52,15 @@ export interface IPostRequiredFields {
 
 export interface IOptionalPostFields extends Partial<IPostRequiredFields> {}
 
-
-
+export interface IPostRequiredFieldsForm {
+  title: string,
+  date: Date | null,
+}
 
 export interface IPostBlock {
   block_number: number,
-  table_name: NewBlockTables,
-  fields: NewBlockTypes,
+  table_name: BlockTables,
+  fields: BlockTypes,
 }
 
 export interface IFullPost {
@@ -89,16 +73,16 @@ export interface IFullPost {
   blocks: IPostBlock[]
 }
 
-export interface ICreateNewBlock {
+export interface ICreateBlock {
   post_id: number,
-  table_name: NewBlockTables,
-  fields: NewBlockTypes
+  table_name: BlockTables,
+  fields: BlockTypes
 }
 
 export interface IUpdateBlock {
   post_id: number,
   block_number: number,
-  fields: Partial<NewBlockTypes>
+  fields: Partial<BlockTypes>
 }
 
 export interface IListForm {
@@ -108,14 +92,14 @@ export interface IListForm {
 
 export interface IRequestNewBlock {
   post_id: number | null,
-  newBlockTable: NewBlockTables | null,
-  data: NewBlockTypes,
+  newBlockTable: BlockTables | null,
+  data: BlockTypes,
   dispatch: any,
 }
 
 export interface IRequestUpdate {
   post_id: number | null,
   updateBlockNumber: number | null,
-  data: Partial<NewBlockTypes>,
+  data: Partial<BlockTypes>,
   dispatch: any,
 }

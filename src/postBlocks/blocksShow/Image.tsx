@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { IImage } from '../interfaces';
-import './postBlocks.css'
+import './postBlocks.scss'
 
 export const Image:FC<{obj: IImage}> = ({ obj }) => {
   const { image, size, withBorder } = obj;

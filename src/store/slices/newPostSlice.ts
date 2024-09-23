@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { newPostState } from '../interface';
 import { createBlockAction, createPostAction, deleteBlockAction, deletePostAction, getFullPostAction, updateBlockAction, updatePostAction } from '../actions';
 import { BlockNameToTableName, ISetNewPostUpdate, TableNameToBlockName } from '../config';
-import { NewBlockNames } from 'src/postBlocks/interfaces';
+import { BlockNames } from 'src/postBlocks/interfaces';
 
 const initialState: newPostState = {
   postData: {
@@ -41,7 +41,7 @@ const newPostSlice = createSlice({
   name: 'newPost',
   initialState,
   reducers: {
-    setNewPostNewBlock: (state, { payload }: {payload: NewBlockNames}) => {
+    setNewPostNewBlock: (state, { payload }: {payload: BlockNames}) => {
       state.newBlock.newBlockName = payload;
       state.newBlock.newBlockTable = BlockNameToTableName[payload];
     },

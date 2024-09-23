@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Footer, Header, HeaderAdmin, Loading } from 'src/components'
 import { clearPost, getAdminSelector, getFullPostAction, getPostDataSelector, getPostSelector, setAllPostsErrorMessage, useAppDispatch, useAppSelector } from 'src/store'
-import { ITitle, IText, ITitleAndText, IBlockquote, IList } from 'src/postBlocks/interfaces'
-import { Title, Text, TitleAndText, Blockquote, List } from 'src/postBlocks/blocksShow'
+import { Footer, Header, HeaderAdmin } from 'src/components'
+import { Loading } from 'src/UI'
+import { showBlock } from 'src/postBlocks/config'
 import { humanIcon } from 'src/assets'
 import { PostImage } from 'src/styled'
 import { formatDate } from 'src/helpers'
-import './Post.css'
-
-const showBlock = {
-  'title': (obj: ITitle) => <Title obj={obj} />,
-  'text': (obj: IText) => <Text obj={obj} />,
-  'title_and_text': (obj: ITitleAndText) => <TitleAndText obj={obj} />,
-  'quote': (obj: IBlockquote) => <Blockquote obj={obj} />,
-  'list': (obj: IList) => <List obj={obj} />,
-};
+import './Post.scss'
 
 export const Post = () => {
   const { id: param } = useParams();

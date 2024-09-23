@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react'
-import { getNewPostDataSelector, getNewPostNewBlockSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
-import { NewBlockNames, radioOptions } from 'src/postBlocks/interfaces';
-import { RadioOption } from 'src/components'
+import { getNewPostDataSelector, getNewPostNewBlockSelector, getNewPostUpdateSelector, setNewPostErrorMessage, setNewPostNewBlock, useAppDispatch, useAppSelector } from 'src/store';
+import { BlockNames } from 'src/postBlocks/interfaces';
+import { radioOptions } from 'src/config';
+import { RadioOption } from 'src/UI'
 import { crossIcon } from 'src/assets';
-import './NewPostSelection.css'
+import './NewPostSelection.scss'
 
 interface INewPostSelection {
   clickClose: () => void,
@@ -11,22 +12,22 @@ interface INewPostSelection {
 
 export const NewPostSelection:FC<INewPostSelection> = ({clickClose}) => {
   const dispatch = useAppDispatch();
-  const { newBlockName } = useAppSelector(getNewPostNewBlockSelector);
   const { id } = useAppSelector(getNewPostDataSelector);
-  const [selected, setSelected] = useState<NewBlockNames | null>(null);
+  const { newBlockName } = useAppSelector(getNewPostNewBlockSelector);
+  const { updateName } = useAppSelector(getNewPostUpdateSelector);
+  const [selected, setSelected] = useState<BlockNames | null>(null);
 
   const clickApplySelected = () => {
     if (newBlockName) {
-      dispatch(setNewPostErrorMessage(`Перед созданием нового блока завершите создание блока "${newBlockName}"`));
-      return;
+      return dispatch(setNewPostErrorMessage(`Перед созданием нового блока завершите создание блока "${newBlockName}"`));
+    }
+    if (updateName) {
+      return dispatch(setNewPostErrorMessage(`Перед созданием нового блока завершите редактирование блока "${updateName}"`));
     }
     if (!id) {
-      dispatch(setNewPostErrorMessage('Перед созданием нового блока необходимо заполнить "Основные поля"'));
-      return;
+      return dispatch(setNewPostErrorMessage('Перед созданием нового блока необходимо заполнить "Основные поля"'));
     }
-    if (selected) {
-      dispatch(setNewPostNewBlock(selected));
-    }
+    if (selected) dispatch(setNewPostNewBlock(selected));
     clickClose();
   }
 

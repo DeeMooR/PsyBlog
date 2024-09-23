@@ -3,10 +3,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { clearAdminMessages, getAdminSelector, useAppDispatch, useAppSelector, checkAdminAction, setMainSuccessMessage } from 'src/store'
-import { Header, Footer, Notification, Input, Loading } from 'src/components';
+import { Header, Footer } from 'src/components';
+import { Loading, Notification, Input } from 'src/UI'
 import { authScheme } from 'src/validation';
 import { IAuth } from 'src/interfaces';
-import './AuthPage.css'
+import './AuthPage.scss'
 
 export const AuthPage = () => {
   const navigate = useNavigate();

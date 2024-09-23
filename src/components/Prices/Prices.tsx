@@ -1,11 +1,11 @@
 import React from 'react'
 import { PriceItem, SectionTemplate } from 'src/components'
 import { services } from 'src/config'
-import './Prices.css'
+import './Prices.scss'
 
 export const Prices = () => {
   return (
-    <SectionTemplate id='prices' backgroundColor='beige1' >
+    <SectionTemplate id='prices' backgroundColor='beige' >
       <div className='prices'>
         <div className="prices__items">
           {services.map(item => (

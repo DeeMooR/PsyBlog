@@ -1,5 +1,10 @@
-import { NewBlockTables } from "src/postBlocks/interfaces";
+import { BlockTables } from "src/postBlocks/interfaces";
 import { IImageApi } from "./api";
+
+export interface ISetNewPostUpdate {
+  table_name: BlockTables,
+  block_number: number,
+}
 
 export const BlockNameToTableName = {
   'Заголовок': 'title',
@@ -16,11 +21,6 @@ export const TableNameToBlockName = {
   'quote': 'Цитата',
   'list': 'Перечисление',
 } as const;
-
-export interface ISetNewPostUpdate {
-  table_name: NewBlockTables,
-  block_number: number,
-}
 
 export const convertToFormData = (body: IImageApi) => {
   const formData = new FormData();

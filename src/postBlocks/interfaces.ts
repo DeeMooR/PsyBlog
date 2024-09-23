@@ -32,7 +32,6 @@ export interface IList {
   items: string[];
 }
 
-export type NewBlockTypes = ITitle | IText | ITitleAndText | IBlockquote | IList;
 
 export const BlockNameToTableName = {
   'Заголовок': 'title',
@@ -42,26 +41,18 @@ export const BlockNameToTableName = {
   'Перечисление': 'list'
 } as const;
 
-export type NewBlockNames = keyof typeof BlockNameToTableName;
-export type NewBlockTables = typeof BlockNameToTableName[NewBlockNames];
-
-export const radioOptions: NewBlockNames[][] = [
-  ['Заголовок', 'Текст', 'Заголовок и текст'],
-  // ['Изображение S', 'Изображение M', 'Изображение L', 'Два изображения'],
-  ['Цитата', 'Перечисление'],
-]
-
+export type BlockNames = keyof typeof BlockNameToTableName;
+export type BlockTables = typeof BlockNameToTableName[BlockNames];
+export type BlockTypes = ITitle | IText | ITitleAndText | IBlockquote | IList;
 
 
 export const list_types = ['Цифры', 'Пункты'];
-
 export type ListTypes = 'Цифры' | 'Пункты';
 
 export enum convertListTypeEng {
   'Цифры' = 'number',
   'Пункты' = 'point'
 }
-
 export enum convertListTypeRu {
   'number' = 'Цифры',
   'point' = 'Пункты'

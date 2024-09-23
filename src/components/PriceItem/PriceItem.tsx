@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
+import { scrollToSection } from 'src/helpers';
 import { clockIcon } from 'src/assets';
 import { IService } from 'src/interfaces'
-import { scrollToSection } from 'src/helpers';
 import { PriceItemImage } from 'src/styled';
-import './PriceItem.css'
+import './PriceItem.scss'
 
 interface IPriceItem {
   obj: IService

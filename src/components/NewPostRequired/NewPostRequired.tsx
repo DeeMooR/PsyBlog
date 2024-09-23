@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPostAction, updatePostAction, getNewPostDataSelector, useAppDispatch, useAppSelector, getNewPostSelector } from 'src/store';
-import { Input, InputFile, ModalConfirm, SwitchButton } from 'src/components';
 import { IOptionalPostFields, IPostRequiredFieldsForm } from 'src/interfaces';
+import { ModalConfirm } from 'src/components';
+import { Input, InputFile, SwitchButton } from 'src/UI';
 import { postRequiredScheme } from 'src/validation';
-import './NewPostRequired.css'
-import { useNavigate } from 'react-router-dom';
 import { formatISOToShortDate } from 'src/helpers';
+import './NewPostRequired.scss'
 
 export const NewPostRequired = () => {
   const navigate = useNavigate();
@@ -33,34 +34,34 @@ export const NewPostRequired = () => {
     resolver: yupResolver(postRequiredScheme),
   });
   
+  // заполнение дефолтными значениями
   useEffect(() => {
     const {isActive, topPriority, title, date} = postData;
     const dateStr = date ? formatISOToShortDate(new Date(date)) : null;
-    //@ts-ignore
+    // @ts-ignore  в inputDate передаю string
     reset({ title, date: dateStr });
     setActive(isActive);
     setTop(topPriority);
   }, [postData, reset]);
 
+  // создать статью
   const onSubmit = async (data: IPostRequiredFieldsForm) => {
     if (!file && !postData.image) {
       setFileError('Обязательное поле');
       return;
     }
-
     const {date, title} = data;
-    if (!id) {
+    if (!id && date) {
       try {
-        if (date) {
-          const body = {date, title, image: file, isActive: active, topPriority: isTop};
-          const postId = await dispatch(createPostAction(body)).unwrap();
-          if (postId) navigate(`/new-post/${postId}`);
-        }
+        const body = {date, title, image: file, isActive: active, topPriority: isTop};
+        const postId = await dispatch(createPostAction(body)).unwrap();
+        if (postId) navigate(`/new-post/${postId}`);
       } catch {}
     }
     else setShowModal(true);
   }
 
+  // обновить статью
   const clickUpdate = () => {
     let {date, title} = getValues();
     if (id && date) {
@@ -70,6 +71,7 @@ export const NewPostRequired = () => {
     setShowModal(false);
   }
 
+  // изменить активность
   const changeActivity = () => {
     if (id) {
       let body: IOptionalPostFields = {isActive: !active};
@@ -81,6 +83,7 @@ export const NewPostRequired = () => {
     }
   }
 
+  // изменить отображение на главной странице
   const changeTopPriority = () => {
     if (id) {
       const body = {topPriority: !isTop};

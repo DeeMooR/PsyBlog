@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ModalConfirm } from 'src/components';
 import { deleteUserAction, getUsersSelector, useAppDispatch, useAppSelector } from 'src/store';
 import { basketIcon } from 'src/assets';
-import './UsersPageTableLines.css';
+import './UsersPageTableLines.scss';
 
 export const UsersPageTableLines = () => {
   const dispatch = useAppDispatch();

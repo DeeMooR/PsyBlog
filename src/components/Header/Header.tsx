@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { displayScroll, hiddenScroll, scrollToSection } from 'src/helpers';
-import './Header.css'
+import './Header.scss'
 
 export const Header = () => {
   const navigate = useNavigate();

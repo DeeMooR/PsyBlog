@@ -1,6 +1,6 @@
 import axios from "axios";
 import { endpoints } from "./endpoints";
-import { ICreateNewBlock, IFullPost, IOptionalPostFields, IPostRequiredFields, IUpdateBlock } from "src/interfaces";
+import { ICreateBlock, IFullPost, IOptionalPostFields, IPostRequiredFields, IUpdateBlock } from "src/interfaces";
 import { IDeleteBlockAction } from "../actions";
 import { convertToFormData } from "../config";
 
@@ -28,7 +28,7 @@ export const deletePostApi = (id: number): Promise<void> =>
   axios.delete(`${endpoints.posts}/${id}`);
 
 
-export const createBlockApi = (body: ICreateNewBlock): Promise<void> =>
+export const createBlockApi = (body: ICreateBlock): Promise<void> =>
   axios.post(endpoints.postBlock, body);
 
 export const updateBlockApi = (body: IUpdateBlock): Promise<void> =>

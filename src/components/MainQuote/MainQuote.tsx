@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import parse from 'html-react-parser';
-import './MainQuote.css'
+import './MainQuote.scss'
 
 interface IMainQuote {
   quote: string,

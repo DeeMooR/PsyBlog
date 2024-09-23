@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { SectionTemplate } from 'src/components'
 import { certificates, certificates_slides } from 'src/config'
 import { displayScroll, hiddenScroll } from 'src/helpers';
-import './Qualification.css'
+import './Qualification.scss'
 
 import Lightbox from "yet-another-react-lightbox";
 import { Zoom } from "yet-another-react-lightbox/plugins";
-import "yet-another-react-lightbox/styles.css";
-
 import { RowsPhotoAlbum } from "react-photo-album";
+import "yet-another-react-lightbox/styles.css";
 import "react-photo-album/rows.css";
 
 export const Qualification = () => {
@@ -20,7 +19,7 @@ export const Qualification = () => {
   }, [index])
 
   return (
-    <SectionTemplate id='qualification' title='Квалификация' backgroundColor='beige1' >
+    <SectionTemplate id='qualification' title='Квалификация' backgroundColor='beige' >
       <div className='qualification'>
         <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={200}  />
       </div>

@@ -1,19 +1,10 @@
 import React, { FC, useState } from 'react'
-import { deleteBlockAction, getNewPostDataSelector, setNewPostUpdate, useAppDispatch, useAppSelector } from 'src/store';
-import { ITitle, IText, ITitleAndText, IBlockquote, IList } from 'src/postBlocks/interfaces'
-import { Title, Text, TitleAndText, Blockquote, List } from 'src/postBlocks/blocksShow'
-import { IPostBlock } from 'src/interfaces'
-import { basketIcon, pencilIcon } from 'src/assets'
+import { deleteBlockAction, getNewPostDataSelector, getNewPostNewBlockSelector, setNewPostErrorMessage, setNewPostUpdate, useAppDispatch, useAppSelector } from 'src/store';
+import { showBlock } from 'src/postBlocks/config';
 import {ModalConfirm} from 'src/components';
-import './ShowBlockInNewPost.css'
-
-const showBlock = {
-  'title': (obj: ITitle) => <Title obj={obj} />,
-  'text': (obj: IText) => <Text obj={obj} />,
-  'title_and_text': (obj: ITitleAndText) => <TitleAndText obj={obj} />,
-  'quote': (obj: IBlockquote) => <Blockquote obj={obj} />,
-  'list': (obj: IList) => <List obj={obj} />,
-};
+import { basketIcon, pencilIcon } from 'src/assets'
+import { IPostBlock } from 'src/interfaces'
+import './ShowBlockInNewPost.scss'
 
 interface IShowBlockInNewPost {
   obj: IPostBlock
@@ -22,8 +13,9 @@ interface IShowBlockInNewPost {
 export const ShowBlockInNewPost:FC<IShowBlockInNewPost> = ({obj}) => {
   const dispatch = useAppDispatch();
   const { id } = useAppSelector(getNewPostDataSelector);
+  const { newBlockName } = useAppSelector(getNewPostNewBlockSelector);
   const {table_name, fields, block_number} = obj;
-
+  
   const [modal, setModal] = useState(false);
   const [blockNumber, setBlockNumber] = useState<number | null>(null);
 
@@ -41,6 +33,9 @@ export const ShowBlockInNewPost:FC<IShowBlockInNewPost> = ({obj}) => {
   }
 
   const setUpdateBlock = () => {
+    if (newBlockName) {
+      return dispatch(setNewPostErrorMessage(`Перед редактированием блока завершите создание блока "${newBlockName}"`));
+    }
     dispatch(setNewPostUpdate({table_name, block_number}));
   }
   

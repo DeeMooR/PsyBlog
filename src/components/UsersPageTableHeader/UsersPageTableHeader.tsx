@@ -1,6 +1,6 @@
 import React from 'react'
 import { usersPageTableColumns } from './config'
-import './UsersPageTableHeader.css';
+import './UsersPageTableHeader.scss';
 
 export const UsersPageTableHeader = () => {
   return (

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Footer, HeaderAdmin, Loading, Notification, UsersPageTableHeader, UsersPageTableLines, Wait } from 'src/components'
 import { useAppSelector, getUsersSelector, useAppDispatch, clearUsersMessages, getUsersAction } from 'src/store'
-import './UsersPage.css'
+import { Footer, HeaderAdmin, UsersPageTableHeader, UsersPageTableLines } from 'src/components'
+import { Loading, Notification } from 'src/UI'
+import './UsersPage.scss'
 
 export const UsersPage = () => {
   const navigate = useNavigate();

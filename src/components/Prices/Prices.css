@@ -1,8 +1,0 @@
-.prices {
-  max-width: 900px;
-  margin: 0 auto;
-}
-.prices .prices__items {
-  display: flex;
-  gap: 100px;
-}

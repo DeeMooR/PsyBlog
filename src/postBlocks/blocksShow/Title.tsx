@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
-import parse from 'html-react-parser';
 import { ITitle } from '../interfaces';
-import './postBlocks.css'
+import './postBlocks.scss'
 
 export const Title:FC<{obj: ITitle}> = ({ obj }) => {
   return (
-    <p className="title">{parse(obj.title)}</p>
+    <p className="title">{obj.title}</p>
   )
 }

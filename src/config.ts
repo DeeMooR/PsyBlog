@@ -1,5 +1,6 @@
 import { IFAQ, IService } from "src/interfaces";
-import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, post_1, post_2, post_3, post_4, post_5, post_6, post_7, service_1, service_2 } from 'src/assets';
+import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, service_1, service_2 } from 'src/assets';
+import { BlockNames } from "./postBlocks/interfaces";
 
 export const services: IService[] = [
   {
@@ -67,3 +68,8 @@ export const quotes = [
 ]
 
 export const list_placeholder = '[-] первый пункт \n[-] второй пункт \n[-] третий пункт';
+
+export const radioOptions: BlockNames[][] = [
+  ['Заголовок', 'Текст', 'Заголовок и текст'],
+  ['Цитата', 'Перечисление'],
+]

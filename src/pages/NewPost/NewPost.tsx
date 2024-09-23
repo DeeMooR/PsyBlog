@@ -1,31 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { NewPostRequired, NewPostSelection, Notification, ModalConfirm, HeaderAdmin, NewPostBlocks, Loading } from 'src/components'
 import { deletePostAction, clearNewPostMessages, getNewPostDataSelector, getNewPostSelector, useAppDispatch, useAppSelector, getFullPostAction, clearNewPost, getNewPostNewBlockSelector } from 'src/store'
-import { BlockquoteCreate, ListCreate, TextCreate, TitleAndTextCreate, TitleCreate } from 'src/postBlocks/blocksCreate';
-import './NewPost.css'
-
-const createBlock = {
-  'title': <TitleCreate />,
-  'text': <TextCreate />,
-  'title_and_text': <TitleAndTextCreate />,
-  'quote': <BlockquoteCreate />,
-  'list': <ListCreate />,
-};
+import { NewPostRequired, NewPostSelection, ModalConfirm, HeaderAdmin, NewPostBlocks } from 'src/components'
+import { Loading, Notification } from 'src/UI'
+import { createBlock } from 'src/postBlocks/config'
+import './NewPost.scss'
 
 export const NewPost = () => {
   const { id: param } = useParams();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { id, blocks } = useAppSelector(getNewPostDataSelector);
   const { newBlockTable } = useAppSelector(getNewPostNewBlockSelector);
   const { isLoading, isLoadingBlock, errorMessage, successMessage } = useAppSelector(getNewPostSelector);
-  const { id, blocks } = useAppSelector(getNewPostDataSelector);
+  const title = id ? 'Редактирование статьи' : 'Создание статьи';
 
   const [showSelection, setShowSelection] = useState(false);
   const [modal, setModal] = useState(false);
 
-  const title = id ? 'Редактирование статьи' : 'Создание статьи';
-
+  
   useEffect(() => () => { dispatch(clearNewPost()) }, []);
 
   useEffect(() => {
@@ -39,14 +32,9 @@ export const NewPost = () => {
     func();
   }, [param])
 
-  const deletePost = async () => {
+  const deletePost = () => {
     setModal(false);
-    if (id) {
-      try {
-        await dispatch(deletePostAction(id)).unwrap();
-        navigate('/posts');
-      } catch {}
-    }
+    if (id) dispatch(deletePostAction({id, navigate}))
   }
 
   const clearMessages = () => dispatch(clearNewPostMessages());

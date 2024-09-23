@@ -1,10 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { IOptionalPostFields, IFullPost, IPostRequiredFields, ICreateNewBlock, IUpdateBlock } from "src/interfaces";
+import { NavigateFunction } from "react-router-dom";
+import { IOptionalPostFields, IFullPost, IPostRequiredFields, ICreateBlock, IUpdateBlock } from "src/interfaces";
 import { createBlockApi, createPostApi, createPostImageApi, deleteBlockApi, deletePostApi, getFullPostApi, updateBlockApi, updatePostApi, updatePostImageApi } from "../api";
 
 interface IUpdatePostAction {
   id: number,
   body: IOptionalPostFields
+}
+
+interface IDeletePostAction {
+  id: number,
+  navigate: NavigateFunction,
 }
 
 export interface IDeleteBlockAction {
@@ -44,12 +50,15 @@ export const updatePostAction = createAsyncThunk<void, IUpdatePostAction>(
   }
 )
 
-export const deletePostAction = createAsyncThunk<void, number>(
+export const deletePostAction = createAsyncThunk<void, IDeletePostAction>(
   'newPost/deletePostAction',
-  (id) => deletePostApi(id)
+  async ({id, navigate}) => {
+    await deletePostApi(id);
+    navigate('/posts');
+  }
 )
 
-export const createBlockAction = createAsyncThunk<void, ICreateNewBlock>(
+export const createBlockAction = createAsyncThunk<void, ICreateBlock>(
   'newPost/createBlockAction',
   async ({post_id, table_name, fields}, {dispatch}) => {
     await createBlockApi({post_id, table_name, fields});

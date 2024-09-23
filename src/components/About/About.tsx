@@ -3,7 +3,7 @@ import { SectionTemplate } from 'src/components'
 import { scrollToSection } from 'src/helpers'
 import { AboutImage } from 'src/styled'
 import { aboutImage } from 'src/assets'
-import './About.css'
+import './About.scss'
 
 export const About = () => {
   return (

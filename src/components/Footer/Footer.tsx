@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { scrollToSection } from 'src/helpers'
-import './Footer.css'
+import './Footer.scss'
 
 export const Footer = () => {
   return (

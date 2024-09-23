@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormBlockCreateTemplate, Input } from 'src/components';
+import { FormBlockTemplate } from 'src/components';
+import { Input } from 'src/UI';
 import { titleScheme } from 'src/validation';
 import { ITitle } from '../interfaces';
-import './Create.css';
+import './Create.scss';
 
 interface ITitleCreate {
   obj?: ITitle
@@ -23,7 +24,7 @@ export const TitleCreate:FC<ITitleCreate> = ({obj}) => {
   });
 
   return (
-    <FormBlockCreateTemplate handleSubmit={handleSubmit} data={getValues()}>
+    <FormBlockTemplate handleSubmit={handleSubmit} data={getValues()}>
       <div className="newBlock__fields">
         <Input 
           id='title' 
@@ -33,6 +34,6 @@ export const TitleCreate:FC<ITitleCreate> = ({obj}) => {
           error={errors.title?.message}
         />
       </div>
-    </FormBlockCreateTemplate>
+    </FormBlockTemplate>
   )
 }

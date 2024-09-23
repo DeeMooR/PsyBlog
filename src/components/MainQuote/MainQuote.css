@@ -1,8 +1,0 @@
-.mainQuote {
-  padding: 100px 0 20px 0;
-  background-color: var(--background);
-}
-.mainQuote .mainQuote__quote {
-  font-size: 36px;
-  text-align: center;
-}

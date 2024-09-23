@@ -28,14 +28,6 @@ import certificate_6 from './images/certificate_6.png'
 import certificate_7 from './images/certificate_7.png'
 import certificate_8 from './images/certificate_8.jpg'
 
-import post_1 from './images/post_1.png'
-import post_2 from './images/post_2.png'
-import post_3 from './images/post_3.jpg'
-import post_4 from './images/post_4.png'
-import post_5 from './images/post_5.png'
-import post_6 from './images/post_6.png'
-import post_7 from './images/post_7.png'
-
 export {
   logoIcon, 
   menuIcon,
@@ -63,11 +55,4 @@ export {
   certificate_6,
   certificate_7,
   certificate_8,
-  post_1, 
-  post_2, 
-  post_3,
-  post_4, 
-  post_5, 
-  post_6,
-  post_7,
 }

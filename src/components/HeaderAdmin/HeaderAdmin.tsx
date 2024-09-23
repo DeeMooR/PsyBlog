@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { scrollToSection } from 'src/helpers';
-import './HeaderAdmin.css'
 import { setAdminIsAdmin, useAppDispatch } from 'src/store';
+import { scrollToSection } from 'src/helpers';
+import './HeaderAdmin.scss'
 
 export const HeaderAdmin = () => {
   const dispatch = useAppDispatch();

@@ -1,19 +1,19 @@
 import React, { FC, ReactNode } from 'react'
 import cn from 'classnames';
-import './SectionTemplate.css'
+import './SectionTemplate.scss'
 
 interface ISectionTemplate {
   id: string;
   children: ReactNode;
   title?: string;
   titleColor?: 'white' | 'black';
-  backgroundColor?: 'beige1' | 'green';
+  backgroundColor?: 'beige' | 'green';
 }
 
 export const SectionTemplate:FC<ISectionTemplate> = ({ id, children, title, titleColor, backgroundColor }) => {
   const sectionStyle = cn('sectionTemplate', {
     includeTitle: !!title,
-    bgBeige1: backgroundColor === 'beige1',
+    bgBeige: backgroundColor === 'beige',
     bgGreen: backgroundColor === 'green',
   });
 

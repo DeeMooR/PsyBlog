@@ -2,12 +2,12 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { createUserAction, getMainSelector, useAppDispatch, useAppSelector } from 'src/store'
-import { Input, Loading } from 'src/components'
+import { Input, Loading } from 'src/UI'
 import { contactsImage } from 'src/assets'
 import { IUserForm } from 'src/interfaces'
 import { orderScheme } from 'src/validation'
 import { ContactsImage } from 'src/styled'
-import './Contacts.css'
+import './Contacts.scss'
 
 export const Contacts = () => {
   const dispatch = useAppDispatch();

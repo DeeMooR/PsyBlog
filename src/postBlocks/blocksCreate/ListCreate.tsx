@@ -1,14 +1,15 @@
 import React, { FC, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { BaseBlockCreateTemplate, Input, ModalConfirm, RadioOption, Textarea } from 'src/components';
-import { useAppSelector, getNewPostDataSelector, useAppDispatch, getNewPostSelector, setNewPostErrorMessage, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store';
+import { useAppSelector, getNewPostDataSelector, useAppDispatch, setNewPostErrorMessage, getNewPostNewBlockSelector, getNewPostUpdateSelector } from 'src/store';
 import { convertListItemsToText, createObjList, requestNewBlock, requestUpdateBlock } from 'src/helpers';
-import { listScheme } from 'src/validation';
 import { IList, ListTypes, convertListTypeEng, convertListTypeRu, list_types } from '../interfaces';
+import { BaseBlockTemplate, ModalConfirm } from 'src/components';
+import { RadioOption, Textarea } from 'src/UI';
+import { listScheme } from 'src/validation';
 import { IListForm } from 'src/interfaces';
 import { list_placeholder } from 'src/config';
-import './Create.css';
+import './Create.scss';
 
 interface IListCreate {
   obj?: IList
@@ -38,8 +39,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
 
   const onSubmit = (form: IListForm) => {
     if (!type) {
-      dispatch(setNewPostErrorMessage('Необходимо выбрать тип перечисления'));
-      return;
+      return dispatch(setNewPostErrorMessage('Необходимо выбрать тип перечисления'));
     }
     if (!obj) {
       const data = createObjList(form, type);
@@ -58,7 +58,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
 
   return (
     <form className="listCreate newBlock" onSubmit={handleSubmit(onSubmit)}>
-      <BaseBlockCreateTemplate>
+      <BaseBlockTemplate>
         <div className="newBlock__radio">
           {list_types.map(value => 
             <RadioOption 
@@ -71,10 +71,10 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
           )}
         </div>
         <div className="newBlock__fields">
-          <Input 
+          <Textarea 
             id='text' 
             register={register}
-            type="text"
+            max={255}
             placeholder='Текст перед перечислением (необязательно)'
             error={errors.text?.message}
           />
@@ -86,7 +86,7 @@ export const ListCreate:FC<IListCreate> = ({obj}) => {
             error={errors.items?.message}
           />
         </div>
-      </BaseBlockCreateTemplate>
+      </BaseBlockTemplate>
       {modal && <ModalConfirm action='update_block' clickApply={clickUpdateBlock} closeModal={() => setModal(false)} />}
     </form>
   )

@@ -1,7 +1,8 @@
 import React from 'react'
-import { Blog, FAQ, Footer, Header, Prices, Contacts, MainPicture, About, MainQuote, Qualification, Notification, HeaderAdmin } from 'src/components'
-import { quotes } from 'src/config'
 import { clearMainMessages, getAdminSelector, getMainSelector, useAppDispatch, useAppSelector } from 'src/store';
+import { Blog, FAQ, Footer, Header, Prices, Contacts, MainPicture, About, MainQuote, Qualification, HeaderAdmin } from 'src/components'
+import { Notification } from 'src/UI'
+import { quotes } from 'src/config'
 
 export const MainPage = () => {
   const dispatch = useAppDispatch();
@@ -12,7 +13,7 @@ export const MainPage = () => {
   
   return (
     <div className='mainPage'>
-       {isAdmin ? <HeaderAdmin /> : <Header />}
+      {isAdmin ? <HeaderAdmin /> : <Header />}
       <div className="mainPage__blocks">
         <MainPicture />
         <MainQuote quote={quotes[1]} />

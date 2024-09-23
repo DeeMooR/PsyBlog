@@ -1,10 +1,11 @@
 import React, { FC } from 'react'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormBlockCreateTemplate, Textarea } from 'src/components';
+import { FormBlockTemplate } from 'src/components';
+import { Textarea } from 'src/UI'
 import { quoteScheme } from 'src/validation';
 import { IBlockquote } from '../interfaces';
-import './Create.css';
+import './Create.scss';
 
 interface IBlockquoteCreate {
   obj?: IBlockquote
@@ -23,7 +24,7 @@ export const BlockquoteCreate:FC<IBlockquoteCreate> = ({obj}) => {
   });
 
   return (
-    <FormBlockCreateTemplate handleSubmit={handleSubmit} data={getValues()}>
+    <FormBlockTemplate handleSubmit={handleSubmit} data={getValues()}>
       <div className="newBlock__fields">
         <Textarea 
           id='quote' 
@@ -33,6 +34,6 @@ export const BlockquoteCreate:FC<IBlockquoteCreate> = ({obj}) => {
           error={errors.quote?.message}
         />
       </div>
-    </FormBlockCreateTemplate>
+    </FormBlockTemplate>
   )
 }

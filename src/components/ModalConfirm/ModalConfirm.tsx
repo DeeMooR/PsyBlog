@@ -1,18 +1,18 @@
 import React, { FC } from 'react'
 import cn from 'classnames';
 import { ModalTemplate } from 'src/components';
-import { ModalConfirmData } from './config';
-import './ModalConfirm.css'
+import { ModalConfirmActionType, ModalConfirmData, isModalDelete } from './config';
+import './ModalConfirm.scss'
 
 interface IModalConfirm {
-  action: 'update_post' | 'update_block' | 'delete_post' | 'delete_block' | 'delete_user'
+  action: ModalConfirmActionType,
   clickApply: () => void,
   closeModal: () => void
 }
 
 export const ModalConfirm:FC<IModalConfirm> = ({action, clickApply, closeModal}) => {
   const { title, btnApply } = ModalConfirmData[action];
-  const isDelete = action === 'delete_post' || action === 'delete_block' || action === 'delete_user';
+  const isDelete = isModalDelete(action);
 
   const btnApplyStyle = cn({
     btnDelete: isDelete,

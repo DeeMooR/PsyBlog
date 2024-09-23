@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { CardSmall, SectionTemplate, Loading } from 'src/components'
-import './Blog.css'
-import { clearMainMessages, getMainSelector, getShortPostsTopAction, useAppDispatch, useAppSelector } from 'src/store'
+import { getMainSelector, getShortPostsTopAction, useAppDispatch, useAppSelector } from 'src/store'
+import { CardSmall, SectionTemplate } from 'src/components'
+import { Loading } from 'src/UI'
+import './Blog.scss'
 
 export const Blog = () => {
   const dispatch = useAppDispatch();

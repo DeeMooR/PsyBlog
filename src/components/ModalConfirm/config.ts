@@ -3,6 +3,8 @@ interface IModalConfirmData {
   btnApply: string,
 }
 
+export type ModalConfirmActionType = 'update_post' | 'update_block' | 'delete_post' | 'delete_block' | 'delete_user';
+
 export const ModalConfirmData: { [action: string]: IModalConfirmData } = {
   delete_post: {
     title: 'Удалить статью?',
@@ -25,3 +27,7 @@ export const ModalConfirmData: { [action: string]: IModalConfirmData } = {
     btnApply: 'Да, изменить',
   }
 };
+
+export const isModalDelete = (action: ModalConfirmActionType) => {
+  return action === 'delete_post' || action === 'delete_block' || action === 'delete_user';
+}

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { ITwoImages } from '../interfaces';
-import './postBlocks.css'
+import './postBlocks.scss'
 
 export const TwoImages:FC<{obj: ITwoImages}> = ({ obj }) => {
   const { image1, image2 } = obj;
