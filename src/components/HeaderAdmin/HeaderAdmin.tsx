@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { setAdminIsAdmin, useAppDispatch } from 'src/store';
+import { setAdminIsAdmin, setMainSuccessMessage, useAppDispatch } from 'src/store';
 import { scrollToSection } from 'src/helpers';
 import './HeaderAdmin.scss'
 
@@ -16,6 +16,7 @@ export const HeaderAdmin = () => {
   const clickExit = () => {
     navigate('/');
     dispatch(setAdminIsAdmin(false));
+    dispatch(setMainSuccessMessage(null));
     localStorage.removeItem('adminToken');
   }
 

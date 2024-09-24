@@ -1,4 +1,4 @@
-import { db } from './index.js';
+import { db } from '../index.js';
 
 class PostBlocksService {
   async getBlocksPostId(post_id) {
@@ -58,16 +58,19 @@ class PostBlocksService {
     const values = Object.values(body);
 
     const [response] = await db.query('SELECT * FROM post_blocks WHERE post_id = ? AND block_number = ?', [post_id, block_number]);
+    if (response.affectedRows === 0) throw new Error('Блок не найден');
     const {table_name, table_id} = response[0];
 
     if (table_name === 'list') {
       await this.updateList(table_id, body);
     } else {
-      await db.query(`UPDATE ${table_name} SET ${fields.join(', ')} WHERE id = ?`, [...values, table_id]);
+      const [result] = await db.query(`UPDATE ${table_name} SET ${fields.join(', ')} WHERE id = ?`, [...values, table_id]);
+      if (result.affectedRows === 0) throw new Error('Запись в таблице не найдена');
     }
   }
   async deleteBlock(post_id, block_number) {
-    await db.query('DELETE FROM post_blocks WHERE post_id = ? AND block_number = ?', [post_id, block_number]);
+    const [result] = await db.query('DELETE FROM post_blocks WHERE post_id = ? AND block_number = ?', [post_id, block_number]);
+    if (result.affectedRows === 0) throw new Error('Блок не найден');
   }
 }
 

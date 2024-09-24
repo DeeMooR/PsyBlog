@@ -37,10 +37,5 @@ const getMailOptions = (body) => {
 }
 
 export const sendEmail = async (body) => {
-  try {
-    const info = await transporter.sendMail(getMailOptions(body));
-    return info;
-  } catch (error) {
-    throw error;
-  }
+  await transporter.sendMail(getMailOptions(body));
 };

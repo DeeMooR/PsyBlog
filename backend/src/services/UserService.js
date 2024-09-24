@@ -1,5 +1,5 @@
-import { db } from './index.js';
-import { sendEmail } from './email.js';
+import { db } from '../index.js';
+import { sendEmail } from '../email.js';
 
 class UserService {
   async getAllUsers() {
@@ -13,7 +13,8 @@ class UserService {
     sendEmail(body);
   }
   async deleteUser(id) {
-    await db.query('DELETE FROM users WHERE id = ?', [id]);
+    const [result] = await db.query('DELETE FROM users WHERE id = ?', [id]);
+    if (result.affectedRows === 0) throw new Error('Пользователь не найден.');
   }
 }
 

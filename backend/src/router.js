@@ -1,8 +1,5 @@
 import express from 'express';
-import PostController from "./PostController.js";
-import PostBlocksController from "./PostBlocksController.js";
-import UserController from './UserController.js';
-import AdminController from './AdminController.js';
+import { PostController, PostBlocksController, UserController, AdminController } from './controllers/index.js';
 
 const createRouter = (upload) => {
   const router = express.Router();

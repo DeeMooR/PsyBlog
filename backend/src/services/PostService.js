@@ -1,6 +1,6 @@
-import { db } from './index.js';
+import { db } from '../index.js';
 import { promises as fsPromises } from 'fs';
-import { formatISOToDate, postWithTrueDate } from './helpers.js';
+import { formatISOToDate, postWithTrueDate } from '../helpers.js';
 import PostBlocksService from "./PostBlocksService.js";
 
 class PostService {
@@ -64,13 +64,17 @@ class PostService {
     if (post.affectedRows === 0) throw new Error(`Статья с ID ${id} не найдена`);
   }
   async deletePost(id) {
-    await db.query('DELETE FROM posts WHERE id = ?', [id]);
+    const [result] = await db.query('DELETE FROM posts WHERE id = ?', [id]);
+    if (result.affectedRows === 0) throw new Error(`Статья с ID ${id} не найдена`);
   }
   async createImage(post_id, image) {
-    await db.query(`UPDATE posts SET image = ? WHERE id = ?`, [image, post_id]);
+    const [result] = await db.query(`UPDATE posts SET image = ? WHERE id = ?`, [image, post_id]);
+    if (result.affectedRows === 0) throw new Error(`Статья с ID ${post_id} не найдена`);
   }
   async updateImage(post_id, image) {
     const [post] = await db.query('SELECT image FROM posts WHERE id = ?', [post_id]);
+    if (!posts.length) throw new Error(`Статья с ID ${post_id} не найден`);
+    
     const url = new URL(post[0].image);
     const filePath = url.pathname.substring(1);
     try {
