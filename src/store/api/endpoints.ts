@@ -11,5 +11,7 @@ export const endpoints = {
   postImage: `${baseURL}/post/image`,
 
   users: `${baseURL}/users`,
-  checkAdmin: `${baseURL}/admin/check`,
+  login: `${baseURL}/admin/login`,
+  checkToken: `${baseURL}/admin/checkToken`,
+  logout: `${baseURL}/admin/logout`,
 };

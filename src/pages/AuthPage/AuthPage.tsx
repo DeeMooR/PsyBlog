@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
-import { clearAdminMessages, getAdminSelector, useAppDispatch, useAppSelector, checkAdminAction, setMainSuccessMessage } from 'src/store'
+import { getAdminSelector, useAppDispatch, useAppSelector, loginAction } from 'src/store'
 import { Header, Footer } from 'src/components';
-import { Loading, Notification, Input } from 'src/UI'
+import { Loading, Input } from 'src/UI'
 import { authScheme } from 'src/validation';
 import { IAuth } from 'src/interfaces';
 import './AuthPage.scss'
@@ -12,7 +12,7 @@ import './AuthPage.scss'
 export const AuthPage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { isAdmin, isLoading, errorMessage } = useAppSelector(getAdminSelector);
+  const { isAdmin, isLoading } = useAppSelector(getAdminSelector);
 
   const {
     register,
@@ -24,18 +24,11 @@ export const AuthPage = () => {
   });
 
   useEffect(() => {
-    if (isAdmin) {
-      navigate('/');
-      dispatch(setMainSuccessMessage('Вы успешно авторизованы как АДМИН'));
-    }
+    if (isAdmin) navigate('/');
   }, [isAdmin])
 
   const onSubmit = (data: IAuth) => {
-    dispatch(checkAdminAction(data));
-  }
-
-  const clearMessages = () => {
-    dispatch(clearAdminMessages());
+    dispatch(loginAction(data));
   }
 
   return (
@@ -75,7 +68,6 @@ export const AuthPage = () => {
         </div>
       </section>
       <Footer/>
-      {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
     </>
   )
 }

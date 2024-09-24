@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AllPosts, MainPage, Post, NewPost, AuthPage, UsersPage } from './pages'
-import { getAdminSelector, setAdminIsAdmin, useAppDispatch, useAppSelector } from './store';
+import { checkTokenAction, clearAdminMessages, getAdminSelector, useAppDispatch, useAppSelector } from './store';
+import { Notification } from 'src/UI';
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const { isAdmin } = useAppSelector(getAdminSelector);
+  const { isAdmin, successMessage, errorMessage } = useAppSelector(getAdminSelector);
 
   useEffect(() => {
-    const adminToken = localStorage.getItem('adminToken');
-    if (adminToken === 'adminToken') dispatch(setAdminIsAdmin(true))
+    const token = localStorage.getItem('adminToken');
+    if (token) dispatch(checkTokenAction(token))
   }, [])
 
+  const clearMessages = () => dispatch(clearAdminMessages());
+
   return (
+    <>
     <Routes>
       <Route path='/' element={<MainPage />} />
       <Route path='/posts' element={<AllPosts />} />
@@ -27,6 +31,9 @@ const App = () => {
       }
       <Route path='*' element={<Navigate to="/" />} />
     </Routes>
+    {successMessage && <Notification type='success' message={successMessage} clearMessage={clearMessages} />}
+    {errorMessage && <Notification type='error' message={errorMessage} clearMessage={clearMessages} />}
+    </>
   );
 }
 

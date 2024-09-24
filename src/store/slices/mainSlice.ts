@@ -14,9 +14,6 @@ const mainSlice = createSlice({
   name: 'main',
   initialState,
   reducers: {
-    setMainSuccessMessage: (state, { payload }) => {
-      state.successMessage = payload;
-    },
     clearMainMessages: (state) => {
       state.successMessage = null;
       state.errorMessage = null;
@@ -55,5 +52,5 @@ const mainSlice = createSlice({
 
 export const {
   reducer: mainReducer,
-  actions: {setMainSuccessMessage, clearMainMessages},
+  actions: {clearMainMessages},
 } = mainSlice;

@@ -10,6 +10,13 @@ export const createTables = async () => {
       );
     `,
     `
+      CREATE TABLE IF NOT EXISTS token_blacklist (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        token VARCHAR(500) NOT NULL,
+        expiresAt DATETIME NOT NULL
+      );
+    `,
+    `
       CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,

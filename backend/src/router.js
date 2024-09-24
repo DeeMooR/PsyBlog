@@ -28,7 +28,9 @@ const createRouter = (upload) => {
   router.delete('/users/:id', UserController.deleteUser)
 
   router.post('/admin', AdminController.createAdmin)
-  router.post('/admin/check', AdminController.checkAdmin)
+  router.post('/admin/login', AdminController.checkAdmin)
+  router.post('/admin/checkToken', AdminController.checkToken)
+  router.post('/admin/logout', AdminController.logout)
 
   return router;
 }

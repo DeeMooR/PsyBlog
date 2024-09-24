@@ -6,6 +6,7 @@ import path from 'path';
 import cors from 'cors';
 import createRouter from './router.js';
 import {createTables} from './initTables.js';
+import AdminService from "./services/AdminService.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -46,3 +47,13 @@ app.listen(port, () => {
   console.log(`Сервер запущен на http://localhost:${port}`);
   createTables();
 });
+
+setInterval(async () => {
+  try {
+    console.log('Запуск очистки истекших токенов...');
+    await AdminService.clearExpiredTokens();
+    console.log('Очистка завершена.');
+  } catch (error) {
+    console.error('Ошибка при очистке истекших токенов:', error.message);
+  }
+}, 24*60*60*1000);

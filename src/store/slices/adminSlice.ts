@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { adminState } from '../interface';
-import { checkAdminAction } from '../actions';
+import { checkTokenAction, loginAction, logoutAction } from '../actions';
 
 const initialState: adminState = {
   isAdmin: false,
@@ -29,15 +29,40 @@ const adminSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(checkAdminAction.pending, setLoading)
-      .addCase(checkAdminAction.fulfilled, (state, { payload }) => {
+      .addCase(loginAction.pending, setLoading)
+      .addCase(loginAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isAdmin = payload;
-        localStorage.setItem('adminToken', 'adminToken');
+        state.isAdmin = true;
+        localStorage.setItem('adminToken', payload);
+        state.successMessage = 'Вы успешно авторизованы как АДМИН'
       })
-      .addCase(checkAdminAction.rejected, (state) => {
+      .addCase(loginAction.rejected, (state) => {
         state.isLoading = false;
         state.errorMessage = 'Ошибка при входе в админ.панель';
+      })
+
+      .addCase(checkTokenAction.pending, setLoading)
+      .addCase(checkTokenAction.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isAdmin = true;
+      })
+      .addCase(checkTokenAction.rejected, (state) => {
+        state.isLoading = false;
+        state.isAdmin = false;
+        localStorage.removeItem('adminToken');
+        state.errorMessage = 'Токен недействителен. Выход из аккаунта';
+      })
+
+      .addCase(logoutAction.pending, setLoading)
+      .addCase(logoutAction.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isAdmin = false;
+        localStorage.removeItem('adminToken');
+      })
+      .addCase(logoutAction.rejected, (state) => {
+        state.isLoading = false;
+        state.isAdmin = false;
+        localStorage.removeItem('adminToken');
       })
   },
 })
