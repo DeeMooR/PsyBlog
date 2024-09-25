@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AllPosts, MainPage, Post, NewPost, AuthPage, UsersPage } from './pages'
-import { checkTokenAction, clearAdminMessages, getAdminSelector, useAppDispatch, useAppSelector } from './store';
+import { checkTokenAction, clearAdminMessages, getAdminSelector, setupInterceptors, useAppDispatch, useAppSelector } from './store';
 import { Notification } from 'src/UI';
 
 const App = () => {
@@ -9,7 +9,8 @@ const App = () => {
   const { isAdmin, successMessage, errorMessage } = useAppSelector(getAdminSelector);
 
   useEffect(() => {
-    const token = localStorage.getItem('adminToken');
+    setupInterceptors(dispatch);
+    const token = localStorage.getItem('accessToken');
     if (token) dispatch(checkTokenAction(token))
   }, [])
 

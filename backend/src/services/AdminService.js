@@ -18,7 +18,7 @@ class AdminService {
 
     const isMatch = login === admin[0].login && await bcrypt.compare(password, admin[0].password);
     if (isMatch) {
-      const accessToken = jwt.sign({ login }, process.env.JWT_SECRET, { expiresIn: '10s' });
+      const accessToken = jwt.sign({ login }, process.env.JWT_SECRET, { expiresIn: '1h' });
       return accessToken;
     } else {
       throw new Error('Неправильный логин или пароль.');

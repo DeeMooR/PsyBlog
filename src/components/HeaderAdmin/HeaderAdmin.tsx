@@ -14,7 +14,7 @@ export const HeaderAdmin = () => {
   }
 
   const clickExit = () => {
-    const token = localStorage.getItem('adminToken');
+    const token = localStorage.getItem('accessToken');
     dispatch(logoutAction(token));
     navigate('/');
   }

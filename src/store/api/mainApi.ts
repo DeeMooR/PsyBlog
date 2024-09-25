@@ -1,9 +1,9 @@
-import axios from "axios";
+import { axiosInstance } from "./axiosInstance";
 import { endpoints } from "./endpoints";
 import { IShortPost, IUserWithoutId } from "src/interfaces";
 
 export const getShortPostsTopApi = (): Promise<IShortPost[]> =>
-  axios.get(endpoints.shortPostsTop).then(({ data }) => data);
+  axiosInstance.get(endpoints.shortPostsTop).then(({ data }) => data);
 
 export const createUserApi = (body: IUserWithoutId): Promise<void> =>
-  axios.post(endpoints.users, body);
+  axiosInstance.post(endpoints.users, body);

@@ -1,5 +1,6 @@
 import express from 'express';
 import { PostController, PostBlocksController, UserController, AdminController } from './controllers/index.js';
+import { authenticateToken } from './token.js';
 
 const createRouter = (upload) => {
   const router = express.Router();
@@ -9,27 +10,27 @@ const createRouter = (upload) => {
   router.get('/fullPosts/:id', PostController.getFullPost)
   router.get('/shortPosts', PostController.getShortPosts)
   router.get('/shortPosts/top', PostController.getShortPostsTop)
-  router.get('/shortPosts/admin', PostController.getShortPostsAdmin)
+  router.get('/shortPosts/admin', authenticateToken, PostController.getShortPostsAdmin)
   
-  router.post('/posts', PostController.createPost)
-  router.put('/posts/:id', PostController.updatePost)
-  router.delete('/posts/:id', PostController.deletePost)
+  router.post('/posts', authenticateToken, PostController.createPost)
+  router.put('/posts/:id', authenticateToken, PostController.updatePost)
+  router.delete('/posts/:id', authenticateToken, PostController.deletePost)
   
-  router.post('/post/image', upload.single('image'), PostController.createImage)
-  router.put('/post/image', upload.single('image'), PostController.updateImage)
+  router.post('/post/image', authenticateToken, upload.single('image'), PostController.createImage)
+  router.put('/post/image', authenticateToken, upload.single('image'), PostController.updateImage)
 
   router.get('/post_blocks', PostBlocksController.getBlocksPostId)
-  router.post('/post_blocks', PostBlocksController.createBlock)
-  router.put('/post_blocks', PostBlocksController.updateBlock)
-  router.delete('/post_blocks', PostBlocksController.deleteBlock)
+  router.post('/post_blocks', authenticateToken, PostBlocksController.createBlock)
+  router.put('/post_blocks', authenticateToken, PostBlocksController.updateBlock)
+  router.delete('/post_blocks', authenticateToken, PostBlocksController.deleteBlock)
 
-  router.get('/users', UserController.getAllUsers)
-  router.post('/users', UserController.createUser)
-  router.delete('/users/:id', UserController.deleteUser)
+  router.get('/users', authenticateToken, UserController.getAllUsers)
+  router.post('/users', authenticateToken, UserController.createUser)
+  router.delete('/users/:id', authenticateToken, UserController.deleteUser)
 
   router.post('/admin', AdminController.createAdmin)
   router.post('/admin/login', AdminController.checkAdmin)
-  router.post('/admin/checkToken', AdminController.checkToken)
+  router.post('/admin/checkToken', authenticateToken, AdminController.checkToken)
   router.post('/admin/logout', AdminController.logout)
 
   return router;

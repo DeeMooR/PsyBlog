@@ -25,6 +25,11 @@ const adminSlice = createSlice({
     clearAdminMessages: (state) => {
       state.successMessage = null;
       state.errorMessage = null;
+    },
+    logoutAdmin: (state) => {
+      state.isAdmin = false;
+      localStorage.removeItem('accessToken');
+      state.errorMessage = 'Токен недействителен. Выход из аккаунта';
     }
   },
   extraReducers: (builder) => {
@@ -33,7 +38,7 @@ const adminSlice = createSlice({
       .addCase(loginAction.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isAdmin = true;
-        localStorage.setItem('adminToken', payload);
+        localStorage.setItem('accessToken', payload);
         state.successMessage = 'Вы успешно авторизованы как АДМИН'
       })
       .addCase(loginAction.rejected, (state) => {
@@ -49,7 +54,7 @@ const adminSlice = createSlice({
       .addCase(checkTokenAction.rejected, (state) => {
         state.isLoading = false;
         state.isAdmin = false;
-        localStorage.removeItem('adminToken');
+        localStorage.removeItem('accessToken');
         state.errorMessage = 'Токен недействителен. Выход из аккаунта';
       })
 
@@ -57,17 +62,17 @@ const adminSlice = createSlice({
       .addCase(logoutAction.fulfilled, (state) => {
         state.isLoading = false;
         state.isAdmin = false;
-        localStorage.removeItem('adminToken');
+        localStorage.removeItem('accessToken');
       })
       .addCase(logoutAction.rejected, (state) => {
         state.isLoading = false;
         state.isAdmin = false;
-        localStorage.removeItem('adminToken');
+        localStorage.removeItem('accessToken');
       })
   },
 })
 
 export const {
   reducer: adminReducer,
-  actions: {setAdminIsAdmin, clearAdminMessages},
+  actions: {setAdminIsAdmin, clearAdminMessages, logoutAdmin},
 } = adminSlice;
