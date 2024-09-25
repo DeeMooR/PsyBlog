@@ -4,9 +4,14 @@ import mysql from 'mysql2/promise';
 import multer from 'multer';
 import path from 'path';
 import cors from 'cors';
-import createRouter from './router.js';
-import {createTables} from './initTables.js';
-import AdminService from "./services/AdminService.js";
+import cron from 'node-cron';
+import { fileURLToPath } from 'url';
+import createRouter from './src/router.js';
+import { createTables } from './src/initTables.js';
+import { backupDatabase, clearExpiredTokens } from './src/backup.js';
+
+const __filename = fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(__filename);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -22,10 +27,9 @@ dotenv.config();
 const port = 5000;
 const app = express();
 
+const router = createRouter(upload);
 app.use(cors());
 app.use(express.json());
-
-const router = createRouter(upload);
 app.use('/api', router);
 app.use('/images', express.static('images'));
 
@@ -36,9 +40,7 @@ export const db = mysql.createPool({
   database: process.env.MYSQL_DATABASE
 });
 
-createRouter(upload);
-
-app.use((err, req, res, next) => {
+app.use((err, res) => {
   console.error(err.stack);
   res.status(500).send('Неизвестная ошибка');
 });
@@ -48,12 +50,10 @@ app.listen(port, () => {
   createTables();
 });
 
-setInterval(async () => {
-  try {
-    console.log('Запуск очистки истекших токенов...');
-    await AdminService.clearExpiredTokens();
-    console.log('Очистка завершена.');
-  } catch (error) {
-    console.error('Ошибка при очистке истекших токенов:', error.message);
-  }
-}, 24*60*60*1000);
+
+cron.schedule('00 12 * * *', async () => {
+  console.log('Запуск очистки истекших токенов...');
+  await clearExpiredTokens();
+  console.log('Запуск создания бэкапа...');
+  await backupDatabase();
+});

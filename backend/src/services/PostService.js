@@ -1,4 +1,4 @@
-import { db } from '../index.js';
+import { db } from '../../index.js';
 import { promises as fsPromises } from 'fs';
 import { formatISOToDate, postWithTrueDate } from '../helpers.js';
 import PostBlocksService from "./PostBlocksService.js";

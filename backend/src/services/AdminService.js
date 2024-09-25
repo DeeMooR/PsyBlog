@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { db } from '../index.js';
+import { db } from '../../index.js';
 
 class AdminService {
   async createAdmin(body) {
@@ -44,10 +44,6 @@ class AdminService {
     } catch (e) {
       throw new Error('Неверный или истёкший токен.');
     }
-  }
-
-  async clearExpiredTokens() {
-    await db.query('DELETE FROM token_blacklist');
   }
 }
 
