@@ -1,0 +1,21 @@
+.qualificationChapter {
+  .qualificationChapter__title {
+    font-size: 22px;
+    margin: 0 0 3px 0;
+  }
+  .qualificationChapter__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .qualificationChapter__item {
+      position: relative;
+      margin: 0 0 0 16px;
+      &::before {
+        content: '•';
+        position: absolute;
+        top: 0;
+        left: -15px;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { SectionTemplate } from 'src/components'
-import { certificates, certificates_slides } from 'src/config'
+import { QualificationChapter, SectionTemplate } from 'src/components'
+import { certificates, certificates_slides, qualification } from 'src/config'
 import { displayScroll, hiddenScroll } from 'src/helpers';
 import './Qualification.scss'
 
@@ -21,6 +21,11 @@ export const Qualification = () => {
   return (
     <SectionTemplate id='qualification' title='Квалификация' backgroundColor='beige' >
       <div className='qualification'>
+        <div className="qualification__info">
+          {qualification.map(({title, items}) => (
+            <QualificationChapter title={title} items={items} key={title} />
+          ))}
+        </div>
         <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={200}  />
       </div>
       <Lightbox

@@ -10,9 +10,13 @@ export interface IService {
 }
 
 export interface IFAQ {
-  id: number,
   title: string,
   text: string,
+}
+
+export interface IQualificationChapter {
+  title: string,
+  items: string[],
 }
 
 export interface IUser {

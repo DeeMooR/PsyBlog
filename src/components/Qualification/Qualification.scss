@@ -1,5 +1,11 @@
 .qualification {
   width: 100%;
+  .qualification__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 30px 30px;
+  }
 }
 
 .react-photo-album--button {

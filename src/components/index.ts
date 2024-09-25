@@ -24,3 +24,4 @@ export * from './HeaderAdmin/HeaderAdmin';
 export * from './UsersPageTableHeader/UsersPageTableHeader';
 export * from './UsersPageTableLines/UsersPageTableLines';
 export * from './NewPostBlocks/NewPostBlocks';
+export * from './QualificationChapter/QualificationChapter';
