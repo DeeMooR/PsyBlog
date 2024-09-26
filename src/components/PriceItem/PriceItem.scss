@@ -45,3 +45,15 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: 699.98px) {
+  .priceItem {
+    .priceItem__details {
+      .priceItem__timePrice {
+        &.isEmpty {
+          display: none;
+        }
+      }
+    }
+  }
+}

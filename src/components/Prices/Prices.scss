@@ -6,3 +6,39 @@
     gap: 100px;
   }
 }
+
+@media (max-width: 999.98px) {
+  .prices {
+    .prices__items {
+      gap: 60px;
+    }
+  }
+}
+
+@media (max-width: 899.98px) {
+  .prices {
+    .prices__items {
+      gap: 30px;
+    }
+  }
+}
+
+@media (max-width: 699.98px) {
+  .prices {
+    .prices__items {
+      flex-direction: column;
+      gap: 60px;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+  }
+}
+
+@media (max-width: 499.98px) {
+  .prices {
+    .prices__items {
+      padding: 0;
+    }
+  }
+}

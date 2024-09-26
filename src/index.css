@@ -250,6 +250,17 @@ button:disabled,
   color: var(--beige-2);
 }
 
+@media (max-width: 859.98px) {
+  .imageBorder {
+    display: none;
+  }
+}
+@media (max-width: 479.98px) {
+  .crumbs {
+    margin: 0 0 10px 0;
+  }
+}
+
 /*--------- LIBRARIES ---------*/
 
 .yarl__container {

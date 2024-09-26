@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import cn from 'classnames';
 import { scrollToSection } from 'src/helpers';
 import { clockIcon } from 'src/assets';
 import { IService } from 'src/interfaces'
@@ -12,6 +13,10 @@ interface IPriceItem {
 export const PriceItem:FC<IPriceItem> = ({ obj }) => {
   const { image, name, description, price, time } = obj;
 
+  const timePriceStyle = cn('priceItem__timePrice', {
+    isEmpty: !time && !price,
+  });
+
   return (
     <div className='priceItem'>
       <div className="priceItem__image">
@@ -20,7 +25,7 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
       <h4>{name}</h4>
       <div className="priceItem__details">
         <p className="priceItem__description">{description}</p>
-        <div className="priceItem__timePrice">
+        <div className={timePriceStyle}>
           {time &&
             <div className="priceItem__time">
               <img className='time__icon' src={clockIcon} />

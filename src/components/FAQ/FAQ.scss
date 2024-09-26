@@ -10,3 +10,39 @@
     }
   }
 }
+
+@media (max-width: 799.98px) {
+  .faq {
+    .faq__items {
+      gap: 60px;
+      .faq__column {
+        gap: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: 699.98px) {
+  .faq {
+    .faq__items {
+      flex-direction: column;
+      gap: 40px;
+      .faq__column {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 499.98px) {
+  .faq {
+    .faq__items {
+      .faq__column {
+        padding: 0;
+      }
+    }
+  }
+}

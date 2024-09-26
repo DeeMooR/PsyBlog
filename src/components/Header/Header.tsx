@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { displayScroll, hiddenScroll, scrollToSection } from 'src/helpers';
+import { menuIcon } from 'src/assets';
 import './Header.scss'
 
 export const Header = () => {
@@ -33,6 +34,9 @@ export const Header = () => {
           <a onClick={() => scrollToSection('qualification')}>Квалификация</a>
           <a onClick={() => scrollToSection('blog')} >Блог</a>
           <a onClick={() => scrollToSection('contacts')}>Контакты</a>
+        </div>
+        <div className="header__menu">
+          <img src={menuIcon} alt="menu" />
         </div>
         {/* <MenuIcon className='header__menu' onClick={() => setClickMenu(true)} /> */}
       </div>

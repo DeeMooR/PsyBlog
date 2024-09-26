@@ -11,9 +11,9 @@
     padding: 60px 0 80px;
   }
   .sectionTemplate__wrapper {
-    max-width: 1120px;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px;
     .sectionTemplate__title {
       margin: 0 0 40px 0;
       color: var(--black);
@@ -25,5 +25,11 @@
         color: var(--black);
       }
     }
+  }
+}
+
+@media (max-width: 499.98px) {
+  .sectionTemplate {
+    padding: 60px 0;
   }
 }

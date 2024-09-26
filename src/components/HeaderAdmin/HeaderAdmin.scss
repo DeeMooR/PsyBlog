@@ -13,7 +13,9 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    width: 1300px;
+    width: 100%;
+    max-width: 1350px;
+    padding: 0 30px 0 20px;
     .headerAdmin__navigation {
       display: flex;
       gap: 5px;
@@ -58,6 +60,40 @@
       .headerAdmin__exit {
         min-width: 120px;
         border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 799.98px) {
+  .headerAdmin {
+    .headerAdmin__wrapper {
+      .headerAdmin__logo {
+        display: none;
+      }
+      .headerAdmin__right {
+        .headerAdmin__adminText {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479.98px) {
+  .headerAdmin {
+    .headerAdmin__wrapper {
+      padding: 0 20px 0 13px;
+      .headerAdmin__navigation {
+        gap: 0;
+        a {
+          padding: 7px;
+        }
+      }
+      .headerAdmin__right {
+        .headerAdmin__exit {
+          min-width: 100px;
+        }
       }
     }
   }

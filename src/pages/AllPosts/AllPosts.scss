@@ -6,7 +6,9 @@
     position: relative;
     flex: 1;
     margin: 30px auto 70px;
-    width: 1080px;
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 30px;
     .allPosts__title {
       margin: 0 0 40px 0;
       text-align: center;
@@ -14,7 +16,7 @@
     .allPosts__btnAddPost {
       position: absolute;
       top: 24px;
-      right: 0;
+      right: 20px;
       border-radius: 5px;
     }
     .allPosts__list {
@@ -27,6 +29,68 @@
     }
     .allPosts__empty {
       margin: 50px auto 0;
+    }
+  }
+}
+
+@media (max-width: 999.98px) {
+  .allPosts {
+    .allPosts__wrapper {
+      .allPosts__list {
+        gap: 30px 20px;
+        .cardSmall {
+          width: calc((100% - 40px)/3);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 799.98px) {
+  .allPosts {
+    .allPosts__wrapper {
+      .allPosts__list {
+        gap: 30px 30px;
+        .cardSmall {
+          width: calc((100% - 30px)/2);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 599.98px) {
+  .allPosts {
+    .allPosts__wrapper {
+      .allPosts__btnAddPost {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: -20px 0 15px 0;
+        margin-left: auto;
+      }
+      .allPosts__list {
+        gap: 30px 20px;
+        .cardSmall {
+          width: calc((100% - 20px)/2);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 479.98px) {
+  .allPosts {
+    .allPosts__wrapper {
+      .allPosts__title {
+        margin: 0 0 30px 0;
+      }
+      .allPosts__list {
+        gap: 30px 0;
+        .cardSmall {
+          width: 100%;
+        }
+      }
     }
   }
 }

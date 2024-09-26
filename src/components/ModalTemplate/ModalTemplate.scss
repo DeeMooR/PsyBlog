@@ -34,30 +34,3 @@
     }
   }
 }
-
-@media (max-width: 599.98px) {
-  .modal__background {
-    .modal {
-      .modal__content {
-        padding: 40px 45px;
-      }
-    }
-  }
-}
-
-@media (max-width: 499.98px) {
-  .modal__background {
-    .modal {
-      .modal__content {
-        padding: 40px 35px;
-        h2 {
-          font-size: 28px;
-          margin: 0 0 20px 0;
-        }
-        h3 {
-          margin: 0 0 7px 0;
-        }
-      }
-    }
-  }
-}

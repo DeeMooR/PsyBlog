@@ -25,7 +25,7 @@ const createRouter = (upload) => {
   router.delete('/post_blocks', authenticateToken, PostBlocksController.deleteBlock)
 
   router.get('/users', authenticateToken, UserController.getAllUsers)
-  router.post('/users', authenticateToken, UserController.createUser)
+  router.post('/users', UserController.createUser)
   router.delete('/users/:id', authenticateToken, UserController.deleteUser)
 
   router.post('/admin', AdminController.createAdmin)

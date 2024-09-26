@@ -2,11 +2,13 @@
   height: 100%;
   padding: 30px 0 0 0;
   .newPost__wrapper {
-    margin: 0 auto;
-    width: 1000px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1060px;
+    padding: 0 30px;
     .newPost__content {
       flex: 1;
       .newPost__crumbs {
@@ -65,6 +67,21 @@
       button {
         margin-left: auto;
         border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 479.98px) {
+  .newPost {
+    .newPost__wrapper {
+      .newPost__content {
+        .newPost__crumbs {
+          margin: 0 0 10px 0;
+        }
+        .newPost__title {
+          margin: 0 0 30px 0;
+        }
       }
     }
   }

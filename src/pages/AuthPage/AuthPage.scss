@@ -1,7 +1,9 @@
 .authPage {
   .authPage__wrapper {
     margin: 30px auto 0;
-    width: 1080px;
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 30px;
     .authPage__content {
       margin: 110px auto 180px;
       .authPage__title {

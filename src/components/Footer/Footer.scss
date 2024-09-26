@@ -89,3 +89,27 @@
     }
   }
 }
+
+@media (max-width: 699.98px) {
+  .footer {
+    .footer__navigation {
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+      padding: 40px 30px;
+      .footer__column {
+        width: 100%;
+        padding: 0;
+      }
+      .footer__icons {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        border: none;
+        border-top: 1px solid var(--green-text);
+        border-bottom: 1px solid var(--green-text);
+        padding: 20px 0;
+      }
+    }
+  }
+}
