@@ -4,6 +4,8 @@ import { createUserAction, getShortPostsTopAction } from '../actions';
 
 const initialState: mainState = {
   topPosts: [],
+  scrollSection: null,
+  scrollPadding: null,
   isLoading: false,
   successMessage: null,
   errorMessage: null,
@@ -14,6 +16,14 @@ const mainSlice = createSlice({
   name: 'main',
   initialState,
   reducers: {
+    setMainScroll: (state, { payload }) => {
+      state.scrollSection = payload.section;
+      state.scrollPadding = payload.padding;
+    },
+    clearMainScroll: (state) => {
+      state.scrollSection = null;
+      state.scrollPadding = null;
+    },
     clearMainMessages: (state) => {
       state.successMessage = null;
       state.errorMessage = null;
@@ -52,5 +62,5 @@ const mainSlice = createSlice({
 
 export const {
   reducer: mainReducer,
-  actions: {clearMainMessages},
+  actions: {setMainScroll, clearMainScroll, clearMainMessages},
 } = mainSlice;

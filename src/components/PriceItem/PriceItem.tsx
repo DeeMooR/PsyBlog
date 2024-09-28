@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import cn from 'classnames';
+import { useNavigate } from 'react-router-dom';
 import { scrollToSection } from 'src/helpers';
 import { clockIcon } from 'src/assets';
 import { IService } from 'src/interfaces'
@@ -11,6 +12,7 @@ interface IPriceItem {
 }
 
 export const PriceItem:FC<IPriceItem> = ({ obj }) => {
+  const navigate = useNavigate();
   const { image, name, description, price, time } = obj;
 
   const timePriceStyle = cn('priceItem__timePrice', {
@@ -35,7 +37,7 @@ export const PriceItem:FC<IPriceItem> = ({ obj }) => {
           {price && <p className='priceItem__price'>{price}</p>}
         </div>
       </div>
-      <button onClick={() => scrollToSection('contacts', -80)} className='btnDark priceItem__button'>Записаться</button>
+      <button onClick={() => scrollToSection('contacts', navigate, -80)} className='btnDark priceItem__button'>Записаться</button>
     </div>
   )
 }

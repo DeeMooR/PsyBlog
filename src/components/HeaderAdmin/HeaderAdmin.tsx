@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logoutAction, useAppDispatch } from 'src/store';
 import { scrollToSection } from 'src/helpers';
 import './HeaderAdmin.scss'
@@ -9,8 +9,7 @@ export const HeaderAdmin = () => {
   const navigate = useNavigate();
 
   const clickHome = () => {
-    navigate('/');
-    scrollToSection('up', -80);
+    scrollToSection('up', navigate, -80);
   }
 
   const clickExit = () => {
@@ -24,10 +23,10 @@ export const HeaderAdmin = () => {
       <div className="headerAdmin__wrapper">
         <div className='headerAdmin__navigation'>
           <a onClick={clickHome}>Главная</a>
-          <a onClick={() => navigate('/posts')}>Статьи</a>
-          <a onClick={() => navigate('/users')} >Заявки</a>
+          <Link to='/posts'>Статьи</Link>
+          <Link to='/users'>Заявки</Link>
         </div>
-        <div className="headerAdmin__logo" onClick={clickHome}>
+        <div className="headerAdmin__logo logo__block" onClick={clickHome}>
           <p className='logo__name'>Ольга Разваляева</p>
           <p className='logo__position'>Психолог, Психоаналитик</p>
         </div>

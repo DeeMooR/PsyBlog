@@ -256,9 +256,35 @@ button:disabled,
   color: var(--beige-2);
 }
 
+.logo__block {
+  text-align: center;
+  cursor: pointer;
+}
+.logo__name {
+  font-family: var(--font-logo);
+  font-size: 24px;
+  color: var(--green);
+  margin: 0 0 1px 0;
+}
+.logo__position {
+  font-family: var(--font-tall);
+  font-size: 9.5px;
+  letter-spacing: 0.02em;
+  color: var(--green-text);
+  text-transform: uppercase;
+}
+
 @media (max-width: 859.98px) {
   .imageBorder {
     display: none;
+  }
+}
+@media (max-width: 599.98px) {
+  .logo__name {
+    font-size: 21px;
+  }
+  .logo__position {
+    font-size: 8.5px;
   }
 }
 @media (max-width: 479.98px) {

@@ -41,6 +41,8 @@ export interface allPostsState {
 
 export interface mainState {
   topPosts: IShortPost[],
+  scrollSection: string | null,
+  scrollPadding: number | null,
   isLoading: boolean,
   successMessage: string | null,
   errorMessage: string | null,

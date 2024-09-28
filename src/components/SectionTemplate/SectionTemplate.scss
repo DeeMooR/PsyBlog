@@ -31,5 +31,8 @@
 @media (max-width: 499.98px) {
   .sectionTemplate {
     padding: 60px 0;
+    &.includeTitle {
+      padding: 60px 0;
+    }
   }
 }

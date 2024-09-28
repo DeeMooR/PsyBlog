@@ -1,8 +1,6 @@
 import logoIcon from './icons/logo.png'
-import menuIcon from './icons/menu.png'
+import menuIcon from './icons/menu.svg'
 import clockIcon from './icons/clock.png'
-import downArrowIcon from './icons/down_arrow.png'
-import upRightArrowIcon from './icons/up_right_arrow.png'
 import humanIcon from './icons/human.png'
 import warningIcon from './icons/warning.svg'
 import crossIcon from './icons/cross.svg';
@@ -32,8 +30,6 @@ export {
   logoIcon, 
   menuIcon,
   clockIcon,
-  downArrowIcon,
-  upRightArrowIcon,
   humanIcon,
   warningIcon,
   crossIcon,

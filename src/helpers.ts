@@ -1,14 +1,16 @@
 import { scroller } from "react-scroll";
+import { NavigateFunction } from "react-router-dom";
 import { ICreateBlock, IListForm, IRequestNewBlock, IRequestUpdate, IUpdateBlock } from "./interfaces";
 import { createBlockAction, updateBlockAction } from "./store";
 import { IList, ListTypes, convertListTypeEng } from "./postBlocks/interfaces";
 
-export const scrollToSection = (page: string, padding?: number) => {
+export const scrollToSection = async (page: string, navigate: NavigateFunction, padding: number = -60) => {
+  await navigate('/');
   scroller.scrollTo(page, {
     duration: 700,
     delay: 0,
     smooth: 'easeOutQuart',
-    offset: padding || -60
+    offset: padding
   });
 };
 

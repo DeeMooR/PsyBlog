@@ -1,16 +1,22 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { scrollToSection } from 'src/helpers'
 import './Footer.scss'
 
 export const Footer = () => {
+  const navigate = useNavigate();
+
+  const scroll = (section: string) => {
+    scrollToSection(section, navigate)
+  }
+
   return (
     <footer className='footer'>
       <div className="footer__navigation">
         <div className="footer__column">
-          <a onClick={() => scrollToSection('about')}>Обо мне</a>
-          <a onClick={() => scrollToSection('prices')}>Консультации</a>
-          <a onClick={() => scrollToSection('faq')} >Вопросы</a>
+          <a onClick={() => scroll('about')}>Обо мне</a>
+          <a onClick={() => scroll('prices')}>Консультации</a>
+          <a onClick={() => scroll('faq')} >Вопросы</a>
         </div>
         <div className='footer__icons'>
           <p className='icons__text'>Контакты для связи</p>
@@ -27,9 +33,9 @@ export const Footer = () => {
           </div>
         </div>
         <div className='footer__column'>
-          <a onClick={() => scrollToSection('qualification')}>Квалификация</a>
-          <a onClick={() => scrollToSection('blog')} >Блог</a>
-          <a onClick={() => scrollToSection('contacts')}>Контакты</a>
+          <a onClick={() => scroll('qualification')}>Квалификация</a>
+          <a onClick={() => scroll('blog')} >Блог</a>
+          <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
       </div>
       <div className="footer__copyright">

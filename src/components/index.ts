@@ -25,3 +25,4 @@ export * from './UsersPageTableHeader/UsersPageTableHeader';
 export * from './UsersPageTableLines/UsersPageTableLines';
 export * from './NewPostBlocks/NewPostBlocks';
 export * from './QualificationChapter/QualificationChapter';
+export * from './SlideBar/SlideBar';

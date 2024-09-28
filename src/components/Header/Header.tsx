@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { displayScroll, hiddenScroll, scrollToSection } from 'src/helpers';
+import { SlideBar } from 'src/components';
 import { menuIcon } from 'src/assets';
 import './Header.scss'
 
@@ -14,36 +15,34 @@ export const Header = () => {
   }, [clickMenu]);
 
   const onClickLogo = () => {
-    navigate('/');
-    scrollToSection('up', -80);
+    scrollToSection('up', navigate, -80);
+  }
+  const scroll = (section: string) => {
+    scrollToSection(section, navigate)
   }
 
   return (
     <header className='header'>
       <div className="header__wrapper">
         <div className='header__navigation'>
-          <a onClick={() => scrollToSection('about')}>Обо мне</a>
-          <a onClick={() => scrollToSection('prices')}>Консультации</a>
-          <a onClick={() => scrollToSection('faq')} >Вопросы</a>
+          <a onClick={() => scroll('about')}>Обо мне</a>
+          <a onClick={() => scroll('prices')}>Консультации</a>
+          <a onClick={() => scroll('faq')} >Вопросы</a>
         </div>
-        <div className="header__logo" onClick={onClickLogo}>
+        <div className="header__logo logo__block" onClick={onClickLogo}>
           <p className='logo__name'>Ольга Разваляева</p>
           <p className='logo__position'>Психолог, Психоаналитик</p>
         </div>
         <div className='header__navigation'>
-          <a onClick={() => scrollToSection('qualification')}>Квалификация</a>
-          <a onClick={() => scrollToSection('blog')} >Блог</a>
-          <a onClick={() => scrollToSection('contacts')}>Контакты</a>
+          <a onClick={() => scroll('qualification')}>Квалификация</a>
+          <a onClick={() => scroll('blog')} >Блог</a>
+          <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
-        <div className="header__menu">
+        <div className="header__menu" onClick={() => setClickMenu(true)}>
           <img src={menuIcon} alt="menu" />
         </div>
-        {/* <MenuIcon className='header__menu' onClick={() => setClickMenu(true)} /> */}
       </div>
-      {clickMenu &&
-        <div>SlideBar</div>
-        // <SlideBar clickMenu={clickMenu} setClickMenu={setClickMenu} />
-      }
+      <SlideBar clickMenu={clickMenu} setClickMenu={setClickMenu} />
     </header>
   )
 }

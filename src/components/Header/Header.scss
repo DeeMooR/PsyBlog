@@ -32,28 +32,12 @@
         }
       }
     }
-    .header__logo {
-      text-align: center;
-      cursor: pointer;
-      .logo__name {
-        font-family: var(--font-logo);
-        font-size: 24px;
-        color: var(--green);
-        margin: 0 0 1px 0;
-      }
-      .logo__position {
-        font-family: var(--font-tall);
-        font-size: 9.5px;
-        letter-spacing: 0.02em;
-        color: var(--green-text);
-        text-transform: uppercase;
-      }
-    }
     .header__menu {
       display: none;
       position: absolute;
-      top: 28px;
+      top: 31px;
       right: 30px;
+      cursor: pointer;
     }
   }
 }
@@ -66,23 +50,6 @@
         gap: 0;
         a {
           padding: 7px;
-        }
-      }
-      .header__logo {
-        text-align: center;
-        cursor: pointer;
-        .logo__name {
-          font-family: var(--font-logo);
-          font-size: 24px;
-          color: var(--green);
-          margin: 0 0 1px 0;
-        }
-        .logo__position {
-          font-family: var(--font-tall);
-          font-size: 9.5px;
-          letter-spacing: 0.02em;
-          color: var(--green-text);
-          text-transform: uppercase;
         }
       }
     }
@@ -108,16 +75,8 @@
   .header {
     height: 60px;
     .header__wrapper {
-      .header__logo {
-        .logo__name {
-          font-size: 21px;
-        }
-        .logo__position {
-          font-size: 8.5px;
-        }
-      }
       .header__menu {
-        top: 18px;
+        top: 21px;
       }
     }
   }

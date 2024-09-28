@@ -31,23 +31,6 @@
         }
       }
     }
-    .headerAdmin__logo {
-      text-align: center;
-      cursor: pointer;
-      .logo__name {
-        font-family: var(--font-logo);
-        font-size: 24px;
-        color: var(--green);
-        margin: 0 0 1px 0;
-      }
-      .logo__position {
-        font-family: var(--font-tall);
-        font-size: 9.5px;
-        letter-spacing: 0.02em;
-        color: var(--green-text);
-        text-transform: uppercase;
-      }
-    }
     .headerAdmin__right {
       display: flex;
       gap: 25px;

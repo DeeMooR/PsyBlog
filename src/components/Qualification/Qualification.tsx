@@ -28,7 +28,7 @@ export const Qualification = () => {
           ))}
         </div>
         <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={200}  />
-        <ColumnsPhotoAlbum photos={certificates} columns={2} />
+        <ColumnsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} columns={2} />
       </div>
       <Lightbox
         plugins={[Zoom]}
