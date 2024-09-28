@@ -98,6 +98,12 @@ body {
   padding: 80px 0 0 0;
 }
 
+@media (max-width: 599.98px) {
+  #root {
+    padding: 60px 0 0 0;
+  }
+}
+
 /*--------- STYLES ---------*/
 
 p, span, a {

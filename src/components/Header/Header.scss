@@ -103,3 +103,22 @@
     }
   }
 }
+
+@media (max-width: 599.98px) {
+  .header {
+    height: 60px;
+    .header__wrapper {
+      .header__logo {
+        .logo__name {
+          font-size: 21px;
+        }
+        .logo__position {
+          font-size: 8.5px;
+        }
+      }
+      .header__menu {
+        top: 18px;
+      }
+    }
+  }
+}

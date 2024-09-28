@@ -6,9 +6,10 @@ import './Qualification.scss'
 
 import Lightbox from "yet-another-react-lightbox";
 import { Zoom } from "yet-another-react-lightbox/plugins";
-import { RowsPhotoAlbum } from "react-photo-album";
+import { ColumnsPhotoAlbum, RowsPhotoAlbum } from "react-photo-album";
 import "yet-another-react-lightbox/styles.css";
 import "react-photo-album/rows.css";
+import "react-photo-album/columns.css";
 
 export const Qualification = () => {
   const [index, setIndex] = useState<number>(-1);
@@ -27,6 +28,7 @@ export const Qualification = () => {
           ))}
         </div>
         <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={200}  />
+        <ColumnsPhotoAlbum photos={certificates} columns={2} />
       </div>
       <Lightbox
         plugins={[Zoom]}

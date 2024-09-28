@@ -6,8 +6,8 @@ import { quotes } from 'src/config'
 
 export const MainPage = () => {
   const dispatch = useAppDispatch();
-  const { errorMessage, successMessage } = useAppSelector(getMainSelector);
   const { isAdmin } = useAppSelector(getAdminSelector);
+  const { topPosts, errorMessage, successMessage } = useAppSelector(getMainSelector);
 
   const clearMessages = () => dispatch(clearMainMessages());
   
@@ -21,7 +21,7 @@ export const MainPage = () => {
         <Prices />
         <FAQ />
         <Qualification />
-        <MainQuote quote={quotes[2]} />
+        <MainQuote quote={quotes[2]} bottomPadding={!topPosts.length} />
         <Blog />
         <Contacts />
       </div>
