@@ -10,6 +10,7 @@ import basketIcon from './icons/basket.svg';
 import imageUploadIcon from './icons/imageUpload.svg';
 
 import mainImage from './images/mainImage.jpg';
+import mainImageSmall from './images/mainImage_sm.jpg';
 import aboutImage from './images/aboutImage.jpg';
 import contactsImage from './images/contactsImage.png';
 
@@ -37,6 +38,7 @@ export {
   basketIcon,
   imageUploadIcon,
   mainImage,
+  mainImageSmall,
   aboutImage,
   contactsImage,
   service_1,

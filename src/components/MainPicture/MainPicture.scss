@@ -9,6 +9,9 @@
     font-size: 24px;
     color: var(--white);
   }
+  .loadingImage {
+    filter: blur(8px);
+  }
 }
 
 @media (max-width: 1179.98px) {

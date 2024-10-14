@@ -7,6 +7,9 @@ export const MainImage = styled.div<{ image: string }>`
   background: url(${props => props.image}) 50% 0 no-repeat;
   background-size: cover;
 
+  filter: blur(0);
+  transition: filter 0.3s linear;
+
   @media (max-width: 1199.98px) {
     padding-bottom: 50%;
   }

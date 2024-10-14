@@ -74,18 +74,29 @@ export const formatISOToShortDate = (date: Date) => {
   return `${year}-${month}-${day}`;
 }
 
+export const isMobileOrTablet = () => {
+  const userAgent = navigator.userAgent;
+  const isMobile = /Mobi/i.test(userAgent);
+  const isTablet = /Tablet/i.test(userAgent);
+  return isMobile || isTablet;
+}
+
 export const hiddenScroll = () => {
-  const header = document.querySelector('header');
   document.body.style.overflowY = 'hidden';
-  document.body.style.padding = '0 17px 0 0';
-  if (header) header.style.padding = '0 17px 0 0';
+  if (!isMobileOrTablet()) {
+    const header = document.querySelector('header');
+    document.body.style.padding = '0 17px 0 0';
+    if (header) header.style.padding = '0 17px 0 0';
+  }
 }
 
 export const displayScroll = () => {
-  const header = document.querySelector('header');
   document.body.style.overflowY = 'scroll';
-  document.body.style.padding = '0';
-  if (header) header.style.padding = '0';
+  if (!isMobileOrTablet()) {
+    const header = document.querySelector('header');
+    document.body.style.padding = '0';
+    if (header) header.style.padding = '0';
+  }
 }
 
 export const formatTextLines = (text: string) => {
