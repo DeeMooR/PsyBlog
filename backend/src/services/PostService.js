@@ -73,7 +73,7 @@ class PostService {
   }
   async updateImage(post_id, image) {
     const [post] = await db.query('SELECT image FROM posts WHERE id = ?', [post_id]);
-    if (!posts.length) throw new Error(`Статья с ID ${post_id} не найден`);
+    if (!post.length) throw new Error(`Статья с ID ${post_id} не найден`);
     
     const url = new URL(post[0].image);
     const filePath = url.pathname.substring(1);

@@ -27,8 +27,14 @@ dotenv.config();
 const port = 5000;
 const app = express();
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+};
+
 const router = createRouter(upload);
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api', router);
 app.use('/images', express.static('images'));
