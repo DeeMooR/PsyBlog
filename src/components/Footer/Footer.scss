@@ -78,10 +78,11 @@
       font-size: 12px;
       text-align: center;
       color: var(--white);
-      a {
+      .copyright__docs {
         display: inline-block;
         color: var(--white);
         border-bottom: 1px solid var(--beige-1);
+        cursor: pointer;
         &:hover {
           color: var(--beige-1);
         }

@@ -1,4 +1,3 @@
-import logoIcon from './icons/logo.png'
 import menuIcon from './icons/menu.svg'
 import clockIcon from './icons/clock.png'
 import humanIcon from './icons/human.png'
@@ -27,7 +26,6 @@ import certificate_7 from './images/certificate_7.png'
 import certificate_8 from './images/certificate_8.jpg'
 
 export {
-  logoIcon, 
   menuIcon,
   clockIcon,
   humanIcon,

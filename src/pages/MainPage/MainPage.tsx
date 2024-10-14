@@ -21,8 +21,9 @@ export const MainPage = () => {
         <Prices />
         <FAQ />
         <Qualification />
-        <MainQuote quote={quotes[2]} bottomPadding={!topPosts.length} />
-        <Blog />
+        <MainQuote quote={quotes[2]} bottomPadding />
+        {/* <MainQuote quote={quotes[2]} bottomPadding={!topPosts.length} /> */}
+        {/* <Blog /> */}
         <Contacts />
       </div>
       <Footer />

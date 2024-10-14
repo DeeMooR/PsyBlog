@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { displayScroll, hiddenScroll, scrollToSection } from 'src/helpers';
 import { SlideBar } from 'src/components';
@@ -35,7 +35,7 @@ export const Header = () => {
         </div>
         <div className='header__navigation'>
           <a onClick={() => scroll('qualification')}>Квалификация</a>
-          <a onClick={() => scroll('blog')} >Блог</a>
+          {/* <a onClick={() => scroll('blog')} >Блог</a> */}
           <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
         <div className="header__menu" onClick={() => setClickMenu(true)}>

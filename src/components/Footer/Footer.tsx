@@ -34,12 +34,14 @@ export const Footer = () => {
         </div>
         <div className='footer__column'>
           <a onClick={() => scroll('qualification')}>Квалификация</a>
-          <a onClick={() => scroll('blog')} >Блог</a>
+          {/* <a onClick={() => scroll('blog')} >Блог</a> */}
           <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
       </div>
       <div className="footer__copyright">
-        <p className='copyright__text'>© Ольга Разваляева, 2024 / <Link to='/documentation'>Документация</Link></p>
+        <p className='copyright__text'>© Ольга Разваляева, 2024 / <p className='copyright__docs'>Документация</p>
+          {/* <Link to='/documentation' className='copyright__docs'>Документация</Link> */}
+        </p>
       </div>
     </footer>
   )

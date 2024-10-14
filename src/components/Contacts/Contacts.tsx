@@ -69,7 +69,7 @@ export const Contacts = () => {
                 />
               </div>
               <button className='form__button'>Записаться</button>
-              <a href="#" className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </a>
+              <p className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </p>
               </>
             )}
           </div>
