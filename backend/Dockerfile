@@ -2,11 +2,11 @@ FROM node:18.17.0
 
 WORKDIR /usr/backend
 
-COPY ./backend/package*.json ./
+# COPY package*.json ./
+
+COPY . .
 
 RUN npm install
-
-COPY ./backend .
 
 EXPOSE 5000
 

@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { db } from '../../index.js';
 
@@ -8,7 +8,7 @@ class AdminService {
     const [existingAdmin] = await db.query('SELECT * FROM admin LIMIT 1');
     if (existingAdmin.length > 0) throw new Error('Администратор уже существует.');
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const sql = 'INSERT INTO admin (login, password) VALUES (?, ?)';
     await db.query(sql, [login, hashedPassword]);
   }
@@ -16,7 +16,7 @@ class AdminService {
     const [admin] = await db.query('SELECT login, password FROM admin LIMIT 1');
     if (admin.length === 0) throw new Error('Администратор не найден.');
 
-    const isMatch = login === admin[0].login && await bcrypt.compare(password, admin[0].password);
+    const isMatch = login === admin[0].login && await bcryptjs.compare(password, admin[0].password);
     if (isMatch) {
       const accessToken = jwt.sign({ login }, process.env.JWT_SECRET, { expiresIn: '1h' });
       return accessToken;
