@@ -1,3 +1,6 @@
+networks:
+  dev:
+
 services:
   db:
     image: mysql
@@ -12,6 +15,8 @@ services:
     volumes:
       - db-data:/var/lib/mysql
       - ./backend/backups:/backups
+    networks:
+      - dev
 
   backend:
     build: ./backend
@@ -27,6 +32,8 @@ services:
       MYSQL_DATABASE: psyblog
     volumes:
       - ./backend:/usr/backend
+    networks:
+      - dev
 
   frontend:
     build: .
@@ -35,6 +42,8 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    networks:
+      - dev
 
 volumes:
   db-data:
