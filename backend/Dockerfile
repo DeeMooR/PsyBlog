@@ -1,4 +1,4 @@
-FROM node:18.17.0
+FROM node:18-alpine
 
 WORKDIR /usr/backend
 
@@ -6,7 +6,7 @@ WORKDIR /usr/backend
 
 COPY . .
 
-RUN npm install
+RUN npm install --production
 
 EXPOSE 5000
 
