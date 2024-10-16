@@ -28,7 +28,7 @@ const port = 5000;
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'http://87.228.19.145:5000/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
@@ -52,7 +52,7 @@ app.use((err, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Сервер запущен на http://localhost:${port}`);
+  console.log(`Сервер запущен на порте ${port}`);
   createTables();
 });
 
