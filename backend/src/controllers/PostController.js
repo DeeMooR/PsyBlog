@@ -75,7 +75,7 @@ class PostController {
   }
   async createImage(req, res) {
     try {
-      const image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+      const image = `${req.protocol}://87.228.19.145:5000/images/${req.file.filename}`
       await PostService.createImage(+req.body.post_id, image)
       res.sendStatus(204);
     } catch (e) {
@@ -84,7 +84,7 @@ class PostController {
   }
   async updateImage(req, res) {
     try {
-      const image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+      const image = `${req.protocol}://87.228.19.145:5000/images/${req.file.filename}`
       await PostService.updateImage(+req.body.post_id, image)
       res.sendStatus(204);
     } catch (e) {
