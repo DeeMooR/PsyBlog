@@ -16,8 +16,8 @@ class PostService {
     const post = postWithTrueDate(posts[0]);
     return addFullImagePath(req, post);
   }
-  async getFullPost(id) {
-    let post = await this.getOne(id);
+  async getFullPost(req, id) {
+    let post = await this.getOne(req, id);
     post.blocks = [];
     const [post_blocks] = await db.query('SELECT table_name, block_number, table_id FROM post_blocks WHERE post_id = ?', [id]);
     const sorted_blocks = post_blocks.sort((a, b) => a.block_number - b.block_number);

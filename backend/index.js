@@ -30,11 +30,12 @@ const app = express();
 const corsOptions = {
   origin: ['http://localhost:3000', 'http://87.228.19.145'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
+  credentials: false,
 };
 
 const router = createRouter(upload);
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 app.use('/api', router);
 app.use('/images', express.static('images'));

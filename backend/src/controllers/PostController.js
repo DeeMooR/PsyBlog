@@ -19,7 +19,7 @@ class PostController {
   }
   async getFullPost(req, res) {
     try {
-      const post = await PostService.getFullPost(req.params.id);
+      const post = await PostService.getFullPost(req, req.params.id);
       res.status(200).json(post);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e.message}` });
