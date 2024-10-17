@@ -3,7 +3,7 @@ import PostService from "../services/PostService.js";
 class PostController {
   async getAll(req, res) {
     try {
-      const posts = await PostService.getAll();
+      const posts = await PostService.getAll(req);
       res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e.message}` });
@@ -11,7 +11,7 @@ class PostController {
   }
   async getOne(req, res) {
     try {
-      const post = await PostService.getOne(req.params.id);
+      const post = await PostService.getOne(req, req.params.id);
       res.status(200).json(post);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e.message}` });
@@ -27,7 +27,7 @@ class PostController {
   }
   async getShortPosts(req, res) {
     try {
-      const posts = await PostService.getShortPosts();
+      const posts = await PostService.getShortPosts(req);
       res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e.message}` });
@@ -35,7 +35,7 @@ class PostController {
   }
   async getShortPostsTop(req, res) {
     try {
-      const posts = await PostService.getShortPostsTop();
+      const posts = await PostService.getShortPostsTop(req);
       res.status(200).json(posts);
     } catch (e) {
       res.status(500).json({ error: `Ошибка сервера: ${e.message}` });

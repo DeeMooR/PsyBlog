@@ -18,3 +18,10 @@ export const postWithTrueDate = (post) => {
   const date = new Date(post.date + 'Z');
   return {...post, date}
 }
+
+export const addFullImagePath = (req, post) => {
+  if (post.image) {
+    post.image = `${req.protocol}://${req.get('host')}/images/${post.image}`;
+  }
+  return post;
+};

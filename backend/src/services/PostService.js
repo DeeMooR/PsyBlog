@@ -1,18 +1,20 @@
 import { db } from '../../index.js';
 import { promises as fsPromises } from 'fs';
-import { formatISOToDate, postWithTrueDate } from '../helpers.js';
+import { formatISOToDate, postWithTrueDate, addFullImagePath } from '../helpers.js';
 import PostBlocksService from "./PostBlocksService.js";
 
 class PostService {
-  async getAll() {
+  async getAll(req) {
     const [rows] = await db.query('SELECT * FROM posts');
-    const posts = rows.map(post => postWithTrueDate(post));
+    const posts = rows.map(post => postWithTrueDate(post))
+      .map(post => addFullImagePath(req, post));
     return posts;
   }
-  async getOne(id) {
+  async getOne(req, id) {
     const [posts] = await db.query('SELECT * FROM posts WHERE id = ?', [id]);
     if (!posts.length) throw new Error(`Статья с ID ${id} не найден`);
-    return postWithTrueDate(posts[0]);
+    const post = postWithTrueDate(posts[0]);
+    return addFullImagePath(req, post);
   }
   async getFullPost(id) {
     let post = await this.getOne(id);
@@ -31,17 +33,20 @@ class PostService {
     post.blocks = await Promise.all(blocksPromises);
     return post;
   }
-  async getShortPosts() {
+  async getShortPosts(req) {
     const [rows] = await db.query('SELECT id, title, image FROM posts WHERE isActive = true');
-    return rows;
+    const posts = rows.map(post => addFullImagePath(req, post));
+    return posts;
   }
-  async getShortPostsTop() {
+  async getShortPostsTop(req) {
     const [rows] = await db.query('SELECT id, title, image FROM posts WHERE topPriority = true AND isActive = true');
-    return rows;
+    const posts = rows.map(post => addFullImagePath(req, post));
+    return posts;
   }
-  async getShortPostsAdmin() {
+  async getShortPostsAdmin(req) {
     const [rows] = await db.query('SELECT id, title, image, isActive FROM posts');
-    return rows;
+    const posts = rows.map(post => addFullImagePath(req, post));
+    return posts;
   }
   async createPost(body) {
     const { title, isActive, topPriority } = body;
