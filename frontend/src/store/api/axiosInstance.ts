@@ -4,13 +4,25 @@ import { logoutAdmin } from "../slices";
 
 const baseURL = 'http://87.228.19.145:5000/api/';
 
-export const axiosInstance = axios.create({ baseURL });
+export const axiosInstance = axios.create({
+  baseURL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 axiosInstance.interceptors.request.use((config) => {
   const accessToken = localStorage.getItem('accessToken');
   if (accessToken) {
     config.headers.Authorization = `Bearer ${accessToken}`;
   }
+
+  if (config.data instanceof FormData) {
+    config.headers['Content-Type'] = 'multipart/form-data';
+  } else {
+    config.headers['Content-Type'] = 'application/json';
+  }
+
   return config;
 });
 

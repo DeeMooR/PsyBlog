@@ -5,6 +5,24 @@ import { authenticateToken } from './token.js';
 const createRouter = (upload) => {
   const router = express.Router();
 
+  // Промежуточное ПО для добавления заголовка CORS
+  router.use((req, res, next) => {
+    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145:3000'];
+    const origin = req.headers.origin;
+    
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200);
+    }
+
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
+
   router.get('/posts', PostController.getAll)
   router.get('/posts/:id', PostController.getOne)
   router.get('/fullPosts/:id', PostController.getFullPost)

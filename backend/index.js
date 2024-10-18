@@ -28,9 +28,16 @@ const port = 5000;
 const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://87.228.19.145'],
+  origin: (origin, callback) => {
+    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145'];
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: false,
+  credentials: true,
 };
 
 const router = createRouter(upload);
