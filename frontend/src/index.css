@@ -1,0 +1,315 @@
+/*--------- FONTS ----------*/
+
+@font-face {
+  font-family: "TaylorSans";
+  src: url("./fonts/TaylorSans/TaylorSans-Regular.ttf") format("truetype");
+  font-style: normal; 
+  font-weight: 400; 
+}
+@font-face {
+  font-family: "Museo";
+  src: url("./fonts/Museo/exljbris - Museo Cyrl 300.otf") format("opentype");
+  font-style: normal; 
+  font-weight: 400; 
+}
+@font-face {
+  font-family: "Inkhead";
+  src: url("./fonts/Inkhead/Inkhead.otf") format("opentype");
+  font-style: normal; 
+  font-weight: 400; 
+}
+@font-face {
+  font-family: "Mr.Lonely";
+  src: url("./fonts/Mr.Lonely/Mr.Lonely.otf") format("opentype");
+  font-style: normal; 
+  font-weight: 400; 
+}
+
+/*--------- CONST ----------*/
+:root {
+  --font-main: 'Museo', 'Georgia';
+  --font-title: 'Museo', 'Georgia';
+  --font-pen: 'Inkhead', 'Georgia';
+  --font-tall: 'TaylorSans', 'Georgia';
+  --font-logo: 'Mr.Lonely', 'Georgia';
+  
+  --white: #FFFFFF;
+  --input: #FAFAFA;
+  --black: #383838;
+  --green-text: #494706;
+  --green: #646b41;
+  
+  --background: #F9F3EB;
+  --beige-light: #e8d4bc92;
+  --beige-1: #E8D4BC;
+  --beige-2: #D7B489;
+  
+  --disabled: #a8a8a8;
+  --disabled-hover: #c9c9c9;
+  --disabled-light: #d9d9d9;
+  --success: #4DB84D;
+  --warning: #FFAA00;
+  --error: #DF5A5A;
+  --delete: #DC1D1D;
+}
+
+/*--------- NULLING STYLE ----------*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;}
+*,*:before, after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-main);
+  background-color: var(--background);
+  color: var(--black);
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;}
+div, p, a, span {font-family: var(--font-main);}
+input,button,textarea{font-family: var(--font-main);}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-mox-focus-inner {padding:0; border:0;}
+a, a:visited{text-decoration: none; cursor: pointer; display: block;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{display: block; vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-family: var(--font-title); font-weight: 400}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+}
+
+#root {
+  height: 100%;
+  padding: 80px 0 0 0;
+}
+
+@media (max-width: 599.98px) {
+  #root {
+    padding: 60px 0 0 0;
+  }
+}
+
+/*--------- STYLES ---------*/
+
+p, span, a {
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+button, input, textarea {
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+  letter-spacing: 0.02em;
+}
+
+
+input,
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 54px;
+  width: 100%;
+  padding: 0 24px;
+  background-color: var(--input);
+  border: 1px solid var(--green);
+  border-radius: 5px;
+}
+textarea {
+  height: 92px;
+  width: 100%;
+  padding: 21px 24px;
+  background-color: var(--input);
+  border: 1px solid var(--green);
+  border-radius: 5px;
+  resize: none;
+}
+input:focus,
+textarea:focus {
+  border: 1px solid var(--black);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--disabled);
+  font-size: 13px;
+}
+input:disabled,
+textarea:disabled {
+  background-color: var(--disabled-light);
+  cursor: not-allowed;
+}
+
+
+button, .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  font-size: 15px;
+  padding: 0 24px;
+  color: var(--white);
+  background-color: var(--green);
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out 0s;
+}
+button:hover:not(:disabled),
+.button:hover:not(:disabled)  {
+  background-color: var(--beige-1);
+  color: var(--black);
+}
+button:disabled,
+.button:disabled {
+  background-color: var(--disabled);
+  cursor: not-allowed;
+}
+
+.btnDark {
+  background-color: var(--green);
+}
+.btnDark:hover:not(:disabled) {
+  background-color: var(--beige-2);
+  color: var(--black);
+}
+
+.btnDelete {
+  background: var(--error);
+  border: 2px solid var(--error);
+  color: var(--white);
+}
+.btnDelete:hover:not(:disabled) {
+  background: var(--delete);
+  border: 2px solid var(--delete);
+  color: var(--white);
+}
+
+.btnCancel {
+  background-color: var(--disabled);
+}
+.btnCancel:hover:not(:disabled) {
+  background-color: var(--disabled-hover);
+  color: var(--white);
+}
+
+.smallBtn {
+  min-width: 150px;
+  height: 40px;
+  font-size: 14px;
+}
+
+/*--------- CLASSES ---------*/
+
+.imageBorder {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 16px;
+  left: 16px;
+  z-index: -1;
+  border: 1px solid var(--beige-2);
+  border-radius: 12px;
+  opacity: 0.5;
+}
+
+.quote {
+  font-family: var(--font-pen);
+  color: var(--green-text);
+}
+
+.crumbs {
+  font-size: 14px;
+  color: var(--disabled);
+  width: fit-content;
+  margin: 0 0 5px 0;
+  cursor: pointer;
+}
+.crumbs:hover {
+  color: var(--beige-2);
+}
+
+.logo__block {
+  text-align: center;
+  cursor: pointer;
+}
+.logo__name {
+  font-family: var(--font-logo);
+  font-size: 24px;
+  color: var(--green);
+  margin: 0 0 1px 0;
+}
+.logo__position {
+  font-family: var(--font-tall);
+  font-size: 9.5px;
+  letter-spacing: 0.02em;
+  color: var(--green-text);
+  text-transform: uppercase;
+}
+
+@media (max-width: 859.98px) {
+  .imageBorder {
+    display: none;
+  }
+}
+@media (max-width: 599.98px) {
+  .logo__name {
+    font-size: 21px;
+  }
+  .logo__position {
+    font-size: 8.5px;
+  }
+}
+@media (max-width: 479.98px) {
+  .crumbs {
+    margin: 0 0 10px 0;
+  }
+}
+
+/*--------- LIBRARIES ---------*/
+
+.yarl__container {
+  background-color: var(--background);
+}
+.yarl__button {
+  filter: none;
+}
+.yarl__button g:last-child {
+  color: var(--black);
+}
+.yarl__button:disabled {
+  background-color: transparent;
+}
+.yarl__button:disabled g:last-child {
+  color: var(--disabled);
+}
+.yarl__button:not(:disabled):hover g:last-child {
+  color: var(--white);
+}

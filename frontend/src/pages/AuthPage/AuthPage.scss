@@ -1,0 +1,32 @@
+.authPage {
+  .authPage__wrapper {
+    margin: 30px auto 0;
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 30px;
+    .authPage__content {
+      margin: 110px auto 180px;
+      .authPage__title {
+        text-align: center;
+        margin: 0 0 40px 0;
+      }
+      .authPage__loading {
+        padding: 0 0 155px 0;
+      }
+      .authPage__form {
+        max-width: 360px;
+        margin: 0 auto;
+        .authPage__fields {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin: 0 0 28px 0;
+        }
+        .authPage__button {
+          width: 100%;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

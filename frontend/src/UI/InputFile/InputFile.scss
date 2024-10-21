@@ -1,0 +1,36 @@
+.inputFileBlock {
+  position: relative;
+  width: 100%;
+  .inputFileBlock__label {
+    .inputFile {
+      display: none;
+    }
+    .inputFileBlock__custom {
+      height: 140px;
+      cursor: pointer;
+      &.warning {
+        border: 1px solid var(--warning);
+      }
+      &.showDefault {
+        background-image: url('../../assets/icons/imageUpload.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .inputFileBlock__previewImage {
+        padding: 5px;
+        height: 100%;
+      }
+    }
+  }
+  .error {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 3px 0 0 3px;
+    span {
+      font-size: 11px;
+      line-height: 1;
+      margin: 0 0 0 7px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+.mainPicture {
+  position: relative;
+  width: 100%;
+  .mainPicture__quote {
+    position: absolute;
+    top: 40%;
+    left: calc((100% - 1180px)/2);
+    padding: 0 30px;
+    font-size: 24px;
+    color: var(--white);
+  }
+  .loadingImage {
+    filter: blur(8px);
+  }
+}
+
+@media (max-width: 1179.98px) {
+  .mainPicture {
+    .mainPicture__quote {
+      left: 0;
+    }
+  }
+}
+
+@media (max-width: 799.98px) {
+  .mainPicture {
+    .mainPicture__quote {
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 599.98px) {
+  .mainPicture {
+    .mainPicture__quote {
+      font-size: 20px;
+    }
+  }
+}

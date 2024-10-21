@@ -1,0 +1,38 @@
+.sectionTemplate {
+  padding: 80px 0;
+  background-color: var(--background);
+  &.bgBeige {
+    background-color: var(--beige-1);
+  }
+  &.bgGreen {
+    background-color: var(--green);
+  }
+  &.includeTitle {
+    padding: 60px 0 80px;
+  }
+  .sectionTemplate__wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 30px;
+    .sectionTemplate__title {
+      margin: 0 0 40px 0;
+      color: var(--black);
+      text-align: center;
+      &.title__white {
+        color: var(--white);
+      }
+      &.title__black {
+        color: var(--black);
+      }
+    }
+  }
+}
+
+@media (max-width: 499.98px) {
+  .sectionTemplate {
+    padding: 60px 0;
+    &.includeTitle {
+      padding: 60px 0;
+    }
+  }
+}

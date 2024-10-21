@@ -1,0 +1,20 @@
+.cardSmall {
+  width: 100%;
+  cursor: pointer;
+  .cardSmall__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 10px;
+    padding: 15px 0 0 0;
+    .cardSmall__title {
+      text-align: center;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .cardSmall__pencil {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
