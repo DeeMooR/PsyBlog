@@ -30,7 +30,7 @@ const app = express();
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145'];
-    if (allowedOrigins.includes(origin)) {
+    if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
