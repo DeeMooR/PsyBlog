@@ -29,7 +29,7 @@ const app = express();
 
 const corsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145:3000'];
+    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145:3000', 'https://psyblog-test.ru'];
     if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
@@ -44,7 +44,7 @@ const router = createRouter(upload);
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
-app.use('/api', router);
+app.use('/', router);
 app.use('/images', express.static('images'));
 
 export const db = mysql.createPool({

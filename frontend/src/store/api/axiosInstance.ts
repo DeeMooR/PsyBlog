@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { AppDispatch } from "../hooks";
 import { logoutAdmin } from "../slices";
 
-const baseURL = 'http://87.228.19.145:5000/api/';
+const baseURL = 'https://api.psyblog-test.ru/';
 
 export const axiosInstance = axios.create({
   baseURL,
