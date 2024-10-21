@@ -29,7 +29,7 @@ const app = express();
 
 const corsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145'];
+    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145:3000'];
     if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
@@ -54,7 +54,7 @@ export const db = mysql.createPool({
   database: process.env.MYSQL_DATABASE
 });
 
-app.use((err, res) => {
+app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Неизвестная ошибка');
 });
