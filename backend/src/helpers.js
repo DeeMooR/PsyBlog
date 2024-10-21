@@ -21,7 +21,8 @@ export const postWithTrueDate = (post) => {
 
 export const addFullImagePath = (req, post) => {
   if (post.image) {
-    post.image = `${req.protocol}://${req.get('host')}/images/${post.image}`;
+    // post.image = `${req.protocol}://${req.get('host')}/images/${post.image}`;
+    post.image = `https://api.psyblog-test.ru/images/${post.image}`;
   }
   return post;
 };
