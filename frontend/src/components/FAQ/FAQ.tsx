@@ -9,13 +9,13 @@ export const FAQ = () => {
       <div className='faq'>
         <div className="faq__items">
           <div className="faq__column">
-            {faqs_left.map(item => (
-              <FAQItem obj={item} key={item.title} />
+            {faqs_left.map((item, index) => (
+              <FAQItem obj={item} key={index} />
             ))}
           </div>
           <div className="faq__column">
-            {faqs_right.map(item => (
-              <FAQItem obj={item} key={item.title} />
+            {faqs_right.map((item, index) => (
+              <FAQItem obj={item} key={index} />
             ))}
           </div>
         </div>

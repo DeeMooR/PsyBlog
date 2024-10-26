@@ -77,3 +77,16 @@ export const PostImage = styled.div<{ image: string | null }>`
   }
 `;
 
+export const InputFileBackground = styled.div<{ imageUpload?: string; warning?: boolean; }>`
+  height: 140px;
+  cursor: pointer;
+  border: ${(props) => (props.warning && '1px solid var(--warning)')};
+  background-image: url(${props => props.imageUpload});
+  background-repeat: no-repeat;
+  background-position: center;
+
+  img {
+    padding: 5px;
+    height: 100%;
+  }
+`;

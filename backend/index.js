@@ -29,7 +29,7 @@ const app = express();
 
 const corsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145:3000', 'https://psyblog-test.ru'];
+    const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145:3000', 'https://razvalyaeva.com'];
     if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {

@@ -28,6 +28,7 @@ export const NewPostRequired = () => {
     handleSubmit,
     getValues,
     reset,
+    setError,
     formState: { errors },
   } = useForm<IPostRequiredFieldsForm>({
     mode: 'onSubmit',
@@ -46,13 +47,18 @@ export const NewPostRequired = () => {
 
   // создать статью
   const onSubmit = async (data: IPostRequiredFieldsForm) => {
+    if (!data.date) {
+      setError('date', { message: 'Обязательное поле' });
+      return;
+    }
     if (!file && !postData.image) {
       setFileError('Обязательное поле');
       return;
     }
-    const {date, title} = data;
-    if (!id && date) {
+
+    if (!id) {
       try {
+        const {date, title} = data;
         const body = {date, title, image: file, isActive: active, topPriority: isTop};
         const postId = await dispatch(createPostAction(body)).unwrap();
         if (postId) navigate(`/new-post/${postId}`);

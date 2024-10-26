@@ -1,5 +1,6 @@
-import { db } from '../../index.js';
+import path from 'path';
 import { promises as fsPromises } from 'fs';
+import { db, __dirname } from '../../index.js';
 import { formatISOToDate, postWithTrueDate, addFullImagePath } from '../helpers.js';
 import PostBlocksService from "./PostBlocksService.js";
 
@@ -79,9 +80,8 @@ class PostService {
   async updateImage(post_id, image) {
     const [post] = await db.query('SELECT image FROM posts WHERE id = ?', [post_id]);
     if (!post.length) throw new Error(`Статья с ID ${post_id} не найден`);
-    
-    const url = new URL(post[0].image);
-    const filePath = url.pathname.substring(1);
+
+    const filePath = path.join(__dirname, 'images', post[0].image);
     try {
       await fsPromises.unlink(filePath);
       await db.query('UPDATE posts SET image = ? WHERE id = ?', [image, post_id]);

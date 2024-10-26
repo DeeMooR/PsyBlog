@@ -1,6 +1,6 @@
 ## This is a site about a psychologist with the ability to write posts
 
-The website is available at [psyblog-test.ru](https://psyblog-test.ru/) \
+The website is available at [razvalyaeva.com](https://razvalyaeva.com/) \
 I wrote the frontend, backend and deployed it.
 
 ### Tech Stack:
