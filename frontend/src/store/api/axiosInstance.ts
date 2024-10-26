@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { AppDispatch } from "../hooks";
 import { logoutAdmin } from "../slices";
 
-const baseURL = 'https://api.psyblog-test.ru/';
+const baseURL = 'https://api.razvalyaeva.com/';
 
 export const axiosInstance = axios.create({
   baseURL,
