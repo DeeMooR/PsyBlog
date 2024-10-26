@@ -15,7 +15,7 @@
     animation: spin 1s ease-in-out infinite;
   }
   &.isPage {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 180px);
   }
   &.isWrapperContent {
     position: absolute;
@@ -28,5 +28,16 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 699.98px) {
+  .loading {
+    &.isWrapperContent {
+      top: 65%;
+    }
+    &.isPage {
+      min-height: calc(100vh - 160px);
+    }
   }
 }

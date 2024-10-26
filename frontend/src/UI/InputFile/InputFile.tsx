@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react'
-import cn from 'classnames';
 import { warningIcon } from 'src/assets';
 import { changePreviewUrl } from './config';
+import { InputFileBackground } from 'src/styled';
+import { imageUploadIcon } from 'src/assets'
 import './InputFile.scss'
 
 interface IInputFile {
@@ -15,6 +16,7 @@ interface IInputFile {
 
 export const InputFile:FC<IInputFile> = ({id, imageLink, file, error, setFile, setError}) => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const background = !previewUrl ? imageUploadIcon : '';
 
   useEffect(() => {
     changePreviewUrl({file, imageLink, setPreviewUrl, setError});
@@ -34,11 +36,6 @@ export const InputFile:FC<IInputFile> = ({id, imageLink, file, error, setFile, s
     const fileList = event.dataTransfer.files;
     if (fileList) setFile(fileList[0]);
   };
-
-  const customStyle = cn('inputFileBlock__custom input', {
-    showDefault: !previewUrl,
-    warning: error,
-  });
   
   return (
     <div className='inputFileBlock' onDragOver={handleDragOver} onDrop={handleDrop}>
@@ -49,9 +46,9 @@ export const InputFile:FC<IInputFile> = ({id, imageLink, file, error, setFile, s
           className='inputFile'
           onChange={handleFileChange}
         />
-        <div className={customStyle}>
-          {previewUrl && <img className='inputFileBlock__previewImage' src={previewUrl} alt="preview" />}
-        </div>
+        <InputFileBackground imageUpload={background} warning={!!error} className='input'>
+          {previewUrl && <img src={previewUrl} alt="preview" />}
+        </InputFileBackground>
       </label>
       {error &&
         <p className='error'>

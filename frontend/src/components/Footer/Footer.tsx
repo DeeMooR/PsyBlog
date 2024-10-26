@@ -47,9 +47,9 @@ export const Footer = () => {
         </div>
       </div>
       <div className="footer__copyright">
-        <p className='copyright__text'>© Ольга Разваляева, 2024 / <p className='copyright__docs'>Документация</p>
+        <div className='copyright__text'>© Ольга Разваляева, 2024 / <p className='copyright__docs'>Документация</p>
           {/* <Link to='/documentation' className='copyright__docs'>Документация</Link> */}
-        </p>
+        </div>
       </div>
     </footer>
   )

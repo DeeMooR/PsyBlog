@@ -91,3 +91,28 @@
     margin: 0 0 0 18px;
   }
 }
+
+@media (max-width: 479.98px) {
+  .title {
+    font-size: 20px;
+  }
+  .titleAndText {
+    .title {
+      margin: 0 0 10px 0;
+    }
+  }
+  .blockquote {
+    padding: 20px 20px 20px 15px;
+  }
+  .list {
+    .text {
+      margin: 0 0 10px 0;
+    }
+    ul {
+      gap: 10px;
+    }
+    ol {
+      gap: 10px;
+    }
+  }
+}

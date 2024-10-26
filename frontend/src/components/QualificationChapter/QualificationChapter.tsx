@@ -7,8 +7,8 @@ export const QualificationChapter:FC<IQualificationChapter> = ({title, items}) =
     <div className='qualificationChapter'>
       <p className='qualificationChapter__title'>{title}</p>
       <ul className='qualificationChapter__list'>
-        {items.map(value => (
-          <li className='qualificationChapter__item'>{value}</li>
+        {items.map((value, index) => (
+          <li className='qualificationChapter__item' key={index}>{value}</li>
         ))}
       </ul>
     </div>
