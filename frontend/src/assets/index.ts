@@ -12,7 +12,7 @@ import imageUploadIcon from './icons/imageUpload.svg';
 import mainImage from './images/wall.jpg';
 import mainImageSmall from './images/wall.jpg';
 import aboutImage from './images/aboutImage.jpg';
-import contactsImage from './images/contactsImage.png';
+import contactsImage from './images/contactsImage.jpg';
 
 import service_1 from './images/service_1.jpg';
 import service_2 from './images/service_2.jpg';

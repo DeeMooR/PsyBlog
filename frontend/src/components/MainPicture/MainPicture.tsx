@@ -6,23 +6,24 @@ import './MainPicture.scss'
 
 
 export const MainPicture = () => {
-  const [imageSrc, setImageSrc] = useState(mainImageSmall);
+  // const [imageSrc, setImageSrc] = useState(mainImageSmall);
 
-  useEffect(() => {
-    const img = new Image();
-    img.src = mainImage;
-    img.onload = () => {
-      setImageSrc(mainImage);
-    }
-  }, [mainImage])
+  // useEffect(() => {
+  //   const img = new Image();
+  //   img.src = mainImage;
+  //   img.onload = () => {
+  //     setImageSrc(mainImage);
+  //   }
+  // }, [mainImage])
 
-  const mainImageStyle = cn({
-    loadingImage: imageSrc === mainImageSmall,
-  });
+  // const mainImageStyle = cn({
+  //   loadingImage: imageSrc === mainImageSmall,
+  // });
 
   return (
     <section className='mainPicture' id='up'>
-      <MainImage image={imageSrc} className={mainImageStyle} />
+      <MainImage image={mainImage} />
+      {/* <MainImage image={mainImage} className={mainImageStyle} /> */}
       {/* <blockquote className="mainPicture__quote quote">{parse(quotes[0])}</blockquote> */}
       <div className="mainPicture__info">
         <p className='mainPicture__title'>ПСИХОЛОГ ОНЛАЙН</p>
