@@ -22,7 +22,7 @@ export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
       <div className="slideBar__header">
         <div className="slideBar__logo logo__block" onClick={() => handleClick('up', -80)}>
           <p className='logo__name'>Ольга Разваляева</p>
-          <p className='logo__position'>Психолог, Психоаналитик</p>
+          <p className='logo__position'>Психолог</p>
         </div>
         <div className="slideBar__cross" onClick={() => setClickMenu(false)}>
           <img src={crossIcon} alt="cross" />
@@ -31,7 +31,7 @@ export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
       <div className="slideBar__items">
         <a onClick={() => handleClick('about', -30)}>Обо мне</a>
         <a onClick={() => handleClick('prices', -40)}>Консультации</a>
-        <a onClick={() => handleClick('faq', 0)} >Вопросы</a>
+        <a onClick={() => handleClick('faq', 0)} >Формат</a>
         <a onClick={() => handleClick('qualification', -50)}>Квалификация</a>
         {/* <a onClick={() => handleClick('blog', -60)} >Блог</a> */}
         <a onClick={() => handleClick('contacts', -80)}>Контакты</a>

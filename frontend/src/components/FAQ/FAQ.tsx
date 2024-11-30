@@ -5,7 +5,7 @@ import './FAQ.scss'
 
 export const FAQ = () => {
   return (
-    <SectionTemplate id='faq' backgroundColor='green' title='Вопросы' titleColor='white' >
+    <SectionTemplate id='faq' backgroundColor='green' title='Формат терапии' titleColor='white' >
       <div className='faq'>
         <div className="faq__items">
           <div className="faq__column">

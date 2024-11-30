@@ -28,7 +28,7 @@ export const HeaderAdmin = () => {
         </div>
         <div className="headerAdmin__logo logo__block" onClick={clickHome}>
           <p className='logo__name'>Ольга Разваляева</p>
-          <p className='logo__position'>Психолог, Психоаналитик</p>
+          <p className='logo__position'>Психолог</p>
         </div>
         <div className='headerAdmin__right'>
           <p className='headerAdmin__adminText'>Админ-панель</p>

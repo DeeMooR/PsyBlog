@@ -11,7 +11,6 @@
       height: auto;
     }
     .react-photo-album--image {
-      border: 5px solid var(--white);
       cursor: zoom-in;
     }
     &.react-photo-album--columns {
@@ -26,9 +25,6 @@
       margin: 0 15px 25px;
     }
     .react-photo-album {
-      .react-photo-album--image {
-        border: 3px solid var(--white);
-      }
       &.react-photo-album--columns {
         display: flex;
       }

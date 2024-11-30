@@ -16,12 +16,12 @@ export const MainPage = () => {
       {isAdmin ? <HeaderAdmin /> : <Header />}
       <div className="mainPage__blocks">
         <MainPicture />
-        <MainQuote quote={quotes[1]} />
+        {/* <MainQuote quote={quotes[1]} /> */}
         <About />
         <Prices />
         <FAQ />
         <Qualification />
-        <MainQuote quote={quotes[2]} bottomPadding />
+        {/* <MainQuote quote={quotes[2]} bottomPadding /> */}
         {/* <MainQuote quote={quotes[2]} bottomPadding={!topPosts.length} /> */}
         {/* <Blog /> */}
         <Contacts />

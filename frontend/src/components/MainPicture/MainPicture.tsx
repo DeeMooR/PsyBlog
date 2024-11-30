@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import parse from 'html-react-parser';
 import cn from 'classnames';
 import { mainImage, mainImageSmall } from 'src/assets'
 import { MainImage } from 'src/styled'
-import { quotes } from 'src/config'
 import './MainPicture.scss'
 
 
@@ -25,7 +23,11 @@ export const MainPicture = () => {
   return (
     <section className='mainPicture' id='up'>
       <MainImage image={imageSrc} className={mainImageStyle} />
-      <blockquote className="mainPicture__quote quote">{parse(quotes[0])}</blockquote>
+      {/* <blockquote className="mainPicture__quote quote">{parse(quotes[0])}</blockquote> */}
+      <div className="mainPicture__info">
+        <p className='mainPicture__title'>ПСИХОЛОГ ОНЛАЙН</p>
+        <p className='mainPicture__name'>Разваляева Ольга</p>
+      </div>
     </section>
   )
 }

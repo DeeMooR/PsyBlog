@@ -27,11 +27,11 @@ export const Header = () => {
         <div className='header__navigation'>
           <a onClick={() => scroll('about')}>Обо мне</a>
           <a onClick={() => scroll('prices')}>Консультации</a>
-          <a onClick={() => scroll('faq')} >Вопросы</a>
+          <a onClick={() => scroll('faq')} >Формат</a>
         </div>
         <div className="header__logo logo__block" onClick={onClickLogo}>
           <p className='logo__name'>Ольга Разваляева</p>
-          <p className='logo__position'>Психолог, Психоаналитик</p>
+          <p className='logo__position'>Психолог</p>
         </div>
         <div className='header__navigation'>
           <a onClick={() => scroll('qualification')}>Квалификация</a>

@@ -1,22 +1,22 @@
 .about {
   display: flex;
+  align-items: center;
   gap: 140px;
   .about__image {
     width: 45%;
   }
   .about__info {
     width: 55%;
-    padding: 20px 0 0 0;
-    .about__title {
-      margin: 0 0 20px 0;
-    }
     .about__paragraphs {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
       margin: 0 0 30px 0;
+      font-size: 24px;
+      line-height: 1.2;
     }
     .about__button {
+      margin: 45px 0 0 0;
       width: fit-content;
     }
   }
@@ -48,6 +48,9 @@
     .about__info {
       width: 100%;
       padding: 0 20px 0 40px;
+      .about__button {
+        margin: 35px 0 0 0;
+      }
     }
   }
 }
@@ -72,6 +75,9 @@
     }
     .about__info {
       padding: 10px;
+      .about__paragraphs {
+        font-size: 19px;
+      }
     }
   }
 }

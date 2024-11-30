@@ -9,8 +9,8 @@ import pencilIcon from './icons/pencil.svg';
 import basketIcon from './icons/basket.svg';
 import imageUploadIcon from './icons/imageUpload.svg';
 
-import mainImage from './images/mainImage.jpg';
-import mainImageSmall from './images/mainImage_sm.jpg';
+import mainImage from './images/wall.jpg';
+import mainImageSmall from './images/wall.jpg';
 import aboutImage from './images/aboutImage.jpg';
 import contactsImage from './images/contactsImage.png';
 

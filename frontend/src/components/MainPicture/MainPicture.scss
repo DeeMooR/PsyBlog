@@ -1,13 +1,19 @@
 .mainPicture {
   position: relative;
   width: 100%;
-  .mainPicture__quote {
+  .mainPicture__info {
     position: absolute;
-    top: 40%;
-    left: calc((100% - 1180px)/2);
+    top: 60%;
+    left: calc((100% - 1340px)/2);
     padding: 0 30px;
     font-size: 24px;
     color: var(--white);
+    .mainPicture__title {
+      font-size: 64px;
+    }
+    .mainPicture__name {
+      font-size: 48px;
+    }
   }
   .loadingImage {
     filter: blur(8px);
@@ -16,26 +22,60 @@
 
 @media (max-width: 1179.98px) {
   .mainPicture {
-    .mainPicture__quote {
+    .mainPicture__info {
       left: 0;
+    }
+  }
+}
+
+@media (max-width: 999.98px) {
+  .mainPicture {
+    .mainPicture__info {
+      .mainPicture__title {
+        font-size: 54px;
+      }
+      .mainPicture__name {
+        font-size: 42px;
+      }
     }
   }
 }
 
 @media (max-width: 799.98px) {
   .mainPicture {
-    .mainPicture__quote {
-      top: 50%;
-      transform: translate(0, -50%);
-      font-size: 22px;
+    .mainPicture__info {
+      .mainPicture__title {
+        font-size: 44px;
+      }
+      .mainPicture__name {
+        font-size: 34px;
+      }
     }
   }
 }
 
 @media (max-width: 599.98px) {
   .mainPicture {
-    .mainPicture__quote {
-      font-size: 20px;
+    .mainPicture__info {
+      .mainPicture__title {
+        font-size: 37px;
+      }
+      .mainPicture__name {
+        font-size: 29px;
+      }
+    }
+  }
+}
+
+@media (max-width: 499.98px) {
+  .mainPicture {
+    .mainPicture__info {
+      .mainPicture__title {
+        font-size: 30px;
+      }
+      .mainPicture__name {
+        font-size: 25px;
+      }
     }
   }
 }
