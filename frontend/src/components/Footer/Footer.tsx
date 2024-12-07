@@ -11,11 +11,11 @@ export const Footer = () => {
   }
 
   const openTelegram = () => {
-    window.open('https://t.me/+34694440911', '_blank');
+    window.open('https://t.me/+34652364078', '_blank');
   }
 
   const openWhatsApp = () => {
-    window.open('https://wa.me/34694440911', '_blank');
+    window.open('https://wa.me/34652364078', '_blank');
   }
 
   return (
@@ -28,7 +28,7 @@ export const Footer = () => {
         </div>
         <div className='footer__icons'>
           <p className='icons__text'>Контакты для связи</p>
-          <a href="https://mail.google.com/mail/?view=cm&to=orv7613@gmail.com" target="_blank" className="icons__email">orv7613@gmail.com</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=orazvalyaeva@gmail.com" target="_blank" className="icons__email">orazvalyaeva@gmail.com</a>
           <div className="icons__block">
             <svg onClick={openTelegram} className='icons__item' width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
               <path d="M25 0C18.3711 0 12.0078 2.63555 7.32422 7.32227C2.63583 12.0109 0.0013416 18.3695 0 25C0 31.6277 2.63672 37.991 7.32422 42.6777C12.0078 47.3645 18.3711 50 25 50C31.6289 50 37.9922 47.3645 42.6758 42.6777C47.3633 37.991 50 31.6277 50 25C50 18.3723 47.3633 12.009 42.6758 7.32227C37.9922 2.63555 31.6289 0 25 0Z" fill="white"/>

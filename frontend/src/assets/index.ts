@@ -9,8 +9,8 @@ import pencilIcon from './icons/pencil.svg';
 import basketIcon from './icons/basket.svg';
 import imageUploadIcon from './icons/imageUpload.svg';
 
-import mainImage from './images/wall.jpg';
-import mainImageSmall from './images/wall.jpg';
+import mainImage from './images/mainImage.png';
+import mainImageSmall from './images/mainImage.png';
 import aboutImage from './images/aboutImage.jpg';
 import contactsImage from './images/contactsImage.jpg';
 
@@ -25,6 +25,8 @@ import certificate_5 from './images/certificate_5.png'
 import certificate_6 from './images/certificate_6.png'
 import certificate_7 from './images/certificate_7.png'
 import certificate_8 from './images/certificate_8.jpg'
+import certificate_9 from './images/certificate_9.jpg'
+import certificate_10 from './images/certificate_10.png'
 
 export {
   menuIcon,
@@ -51,4 +53,6 @@ export {
   certificate_6,
   certificate_7,
   certificate_8,
+  certificate_9,
+  certificate_10,
 }

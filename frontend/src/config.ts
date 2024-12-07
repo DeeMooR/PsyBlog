@@ -1,5 +1,5 @@
 import { IFAQ, IQualificationChapter, IService } from "src/interfaces";
-import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, service_1, service_2 } from 'src/assets';
+import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, certificate_9, certificate_10, service_1, service_2 } from 'src/assets';
 import { BlockNames } from "./postBlocks/interfaces";
 
 export const services: IService[] = [
@@ -14,9 +14,8 @@ export const services: IService[] = [
   {
     id: 2,
     image: service_2,
-    name: 'Психоаналитический коучинг',
-    description: 'Стоимость',
-    price: 'по договорённости'
+    name: 'Психоаналитическое бизнес-консультирование',
+    description: 'Стоимость по договорённости',
   }
 ];
 
@@ -27,17 +26,14 @@ export const faqs_left: IFAQ[] = [
   },
   {
     title: 'Сессия',
-    text: 'Длительность каждой сессии 45 минут. Частота встреч определяется после первичной диагностики'  
+    text: 'Онлайн сессии в Zoom \nДлительность каждой сессии 45 минут \nЧастота встреч определяется после первичной диагностики'  
   },
 ];
 
 export const faqs_right: IFAQ[] = [
   {
-    title: 'Психолог, психотерапевт, психоаналитик?',
-    text: 'Особенность психоанализа — работа с глубинными переживаниями. А найти и заделать пробоину в днище.'  },
-  {
-    title: 'Психолог, психотерапевт, психоаналитик?',
-    text: 'Особенность психоанализа — работа с глубинными переживаниями. Психоаналитик помогает клиенту обнаружить и разрешить те конфликты, на почве которых в течение жизни постоянно формируются новые проблемы. Это как если из прохудившейся резиновой лодки не вычерпывать все время воду (что делает обычная психотерапия), а найти и заделать пробоину в днище.'  
+    title: 'Принципы работы',
+    text: 'Принимаю и уважаю особенности каждого \nГарантирую конфиденциальность \nСоблюдаю Этический кодекс Европейской Ассоциации Развития Психоанализа и психотерапии (ЕАРПП)'
   },
 ];
 
@@ -48,8 +44,10 @@ export const certificates = [
   { src: certificate_3, width: 400, height: 300 },
   { src: certificate_7, width: 300, height: 400 },
   { src: certificate_4, width: 400, height: 300 },
+  { src: certificate_9, width: 400, height: 300 },
   { src: certificate_5, width: 400, height: 300 },
-  { src: certificate_8, width: 294, height: 100 },
+  { src: certificate_10, width: 400, height: 300 },
+  { src: certificate_8, width: 400, height: 300 },
 ];
 
 export const certificates_slides: {src: string}[] = [
@@ -59,7 +57,9 @@ export const certificates_slides: {src: string}[] = [
   { src: certificate_3 },
   { src: certificate_7 },
   { src: certificate_4 },
+  { src: certificate_9 },
   { src: certificate_5 },
+  { src: certificate_10 },
   { src: certificate_8 },
 ]
 
@@ -69,7 +69,7 @@ export const qualification: IQualificationChapter[] = [
     items: [
       'Психолог, преподаватель психологии',
       'В настоящее время прохожу обучение по программам клинической психологии и психоанализа, психоаналитической психотерапии и консультирования',
-      'Веду частную практику с 2024 года',
+      'Веду частную практику с 2024 года на русском и испанском языках',
       'Имею учёную степень кандидата экономических наук'
     ]
   },
@@ -92,8 +92,8 @@ export const qualification: IQualificationChapter[] = [
   {
     title: 'Профессиональные интересы',
     items: [
-      'Эмиграция: проблемы, адаптация, выход из кризиса',
-      'Психоаналитическое исследование билингвизма'
+      'Психоаналитическое исследование эмиграции: проблемы идентичности, адаптации, билингвизм',
+      'Психоанализ бизнес-процессов'
     ]
   },
 ];

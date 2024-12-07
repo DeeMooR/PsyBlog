@@ -8,5 +8,7 @@
   .faqItem__text {
     padding: 20px 20px 0;
     color: var(--white);
+    line-height: 1.6;
+    white-space: pre-line;
   }
 }

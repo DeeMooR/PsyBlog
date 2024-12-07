@@ -4,27 +4,31 @@ export const MainImage = styled.div<{ image: string }>`
   width: 100%;
   height: 0px;
   padding-bottom: 40%;
-  background: url(${props => props.image}) 50% 0 no-repeat;
+  background-image: url(${props => props.image});
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   background-size: cover;
 
-  filter: blur(0);
-  transition: filter 0.3s linear;
+  // filter: blur(0);
+  // transition: filter 0.3s linear;
 
   @media (max-width: 1199.98px) {
-    padding-bottom: 50%;
+    padding-bottom: 45%;
   }
   @media (max-width: 999.98px) {
-    padding-bottom: 55%;
+    padding-bottom: 50%;
+    background-position: 50% 35%;
+    background-size: 130% 140%;
   }
-  @media (max-width: 799.98px) {
-    padding-bottom: 65%;
-  }
+  // @media (max-width: 799.98px) {
+  //   padding-bottom: 55%;
+  // }
   @media (max-width: 599.98px) {
     padding-bottom: 75%;
   }
-  @media (max-width: 499.98px) {
-    padding-bottom: 85%;
-  }
+  // @media (max-width: 499.98px) {
+  //   padding-bottom: 85%;
+  // }
 `;
 
 export const AboutImage = styled.div<{ image: string }>`
