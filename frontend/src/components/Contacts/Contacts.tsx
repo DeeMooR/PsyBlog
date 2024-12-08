@@ -38,7 +38,7 @@ export const Contacts = () => {
         </div>
         <form className='contacts__form' onSubmit={handleSubmit(onSubmit)}>
           <div className="form__content">
-            <h4 className='form__title'>Записаться на консультацию</h4>
+            <h2 className='form__title'>Записаться на консультацию</h2>
             {loadingRegister ? (
               <div className="form__loading">
                 <Loading />
