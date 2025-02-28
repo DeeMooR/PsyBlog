@@ -1,21 +1,11 @@
 .prices {
-  max-width: 900px;
-  margin: 0 auto;
   .prices__items {
     display: flex;
-    gap: 100px;
+    gap: 80px;
   }
 }
 
 @media (max-width: 999.98px) {
-  .prices {
-    .prices__items {
-      gap: 60px;
-    }
-  }
-}
-
-@media (max-width: 899.98px) {
   .prices {
     .prices__items {
       gap: 30px;
@@ -23,7 +13,17 @@
   }
 }
 
-@media (max-width: 699.98px) {
+@media (max-width: 899.98px) {
+  .prices {
+    .prices__items {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px 40px;
+    }
+  }
+}
+
+@media (max-width: 599.98px) {
   .prices {
     .prices__items {
       flex-direction: column;

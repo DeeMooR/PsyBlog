@@ -31,11 +31,11 @@ export const Header = () => {
         </div>
         <div className="header__logo logo__block" onClick={onClickLogo}>
           <p className='logo__name'>Ольга Разваляева</p>
-          <p className='logo__position'>Психолог</p>
+          <p className='logo__position'>Клинический психолог</p>
         </div>
         <div className='header__navigation'>
           <a onClick={() => scroll('qualification')}>Квалификация</a>
-          {/* <a onClick={() => scroll('blog')} >Блог</a> */}
+          <a onClick={() => scroll('blog')} >Статьи</a>
           <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
         <div className="header__menu" onClick={() => setClickMenu(true)}>

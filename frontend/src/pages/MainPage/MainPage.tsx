@@ -23,7 +23,7 @@ export const MainPage = () => {
         <Qualification />
         {/* <MainQuote quote={quotes[2]} bottomPadding /> */}
         {/* <MainQuote quote={quotes[2]} bottomPadding={!topPosts.length} /> */}
-        {/* <Blog /> */}
+        {topPosts && <Blog />}
         <Contacts />
       </div>
       <Footer />

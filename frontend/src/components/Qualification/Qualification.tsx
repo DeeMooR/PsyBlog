@@ -27,7 +27,7 @@ export const Qualification = () => {
             <QualificationChapter title={title} items={items} key={title} />
           ))}
         </div>
-        <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={200}  />
+        <RowsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} targetRowHeight={190}  />
         <ColumnsPhotoAlbum photos={certificates} onClick={({ index }) => setIndex(index)} columns={2} />
       </div>
       <Lightbox

@@ -17,10 +17,9 @@ export const About = () => {
         </div>
         <div className="about__info">
           <div className="about__paragraphs">
-            <p className="about__title">Я – психолог</p>
-            <p className="about__title">Провожу индивидуальную психотерапию взрослых</p>
+            <p className="about__title">Клинический психолог</p>
             <p className="about__title">Работаю в психоаналитическом методе</p>
-            <p className="about__title">Ко мне можно обратиться с любым вопросом - помогу разобраться</p>
+            <p className="about__title">Провожу индивидуальное консультирование</p>
           </div>
           <button onClick={() => scrollToSection('qualification', navigate)} className='about__button'>Квалификация</button>
         </div>

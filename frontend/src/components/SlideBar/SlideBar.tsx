@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { scrollToSection } from 'src/helpers';
 import { crossIcon } from 'src/assets';
@@ -33,7 +33,7 @@ export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
         <a onClick={() => handleClick('prices', -40)}>Консультации</a>
         <a onClick={() => handleClick('faq', 0)} >Формат</a>
         <a onClick={() => handleClick('qualification', -50)}>Квалификация</a>
-        {/* <a onClick={() => handleClick('blog', -60)} >Блог</a> */}
+        <a onClick={() => handleClick('blog', -60)} >Статьи</a>
         <a onClick={() => handleClick('contacts', -80)}>Контакты</a>
       </div>
     </div>

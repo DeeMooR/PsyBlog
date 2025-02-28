@@ -4,10 +4,11 @@ export const MainImage = styled.div<{ image: string }>`
   width: 100%;
   height: 0px;
   padding-bottom: 40%;
-  background-image: url(${props => props.image});
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
+  background-color: #b19e90;
+  // background-image: url(${props => props.image});
+  // background-repeat: no-repeat;
+  // background-position: 50% 50%;
+  // background-size: cover;
 
   // filter: blur(0);
   // transition: filter 0.3s linear;
@@ -34,7 +35,7 @@ export const MainImage = styled.div<{ image: string }>`
 export const AboutImage = styled.div<{ image: string }>`
   width: 100%;
   height: 0px;
-  padding-bottom: 120%;
+  padding-bottom: 125%;
   background: url(${props => props.image}) 50% 50% no-repeat;
   background-size: cover;
 
