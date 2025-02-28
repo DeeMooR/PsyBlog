@@ -62,15 +62,6 @@
 @media (max-width: 1199.98px) {
   .priceItem {
     h4 {
-      font-size: calc(0.6rem + 0.7vw);
-      min-height: 62px;
-    }
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .priceItem {
-    h4 {
       font-size: calc(0.6rem + 0.8vw);
       min-height: 65px;
     }
@@ -81,6 +72,7 @@
   .priceItem {
     h4 {
       font-size: calc(0.7rem + 0.8vw);
+      min-height: 68px;
     }
   }
 }

@@ -28,8 +28,7 @@ export const MainPicture = () => {
       <div className="mainPicture__info">
         {/* <p className='mainPicture__title'>ПСИХОЛОГ ОНЛАЙН</p> */}
         {/* <p className='mainPicture__name'>Разваляева Ольга</p> */}
-        <p className="mainPicture__text">Психоаналитическое консультирование онлайн</p>
-        <p className="mainPicture__text">Психологическая помощь эмигрантам</p>
+        <h1 className="mainPicture__text">Психоаналитическое консультирование онлайн <br/>Психологическая помощь эмигрантам</h1>
       </div>
     </section>
   )

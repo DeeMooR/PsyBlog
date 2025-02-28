@@ -11,7 +11,7 @@ export interface IService {
 
 export interface IFAQ {
   title: string,
-  text: string,
+  texts: string[],
 }
 
 export interface IQualificationChapter {

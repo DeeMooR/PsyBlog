@@ -38,7 +38,7 @@ export const AuthPage = () => {
         <div className="authPage__wrapper">
           <p className='crumbs' onClick={() => navigate('/')}>Главная /</p>
           <div className="authPage__content">
-            <h1 className='authPage__title'>Вход в админ-панель</h1>
+            <h2 className='authPage__title'>Вход в админ-панель</h2>
             {isLoading ? (
               <div className="authPage__loading">
                 <Loading />
