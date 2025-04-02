@@ -7,15 +7,15 @@ export const services: IService[] = [
     id: 1,
     image: service_1,
     name: 'Индивидуальные психоаналитические консультации',
-    price: '40 €',
-    time: '45 мин.'
+    price: '50 €',
+    time: '50 мин.'
   },
   {
     id: 2,
     image: service_2,
     name: 'Психоаналитические консультации для эмигрантов',
-    price: '40 €',
-    time: '45 мин.'
+    price: '50 €',
+    time: '50 мин.'
   },
   {
     id: 3,
