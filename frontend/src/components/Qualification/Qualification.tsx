@@ -20,7 +20,7 @@ export const Qualification = () => {
   }, [index])
 
   return (
-    <SectionTemplate id='qualification' title='Квалификация' backgroundColor='beige' >
+    <SectionTemplate id='qualification' title='Образование' backgroundColor='beige' >
       <div className='qualification'>
         <div className="qualification__info">
           {qualification.map(({title, items}) => (

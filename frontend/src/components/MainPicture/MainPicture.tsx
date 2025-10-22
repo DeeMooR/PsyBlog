@@ -28,7 +28,8 @@ export const MainPicture = () => {
       <div className="mainPicture__info">
         {/* <p className='mainPicture__title'>ПСИХОЛОГ ОНЛАЙН</p> */}
         {/* <p className='mainPicture__name'>Разваляева Ольга</p> */}
-        <h1 className="mainPicture__text">Психоаналитическое консультирование онлайн <br/>Психологическая помощь эмигрантам</h1>
+        <h1 className="mainPicture__title">Русскоязычный психолог онлайн.</h1>
+        <h2 className="mainPicture__text">Психоаналитическое консультирование онлайн. <br/>Психологическая помощь эмигрантам</h2>
       </div>
     </section>
   )

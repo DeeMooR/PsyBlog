@@ -32,8 +32,8 @@ export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
         <a onClick={() => handleClick('about', -30)}>Обо мне</a>
         <a onClick={() => handleClick('prices', -40)}>Консультации</a>
         <a onClick={() => handleClick('faq', 0)} >Формат</a>
-        <a onClick={() => handleClick('qualification', -50)}>Квалификация</a>
-        <a onClick={() => handleClick('blog', -60)} >Статьи</a>
+        <a onClick={() => handleClick('qualification', -50)}>Образование</a>
+        {/* <a onClick={() => handleClick('blog', -60)} >Статьи</a> */}
         <a onClick={() => handleClick('contacts', -80)}>Контакты</a>
       </div>
     </div>

@@ -34,7 +34,7 @@ export const Header = () => {
           <p className='logo__position'>Клинический психолог</p>
         </div>
         <div className='header__navigation'>
-          <a onClick={() => scroll('qualification')}>Квалификация</a>
+          <a onClick={() => scroll('qualification')}>Образование</a>
           {/* <a onClick={() => scroll('blog')} >Статьи</a> */}
           <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>

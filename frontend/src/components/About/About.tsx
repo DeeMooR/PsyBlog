@@ -17,11 +17,11 @@ export const About = () => {
         </div>
         <div className="about__info">
           <div className="about__paragraphs">
-            <p className="about__title">Клинический психолог</p>
-            <p className="about__title">Работаю в психоаналитическом методе</p>
-            <p className="about__title">Провожу индивидуальное консультирование</p>
+            <p className="about__title">Я — клинический психолог.</p>
+            <p className="about__title">Работаю в психоаналитическом подходе и провожу индивидуальные онлайн-консультации.</p>
+            <p className="about__title">Помогаю тем, кто живёт за границей и сталкивается с тревогой, выгоранием, чувством утраты опоры или трудностями адаптации.</p>
           </div>
-          <button onClick={() => scrollToSection('qualification', navigate)} className='about__button'>Квалификация</button>
+          <button onClick={() => scrollToSection('qualification', navigate)} className='about__button'>Образование и опыт</button>
         </div>
       </div>
     </SectionTemplate>

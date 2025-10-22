@@ -8,14 +8,16 @@
     padding: 0 30px;
     font-size: 24px;
     color: var(--white);
-    // .mainPicture__title {
-    //   font-size: 64px;
-    // }
+    .mainPicture__title {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
     // .mainPicture__name {
     //   font-size: 48px;
     // }
     .mainPicture__text {
-      font-size: 44px;
+      font-size: 38px;
+      line-height: 46px;
     }
   }
   .loadingImage {
@@ -28,9 +30,6 @@
     .mainPicture__info {
       top: 48%;
       left: 0;
-      .mainPicture__text {
-        font-size: 42px;
-      }
     }
   }
 }
@@ -39,14 +38,16 @@
   .mainPicture {
     .mainPicture__info {
       top: 43%;
-      // .mainPicture__title {
-      //   font-size: 54px;
-      // }
+      .mainPicture__title {
+        font-size: 54px;
+        margin-bottom: 14px;
+      }
       // .mainPicture__name {
       //   font-size: 42px;
       // }
       .mainPicture__text {
         font-size: 36px;
+        line-height: 40px;
       }
     }
   }
@@ -55,14 +56,16 @@
 @media (max-width: 799.98px) {
   .mainPicture {
     .mainPicture__info {
-      // .mainPicture__title {
-      //   font-size: 44px;
-      // }
+      .mainPicture__title {
+        font-size: 44px;
+        margin-bottom: 10px;
+      }
       // .mainPicture__name {
       //   font-size: 34px;
       // }
       .mainPicture__text {
         font-size: 30px;
+        line-height: 34px;
       }
     }
   }
@@ -81,14 +84,16 @@
     .mainPicture__info {
       top: 50%;
       transform: translate(0, -50%);
-      // .mainPicture__title {
-      //   font-size: 37px;
-      // }
+      .mainPicture__title {
+        font-size: 37px;
+        margin-bottom: 10px;
+      }
       // .mainPicture__name {
       //   font-size: 29px;
       // }
       .mainPicture__text {
         font-size: 26px;
+        line-height: 30px;
       }
     }
   }
@@ -97,14 +102,16 @@
 @media (max-width: 499.98px) {
   .mainPicture {
     .mainPicture__info {
-      // .mainPicture__title {
-      //   font-size: 30px;
-      // }
+      .mainPicture__title {
+        font-size: 30px;
+        margin-bottom: 8px;
+      }
       // .mainPicture__name {
       //   font-size: 25px;
       // }
       .mainPicture__text {
         font-size: 22px;
+        line-height: 26px;
       }
     }
   }
@@ -113,10 +120,10 @@
 @media (max-width: 399.98px) {
   .mainPicture {
     .mainPicture__info {
-    
-      // .mainPicture__title {
-      //   font-size: 26px;
-      // }
+      .mainPicture__title {
+        font-size: 26px;
+        margin-bottom: 6px;
+      }
       // .mainPicture__name {
       //   font-size: 22px;
       // }
