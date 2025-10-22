@@ -35,7 +35,7 @@ export const Header = () => {
         </div>
         <div className='header__navigation'>
           <a onClick={() => scroll('qualification')}>Квалификация</a>
-          <a onClick={() => scroll('blog')} >Статьи</a>
+          {/* <a onClick={() => scroll('blog')} >Статьи</a> */}
           <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
         <div className="header__menu" onClick={() => setClickMenu(true)}>

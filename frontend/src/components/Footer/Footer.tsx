@@ -42,7 +42,7 @@ export const Footer = () => {
         </div>
         <div className='footer__column'>
           <a onClick={() => scroll('qualification')}>Квалификация</a>
-          <a onClick={() => scroll('blog')} >Статьи</a>
+          {/* <a onClick={() => scroll('blog')} >Статьи</a> */}
           <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
       </div>
