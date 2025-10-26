@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { crossIcon } from 'src/assets'
 import { NotificationData } from './config';
-import './Notification.scss'
+import cls from './Notification.module.css'
 
 interface INotification {
   type: 'error' | 'success',
@@ -26,11 +26,11 @@ export const Notification:FC<INotification> = ({type, message, displayTime = 350
   }
 
   return !isVisible ? null : (
-    <div className={`notification ${style}`}>
-      <div className="notification__wrapper">
-        <div className="notification__icon">{icon}</div>
-        <p className='notification__text'>{message}</p>
-        <button type="button" className='notification__cross' onClick={closeModal}>
+    <div className={`${cls.wrapper} ${style}`}>
+      <div className={cls.content}>
+        <div className={cls.icon}>{icon}</div>
+        <p className={cls.text}>{message}</p>
+        <button type="button" className={cls.cross} onClick={closeModal}>
           <img src={crossIcon} alt="close" />
         </button>
       </div>

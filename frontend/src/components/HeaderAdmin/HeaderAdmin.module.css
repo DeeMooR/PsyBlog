@@ -1,4 +1,4 @@
-.headerAdmin {
+.header {
   position: fixed;
   top: 0;
   display: flex;
@@ -8,15 +8,15 @@
   background: var(--background);
   box-shadow: 0 0 4px rgba(0,0,0,0.05);
   z-index: 10;
-  .headerAdmin__wrapper {
+  .header__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
     width: 100%;
-    max-width: 1350px;
-    padding: 0 30px 0 20px;
-    .headerAdmin__navigation {
+    max-width: 1360px;
+    padding: 0 30px;
+    .navigation {
       display: flex;
       gap: 5px;
       a {
@@ -26,21 +26,21 @@
         color: var(--green-text);
         text-transform: uppercase;
         transition: all 0.1s ease-in-out 0s;        
-        &:hover {
-          color: var(--beige-2);
-        }
+      }
+      a:hover {
+        color: var(--beige-2);
       }
     }
-    .headerAdmin__right {
+    .right {
       display: flex;
       gap: 25px;
       align-items: center;
-      .headerAdmin__adminText {
+      .right__text {
         font-family: var(--font-tall);
         font-size: 14px;
         text-transform: uppercase;
       }
-      .headerAdmin__exit {
+      .right__button {
         min-width: 120px;
         border-radius: 5px;
       }
@@ -48,14 +48,14 @@
   }
 }
 
-@media (max-width: 799.98px) {
-  .headerAdmin {
-    .headerAdmin__wrapper {
-      .headerAdmin__logo {
+@media (max-width: 800px) {
+  .header {
+    .header__wrapper {
+      .logo {
         display: none;
       }
-      .headerAdmin__right {
-        .headerAdmin__adminText {
+      .right {
+        .right__text {
           display: none;
         }
       }
@@ -63,24 +63,24 @@
   }
 }
 
-@media (max-width: 599.98px) {
-  .headerAdmin {
-    height: 60px;
+@media (max-width: 600px) {
+  .header {
+    height: 61px;
   }
 }
 
-@media (max-width: 479.98px) {
-  .headerAdmin {
-    .headerAdmin__wrapper {
+@media (max-width: 480px) {
+  .header {
+    .header__wrapper {
       padding: 0 20px 0 13px;
-      .headerAdmin__navigation {
+      .navigation {
         gap: 0;
         a {
           padding: 7px;
         }
       }
-      .headerAdmin__right {
-        .headerAdmin__exit {
+      .right {
+        .right__button {
           min-width: 100px;
         }
       }

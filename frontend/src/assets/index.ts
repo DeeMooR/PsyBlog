@@ -9,8 +9,6 @@ import pencilIcon from './icons/pencil.svg';
 import basketIcon from './icons/basket.svg';
 import imageUploadIcon from './icons/imageUpload.svg';
 
-import mainImage from './images/mainImage.png';
-import mainImageSmall from './images/mainImage.png';
 import aboutImage from './images/aboutImage.jpg';
 import contactsImage from './images/contactsImage.jpg';
 
@@ -41,8 +39,6 @@ export {
   pencilIcon,
   basketIcon,
   imageUploadIcon,
-  mainImage,
-  mainImageSmall,
   aboutImage,
   contactsImage,
   service_1,

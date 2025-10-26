@@ -39,6 +39,7 @@
   --green-text: #494706;
   --green: #646b41;
   
+  --main-block: #b19e90;
   --background: #F9F3EB;
   --beige-light: #e8d4bc92;
   --beige-1: #E8D4BC;
@@ -98,7 +99,7 @@ body {
   padding: 80px 0 0 0;
 }
 
-@media (max-width: 599.98px) {
+@media (max-width: 600px) {
   #root {
     padding: 60px 0 0 0;
   }
@@ -271,12 +272,12 @@ button:disabled,
   text-transform: uppercase;
 }
 
-@media (max-width: 859.98px) {
+@media (max-width: 860px) {
   .imageBorder {
     display: none;
   }
 }
-@media (max-width: 599.98px) {
+@media (max-width: 600px) {
   .logo__name {
     font-size: 21px;
   }
@@ -284,7 +285,7 @@ button:disabled,
     font-size: 8.5px;
   }
 }
-@media (max-width: 479.98px) {
+@media (max-width: 480px) {
   .crumbs {
     margin: 0 0 10px 0;
   }
@@ -309,4 +310,27 @@ button:disabled,
 }
 .yarl__button:not(:disabled):hover g:last-child {
   color: var(--white);
+}
+
+.react-photo-album {
+  .react-photo-album--button {
+    height: auto;
+  }
+  .react-photo-album--image {
+    cursor: zoom-in;
+  }
+  &.react-photo-album--columns {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .react-photo-album {
+    &.react-photo-album--columns {
+      display: flex;
+    }
+    &.react-photo-album--rows {
+      display: none;
+    }
+  }
 }

@@ -1,19 +1,19 @@
-.faqItem {
+.container {
   width: 100%;
   h4 {
     padding: 0 0 10px 0;
     color: var(--white);
     border-bottom: 1px solid var(--white);
   }
-  .faqItem__texts {
+  .list {
     padding: 20px 20px 0;
     display: flex;
     flex-direction: column;
     gap: 9px;
-  }
-  .faqItem__text {
-    color: var(--white);
-    line-height: 1.4;
-    white-space: pre-line;
+    .item {
+      color: var(--white);
+      line-height: 1.4;
+      white-space: pre-line;
+    }
   }
 }

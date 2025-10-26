@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
-import parse from 'html-react-parser';
 import { IFAQ } from 'src/interfaces';
-import './FAQItem.scss'
+import cls from './FAQItem.module.css'
 
 interface IFAQItem {
   obj: IFAQ
@@ -11,13 +10,12 @@ export const FAQItem:FC<IFAQItem> = ({ obj }) => {
   const { title, texts } = obj;
 
   return (
-    <div className='faqItem'>
+    <div className={cls.container}>
       <h4>{title}</h4>
-      <p className='faqItem__texts'>
+      <p className={cls.list}>
         {texts.map(text => (
-          <p className='faqItem__text'>{text}</p>
-        ))
-        }
+          <p className={cls.item}>{text}</p>
+        ))}
       </p>
     </div>
   )

@@ -7,7 +7,7 @@ import { contactsImage } from 'src/assets'
 import { IUserForm } from 'src/interfaces'
 import { orderScheme } from 'src/validation'
 import { ContactsImage } from 'src/styled'
-import './Contacts.scss'
+import cls from './Contacts.module.css'
 
 export const Contacts = () => {
   const dispatch = useAppDispatch();
@@ -31,21 +31,21 @@ export const Contacts = () => {
   }
 
   return (
-    <section className='contacts'>
-      <div className="contacts__wrapper">
-        <div className="contacts__image">
+    <section className={cls.container} id='contacts'>
+      <div className={cls.content}>
+        <div className={cls.image}>
           <ContactsImage image={contactsImage} />
         </div>
-        <form className='contacts__form' onSubmit={handleSubmit(onSubmit)}>
-          <div className="form__content">
-            <h2 className='form__title'>Записаться на консультацию</h2>
+        <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
+          <div className={cls.form__content}>
+            <h2 className={cls.form__title}>Записаться на консультацию</h2>
             {loadingRegister ? (
-              <div className="form__loading">
+              <div className={cls.form__loading}>
                 <Loading />
               </div>
             ) : (
               <>
-              <div className="form__inputs">
+              <div className={cls.form__inputs}>
                 <Input 
                   id='name' 
                   register={register}
@@ -68,8 +68,8 @@ export const Contacts = () => {
                   error={errors.phone?.message}
                 />
               </div>
-              <button className='form__button'>Записаться</button>
-              <p className='form__policy'>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </p>
+              <button className={cls.form__button}>Записаться</button>
+              <p className={cls.form__policy}>Нажимая на кнопку, вы даете согласие на обработку персональных данных. </p>
               </>
             )}
           </div>

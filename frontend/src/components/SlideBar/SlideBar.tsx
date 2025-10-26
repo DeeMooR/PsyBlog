@@ -12,15 +12,19 @@ interface ISlideBar {
 export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
   const navigate = useNavigate();
 
-  const handleClick = (section: string, padding: number) => {
-    scrollToSection(section, navigate, padding);
+  const onClickLogo = () => {
+    scrollToSection('up', navigate, -80);
+    setClickMenu(false);
+  }
+  const scroll = (section: string) => {
+    scrollToSection(section, navigate, -40);
     setClickMenu(false);
   }
 
   return (
     <div className={`slideBar ${clickMenu && 'show'}`} >
       <div className="slideBar__header">
-        <div className="slideBar__logo logo__block" onClick={() => handleClick('up', -80)}>
+        <div className="slideBar__logo logo__block" onClick={onClickLogo}>
           <p className='logo__name'>Ольга Разваляева</p>
           <p className='logo__position'>Психолог</p>
         </div>
@@ -29,12 +33,12 @@ export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
         </div>
       </div>
       <div className="slideBar__items">
-        <a onClick={() => handleClick('about', -30)}>Обо мне</a>
-        <a onClick={() => handleClick('prices', -40)}>Консультации</a>
-        <a onClick={() => handleClick('faq', 0)} >Формат</a>
-        <a onClick={() => handleClick('qualification', -50)}>Образование</a>
-        {/* <a onClick={() => handleClick('blog', -60)} >Статьи</a> */}
-        <a onClick={() => handleClick('contacts', -80)}>Контакты</a>
+        <a onClick={() => scroll('about')}>Обо мне</a>
+        <a onClick={() => scroll('prices')}>Консультации</a>
+        <a onClick={() => scroll('faq')} >Формат</a>
+        <a onClick={() => scroll('qualification')}>Образование</a>
+        {/* <a onClick={() => scroll('blog')} >Статьи</a> */}
+        <a onClick={() => scroll('contacts')}>Контакты</a>
       </div>
     </div>
   )

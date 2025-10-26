@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { displayScroll, hiddenScroll, scrollToSection } from 'src/helpers';
 import { SlideBar } from 'src/components';
 import { menuIcon } from 'src/assets';
-import './Header.scss'
+import cls from './Header.module.css'
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -22,23 +22,23 @@ export const Header = () => {
   }
 
   return (
-    <header className='header'>
-      <div className="header__wrapper">
-        <div className='header__navigation'>
+    <header className={cls.header}>
+      <div className={cls.header__wrapper}>
+        <div className={cls.navigation}>
           <a onClick={() => scroll('about')}>Обо мне</a>
           <a onClick={() => scroll('prices')}>Консультации</a>
           <a onClick={() => scroll('faq')} >Формат</a>
         </div>
-        <div className="header__logo logo__block" onClick={onClickLogo}>
+        <div className={`${cls.logo} logo__block`} onClick={onClickLogo}>
           <p className='logo__name'>Ольга Разваляева</p>
           <p className='logo__position'>Клинический психолог</p>
         </div>
-        <div className='header__navigation'>
+        <div className={cls.navigation}>
           <a onClick={() => scroll('qualification')}>Образование</a>
           {/* <a onClick={() => scroll('blog')} >Статьи</a> */}
           <a onClick={() => scroll('contacts')}>Контакты</a>
         </div>
-        <div className="header__menu" onClick={() => setClickMenu(true)}>
+        <div className={cls.menu} onClick={() => setClickMenu(true)}>
           <img src={menuIcon} alt="menu" />
         </div>
       </div>
