@@ -26,8 +26,7 @@ export const Header = () => {
       <div className={cls.header__wrapper}>
         <div className={cls.navigation}>
           <a onClick={() => scroll('about')}>Обо мне</a>
-          <a onClick={() => scroll('prices')}>Консультации</a>
-          <a onClick={() => scroll('faq')} >Формат</a>
+          <a onClick={() => scroll('consultation')}>Формат терапии</a>
         </div>
         <div className={`${cls.logo} logo__block`} onClick={onClickLogo}>
           <p className='logo__name'>Ольга Разваляева</p>

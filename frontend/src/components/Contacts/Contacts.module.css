@@ -132,6 +132,7 @@
 @media (max-width: 480px) {
   .container {
     .content {
+      padding: 60px 20px;
       .form {
         .form__content {
           h2 {

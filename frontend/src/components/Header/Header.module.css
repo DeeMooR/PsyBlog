@@ -87,3 +87,14 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .header {
+    .header__wrapper {
+      padding: 0 20px;
+      .menu {
+        right: 20px;
+      }
+    }
+  }
+}

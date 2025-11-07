@@ -34,8 +34,7 @@ export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
       </div>
       <div className="slideBar__items">
         <a onClick={() => scroll('about')}>Обо мне</a>
-        <a onClick={() => scroll('prices')}>Консультации</a>
-        <a onClick={() => scroll('faq')} >Формат</a>
+        <a onClick={() => scroll('consultation')}>Формат терапии</a>
         <a onClick={() => scroll('qualification')}>Образование</a>
         {/* <a onClick={() => scroll('blog')} >Статьи</a> */}
         <a onClick={() => scroll('contacts')}>Контакты</a>

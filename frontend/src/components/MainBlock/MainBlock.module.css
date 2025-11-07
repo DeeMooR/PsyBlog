@@ -4,66 +4,62 @@
 }
 
 .content {
-  max-width: 1360px;
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 300px 30px 80px;
-  color: var(--white);
+  padding: 250px 30px 80px;
+  color: var(--main-block-text);
   
   .title {
-    font-size: 64px;
-    line-height: 80px;
-    margin-bottom: 16px;
+    font-size: 42px;
+    line-height: 1.25;
+    margin-bottom: 12px;
   }
   .text {
-    font-size: 36px;
-    line-height: 45px;
+    font-size: 24px;
+    line-height: 1.4;
   }
 }
 
 @media (max-width: 1100px) {
   .content {
-    padding: calc(300 / 1100 * 100vw) 30px 80px;
+    padding: calc(250 / 1100 * 100vw) 30px 80px;
+  }
+}
+
+@media (max-width: 800px) {
+ .content {
+    padding: calc(250 / 1100 * 100vw) 30px 60px;
     .title {
-      font-size: calc(64 / 1100 * 100vw);
-      line-height: calc(80 / 1100 * 100vw);
+      font-size: 34px;
     }
     .text {
-      font-size: calc(36 / 1100 * 100vw);
-      line-height: calc(45 / 1100 * 100vw);
+      font-size: 22px;
     }
   }
 }
 
 @media (max-width: 800px) {
  .content {
-    padding: calc(300 / 1100 * 100vw) 30px 60px;
     .title {
-      font-size: calc(52 / 800 * 100vw);
-      line-height: calc(65 / 800 * 100vw);
-    }
-    .text {
-      font-size: calc(42 / 1100 * 100vw);
-      line-height: calc(55 / 1100 * 100vw);
+      font-size: 30px;
     }
   }
 }
 
 @media (max-width: 480px) {
  .content {
+    padding: calc(250 / 1100 * 100vw) 20px 60px;
     .title {
-      font-size: 26px;
-      line-height: 30px;
-      margin-bottom: 12px;
+      font-size: 28px;
     }
     .text {
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 20px;
     }
   }
 }
 
 @media (max-width: 400px) {
  .content {
-    padding: calc(300 / 1100 * 100vw) 30px 40px;
+    padding: calc(250 / 1100 * 100vw) 30px 40px;
   }
 }

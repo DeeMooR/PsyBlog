@@ -16,10 +16,10 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .container {
     .content {
-      margin: 0 0 25px 10px;
+      margin: 0 0 25px 0;
     }
   }
 }

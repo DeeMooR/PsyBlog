@@ -1,6 +1,6 @@
 import React from 'react'
 import { clearMainMessages, getAdminSelector, getMainSelector, useAppDispatch, useAppSelector } from 'src/store';
-import { Blog, FAQ, Footer, Header, Prices, Contacts, MainBlock, About, Qualification, HeaderAdmin } from 'src/components'
+import { Blog, FAQ, Footer, Header, Prices, Contacts, MainBlock, About, Qualification, HeaderAdmin, Consultation } from 'src/components'
 import { Notification } from 'src/UI'
 
 export const MainPage = () => {
@@ -16,8 +16,7 @@ export const MainPage = () => {
       <div>
         <MainBlock />
         <About />
-        <Prices />
-        <FAQ />
+        <Consultation />
         <Qualification />
         {topPosts && <Blog />}
         <Contacts />

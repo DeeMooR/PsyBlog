@@ -23,8 +23,7 @@ export const Footer = () => {
       <div className={cls.content}>
         <div className={cls.column}>
           <a onClick={() => scroll('about')}>Обо мне</a>
-          <a onClick={() => scroll('prices')}>Консультации</a>
-          <a onClick={() => scroll('faq')} >Формат</a>
+          <a onClick={() => scroll('consultation')}>Формат терапии</a>
         </div>
         <div className={cls.icons}>
           <p className={cls.icons__text}>Контакты для связи</p>
@@ -47,7 +46,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className={cls.copyright}>
-        <p className={cls.copyright__text}>© Ольга Разваляева, 2024</p>
+        <p className={cls.copyright__text}>© Ольга Разваляева, 2024-{new Date().getFullYear()}</p>
       </div>
     </footer>
   )

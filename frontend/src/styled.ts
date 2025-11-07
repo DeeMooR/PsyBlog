@@ -7,8 +7,20 @@ export const AboutImage = styled.div<{ image: string }>`
   background: url(${props => props.image}) 50% 50% no-repeat;
   background-size: cover;
 
-  @media (max-width: 700px) {
+  @media (max-width: 780px) {
     padding-bottom: 120%;
+  }
+`;
+
+export const ConsultationImage = styled.div<{ image: string }>`
+  width: 100%;
+  height: 0px;
+  padding-bottom: 125%;
+  background: url(${props => props.image}) 50% 50% no-repeat;
+  background-size: cover;
+
+  @media (max-width: 780px) {
+    padding-bottom: 100%;
   }
 `;
 

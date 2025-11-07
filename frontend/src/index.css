@@ -39,7 +39,10 @@
   --green-text: #494706;
   --green: #646b41;
   
-  --main-block: #b19e90;
+  --main-block: #E4DAD0;
+  --main-block-text: #403A36;
+  /* --main-block: #b19e90; */
+  
   --background: #F9F3EB;
   --beige-light: #e8d4bc92;
   --beige-1: #E8D4BC;
@@ -197,6 +200,14 @@ button:disabled,
 .btnDark:hover:not(:disabled) {
   background-color: var(--beige-2);
   color: var(--black);
+}
+
+.btnBeige {
+  background-color: var(--beige-2);
+  color: var(--black);
+}
+.btnBeige:hover:not(:disabled) {
+  background-color: var(--beige-1);
 }
 
 .btnDelete {
