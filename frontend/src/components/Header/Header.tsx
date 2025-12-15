@@ -30,7 +30,7 @@ export const Header = () => {
         </div>
         <div className={`${cls.logo} logo__block`} onClick={onClickLogo}>
           <p className='logo__name'>Ольга Разваляева</p>
-          <p className='logo__position'>Клинический психолог</p>
+          <p className='logo__position'>Психолог</p>
         </div>
         <div className={cls.navigation}>
           <a onClick={() => scroll('qualification')}>Образование</a>

@@ -1,6 +1,6 @@
 .content {
   display: flex;
-  gap: 100px;
+  gap: 80px;
   .image {
     width: 45%;
     margin: 0 auto;
@@ -20,7 +20,7 @@
 
 @media (max-width: 1080px) {
   .content {
-    gap: 100px;
+    gap: 60px;
   }
 }
 

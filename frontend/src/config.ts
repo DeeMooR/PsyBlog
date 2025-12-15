@@ -1,5 +1,5 @@
 import { IFAQ, IQualificationChapter, IService } from "src/interfaces";
-import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, certificate_10, certificate_11, certificate_12, service_1, service_2, service_3 } from 'src/assets';
+import { certificate_1, certificate_13, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, certificate_10, certificate_11, certificate_12, service_1, service_2, service_3 } from 'src/assets';
 import { BlockNames } from "./postBlocks/interfaces";
 
 export const services: IService[] = [
@@ -43,6 +43,7 @@ export const certificates = [
   { src: certificate_1, width: 400, height: 300 },
   { src: certificate_2, width: 400, height: 300 },
   { src: certificate_6, width: 300, height: 400 },
+  { src: certificate_13, width: 400, height: 300 },
   { src: certificate_3, width: 400, height: 300 },
   { src: certificate_7, width: 300, height: 400 },
   { src: certificate_12, width: 400, height: 300 },
@@ -57,6 +58,7 @@ export const certificates_slides: {src: string}[] = [
   { src: certificate_1 },
   { src: certificate_2 },
   { src: certificate_6 },
+  { src: certificate_13 },
   { src: certificate_3 },
   { src: certificate_7 },
   { src: certificate_12 },

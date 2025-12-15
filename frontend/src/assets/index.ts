@@ -28,6 +28,7 @@ import certificate_8 from './images/certificate_8.jpg'
 import certificate_10 from './images/certificate_10.png'
 import certificate_11 from './images/certificate_11.jpg'
 import certificate_12 from './images/certificate_12.jpg'
+import certificate_13 from './images/certificate_13.jpg'
 
 export {
   menuIcon,
@@ -57,4 +58,5 @@ export {
   certificate_10,
   certificate_11,
   certificate_12,
+  certificate_13
 }
