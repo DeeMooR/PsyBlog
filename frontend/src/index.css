@@ -272,8 +272,8 @@ button:disabled,
 .logo__name {
   font-family: var(--font-logo);
   font-size: 24px;
+  line-height: 1.6;
   color: var(--green);
-  margin: 0 0 1px 0;
 }
 .logo__position {
   font-family: var(--font-tall);

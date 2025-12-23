@@ -25,7 +25,7 @@ export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
     <div className={`slideBar ${clickMenu && 'show'}`} >
       <div className="slideBar__header">
         <div className="slideBar__logo logo__block" onClick={onClickLogo}>
-          <p className='logo__name'>Ольга Разваляева</p>
+          <h2 className='logo__name'>Ольга Разваляева</h2>
           <p className='logo__position'>Психолог</p>
         </div>
         <div className="slideBar__cross" onClick={() => setClickMenu(false)}>
