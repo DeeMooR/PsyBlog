@@ -4,8 +4,8 @@ export const MainBlock = () => {
   return (
     <section className={cls.container} id='up'>
       <div className={cls.content}>
-        <h1 className={cls.title}>Русскоязычный психолог онлайн.</h1>
-        <h2 className={cls.text}>Психоаналитическая терапия и психологическая поддержка в эмиграции</h2>
+        <h1 className={cls.title}>Русскоязычный психолог.</h1>
+        <h2 className={cls.text}>Индивидуальные онлайн-консультации для взрослых</h2>
       </div>
     </section>
   )

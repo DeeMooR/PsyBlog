@@ -27,6 +27,7 @@ export const Footer = () => {
         </div>
         <div className={cls.icons}>
           <p className={cls.icons__text}>Контакты для связи</p>
+          <a href="tel:+34652364078" className={cls.icons__phone}>+34 652 36 40 78</a>
           <a href="https://mail.google.com/mail/?view=cm&to=orazvalyaeva@gmail.com" target="_blank" className={cls.icons__email}>orazvalyaeva@gmail.com</a>
           <div className={cls.icons__links}>
             <svg onClick={openTelegram} className={cls.icons__link} width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
