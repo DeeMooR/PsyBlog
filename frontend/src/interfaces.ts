@@ -4,14 +4,14 @@ export interface IService {
   id: number,
   image: string,
   name: string,
-  description: string,
   price?: string,
   time?: string,
+  altText?: string,
 }
 
 export interface IFAQ {
   title: string,
-  text: string,
+  texts: string[],
 }
 
 export interface IQualificationChapter {

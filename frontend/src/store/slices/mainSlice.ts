@@ -41,7 +41,8 @@ const mainSlice = createSlice({
       .addCase(getShortPostsTopAction.rejected, (state) => {
         state.isLoading = false;
         state.successMessage = null;
-        state.errorMessage = 'Ошибка при получении статей';
+        state.errorMessage = null;
+        // state.errorMessage = 'Ошибка при получении статей';
       })
 
       .addCase(createUserAction.pending, (state) => {

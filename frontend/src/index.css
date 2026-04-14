@@ -39,6 +39,10 @@
   --green-text: #494706;
   --green: #646b41;
   
+  --main-block: #E4DAD0;
+  --main-block-text: #403A36;
+  /* --main-block: #b19e90; */
+  
   --background: #F9F3EB;
   --beige-light: #e8d4bc92;
   --beige-1: #E8D4BC;
@@ -98,7 +102,7 @@ body {
   padding: 80px 0 0 0;
 }
 
-@media (max-width: 599.98px) {
+@media (max-width: 600px) {
   #root {
     padding: 60px 0 0 0;
   }
@@ -113,10 +117,6 @@ p, span, a {
 
 button, input, textarea {
   letter-spacing: 0.05em;
-}
-
-h1 {
-  font-size: 40px;
 }
 
 h2 {
@@ -181,6 +181,7 @@ button, .button {
   background-color: var(--green);
   text-transform: uppercase;
   transition: all 0.2s ease-in-out 0s;
+  border-radius: 5px;
 }
 button:hover:not(:disabled),
 .button:hover:not(:disabled)  {
@@ -199,6 +200,14 @@ button:disabled,
 .btnDark:hover:not(:disabled) {
   background-color: var(--beige-2);
   color: var(--black);
+}
+
+.btnBeige {
+  background-color: var(--beige-2);
+  color: var(--black);
+}
+.btnBeige:hover:not(:disabled) {
+  background-color: var(--beige-1);
 }
 
 .btnDelete {
@@ -263,8 +272,8 @@ button:disabled,
 .logo__name {
   font-family: var(--font-logo);
   font-size: 24px;
+  line-height: 1.6;
   color: var(--green);
-  margin: 0 0 1px 0;
 }
 .logo__position {
   font-family: var(--font-tall);
@@ -274,12 +283,12 @@ button:disabled,
   text-transform: uppercase;
 }
 
-@media (max-width: 859.98px) {
+@media (max-width: 860px) {
   .imageBorder {
     display: none;
   }
 }
-@media (max-width: 599.98px) {
+@media (max-width: 600px) {
   .logo__name {
     font-size: 21px;
   }
@@ -287,7 +296,7 @@ button:disabled,
     font-size: 8.5px;
   }
 }
-@media (max-width: 479.98px) {
+@media (max-width: 480px) {
   .crumbs {
     margin: 0 0 10px 0;
   }
@@ -312,4 +321,27 @@ button:disabled,
 }
 .yarl__button:not(:disabled):hover g:last-child {
   color: var(--white);
+}
+
+.react-photo-album {
+  .react-photo-album--button {
+    height: auto;
+  }
+  .react-photo-album--image {
+    cursor: zoom-in;
+  }
+  &.react-photo-album--columns {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .react-photo-album {
+    &.react-photo-album--columns {
+      display: flex;
+    }
+    &.react-photo-album--rows {
+      display: none;
+    }
+  }
 }

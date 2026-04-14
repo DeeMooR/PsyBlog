@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { scrollToSection } from 'src/helpers';
 import { crossIcon } from 'src/assets';
@@ -12,29 +12,32 @@ interface ISlideBar {
 export const SlideBar:FC<ISlideBar> = ({ clickMenu, setClickMenu }) => {
   const navigate = useNavigate();
 
-  const handleClick = (section: string, padding: number) => {
-    scrollToSection(section, navigate, padding);
+  const onClickLogo = () => {
+    scrollToSection('up', navigate, -80);
+    setClickMenu(false);
+  }
+  const scroll = (section: string) => {
+    scrollToSection(section, navigate, -40);
     setClickMenu(false);
   }
 
   return (
     <div className={`slideBar ${clickMenu && 'show'}`} >
       <div className="slideBar__header">
-        <div className="slideBar__logo logo__block" onClick={() => handleClick('up', -80)}>
-          <p className='logo__name'>Ольга Разваляева</p>
-          <p className='logo__position'>Психолог, Психоаналитик</p>
+        <div className="slideBar__logo logo__block" onClick={onClickLogo}>
+          <h2 className='logo__name'>Ольга Разваляева</h2>
+          <p className='logo__position'>Психолог</p>
         </div>
         <div className="slideBar__cross" onClick={() => setClickMenu(false)}>
           <img src={crossIcon} alt="cross" />
         </div>
       </div>
       <div className="slideBar__items">
-        <a onClick={() => handleClick('about', -30)}>Обо мне</a>
-        <a onClick={() => handleClick('prices', -40)}>Консультации</a>
-        <a onClick={() => handleClick('faq', 0)} >Вопросы</a>
-        <a onClick={() => handleClick('qualification', -50)}>Квалификация</a>
-        {/* <a onClick={() => handleClick('blog', -60)} >Блог</a> */}
-        <a onClick={() => handleClick('contacts', -80)}>Контакты</a>
+        <a onClick={() => scroll('about')}>Обо мне</a>
+        <a onClick={() => scroll('consultation')}>Формат терапии</a>
+        <a onClick={() => scroll('qualification')}>Образование</a>
+        {/* <a onClick={() => scroll('blog')} >Статьи</a> */}
+        <a onClick={() => scroll('contacts')}>Контакты</a>
       </div>
     </div>
   )

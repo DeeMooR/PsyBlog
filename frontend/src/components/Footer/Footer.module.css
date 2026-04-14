@@ -1,0 +1,124 @@
+.container {
+  width: 100%;
+  .content {
+    display: flex;
+    background: var(--beige-1);
+    padding: 60px 0;
+    .column {
+      width: calc(1/3*100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      a {
+        width: fit-content;
+        margin: 0 auto;
+        padding: 5px 20px;
+        font-family: var(--font-tall);
+        text-transform: uppercase;
+        color: var(--green-text);
+        transition: all 0.1s ease-in-out 0s;        
+      }
+      a:hover {
+        color: var(--beige-2);
+      }
+    }
+    .icons {
+      width: calc(1/3*100%);
+      border-left: 1px solid var(--green-text);
+      border-right: 1px solid var(--green-text);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .icons__text {
+        font-family: var(--font-tall);
+        text-align: center;
+        text-transform: uppercase;
+        color: var(--green-text);
+        margin: 0 0 6px 0;
+      }
+      .icons__phone {
+        font-family: var(--font-tall);
+        color: var(--green-text);
+        margin: 0 auto 2px;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      .icons__phone:hover {
+        color: var(--beige-2);
+      }
+      .icons__email {
+        font-family: var(--font-tall);
+        color: var(--green-text);
+        margin: 0 auto 4px;
+        transition: all 0.1s ease-in-out 0s;
+      }
+      .icons__email:hover {
+        color: var(--beige-2);
+      }
+      .icons__links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        .icons__link {
+          width: 45px;
+          height: 45px;
+          padding: 5px;
+          cursor: pointer;
+          path:first-child {
+            fill: var(--green-text);
+            transition: all 0.1s ease-in-out 0s;
+          }
+          path:last-child {
+            fill: var(--beige-1);
+          }
+        }   
+        .icons__link:hover {
+          path:first-child {
+            fill: var(--beige-2);
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    background: var(--beige-2);
+    padding: 16px 0 12px 0;
+    .copyright__text {
+      font-size: 12px;
+      text-align: center;
+      color: var(--white);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    .content {
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px 30px;
+      .column {
+        width: 100%;
+        padding: 0;
+      }
+      .icons {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        border: none;
+        border-top: 1px solid var(--green-text);
+        border-bottom: 1px solid var(--green-text);
+        padding: 20px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    .content {
+      padding: 20px 20px;
+    }
+  }
+}

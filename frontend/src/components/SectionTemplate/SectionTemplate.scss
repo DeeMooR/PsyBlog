@@ -28,11 +28,22 @@
   }
 }
 
-@media (max-width: 499.98px) {
+@media (max-width: 500px) {
   .sectionTemplate {
     padding: 60px 0;
     &.includeTitle {
       padding: 60px 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTemplate {
+    .sectionTemplate__wrapper {
+      padding: 0 20px;
+      .sectionTemplate__title {
+        margin: 0 0 30px 0;
+      }
     }
   }
 }

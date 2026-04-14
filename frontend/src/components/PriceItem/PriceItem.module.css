@@ -1,0 +1,113 @@
+.container {
+  width: 100%;
+  .image {
+    margin: 0 0 12px 0;
+  }
+  h4 {
+    font-size: 17px;
+    text-align: center;
+    margin: 0 0 12px 0;
+  }
+  .info {
+    max-width: 240px;
+    margin: 0 auto 12px;
+    .timePrice {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 20px;
+      .time__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .time__icon {
+          width: 20px;
+          height: 20px;
+        }
+        .time__text {
+          font-size: 18px;
+          line-height: 1;
+        }
+      }
+      .price {
+        font-size: 18px;
+        line-height: 1;
+      }
+    }
+    .price__request {
+      font-size: 18px;
+      text-align: center;
+      line-height: 1;
+      min-height: 20px;
+    }
+  }
+  .button {
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    h4 {
+      font-size: calc(0.6rem + 0.8vw);
+      min-height: 65px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    h4 {
+      font-size: calc(0.7rem + 0.8vw);
+      min-height: 68px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: calc(50% - 20px);
+    h4 {
+      font-size: calc(0.7rem + 1vw);
+      min-height: 0;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: calc(50% - 20px);
+    h4 {
+      font-size: calc(2.4vw);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+    h4 {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    h4 {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: 100%;
+    h4 {
+      font-size: 16px;
+    }
+  }
+}
