@@ -46,6 +46,7 @@ services:
       MYSQL_DATABASE: psyblog
     volumes:
       - ./backend:/usr/backend
+      - /usr/backend/node_modules
     networks:
       - dev
 
