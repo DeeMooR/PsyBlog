@@ -49,6 +49,9 @@ services:
       - /usr/backend/node_modules
     networks:
       - dev
+    env_file:
+      - ./backend/.env
+
 
   frontend:
     build: ./frontend
