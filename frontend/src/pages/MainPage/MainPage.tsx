@@ -18,7 +18,7 @@ export const MainPage = () => {
         <About />
         <Consultation />
         <Qualification />
-        {topPosts && <Blog />}
+        {/* {topPosts && <Blog />} */}
         <Contacts />
       </div>
       <Footer />

@@ -19,7 +19,7 @@ export const Qualification = () => {
   }
 
   useEffect(() => {
-    if (photoIndex) hiddenScroll() 
+    if (typeof photoIndex === 'number') hiddenScroll() 
     else displayScroll();
   }, [photoIndex])
 
@@ -37,7 +37,7 @@ export const Qualification = () => {
       <Lightbox
         plugins={[Zoom]}
         index={photoIndex}
-        open={!!photoIndex}
+        open={typeof photoIndex === 'number'}
         close={() => setPhotoIndex(undefined)}
         slides={certificates_slides}
       />

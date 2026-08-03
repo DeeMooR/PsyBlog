@@ -85,8 +85,8 @@ export const hiddenScroll = () => {
   document.body.style.overflowY = 'hidden';
   if (!isMobileOrTablet()) {
     const header = document.querySelector('header');
-    document.body.style.padding = '0 17px 0 0';
-    if (header) header.style.padding = '0 17px 0 0';
+    document.body.style.padding = '0 0px 0 0';
+    if (header) header.style.padding = '0 0px 0 0';
   }
 }
 
