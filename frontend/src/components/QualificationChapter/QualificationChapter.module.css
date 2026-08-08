@@ -14,7 +14,7 @@
   margin: 0 0 0 16px;
 }
 .item::before {
-  content: '•';
+  content: '\2022';
   position: absolute;
   top: 0;
   left: -15px;
