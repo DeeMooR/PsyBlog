@@ -23,7 +23,11 @@ const storage = multer.diskStorage({
 });
 export const upload = multer({ storage: storage });
 
-dotenv.config();
+// Only Local (without docker-compose)
+// dotenv.config({
+//   path: path.resolve(process.cwd(), '../.env'),
+// });
+
 const port = 5000;
 const app = express();
 

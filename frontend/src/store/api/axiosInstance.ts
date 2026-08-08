@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { AppDispatch } from "../hooks";
 import { logoutAdmin } from "../slices";
 
-const baseURL = 'https://api.razvalyaeva.com/';
+const baseURL = process.env.REACT_APP_API_URL;
 
 export const axiosInstance = axios.create({
   baseURL,
