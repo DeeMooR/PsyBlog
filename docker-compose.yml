@@ -1,10 +1,9 @@
-networks:
-  dev:
-
 services:
   # Only server
   nginx:
     image: nginx:stable-alpine
+    container_name: psyblog-nginx
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -17,40 +16,25 @@ services:
     networks:
       - dev
 
-  db:
-    image: mysql
-    container_name: db
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    ports:
-      - "127.0.0.1:3301:3306"
-    volumes:
-      - db-data:/var/lib/mysql
-      - ./backend/backups:/backups
-    networks:
-      - dev
-
   backend:
     build: ./backend
-    container_name: backend
+    container_name: psyblog-backend
+    restart: unless-stopped
     ports:
       - "5000:5000"
-    depends_on:
-      - db
     env_file:
-    - .env
+    - ./backend/.env
     volumes:
       - ./backend:/usr/backend
       - /usr/backend/node_modules
     networks:
       - dev
+      - shared-network
 
   frontend:
     build: ./frontend
-    container_name: frontend
+    container_name: psyblog-frontend
+    restart: unless-stopped
     ports:
       - "3000:3000"
     depends_on:
@@ -58,5 +42,7 @@ services:
     networks:
       - dev
 
-volumes:
-  db-data:
+networks:
+  dev:
+  shared-network:
+    external: true
