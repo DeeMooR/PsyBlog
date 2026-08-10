@@ -1,34 +1,16 @@
 services:
-  # Only server
-  nginx:
-    image: nginx:stable-alpine
-    container_name: psyblog-nginx
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - './nginx.conf:/etc/nginx/nginx.conf'
-      - '/etc/letsencrypt:/etc/letsencrypt'
-    depends_on:
-      - backend
-      - frontend
-    networks:
-      - dev
-
   backend:
     build: ./backend
     container_name: psyblog-backend
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "127.0.0.1:5000:5000"
     env_file:
     - ./backend/.env
     volumes:
       - ./backend:/usr/backend
       - /usr/backend/node_modules
     networks:
-      - dev
       - shared-network
 
   frontend:
@@ -36,13 +18,10 @@ services:
     container_name: psyblog-frontend
     restart: unless-stopped
     ports:
-      - "3000:3000"
-    depends_on:
-      - backend
+      - "127.0.0.1:3000:3000"
     networks:
-      - dev
+      - shared-network
 
 networks:
-  dev:
   shared-network:
     external: true
