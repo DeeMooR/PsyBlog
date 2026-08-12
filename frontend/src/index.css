@@ -101,6 +101,28 @@ body {
   overflow-y: scroll;
 }
 
+/*--------- SCROLLBAR ----------*/
+
+/* html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--beige-1) var(--background);
+} */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--beige-2);
+  border: 3px solid var(--background);
+  border-radius: 12px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--beige-1);
+}
+
 #root {
   height: 100%;
   padding: 80px 0 0 0;

@@ -3,6 +3,7 @@ import { NavigateFunction } from "react-router-dom";
 import { ICreateBlock, IListForm, IRequestNewBlock, IRequestUpdate, IUpdateBlock } from "./interfaces";
 import { createBlockAction, updateBlockAction } from "./store";
 import { IList, ListTypes, convertListTypeEng } from "./postBlocks/interfaces";
+import { SCROLLBAR_WIDTH } from "./config";
 
 declare global {
   interface Window {
@@ -97,8 +98,8 @@ export const hiddenScroll = () => {
   document.body.style.overflowY = 'hidden';
   if (!isMobileOrTablet()) {
     const header = document.querySelector('header');
-    document.body.style.padding = '0 0px 0 0';
-    if (header) header.style.padding = '0 0px 0 0';
+    document.body.style.paddingRight = `${SCROLLBAR_WIDTH}px`;
+    if (header) header.style.paddingRight = `${SCROLLBAR_WIDTH}px`;
   }
 }
 
@@ -106,8 +107,8 @@ export const displayScroll = () => {
   document.body.style.overflowY = 'scroll';
   if (!isMobileOrTablet()) {
     const header = document.querySelector('header');
-    document.body.style.padding = '0';
-    if (header) header.style.padding = '0';
+    document.body.style.paddingRight = '0';
+    if (header) header.style.paddingRight = '0';
   }
 }
 
