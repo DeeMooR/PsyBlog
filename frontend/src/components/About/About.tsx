@@ -11,8 +11,9 @@ export const About = () => {
 
   return (
     <SectionTemplate id='about' >
+      <h2 className={cls.visuallyHidden}>Обо мне</h2>
       <div className={cls.content}>
-        <div className={cls.image}>
+        <div className={cls.image} role="img" aria-label="Ольга Разваляева, психолог">
           <AboutImage image={aboutImage} />
         </div>
         <div className={cls.info}>

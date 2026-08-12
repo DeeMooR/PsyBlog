@@ -4,6 +4,18 @@ import { ICreateBlock, IListForm, IRequestNewBlock, IRequestUpdate, IUpdateBlock
 import { createBlockAction, updateBlockAction } from "./store";
 import { IList, ListTypes, convertListTypeEng } from "./postBlocks/interfaces";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+export const trackEvent = (eventName: string, params?: Record<string, string>) => {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', eventName, params);
+  }
+}
+
 export const scrollToSection = async (page: string, navigate: NavigateFunction, padding: number = -60) => {
   await navigate('/');
   scroller.scrollTo(page, {

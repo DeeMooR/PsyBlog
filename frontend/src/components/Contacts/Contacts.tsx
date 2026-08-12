@@ -6,6 +6,7 @@ import { Input, Loading } from 'src/UI'
 import { contactsImage } from 'src/assets'
 import { IUserForm } from 'src/interfaces'
 import { orderScheme } from 'src/validation'
+import { trackEvent } from 'src/helpers'
 import { ContactsImage } from 'src/styled'
 import cls from './Contacts.module.css'
 
@@ -26,6 +27,7 @@ export const Contacts = () => {
   const onSubmit = async (data: IUserForm) => {
     try {
       await dispatch(createUserAction(data)).unwrap();
+      trackEvent('generate_lead', { method: 'contact_form' });
       reset();
     } catch {}
   }
@@ -33,7 +35,7 @@ export const Contacts = () => {
   return (
     <section className={cls.container} id='contacts'>
       <div className={cls.content}>
-        <div className={cls.image}>
+        <div className={cls.image} role="img" aria-label="Запись на консультацию к психологу Ольге Разваляевой">
           <ContactsImage image={contactsImage} />
         </div>
         <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>

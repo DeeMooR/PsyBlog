@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { scrollToSection } from 'src/helpers'
+import { scrollToSection, trackEvent } from 'src/helpers'
 import cls from './Footer.module.css'
 
 export const Footer = () => {
@@ -11,11 +11,21 @@ export const Footer = () => {
   }
 
   const openTelegram = () => {
+    trackEvent('contact_click', { method: 'telegram' });
     window.open('https://t.me/+34652364078', '_blank');
   }
 
   const openWhatsApp = () => {
+    trackEvent('contact_click', { method: 'whatsapp' });
     window.open('https://wa.me/34652364078', '_blank');
+  }
+
+  const handleClickPhone = () => {
+    trackEvent('contact_click', { method: 'phone' });
+  }
+
+  const handleClickEmail = () => {
+    trackEvent('contact_click', { method: 'email' });
   }
 
   return (
@@ -27,8 +37,8 @@ export const Footer = () => {
         </div>
         <div className={cls.icons}>
           <p className={cls.icons__text}>Контакты для связи</p>
-          <a href="tel:+34652364078" className={cls.icons__phone}>+34 652 36 40 78</a>
-          <a href="https://mail.google.com/mail/?view=cm&to=orazvalyaeva@gmail.com" target="_blank" className={cls.icons__email}>orazvalyaeva@gmail.com</a>
+          <a href="tel:+34652364078" onClick={handleClickPhone} className={cls.icons__phone}>+34 652 36 40 78</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=orazvalyaeva@gmail.com" onClick={handleClickEmail} target="_blank" className={cls.icons__email}>orazvalyaeva@gmail.com</a>
           <div className={cls.icons__links}>
             <svg onClick={openTelegram} className={cls.icons__link} width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
               <path d="M25 0C18.3711 0 12.0078 2.63555 7.32422 7.32227C2.63583 12.0109 0.0013416 18.3695 0 25C0 31.6277 2.63672 37.991 7.32422 42.6777C12.0078 47.3645 18.3711 50 25 50C31.6289 50 37.9922 47.3645 42.6758 42.6777C47.3633 37.991 50 31.6277 50 25C50 18.3723 47.3633 12.009 42.6758 7.32227C37.9922 2.63555 31.6289 0 25 0Z" fill="white"/>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /auth
+Disallow: /posts
+Disallow: /new-post
+Disallow: /users
+
+Sitemap: https://razvalyaeva.com/sitemap.xml

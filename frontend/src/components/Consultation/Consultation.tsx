@@ -22,7 +22,7 @@ export const Consultation = () => {
           </div>
           <button className='btnBeige' onClick={() => scrollToSection('contacts', navigate)}>Записаться на консультацию</button>
         </div>
-        <div className={cls.image}>
+        <div className={cls.image} role="img" aria-label="Онлайн-консультация психолога в Zoom">
           <ConsultationImage image={consultationImage} />
         </div>
       </div>

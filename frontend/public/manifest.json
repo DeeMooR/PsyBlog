@@ -1,15 +1,30 @@
 {
   "short_name": "Ольга Разваляева",
   "name": "Ольга Разваляева - русскоязычный психолог",
+  "description": "Индивидуальные онлайн-консультации. Помогу справиться с тревогой, выгоранием и трудностями адаптации в эмиграции. Бережный психоаналитический подход.",
+  "lang": "ru",
   "icons": [
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
     {
       "src": "logo.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#D7B489",
+  "background_color": "#F9F3EB"
 }

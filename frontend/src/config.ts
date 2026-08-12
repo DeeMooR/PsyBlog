@@ -7,15 +7,15 @@ export const services: IService[] = [
     id: 1,
     image: service_1,
     name: 'Индивидуальные психоаналитические консультации',
-    price: '50 €',
-    time: '50 мин.'
+    price: '35 €',
+    time: '45 мин.'
   },
   {
     id: 2,
     image: service_2,
     name: 'Психоаналитические консультации для эмигрантов',
-    price: '50 €',
-    time: '50 мин.'
+    price: '35 €',
+    time: '45 мин.'
   },
   {
     id: 3,
@@ -39,18 +39,18 @@ export const faqs_right: IFAQ[] = [
 ];
 
 export const certificates = [
-  { src: certificate_11, width: 400, height: 300 },
-  { src: certificate_1, width: 400, height: 300 },
-  { src: certificate_2, width: 400, height: 300 },
-  { src: certificate_6, width: 300, height: 400 },
-  { src: certificate_13, width: 400, height: 300 },
-  { src: certificate_3, width: 400, height: 300 },
-  { src: certificate_7, width: 300, height: 400 },
-  { src: certificate_12, width: 400, height: 300 },
-  { src: certificate_4, width: 400, height: 300 },
-  { src: certificate_5, width: 400, height: 300 },
-  { src: certificate_10, width: 400, height: 300 },
-  { src: certificate_8, width: 400, height: 300 },
+  { src: certificate_11, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_1, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_2, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_6, width: 300, height: 400, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_13, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_3, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_7, width: 300, height: 400, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_12, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_4, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_5, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_10, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
+  { src: certificate_8, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
 ];
 
 export const certificates_slides: {src: string}[] = [

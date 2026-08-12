@@ -3,26 +3,30 @@
 @font-face {
   font-family: "TaylorSans";
   src: url("./fonts/TaylorSans/TaylorSans-Regular.ttf") format("truetype");
-  font-style: normal; 
-  font-weight: 400; 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: "Museo";
   src: url("./fonts/Museo/exljbris - Museo Cyrl 300.otf") format("opentype");
-  font-style: normal; 
-  font-weight: 400; 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: "Inkhead";
   src: url("./fonts/Inkhead/Inkhead.otf") format("opentype");
-  font-style: normal; 
-  font-weight: 400; 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: "Mr.Lonely";
   src: url("./fonts/Mr.Lonely/Mr.Lonely.otf") format("opentype");
-  font-style: normal; 
-  font-weight: 400; 
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 /*--------- CONST ----------*/
