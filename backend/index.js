@@ -61,7 +61,6 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
   console.log(`Сервер запущен на порте ${port}`);
-  // чтобы бд точно успела загрузиться
   setTimeout(async () => {
     await createTables();
   }, 5000);

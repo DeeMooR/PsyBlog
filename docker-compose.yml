@@ -6,10 +6,7 @@ services:
     ports:
       - "127.0.0.1:5000:5000"
     env_file:
-    - ./backend/.env
-    volumes:
-      - ./backend:/usr/backend
-      - /usr/backend/node_modules
+      - ./backend/.env
     networks:
       - shared-network
 

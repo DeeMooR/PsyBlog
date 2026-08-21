@@ -5,7 +5,6 @@ import { authenticateToken } from './token.js';
 const createRouter = (upload) => {
   const router = express.Router();
 
-  // Промежуточное ПО для добавления заголовка CORS
   router.use((req, res, next) => {
     const allowedOrigins = ['http://localhost:3000', 'http://87.228.19.145:3000'];
     const origin = req.headers.origin;

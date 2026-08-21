@@ -1,2 +1,16 @@
 node_modules
-npm-debug.log
+build
+dist
+
+.git
+.gitignore
+.idea
+.vscode
+
+.env.example
+
+docker-compose.yml
+
+coverage
+.vite
+.cache
