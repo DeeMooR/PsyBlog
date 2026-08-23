@@ -1,23 +1,27 @@
-## This is a site about a psychologist with the ability to write posts
+# Psychologist's Blog · 2024
 
-The website is available at [razvalyaeva.com](https://razvalyaeva.com/) \
-I wrote the frontend, backend and deployed it.
+A blog website for a psychologist with a custom content management system for publishing and managing posts.  
+Visitors can browse articles, view certificates fullscreen, and submit therapy requests.
 
-### Tech Stack:
+[**Live Demo →**](https://razvalyaeva.com/)
 
-**Frontend:**
-- React, TypeScript
-- Redux Toolkit, axios
-- styled-components, sass, classnames
-- react-hook-form
-- react-lightbox, react-photo-album
+## Features
+- Block-based system for building posts
+- Therapy requests sent by email and displayed in the admin panel
+- End-to-end backend architecture and implementation
+- Form validation and user feedback
+- Full-screen certificate viewing
+- Docker-based deployment with Nginx
 
-**Backend:**
-- Node.js, Express
-- cors, multer
-- nodemailer, bcryptjs, jsonwebtoken
-- MySQL
+## Tech Stack
+- React · TypeScript · Redux Toolkit · React Hook Form · Yup · SCSS
+- Node.js · Express · MySQL · REST API
+- Docker · Nginx
 
-**Deployment:**
-- Docker, Docker-compose
-- Nginx, SSL
+## Getting Started
+Create `.env` files based on `.env.example`.
+
+```bash
+cd frontend && npm install && npm start   # http://localhost:3000
+cd backend && npm install && npm start    # http://localhost:5000
+```
