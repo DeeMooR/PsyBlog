@@ -9,8 +9,9 @@ class UserService {
   async createUser(body) {
     const { name, email, phone, date } = body;
     const sql = 'INSERT INTO users (name, email, phone, date) VALUES (?, ?, ?, ?)';
-    await db.query(sql, [name, email, phone, date]);
-    sendEmail(body);
+    const [result] = await db.query(sql, [name, email, phone, date]);
+    console.log('[createUser] DB insert ok, id=', result.insertId);
+    sendEmail(body).catch((e) => console.error('[createUser] sendEmail failed:', e.message));
   }
   async deleteUser(id) {
     const [result] = await db.query('DELETE FROM users WHERE id = ?', [id]);

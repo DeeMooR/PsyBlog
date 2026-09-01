@@ -10,10 +10,21 @@ class UserController {
     }
   }
   async createUser(req, res) {
+    console.log('[createUser] body:', JSON.stringify(req.body),
+      'origin:', req.headers.origin, 'ua:', req.headers['user-agent']);
     try {
       await UserService.createUser(req.body)
       res.sendStatus(204);
     } catch (e) {
+      console.error('[createUser] ERROR:', {
+        message: e.message,
+        code: e.code,
+        errno: e.errno,
+        sqlState: e.sqlState,
+        sqlMessage: e.sqlMessage,
+        body: req.body,
+        stack: e.stack,
+      });
       res.status(500).json({ error: `Ошибка сервера: ${e.message}` });
     }
   }

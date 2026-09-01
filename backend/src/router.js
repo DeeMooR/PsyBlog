@@ -22,6 +22,14 @@ const createRouter = (upload) => {
     next();
   });
 
+  router.use((req, res, next) => {
+    console.log(
+      `[req] ${new Date().toISOString()} ${req.method} ${req.originalUrl} ` +
+      `origin=${req.headers.origin || '-'} ip=${req.ip} ua="${req.headers['user-agent'] || '-'}"`
+    );
+    next();
+  });
+
   router.get('/posts', PostController.getAll)
   router.get('/posts/:id', PostController.getOne)
   router.get('/fullPosts/:id', PostController.getFullPost)

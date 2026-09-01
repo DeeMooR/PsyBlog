@@ -51,7 +51,7 @@ const mainSlice = createSlice({
       .addCase(createUserAction.fulfilled, (state) => {
         state.loadingRegister = false;
         state.errorMessage = null;
-        state.successMessage = 'Вы успешно записались на консультацию. Скоро с Вами свяжется Ольга';
+        state.successMessage = 'Спасибо за запись. В ближайшее время я свяжусь с вами';
       })
       .addCase(createUserAction.rejected, (state) => {
         state.loadingRegister = false;

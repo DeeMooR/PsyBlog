@@ -41,6 +41,7 @@ const corsOptions = {
 };
 
 const router = createRouter(upload);
+app.set('trust proxy', true);
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 app.use(express.json());
@@ -55,9 +56,13 @@ export const db = mysql.createPool({
 });
 
 app.use((err, req, res, next) => {
+  console.error(`[error-middleware] ${req.method} ${req.originalUrl} origin=${req.headers.origin || '-'}`);
   console.error(err.stack);
   res.status(500).send('Неизвестная ошибка');
 });
+
+process.on('unhandledRejection', (reason) => console.error('[unhandledRejection]', reason));
+process.on('uncaughtException', (err) => console.error('[uncaughtException]', err));
 
 app.listen(port, () => {
   console.log(`Сервер запущен на порте ${port}`);
