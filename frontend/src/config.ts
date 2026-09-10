@@ -1,5 +1,5 @@
 import { IFAQ, IQualificationChapter, IService } from "src/interfaces";
-import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, certificate_9, certificate_10, certificate_11, certificate_12, certificate_full_1, certificate_full_2, certificate_full_3, certificate_full_4, certificate_full_5, certificate_full_6, certificate_full_7, certificate_full_8, certificate_full_9, certificate_full_10, certificate_full_11, certificate_full_12 } from 'src/assets';
+import { certificate_1, certificate_2, certificate_3, certificate_4, certificate_5, certificate_6, certificate_7, certificate_8, certificate_9, certificate_10, certificate_11, certificate_12, certificate_13, certificate_full_1, certificate_full_2, certificate_full_3, certificate_full_4, certificate_full_5, certificate_full_6, certificate_full_7, certificate_full_8, certificate_full_9, certificate_full_10, certificate_full_11, certificate_full_12, certificate_full_13 } from 'src/assets';
 import { BlockNames } from "./postBlocks/interfaces";
 
 export const SCROLLBAR_WIDTH = 12;
@@ -41,6 +41,7 @@ export const faqs_right: IFAQ[] = [
 ];
 
 export const certificates = [
+  { src: certificate_13, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
   { src: certificate_1, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
   { src: certificate_2, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
   { src: certificate_3, width: 400, height: 300, alt: 'Диплом и сертификат психолога Ольги Разваляевой' },
@@ -56,6 +57,7 @@ export const certificates = [
 ];
 
 export const certificates_slides: {src: string}[] = [
+  { src: certificate_full_13 },
   { src: certificate_full_1 },
   { src: certificate_full_2 },
   { src: certificate_full_3 },

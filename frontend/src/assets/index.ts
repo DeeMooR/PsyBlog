@@ -25,6 +25,7 @@ import certificate_9 from './images/certificate-9.webp'
 import certificate_10 from './images/certificate-10.webp'
 import certificate_11 from './images/certificate-11.webp'
 import certificate_12 from './images/certificate-12.webp'
+import certificate_13 from './images/certificate-13.webp'
 
 import certificate_full_1 from './images/certificate-full-1.webp'
 import certificate_full_2 from './images/certificate-full-2.webp'
@@ -38,6 +39,7 @@ import certificate_full_9 from './images/certificate-full-9.webp'
 import certificate_full_10 from './images/certificate-full-10.webp'
 import certificate_full_11 from './images/certificate-full-11.webp'
 import certificate_full_12 from './images/certificate-full-12.webp'
+import certificate_full_13 from './images/certificate-full-13.webp'
 
 export {
   menuIcon,
@@ -65,6 +67,7 @@ export {
   certificate_10,
   certificate_11,
   certificate_12,
+  certificate_13,
   certificate_full_1,
   certificate_full_2,
   certificate_full_3,
@@ -77,4 +80,5 @@ export {
   certificate_full_10,
   certificate_full_11,
   certificate_full_12,
+  certificate_full_13
 }

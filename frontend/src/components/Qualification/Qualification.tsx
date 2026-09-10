@@ -30,7 +30,7 @@ export const Qualification = () => {
             <QualificationChapter title={title} items={items} key={title} />
           ))}
         </div>
-        <RowsPhotoAlbum photos={certificates} onClick={handleClickPhoto} targetRowHeight={170}  />
+        <RowsPhotoAlbum photos={certificates} onClick={handleClickPhoto} targetRowHeight={150}  />
         <ColumnsPhotoAlbum photos={certificates} onClick={handleClickPhoto} columns={2} />
       </div>
       <Lightbox
